@@ -1,6 +1,21 @@
-/* ================================================
-   DEEPAK TIWARI – APP.JS INTERACTIONS
-   ================================================ */
+// ── 0. SMOOTH SCROLL (LENIS) ────────────────────
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  direction: 'vertical',
+  gestureDirection: 'vertical',
+  smooth: true,
+  mouseMultiplier: 1,
+  smoothTouch: false,
+  touchMultiplier: 2,
+  infinite: false,
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
 
 // ── 1. FOOTER YEAR ──────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -33,10 +48,16 @@ if (window.matchMedia('(pointer: fine)').matches) {
 // ── 3. SMOOTH ANCHOR SCROLL ─────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const targetId = a.getAttribute('href');
+    if (targetId === '#') return;
+    const target = document.querySelector(targetId);
     if (!target) return;
     e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    lenis.scrollTo(target, {
+      offset: 0,
+      duration: 1.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+    });
   });
 });
 
