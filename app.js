@@ -1,21 +1,22 @@
-// ── 0. SMOOTH SCROLL (LENIS) ────────────────────
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: 'vertical',
-  gestureDirection: 'vertical',
-  smooth: true,
-  mouseMultiplier: 1,
-  smoothTouch: false,
-  touchMultiplier: 2,
-  infinite: false,
-});
+document.addEventListener('DOMContentLoaded', () => {
+  // ── 0. SMOOTH SCROLL (LENIS) ────────────────────
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+  });
 
-function raf(time) {
-  lenis.raf(time);
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
   requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
 
 // ── 1. FOOTER YEAR ──────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -195,12 +196,13 @@ if (form) {
         form.reset();
         setTimeout(() => success.classList.add('hidden'), 5000);
       } else {
-        alert("Oops! There was a problem submitting your form. Please try again or contact me directly.");
+        throw new Error('Form submission failed');
       }
     }).catch(error => {
       btnText.classList.remove('hidden');
       btnLoad.classList.add('hidden');
-      alert("Something went wrong. Please check your connection and try again.");
+      console.error("Form error:", error);
+      alert("Oops! There was a problem submitting your form. Please check your connection and try again.");
     });
   });
 }
@@ -223,31 +225,26 @@ if (profileCard) {
   });
 }
 
-// ── 11. ROLE CYCLER ─────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+  // ── 11. ROLE CYCLER ─────────────────────────────
   const words = document.querySelectorAll('.rw');
-  if (!words.length) return;
-  let current = 0;
+  if (words.length) {
+    let current = 0;
+    function cycle() {
+      const prev = current;
+      current = (current + 1) % words.length;
 
-  function cycle() {
-    const prev = current;
-    current = (current + 1) % words.length;
+      words[prev].classList.remove('active');
+      words[prev].classList.add('exit');
 
-    // Exit current
-    words[prev].classList.remove('active');
-    words[prev].classList.add('exit');
+      words[current].classList.remove('exit');
+      words[current].classList.add('active');
 
-    // Enter next
-    words[current].classList.remove('exit');
-    words[current].classList.add('active');
-
-    // Clean up previous after animation
-    setTimeout(() => {
-      words[prev].classList.remove('exit');
-    }, 1000);
+      setTimeout(() => {
+        words[prev].classList.remove('exit');
+      }, 1000);
+    }
+    setInterval(cycle, 3000);
   }
-
-  setInterval(cycle, 3000);
 });
 
 // ── 12. STAT CARD HOVER PULSE ───────────────────
@@ -266,32 +263,25 @@ document.querySelectorAll('.stat-card').forEach(card => {
 });
 
 // ── 13. REAL-TIME CLOCK ─────────────────────────
-function updateClock() {
+(function initClock() {
   const clockEl = document.getElementById('live-time');
   const ampmEl  = document.getElementById('live-ampm');
   const dateEl  = document.getElementById('live-date');
   
   if (!clockEl || !ampmEl || !dateEl) return;
   
-  const now = new Date();
+  function updateClock() {
+    const now = new Date();
+    let hours = now.getHours();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    
+    clockEl.textContent = `${String(hours).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    ampmEl.textContent  = ampm;
+    dateEl.textContent  = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
   
-  // 12-hour format
-  let hours = now.getHours();
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  
-  const h = String(hours).padStart(2, '0');
-  const m = String(now.getMinutes()).padStart(2, '0');
-  const s = String(now.getSeconds()).padStart(2, '0');
-  
-  clockEl.textContent = `${h}:${m}:${s}`;
-  ampmEl.textContent  = ampm;
-  
-  // Date format: "Mon, Mar 30"
-  const options = { weekday: 'short', month: 'short', day: 'numeric' };
-  dateEl.textContent = now.toLocaleDateString('en-US', options);
-}
-setInterval(updateClock, 1000);
-updateClock();
+  setInterval(updateClock, 1000);
+  updateClock();
+})();
 
