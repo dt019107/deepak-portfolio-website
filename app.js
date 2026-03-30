@@ -224,7 +224,7 @@ if (profileCard) {
 }
 
 // ── 11. ROLE CYCLER ─────────────────────────────
-(function() {
+document.addEventListener('DOMContentLoaded', () => {
   const words = document.querySelectorAll('.rw');
   if (!words.length) return;
   let current = 0;
@@ -236,25 +236,19 @@ if (profileCard) {
     // Exit current
     words[prev].classList.remove('active');
     words[prev].classList.add('exit');
-    setTimeout(() => {
-      words[prev].classList.remove('exit');
-      words[prev].style.transform = 'translateY(100%)';
-      words[prev].style.opacity = '0';
-    }, 450);
 
     // Enter next
-    words[current].style.transform = 'translateY(100%)';
-    words[current].style.opacity = '0';
-    words[current].style.transition = 'none';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        words[current].classList.add('active');
-      });
-    });
+    words[current].classList.remove('exit');
+    words[current].classList.add('active');
+
+    // Clean up previous after animation
+    setTimeout(() => {
+      words[prev].classList.remove('exit');
+    }, 1000);
   }
 
-  setInterval(cycle, 2600);
-})();
+  setInterval(cycle, 3000);
+});
 
 // ── 12. STAT CARD HOVER PULSE ───────────────────
 document.querySelectorAll('.stat-card').forEach(card => {
@@ -270,4 +264,19 @@ document.querySelectorAll('.stat-card').forEach(card => {
     num.style.transform = 'scale(1)';
   });
 });
+
+// ── 13. REAL-TIME CLOCK ─────────────────────────
+function updateClock() {
+  const clockEl = document.getElementById('live-time');
+  if (!clockEl) return;
+  
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
+  const s = String(now.getSeconds()).padStart(2, '0');
+  
+  clockEl.textContent = `${h}:${m}:${s}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
 

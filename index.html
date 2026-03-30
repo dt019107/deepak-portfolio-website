@@ -9,8 +9,7 @@
     content="Portfolio of Deepak Tiwari – UI/UX Designer crafting beautiful, human-centered digital experiences." />
 
   <!-- Favicon -->
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23F46C38'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-size='54' font-family='Arial,sans-serif' fill='white' font-weight='bold'>DT</text></svg>" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,21 +31,30 @@
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-outline" id="cursor-outline"></div>
 
-  <!-- ── FLOATING NAV ── -->
-  <nav class="floating-nav" id="floating-nav">
-    <a href="#home" class="fnav-item active" data-section="home" title="Home"><i class="fa-solid fa-house"></i></a>
-    <a href="#about" class="fnav-item" data-section="about" title="About"><i class="fa-solid fa-user"></i></a>
-    <a href="#experience" class="fnav-item" data-section="experience" title="Experience"><i
-        class="fa-solid fa-briefcase"></i></a>
-    <a href="#projects" class="fnav-item" data-section="projects" title="Projects"><i
-        class="fa-solid fa-folder-open"></i></a>
-    <a href="#skills" class="fnav-item" data-section="skills" title="Skills"><i
-        class="fa-solid fa-wand-magic-sparkles"></i></a>
-    <a href="#certifications" class="fnav-item" data-section="certifications" title="Certifications"><i
-        class="fa-solid fa-certificate"></i></a>
-    <a href="#contact" class="fnav-item" data-section="contact" title="Contact"><i
-        class="fa-solid fa-paper-plane"></i></a>
-  </nav>
+  <!-- ── TOP HEADER ── -->
+  <header class="top-header">
+    <div class="header-unit">
+      <nav class="floating-nav" id="floating-nav">
+        <a href="#home" class="fnav-item active" data-section="home" title="Home"><i class="fa-solid fa-house"></i></a>
+        <a href="#about" class="fnav-item" data-section="about" title="About"><i class="fa-solid fa-user"></i></a>
+        <a href="#experience" class="fnav-item" data-section="experience" title="Experience"><i
+            class="fa-solid fa-briefcase"></i></a>
+        <a href="#projects" class="fnav-item" data-section="projects" title="Projects"><i
+            class="fa-solid fa-folder-open"></i></a>
+        <a href="#skills" class="fnav-item" data-section="skills" title="Skills"><i
+            class="fa-solid fa-wand-magic-sparkles"></i></a>
+        <a href="#certifications" class="fnav-item" data-section="certifications" title="Certifications"><i
+            class="fa-solid fa-certificate"></i></a>
+        <a href="#contact" class="fnav-item" data-section="contact" title="Contact"><i
+            class="fa-solid fa-paper-plane"></i></a>
+      </nav>
+
+      <div class="header-clock">
+        <span class="live-dot"></span>
+        <span class="live-time" id="live-time">00:00:00</span>
+      </div>
+    </div>
+  </header>
 
   <!-- ── LAYOUT ── -->
   <div class="layout">
@@ -55,12 +63,15 @@
     <aside class="sidebar">
       <div class="profile-card" id="profile-card">
 
-        <div class="availability-badge">
-          <span class="pulse"></span> Available for work
+        <div class="profile-avatar">
+          <img src="profile_photo.jpg" alt="Deepak Tiwari">
         </div>
 
         <div class="profile-info">
           <h2 class="profile-name">Deepak Tiwari</h2>
+          <div class="availability-badge">
+            <span class="pulse"></span> Available for work
+          </div>
         </div>
 
         <div class="profile-socials">
@@ -73,7 +84,8 @@
 
         <!-- CTAs -->
         <div class="sidebar-ctas">
-          <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank" class="btn-cv">
+          <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank"
+            class="btn-cv">
             <i class="fa-solid fa-download"></i>Resume
           </a>
           <a href="mailto:dt019107@gmail.com" class="btn-contact">
@@ -103,7 +115,7 @@
         </h1>
 
         <!-- Animated role cycler -->
-        <div class="role-cycler reveal-el">
+        <div class="role-cycler">
           <span class="role-static">Crafting&nbsp;</span>
           <span class="role-words" id="role-words">
             <span class="rw active">beautiful interfaces</span>
@@ -111,7 +123,7 @@
             <span class="rw">intuitive products</span>
             <span class="rw">impactful designs</span>
           </span>
-          <span class="role-cursor">|</span>
+          <span class="role-cursor"></span>
         </div>
 
         <p class="hero-bio reveal-el">
@@ -370,7 +382,7 @@
 
       <!-- ── SKILLS ── -->
       <section id="skills" class="section">
-        <div class="section-label reveal-el">My Toolkit</div>
+        <div class="section-label reveal-el">My Tool Stack</div>
         <h2 class="section-title reveal-el">Skills & <span class="accent">Tools</span></h2>
 
         <div class="skills-wrap">
@@ -422,7 +434,8 @@
 
           <a href="https://www.life-global.org/certificate/969411ad-c96f-4180-afc4-58ba678c9738" target="_blank"
             class="cert-card reveal-el">
-            <div class="cert-icon" style="background:#fff;padding:4px;overflow:hidden;"><img src="hp_logo.svg" alt="HP" style="width:100%;height:100%;object-fit:contain;"></div>
+            <div class="cert-icon" style="background:#fff;padding:4px;overflow:hidden;"><img src="hp_logo.svg" alt="HP"
+                style="width:100%;height:100%;object-fit:contain;"></div>
             <div class="cert-info">
               <h4>Agile Project Management</h4>
               <p>HP LIFE</p>
@@ -432,7 +445,8 @@
 
           <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3"
             target="_blank" class="cert-card reveal-el">
-            <div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img src="atlassian_logo.png" alt="Atlassian" style="width:100%;height:100%;object-fit:contain;"></div>
+            <div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img
+                src="atlassian_agile_logo.png" alt="Atlassian" style="width:100%;height:100%;object-fit:contain;"></div>
             <div class="cert-info">
               <h4>Atlassian Agile PM Certificate</h4>
               <p>Atlassian</p>
@@ -486,7 +500,8 @@
             <div class="cert-arrow">↗</div>
           </a>
 
-          <a href="https://www.linkedin.com/learning/certificates/bbfb1b17d2438f6b0e75081d54318745932ed7b2f5f9912e43771a4b2f2d4308" target="_blank" class="cert-card reveal-el">
+          <a href="https://www.linkedin.com/learning/certificates/bbfb1b17d2438f6b0e75081d54318745932ed7b2f5f9912e43771a4b2f2d4308"
+            target="_blank" class="cert-card reveal-el">
             <div class="cert-icon" style="background:linear-gradient(135deg,#312e81,#7c3aed)"><i
                 class="fa-solid fa-desktop" style="color:#a78bfa"></i></div>
             <div class="cert-info">
@@ -506,7 +521,8 @@
         <p class="section-desc reveal-el">Have a project in mind? I'd love to hear about it. Send me a message and let's
           create something amazing.</p>
 
-        <form id="contact-form" class="contact-form" action="https://formsubmit.co/dt019107@gmail.com" method="POST" novalidate>
+        <form id="contact-form" class="contact-form" action="https://formsubmit.co/dt019107@gmail.com" method="POST"
+          novalidate>
           <div class="form-row reveal-el">
             <div class="form-group">
               <label>Name</label>
@@ -529,7 +545,8 @@
           </div>
           <div class="form-group reveal-el">
             <label>Message</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project..."
+              required></textarea>
           </div>
           <div class="reveal-el">
             <button type="submit" class="btn-primary btn-full" id="send-btn">
