@@ -268,14 +268,29 @@ document.querySelectorAll('.stat-card').forEach(card => {
 // ── 13. REAL-TIME CLOCK ─────────────────────────
 function updateClock() {
   const clockEl = document.getElementById('live-time');
-  if (!clockEl) return;
+  const ampmEl  = document.getElementById('live-ampm');
+  const dateEl  = document.getElementById('live-date');
+  
+  if (!clockEl || !ampmEl || !dateEl) return;
   
   const now = new Date();
-  const h = String(now.getHours()).padStart(2, '0');
+  
+  // 12-hour format
+  let hours = now.getHours();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  
+  const h = String(hours).padStart(2, '0');
   const m = String(now.getMinutes()).padStart(2, '0');
   const s = String(now.getSeconds()).padStart(2, '0');
   
   clockEl.textContent = `${h}:${m}:${s}`;
+  ampmEl.textContent  = ampm;
+  
+  // Date format: "Mon, Mar 30"
+  const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  dateEl.textContent = now.toLocaleDateString('en-US', options);
 }
 setInterval(updateClock, 1000);
 updateClock();

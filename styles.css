@@ -192,14 +192,58 @@ img {
 .header-clock {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 20px;
-  background: rgba(15, 17, 17, 0.8);
+  gap: 12px;
+  padding: 8px 18px;
+  background: rgba(15, 17, 17, 0.7);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 999px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.header-clock:hover {
+  background: rgba(15, 17, 17, 0.9);
+  border-color: rgba(0, 255, 163, 0.2);
+  transform: translateY(-1px);
+}
+
+.clock-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-time {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.live-ampm {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-left: -2px;
+  letter-spacing: 0.5px;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.15);
+  font-weight: 300;
+  font-size: 0.8rem;
+  margin: 0 2px;
+}
+
+.live-date {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text2);
+  white-space: nowrap;
 }
 
 .fnav-item {
@@ -302,13 +346,7 @@ img {
   100% { opacity: 1; transform: scale(1); }
 }
 
-.live-time {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-}
+
 
 /* Noise overlay for premium feel */
 .profile-card::after {
