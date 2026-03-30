@@ -181,13 +181,27 @@ if (form) {
     btnText.classList.add('hidden');
     btnLoad.classList.remove('hidden');
 
-    setTimeout(() => {
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
       btnText.classList.remove('hidden');
       btnLoad.classList.add('hidden');
-      success.classList.remove('hidden');
-      form.reset();
-      setTimeout(() => success.classList.add('hidden'), 5000);
-    }, 1800);
+      if (response.ok) {
+        success.classList.remove('hidden');
+        form.reset();
+        setTimeout(() => success.classList.add('hidden'), 5000);
+      } else {
+        alert("Oops! There was a problem submitting your form. Please try again or contact me directly.");
+      }
+    }).catch(error => {
+      btnText.classList.remove('hidden');
+      btnLoad.classList.add('hidden');
+      alert("Something went wrong. Please check your connection and try again.");
+    });
   });
 }
 
