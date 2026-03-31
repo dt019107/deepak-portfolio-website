@@ -46,6 +46,16 @@
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-outline" id="cursor-outline"></div>
 
+  <!-- ── VECTOR BACKGROUND ── -->
+  <div class="vector-container">
+    <canvas id="vector-canvas"></canvas>
+    <div class="bg-blobs">
+      <div class="blob-wrapper" style="--speed: 30"><div class="blob blob-1"></div></div>
+      <div class="blob-wrapper" style="--speed: 50"><div class="blob blob-2"></div></div>
+      <div class="blob-wrapper" style="--speed: 40"><div class="blob blob-3"></div></div>
+    </div>
+  </div>
+
   <!-- ── TOP HEADER ── -->
   <header class="top-header">
     <div class="header-unit">
@@ -598,9 +608,9 @@
     </main>
   </div><!-- /layout -->
 
-  <!-- Smooth Scroll (Lenis) -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="app.js"></script>
+  <script src="vector-bg.js"></script>
 </body>
 
 </html>
