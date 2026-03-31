@@ -13,10 +13,13 @@ class VectorBackground {
     this.mouse = { x: null, y: null, radius: 150 };
     this.maxParticles = 80;
     this.connectionDistance = 150;
+    this.isPaused = false;
+    this.isMobile = false;
     
     this.init();
     this.animate();
     this.addEventListeners();
+    this.setupIntersectionObserver();
   }
 
   init() {
@@ -27,11 +30,12 @@ class VectorBackground {
   resize() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
+    this.isMobile = window.innerWidth < 768;
     
     // Adjust particle density based on screen size
-    if (window.innerWidth < 768) {
-      this.maxParticles = 40;
-      this.connectionDistance = 100;
+    if (this.isMobile) {
+      this.maxParticles = 30; // Further reduced for performance
+      this.connectionDistance = 80;
     } else {
       this.maxParticles = 80;
       this.connectionDistance = 150;
@@ -46,12 +50,17 @@ class VectorBackground {
   }
 
   addEventListeners() {
+    let resizeTimer;
     window.addEventListener('resize', () => {
-      this.resize();
-      this.createParticles();
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        this.resize();
+        this.createParticles();
+      }, 250);
     });
 
     window.addEventListener('mousemove', (e) => {
+      if (this.isPaused) return;
       this.mouse.x = e.clientX;
       this.mouse.y = e.clientY;
     });
@@ -62,36 +71,57 @@ class VectorBackground {
     });
   }
 
-  drawLines() {
-    for (let i = 0; i < this.particles.length; i++) {
-      for (let j = i + 1; j < this.particles.length; j++) {
-        const dx = this.particles[i].x - this.particles[j].x;
-        const dy = this.particles[i].y - this.particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+  setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        this.isPaused = !entry.isIntersecting;
+      });
+    }, { threshold: 0.1 });
+    
+    observer.observe(this.canvas);
+  }
 
-        if (distance < this.connectionDistance) {
+  drawLines() {
+    // Skip line connections for mobile to save performance
+    if (this.isMobile) return;
+
+    const particlesCount = this.particles.length;
+    for (let i = 0; i < particlesCount; i++) {
+      const p1 = this.particles[i];
+      
+      for (let j = i + 1; j < particlesCount; j++) {
+        const p2 = this.particles[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const distSq = dx * dx + dy * dy;
+        const minDistSq = this.connectionDistance * this.connectionDistance;
+
+        if (distSq < minDistSq) {
+          const distance = Math.sqrt(distSq);
           const opacity = 1 - (distance / this.connectionDistance);
-          this.ctx.strokeStyle = `rgba(0, 255, 163, ${opacity * 0.2})`;
-          this.ctx.lineWidth = 1;
+          this.ctx.strokeStyle = `rgba(0, 255, 163, ${opacity * 0.15})`;
+          this.ctx.lineWidth = 0.5;
           this.ctx.beginPath();
-          this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
-          this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+          this.ctx.moveTo(p1.x, p1.y);
+          this.ctx.lineTo(p2.x, p2.y);
           this.ctx.stroke();
         }
       }
 
-      // Mouse connection
+      // Mouse connection - only for desktop
       if (this.mouse.x !== null) {
-        const dx = this.particles[i].x - this.mouse.x;
-        const dy = this.particles[i].y - this.mouse.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const dx = p1.x - this.mouse.x;
+        const dy = p1.y - this.mouse.y;
+        const distSq = dx * dx + dy * dy;
+        const mouseRadiusSq = this.mouse.radius * this.mouse.radius;
 
-        if (distance < this.mouse.radius) {
+        if (distSq < mouseRadiusSq) {
+          const distance = Math.sqrt(distSq);
           const opacity = 1 - (distance / this.mouse.radius);
-          this.ctx.strokeStyle = `rgba(0, 255, 163, ${opacity * 0.4})`;
-          this.ctx.lineWidth = 1.5;
+          this.ctx.strokeStyle = `rgba(0, 255, 163, ${opacity * 0.3})`;
+          this.ctx.lineWidth = 1;
           this.ctx.beginPath();
-          this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+          this.ctx.moveTo(p1.x, p1.y);
           this.ctx.lineTo(this.mouse.x, this.mouse.y);
           this.ctx.stroke();
         }
@@ -100,14 +130,21 @@ class VectorBackground {
   }
 
   animate() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
-    this.particles.forEach(particle => {
-      particle.update(this.canvas.width, this.canvas.height);
-      particle.draw(this.ctx);
-    });
+    if (!this.isPaused) {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      
+      const width = this.canvas.width;
+      const height = this.canvas.height;
+      
+      for (let i = 0; i < this.particles.length; i++) {
+        const p = this.particles[i];
+        p.update(width, height);
+        p.draw(this.ctx);
+      }
 
-    this.drawLines();
+      this.drawLines();
+    }
+    
     requestAnimationFrame(() => this.animate());
   }
 }

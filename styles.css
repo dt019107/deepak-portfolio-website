@@ -116,6 +116,14 @@ img {
   filter: blur(100px);
   opacity: 0.4;
   z-index: -2;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .bg-blobs {
+    filter: blur(50px);
+    opacity: 0.3;
+  }
 }
 
 .blob-wrapper {
@@ -135,6 +143,14 @@ img {
   filter: blur(80px);
   animation: blob-float 20s infinite alternate ease-in-out;
   opacity: 0.3;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .blob {
+    filter: blur(40px);
+    animation-duration: 30s; /* Slower animation for less CPU usage */
+  }
 }
 
 .blob-1 {
@@ -703,6 +719,8 @@ img {
 .section {
   padding: 80px 0;
   border-bottom: 1px solid var(--border);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
 }
 
 .section:last-of-type {
@@ -1170,6 +1188,7 @@ img {
   transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
   display: flex;
   flex-direction: column;
+  will-change: transform, border-color;
 }
 
 .project-card:hover {
@@ -1566,6 +1585,7 @@ img {
   opacity: 0;
   transform: translateY(30px) scale(0.98);
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
 }
 
 .reveal-el.revealed {

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     smooth: true,
     mouseMultiplier: 1,
     smoothTouch: false,
-    touchMultiplier: 2,
+    touchMultiplier: 1.5,
     infinite: false,
   });
 
@@ -77,7 +77,15 @@ function updateNav() {
     item.classList.toggle('active', item.dataset.section === current);
   });
 }
-window.addEventListener('scroll', updateNav, { passive: true });
+let scrollTimer;
+window.addEventListener('scroll', () => {
+  if (!scrollTimer) {
+    scrollTimer = setTimeout(() => {
+      updateNav();
+      scrollTimer = null;
+    }, 100);
+  }
+}, { passive: true });
 updateNav();
 
 // ── 5. MAGNETIC NAV ─────────────────────────────
@@ -132,21 +140,24 @@ const statObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
 
 // ── 8. 3D TILT ON CARDS ─────────────────────────
-document.querySelectorAll('.project-card, .about-card, .cert-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r  = card.getBoundingClientRect();
-    const x  = e.clientX - r.left;
-    const y  = e.clientY - r.top;
-    const rx = ((y - r.height / 2) / (r.height / 2)) * -6;
-    const ry = ((x - r.width  / 2) / (r.width  / 2)) * 6;
-    card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02,1.02,1.02)`;
-    card.style.transition = 'none';
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+if (!isTouch) {
+  document.querySelectorAll('.project-card, .about-card, .cert-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const x  = e.clientX - r.left;
+      const y  = e.clientY - r.top;
+      const rx = ((y - r.height / 2) / (r.height / 2)) * -6;
+      const ry = ((x - r.width  / 2) / (r.width  / 2)) * 6;
+      card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02,1.02,1.02)`;
+      card.style.transition = 'none';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, box-shadow 0.3s';
+    });
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, box-shadow 0.3s';
-  });
-});
+}
 
 // ── 9. CONTACT FORM ─────────────────────────────
 const form      = document.getElementById('contact-form');
@@ -208,8 +219,7 @@ if (form) {
 }
 
 // ── 10. PROFILE CARD TILT ───────────────────────
-const profileCard = document.getElementById('profile-card');
-if (profileCard) {
+if (profileCard && !isTouch) {
   profileCard.addEventListener('mousemove', e => {
     const r  = profileCard.getBoundingClientRect();
     const x  = e.clientX - r.left;
