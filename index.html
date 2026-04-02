@@ -7,20 +7,23 @@
   <title>Deepak Tiwari | UI/UX Designer Portfolio</title>
   <meta name="description"
     content="Professional portfolio of Deepak Tiwari – a passionate UI/UX Designer crafting beautiful, human-centered digital experiences." />
-  <meta name="keywords" content="Deepak Tiwari, UI/UX Designer, Product Designer, Portfolio, Graphic Designer, Mumbai Designer, Freelance Designer" />
-  
+  <meta name="keywords"
+    content="Deepak Tiwari, UI/UX Designer, Product Designer, Portfolio, Graphic Designer, Mumbai Designer, Freelance Designer" />
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://deepaktiwari.design/" />
   <meta property="og:title" content="Deepak Tiwari | UI/UX Designer" />
-  <meta property="og:description" content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
+  <meta property="og:description"
+    content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
   <meta property="og:image" content="https://deepaktiwari.design/profile_photo.jpg" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://deepaktiwari.design/" />
   <meta property="twitter:title" content="Deepak Tiwari | UI/UX Designer" />
-  <meta property="twitter:description" content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
+  <meta property="twitter:description"
+    content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
   <meta property="twitter:image" content="https://deepaktiwari.design/profile_photo.jpg" />
 
   <!-- Favicon -->
@@ -42,6 +45,14 @@
 
 <body>
 
+  <!-- ── SCROLL PROGRESS BAR ── -->
+  <div id="scroll-progress"></div>
+
+  <!-- ── BACK TO TOP ── -->
+  <button id="back-to-top" title="Back to top" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
   <!-- ── CUSTOM CURSOR ── -->
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-outline" id="cursor-outline"></div>
@@ -49,11 +60,6 @@
   <!-- ── VECTOR BACKGROUND ── -->
   <div class="vector-container">
     <canvas id="vector-canvas"></canvas>
-    <div class="bg-blobs">
-      <div class="blob-wrapper" style="--speed: 30"><div class="blob blob-1"></div></div>
-      <div class="blob-wrapper" style="--speed: 50"><div class="blob blob-2"></div></div>
-      <div class="blob-wrapper" style="--speed: 40"><div class="blob blob-3"></div></div>
-    </div>
   </div>
 
   <!-- ── TOP HEADER ── -->
@@ -73,6 +79,12 @@
         <a href="#contact" class="fnav-item" data-section="contact" title="Contact"><i
             class="fa-solid fa-paper-plane"></i></a>
       </nav>
+
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme">
+        <i class="fa-solid fa-sun icon-sun"></i>
+        <i class="fa-solid fa-moon icon-moon"></i>
+      </button>
 
       <div class="header-clock">
         <span class="live-dot"></span>
@@ -104,6 +116,9 @@
           </div>
         </div>
 
+        <!-- Card glow follows cursor -->
+        <div class="card-glow" id="card-glow"></div>
+
         <div class="profile-socials">
           <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank" title="LinkedIn"><i
               class="fa-brands fa-linkedin-in"></i></a>
@@ -133,19 +148,19 @@
       <section id="home" class="section hero-section">
 
         <!-- Say Hello with wave animation -->
-        <div class="hero-tag reveal-el">
+        <div class="hero-tag reveal-el" data-parallax="0.15">
           <span class="wave-emoji">👋</span>
           <span class="hello-text">Say Hello</span>
         </div>
 
         <!-- Title -->
-        <h1 class="hero-title reveal-el">
+        <h1 class="hero-title reveal-el" data-parallax="0.08">
           I'm <span class="grad-name">Deepak Tiwari</span>,<br>
           <span class="role-prefix">UI/UX </span><span class="outline-text">Designer</span>
         </h1>
 
         <!-- Animated role cycler -->
-        <div class="role-cycler">
+        <div class="role-cycler" data-parallax="0.06">
           <span class="role-static">Crafting&nbsp;</span>
           <span class="role-words" id="role-words">
             <span class="rw active">beautiful interfaces</span>
@@ -228,7 +243,8 @@
           <div class="timeline-item reveal-el">
             <div class="tl-left">
               <div class="tl-icon" style="background:#fff;overflow:hidden;"><img src="PlanNet_Logo.jpg" alt="Plan.Net"
-                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async"></div>
+                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async">
+              </div>
             </div>
             <div class="tl-right">
               <div class="tl-top">
@@ -271,7 +287,8 @@
           <div class="timeline-item reveal-el">
             <div class="tl-left">
               <div class="tl-icon" style="background:#fff;overflow:hidden;"><img src="LPU_Logo.png" alt="LPU"
-                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async"></div>
+                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async">
+              </div>
             </div>
             <div class="tl-right">
               <div class="tl-top">
@@ -304,7 +321,8 @@
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/f8a061235468505.Y3JvcCw2MDY0LDQ3NDMsMCww.png"
                 alt="Fitness Tracker App"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;" loading="lazy" decoding="async" />
+                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
+                loading="lazy" decoding="async" />
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -321,7 +339,8 @@
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/07fb01235396903.Y3JvcCw0NTM2LDM1NDcsMCw0NDk.png"
                 alt="AI Landing Page"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;" loading="lazy" decoding="async" />
+                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
+                loading="lazy" decoding="async" />
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -338,7 +357,8 @@
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png"
                 alt="Task Management App"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;" loading="lazy" decoding="async" />
+                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
+                loading="lazy" decoding="async" />
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -355,7 +375,8 @@
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png"
                 alt="Yoga Fitness Landing Page"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;" loading="lazy" decoding="async" />
+                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
+                loading="lazy" decoding="async" />
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -372,7 +393,8 @@
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
                 alt="Domino's Pizza Poster"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;" loading="lazy" decoding="async" />
+                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
+                loading="lazy" decoding="async" />
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -389,7 +411,8 @@
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
                 alt="Burger Poster"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;" loading="lazy" decoding="async" />
+                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
+                loading="lazy" decoding="async" />
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -420,9 +443,9 @@
             <h4 class="skill-cat-label">Design Tools</h4>
             <div class="skill-pills">
               <span class="skill-pill"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
-                  width="16" alt="Figma">Figma</span>
-              <span class="skill-pill"><img src="https://cdn.simpleicons.org/framer/ffffff" width="16"
-                  alt="Framer">Framer</span>
+                  width="16" alt="Figma" class="skill-logo-figma">Figma</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/framer/1a1a1a" width="16" alt="Framer"
+                  class="skill-logo-adaptive">Framer</span>
               <span class="skill-pill"><i class="devicon-canva-original colored"></i>Canva</span>
               <span class="skill-pill"><i class="fa-solid fa-object-group" style="color:#F46C38"></i>Design
                 Systems</span>
@@ -435,7 +458,7 @@
               <span class="skill-pill"><i class="devicon-html5-plain colored"></i>HTML</span>
               <span class="skill-pill"><i class="devicon-css3-plain colored"></i>CSS</span>
               <span class="skill-pill"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
-              <span class="skill-pill"><i class="devicon-github-original"></i>GitHub</span>
+              <span class="skill-pill"><i class="devicon-github-original skill-icon-adaptive"></i>GitHub</span>
             </div>
           </div>
           <div class="skill-category reveal-el">
@@ -444,12 +467,12 @@
               <span class="skill-pill"><i class="fa-solid fa-users" style="color:#f59e0b"></i>UX Research</span>
               <span class="skill-pill"><i class="fa-solid fa-mobile-screen" style="color:#a78bfa"></i>Prototyping</span>
               <span class="skill-pill"><i class="fa-solid fa-layer-group" style="color:#38bdf8"></i>UI Design</span>
-              <span class="skill-pill"><img src="https://cdn.simpleicons.org/claude/ffffff" width="16"
-                  alt="Claude AI">Claude AI</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/claude/CC785C" width="16" alt="Claude AI"
+                  class="skill-logo-claude">Claude AI</span>
               <span class="skill-pill"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" width="16"
                   alt="Gemini AI">Gemini AI</span>
-              <span class="skill-pill"><img src="https://cdn.simpleicons.org/notion/ffffff" width="16"
-                  alt="Notion">Notion</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/notion/1a1a1a" width="16" alt="Notion"
+                  class="skill-logo-adaptive">Notion</span>
             </div>
           </div>
         </div>
@@ -476,7 +499,8 @@
           <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3"
             target="_blank" class="cert-card reveal-el">
             <div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img
-                src="atlassian_agile_logo.png" alt="Atlassian" style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async"></div>
+                src="atlassian_agile_logo.png" alt="Atlassian" style="width:100%;height:100%;object-fit:contain;"
+                loading="lazy" decoding="async"></div>
             <div class="cert-info">
               <h4>Atlassian Agile PM Certificate</h4>
               <p>Atlassian</p>

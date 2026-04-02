@@ -15,7 +15,7 @@ class VectorBackground {
     this.connectionDistance = 150;
     this.isPaused = false;
     this.isMobile = false;
-    
+
     this.init();
     this.animate();
     this.addEventListeners();
@@ -31,7 +31,7 @@ class VectorBackground {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
     this.isMobile = window.innerWidth < 768;
-    
+
     // Adjust particle density based on screen size
     if (this.isMobile) {
       this.maxParticles = 30; // Further reduced for performance
@@ -77,7 +77,7 @@ class VectorBackground {
         this.isPaused = !entry.isIntersecting;
       });
     }, { threshold: 0.1 });
-    
+
     observer.observe(this.canvas);
   }
 
@@ -88,7 +88,7 @@ class VectorBackground {
     const particlesCount = this.particles.length;
     for (let i = 0; i < particlesCount; i++) {
       const p1 = this.particles[i];
-      
+
       for (let j = i + 1; j < particlesCount; j++) {
         const p2 = this.particles[j];
         const dx = p1.x - p2.x;
@@ -132,10 +132,10 @@ class VectorBackground {
   animate() {
     if (!this.isPaused) {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      
+
       const width = this.canvas.width;
       const height = this.canvas.height;
-      
+
       for (let i = 0; i < this.particles.length; i++) {
         const p = this.particles[i];
         p.update(width, height);
@@ -144,7 +144,7 @@ class VectorBackground {
 
       this.drawLines();
     }
-    
+
     requestAnimationFrame(() => this.animate());
   }
 }
@@ -177,14 +177,14 @@ class Particle {
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   new VectorBackground();
-  
+
   // Parallax effect for blobs
   const blobWrappers = document.querySelectorAll('.blob-wrapper');
   window.addEventListener('mousemove', (e) => {
     const { clientX, clientY } = e;
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
-    
+
     blobWrappers.forEach(wrapper => {
       const speed = parseFloat(getComputedStyle(wrapper).getPropertyValue('--speed')) || 40;
       const x = (centerX - clientX) / speed;
