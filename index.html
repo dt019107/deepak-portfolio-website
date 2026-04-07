@@ -146,60 +146,81 @@
 
       <!-- ── HERO ── -->
       <section id="home" class="section hero-section">
+        <div class="hero-bg-visual" id="hero-mesh"></div>
+        <div class="hero-noise"></div>
 
-        <!-- Say Hello with wave animation -->
-        <div class="hero-tag reveal-el" data-parallax="0.15">
-          <span class="wave-emoji">👋</span>
-          <span class="hello-text">Say Hello</span>
-        </div>
-
-        <!-- Title -->
-        <h1 class="hero-title reveal-el" data-parallax="0.08">
-          I'm <span class="grad-name">Deepak Tiwari</span>,<br>
-          <span class="role-prefix">UI/UX </span><span class="outline-text">Designer</span>
-        </h1>
-
-        <!-- Animated role cycler -->
-        <div class="role-cycler" data-parallax="0.06">
-          <span class="role-static">Crafting&nbsp;</span>
-          <span class="role-words" id="role-words">
-            <span class="rw active">beautiful interfaces</span>
-            <span class="rw">user experiences</span>
-            <span class="rw">intuitive products</span>
-            <span class="rw">impactful designs</span>
-          </span>
-          <span class="role-cursor"></span>
-        </div>
-
-        <p class="hero-bio reveal-el">
-          Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into
-          beautifully crafted products.
-        </p>
-
-        <div class="hero-ctas reveal-el">
-          <a href="#projects" class="btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="#contact" class="btn-ghost">Let's Talk</a>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-row reveal-el">
-          <div class="stat-card">
-            <div class="stat-top">
-              <span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span>
-            </div>
-            <span class="stat-label">Years Experience</span>
+        <div class="hero-content-wrapper">
+          <!-- Say Hello with wave animation -->
+          <div class="hero-tag reveal-el" data-parallax="0.15">
+            <span class="wave-emoji">👋</span>
+            <span class="hello-text">Say Hello</span>
           </div>
-          <div class="stat-card">
-            <div class="stat-top">
-              <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
-            </div>
-            <span class="stat-label">Projects Completed</span>
+
+          <!-- Title -->
+          <h1 class="hero-title reveal-el" data-parallax="0.08">
+            I'm <span class="grad-name">Deepak Tiwari</span>,<br>
+            <span class="role-prefix">UI/UX </span><span class="outline-text">Designer</span>
+          </h1>
+
+          <!-- Animated role cycler -->
+          <div class="role-cycler" data-parallax="0.06">
+            <span class="role-static">Crafting&nbsp;</span>
+            <span class="role-words" id="role-words">
+              <span class="rw active">beautiful interfaces</span>
+              <span class="rw">user experiences</span>
+              <span class="rw">intuitive products</span>
+              <span class="rw">impactful designs</span>
+            </span>
+            <span class="role-cursor"></span>
           </div>
-          <div class="stat-card">
-            <div class="stat-top">
-              <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
+
+          <p class="hero-bio reveal-el">
+            Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into
+            beautifully crafted products.
+          </p>
+
+          <div class="hero-ctas reveal-el">
+            <a href="#projects" class="btn-primary magnetic-item">View Projects <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#contact" class="btn-ghost magnetic-item">Let's Talk</a>
+          </div>
+
+          <!-- Stats Bento -->
+          <div class="stats-bento-grid reveal-el">
+            <!-- Years Experience (Large) -->
+            <div class="bento-card stat-bento stat-large">
+              <div class="bento-noise"></div>
+              <div class="bento-content">
+                <div class="stat-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="stat-top">
+                  <span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span>
+                </div>
+                <span class="stat-label">Years of Experience</span>
+              </div>
             </div>
-            <span class="stat-label">Certifications</span>
+
+            <!-- Projects Completed (Medium) -->
+            <div class="bento-card stat-bento stat-medium">
+              <div class="bento-noise"></div>
+              <div class="bento-content">
+                <div class="stat-icon-wrap"><i class="fa-solid fa-rocket"></i></div>
+                <div class="stat-top">
+                  <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+                </div>
+                <span class="stat-label">Projects Completed</span>
+              </div>
+            </div>
+
+            <!-- Certifications (Medium) -->
+            <div class="bento-card stat-bento stat-medium">
+              <div class="bento-noise"></div>
+              <div class="bento-content">
+                <div class="stat-icon-wrap"><i class="fa-solid fa-certificate"></i></div>
+                <div class="stat-top">
+                  <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
+                </div>
+                <span class="stat-label">Certifications</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -323,6 +344,7 @@
                 alt="Fitness Tracker App"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
+              <video class="project-video" src="https://assets.mixkit.co/videos/preview/mixkit-running-in-the-forest-1225-large.mp4" loop muted playsinline></video>
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -341,6 +363,7 @@
                 alt="AI Landing Page"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
+              <video class="project-video" src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-world-map-742-large.mp4" loop muted playsinline></video>
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -359,6 +382,7 @@
                 alt="Task Management App"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
+              <video class="project-video" src="https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-keyboard-4614-large.mp4" loop muted playsinline></video>
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -377,6 +401,7 @@
                 alt="Yoga Fitness Landing Page"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
+              <video class="project-video" src="https://assets.mixkit.co/videos/preview/mixkit-airplane-taking-off-in-the-sun-2790-large.mp4" loop muted playsinline></video>
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -395,6 +420,7 @@
                 alt="Domino's Pizza Poster"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
+              <video class="project-video" src="https://assets.mixkit.co/videos/preview/mixkit-web-browsing-on-a-digital-tablet-4617-large.mp4" loop muted playsinline></video>
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -413,6 +439,7 @@
                 alt="Burger Poster"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
+              <video class="project-video" src="https://assets.mixkit.co/videos/preview/mixkit-chef-preparing-a-salad-in-the-kitchen-4621-large.mp4" loop muted playsinline></video>
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
@@ -438,43 +465,99 @@
         <div class="section-label reveal-el">My Tool Stack</div>
         <h2 class="section-title reveal-el">Skills & <span class="accent">Tools</span></h2>
 
-        <div class="skills-wrap">
-          <div class="skill-category reveal-el">
-            <h4 class="skill-cat-label">Design Tools</h4>
-            <div class="skill-pills">
-              <span class="skill-pill"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
-                  width="16" alt="Figma" class="skill-logo-figma">Figma</span>
-              <span class="skill-pill"><img src="https://cdn.simpleicons.org/framer/1a1a1a" width="16" alt="Framer"
-                  class="skill-logo-adaptive">Framer</span>
-              <span class="skill-pill"><i class="devicon-canva-original colored"></i>Canva</span>
-              <span class="skill-pill"><i class="fa-solid fa-object-group" style="color:#F46C38"></i>Design
-                Systems</span>
-              <span class="skill-pill"><i class="fa-solid fa-pencil-ruler" style="color:#60a5fa"></i>Wireframing</span>
+        <div class="skills-bento-grid">
+          
+          <!-- Large Card: Primary Design Tools -->
+          <div class="bento-card bento-large reveal-el">
+            <div class="bento-noise"></div>
+            <div class="bento-content">
+              <h4 class="bento-label">Primary Design Toolkit</h4>
+              <div class="bento-icons-main">
+                <div class="bento-icon-item magnetic-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma">
+                  <span>Figma</span>
+                </div>
+                <div class="bento-icon-item magnetic-item">
+                  <img src="https://cdn.simpleicons.org/framer/1a1a1a" class="skill-logo-adaptive" alt="Framer">
+                  <span>Framer</span>
+                </div>
+              </div>
+              <p class="bento-desc">Creating pixel-perfect interfaces and high-fidelity interactive prototypes.</p>
+            </div>
+            <div class="bento-bg-glow"></div>
+          </div>
+
+          <!-- Medium Card: AI & Workflow -->
+          <div class="bento-card bento-medium-1 reveal-el">
+            <div class="bento-noise"></div>
+            <div class="bento-content">
+              <h4 class="bento-label">AI & Workflow</h4>
+              <div class="bento-pills">
+                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/claude/CC785C" width="16" alt="Claude AI" class="skill-logo-claude">Claude AI</span>
+                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" width="16" alt="Gemini AI">Gemini AI</span>
+                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/notion/1a1a1a" width="16" alt="Notion" class="skill-logo-adaptive">Notion</span>
+              </div>
+              <p class="bento-desc">Leveraging AI to speed up design workflows and complex documentation.</p>
+            </div>
+            <div class="bento-bg-glow"></div>
+          </div>
+
+          <!-- Medium Card: Development -->
+          <div class="bento-card bento-medium-2 reveal-el">
+            <div class="bento-noise"></div>
+            <div class="bento-content">
+              <h4 class="bento-label">Code Stack</h4>
+              <div class="bento-pills dev-stack">
+                <span class="skill-pill magnetic-item"><i class="devicon-html5-plain colored"></i>HTML5</span>
+                <span class="skill-pill magnetic-item"><i class="devicon-css3-plain colored"></i>CSS3</span>
+                <span class="skill-pill magnetic-item"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                <span class="skill-pill magnetic-item"><i class="devicon-github-original skill-icon-adaptive"></i>GitHub</span>
+              </div>
+            </div>
+            <div class="bento-bg-glow"></div>
+          </div>
+
+          <!-- Wide Card: Infinite Marquee -->
+          <div class="bento-card bento-wide reveal-el">
+            <div class="marquee-wrap">
+              <div class="marquee-content" id="marquee-content">
+                <div class="marquee-item"><i class="devicon-figma-plain colored"></i> Figma</div>
+                <div class="marquee-item"><i class="devicon-html5-plain colored"></i> HTML</div>
+                <div class="marquee-item"><i class="devicon-css3-plain colored"></i> CSS</div>
+                <div class="marquee-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                <div class="marquee-item"><i class="devicon-canva-original colored"></i> Canva</div>
+                <div class="marquee-item"><i class="fa-solid fa-pen-nib"></i> UI Design</div>
+                <div class="marquee-item"><i class="fa-solid fa-users"></i> UX Research</div>
+                <div class="marquee-item"><i class="devicon-github-original"></i> GitHub</div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><i class="devicon-figma-plain colored"></i> Figma</div>
+                <div class="marquee-item"><i class="devicon-html5-plain colored"></i> HTML</div>
+                <div class="marquee-item"><i class="devicon-css3-plain colored"></i> CSS</div>
+                <div class="marquee-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                <div class="marquee-item"><i class="devicon-canva-original colored"></i> Canva</div>
+                <div class="marquee-item"><i class="fa-solid fa-pen-nib"></i> UI Design</div>
+                <div class="marquee-item"><i class="fa-solid fa-users"></i> UX Research</div>
+                <div class="marquee-item"><i class="devicon-github-original"></i> GitHub</div>
+              </div>
             </div>
           </div>
-          <div class="skill-category reveal-el">
-            <h4 class="skill-cat-label">Development</h4>
-            <div class="skill-pills">
-              <span class="skill-pill"><i class="devicon-html5-plain colored"></i>HTML</span>
-              <span class="skill-pill"><i class="devicon-css3-plain colored"></i>CSS</span>
-              <span class="skill-pill"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
-              <span class="skill-pill"><i class="devicon-github-original skill-icon-adaptive"></i>GitHub</span>
+
+          <!-- Small Cards: Specialties -->
+          <div class="bento-card bento-small reveal-el">
+            <div class="bento-noise"></div>
+            <div class="bento-content centered magnetic-item">
+              <i class="fa-solid fa-users specialty-icon"></i>
+              <span>UX Research</span>
             </div>
           </div>
-          <div class="skill-category reveal-el">
-            <h4 class="skill-cat-label">Specialties</h4>
-            <div class="skill-pills">
-              <span class="skill-pill"><i class="fa-solid fa-users" style="color:#f59e0b"></i>UX Research</span>
-              <span class="skill-pill"><i class="fa-solid fa-mobile-screen" style="color:#a78bfa"></i>Prototyping</span>
-              <span class="skill-pill"><i class="fa-solid fa-layer-group" style="color:#38bdf8"></i>UI Design</span>
-              <span class="skill-pill"><img src="https://cdn.simpleicons.org/claude/CC785C" width="16" alt="Claude AI"
-                  class="skill-logo-claude">Claude AI</span>
-              <span class="skill-pill"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" width="16"
-                  alt="Gemini AI">Gemini AI</span>
-              <span class="skill-pill"><img src="https://cdn.simpleicons.org/notion/1a1a1a" width="16" alt="Notion"
-                  class="skill-logo-adaptive">Notion</span>
+          <div class="bento-card bento-small reveal-el">
+            <div class="bento-noise"></div>
+            <div class="bento-content centered magnetic-item">
+              <i class="fa-solid fa-mobile-screen specialty-icon"></i>
+              <span>Prototyping</span>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -631,6 +714,11 @@
 
     </main>
   </div><!-- /layout -->
+
+  <!-- ── PROJECT CURSOR PREVIEW ── -->
+  <div class="project-cursor-preview" id="project-cursor-preview">
+    <img src="" alt="Project Preview" id="pc-image">
+  </div>
 
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="app.js"></script>
