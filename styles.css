@@ -1041,7 +1041,7 @@ img {
 /* Stats Bento Grid Evolution */
 .stats-bento-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(100px, auto);
   gap: 16px;
   margin-top: 60px;
@@ -1059,15 +1059,7 @@ img {
   transition: all 0.4s var(--ease);
 }
 
-.stat-large {
-  grid-column: span 1;
-  grid-row: span 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 32px;
-}
-
+.stat-large,
 .stat-medium {
   grid-column: span 1;
   grid-row: span 1;
@@ -1596,13 +1588,13 @@ img {
 .bento-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   margin-bottom: 12px;
 }
 
 .dev-stack {
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .centered {
