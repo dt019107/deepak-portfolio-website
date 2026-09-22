@@ -16,7 +16,7 @@
   <meta property="og:title" content="Deepak Tiwari | UI/UX Designer" />
   <meta property="og:description"
     content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
-  <meta property="og:image" content="https://deepaktiwari.design/profile_photo.jpg" />
+  <meta property="og:image" content="https://deepaktiwari.design/profile_photo.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -24,7 +24,7 @@
   <meta property="twitter:title" content="Deepak Tiwari | UI/UX Designer" />
   <meta property="twitter:description"
     content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
-  <meta property="twitter:image" content="https://deepaktiwari.design/profile_photo.jpg" />
+  <meta property="twitter:image" content="https://deepaktiwari.design/profile_photo.png" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -80,12 +80,6 @@
             class="fa-solid fa-paper-plane"></i></a>
       </nav>
 
-      <!-- Theme Toggle -->
-      <button class="theme-toggle" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme">
-        <i class="fa-solid fa-sun icon-sun"></i>
-        <i class="fa-solid fa-moon icon-moon"></i>
-      </button>
-
       <div class="header-clock">
         <span class="live-dot"></span>
         <div class="clock-display">
@@ -106,7 +100,7 @@
       <div class="profile-card" id="profile-card">
 
         <div class="profile-avatar">
-          <img src="profile_photo.jpg" alt="Deepak Tiwari" loading="lazy" decoding="async">
+          <img src="profile_photo.png" alt="Deepak Tiwari" loading="lazy" decoding="async">
         </div>
 
         <div class="profile-info">
@@ -277,8 +271,10 @@
                 <div class="tl-badge">Current</div>
               </div>
               <p class="tl-date"><i class="fa-regular fa-calendar"></i> Nov 2025 – Present · Mumbai, Hybrid</p>
-              <p class="tl-desc">Leading design initiatives, crafting user-centric solutions and high-fidelity UI
-                screens for enterprise-grade digital products.</p>
+              <p class="tl-desc">Led end-to-end UX/UI design across client products—from research and wireframing to
+                design systems and high-fidelity delivery. Optimized responsive landing pages through user journey
+                mapping to boost conversions, while partnering with engineering to streamline developer handoff and
+                ensure brand consistency.</p>
               <div class="tl-tags">
                 <span>Figma</span><span>UX Research</span><span>Prototyping</span>
               </div>
@@ -287,8 +283,8 @@
 
           <div class="timeline-item reveal-el">
             <div class="tl-left">
-              <div class="tl-icon" style="background:linear-gradient(135deg,#0a2e1a,#0d6e3b)"><i
-                  class="fa-solid fa-graduation-cap" style="color:#4ade80"></i></div>
+              <div class="tl-icon" style="background:linear-gradient(135deg,var(--cobalt-900),var(--cobalt-600))"><i
+                  class="fa-solid fa-building" style="color:var(--tangerine-100)"></i></div>
             </div>
             <div class="tl-right">
               <div class="tl-top">
@@ -299,7 +295,9 @@
               </div>
               <p class="tl-date"><i class="fa-regular fa-calendar"></i> Jan 2025 – Oct 2025 · Mumbai, On-site</p>
               <p class="tl-desc">Designed end-to-end web and mobile interfaces, producing wireframes, design systems,
-                and interactive prototypes.</p>
+                and interactive prototypes. Accomplished user-centric web and mobile interface designs by conducting
+                in-depth user research and applying iterative design principles, resulting in intuitive products that
+                improved user satisfaction and engagement.</p>
               <div class="tl-tags">
                 <span>Figma</span><span>Canva</span><span>UI Design</span>
               </div>
@@ -359,7 +357,7 @@
             </div>
           </a>
 
-          <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study-md"
+          <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study"
             target="_blank" class="project-card reveal-el">
             <div class="project-img" style="padding:0;overflow:hidden;">
               <img
@@ -377,7 +375,7 @@
             <div class="project-info">
               <div class="project-tags"><span>Case Study</span><span>UX</span></div>
               <h3>IndiGo</h3>
-              <p>Case study based on, showcasing data analytics and predictive design.</p>
+              <p>UX case study redesigning IndiGo's booking flow, improving usability through research and data-driven design decisions.</p>
             </div>
           </a>
 
@@ -678,18 +676,23 @@
 
         <form id="contact-form" class="contact-form" action="https://formsubmit.co/dt019107@gmail.com" method="POST"
           novalidate>
+          <!-- FormSubmit configuration -->
+          <input type="hidden" name="_subject" value="New message from your portfolio!" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style="display:none" />
           <div class="form-row reveal-el">
             <div class="form-group">
-              <label>Name</label>
+              <label for="cf-name">Name</label>
               <input type="text" id="cf-name" name="name" placeholder="Your full name" required />
             </div>
             <div class="form-group">
-              <label>Email</label>
+              <label for="cf-email">Email</label>
               <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
             </div>
           </div>
           <div class="form-group reveal-el">
-            <label>Budget</label>
+            <label for="cf-budget">Budget</label>
             <select id="cf-budget" name="budget">
               <option value="" disabled selected>Select budget range</option>
               <option>Under $1,000</option>
@@ -699,7 +702,7 @@
             </select>
           </div>
           <div class="form-group reveal-el">
-            <label>Message</label>
+            <label for="cf-message">Message</label>
             <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project..."
               required></textarea>
           </div>

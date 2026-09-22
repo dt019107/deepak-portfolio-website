@@ -24,27 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ── 2. THEME TOGGLE ─────────────────────────────
-  const HTML_EL = document.documentElement;
-  const themeBtn = document.getElementById('theme-toggle');
+  // Clean up any legacy dark mode settings
+  localStorage.removeItem('dt-theme');
+  document.documentElement.removeAttribute('data-theme');
 
-  const savedTheme = localStorage.getItem('dt-theme') || 'dark';
-  if (savedTheme === 'light') HTML_EL.setAttribute('data-theme', 'light');
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const isLight = HTML_EL.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        HTML_EL.removeAttribute('data-theme');
-        localStorage.setItem('dt-theme', 'dark');
-      } else {
-        HTML_EL.setAttribute('data-theme', 'light');
-        localStorage.setItem('dt-theme', 'light');
-      }
-    });
-  }
-
-  // ── 3. REAL-TIME CLOCK ──────────────────────────
+  // ── 2. REAL-TIME CLOCK ──────────────────────────
   const clockEl = document.getElementById('live-time');
   const ampmEl = document.getElementById('live-ampm');
   const dateEl = document.getElementById('live-date');
@@ -288,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── 17. STAT CARD HOVER PULSE ──────────────────
-  document.querySelectorAll('.stat-card').forEach(card => {
+  document.querySelectorAll('.bento-card.stat-bento').forEach(card => {
     card.addEventListener('mouseenter', () => {
       const num = card.querySelector('.stat-num');
       if (num) { num.style.transition = 'transform 0.3s cubic-bezier(0.34,1.56,0.64,1)'; num.style.transform = 'scale(1.15)'; }

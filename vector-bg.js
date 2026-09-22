@@ -99,7 +99,7 @@ class VectorBackground {
         if (distSq < minDistSq) {
           const distance = Math.sqrt(distSq);
           const opacity = 1 - (distance / this.connectionDistance);
-          this.ctx.strokeStyle = `rgba(0, 255, 163, ${opacity * 0.15})`;
+          this.ctx.strokeStyle = `rgba(46, 86, 224, ${opacity * 0.12})`;
           this.ctx.lineWidth = 0.5;
           this.ctx.beginPath();
           this.ctx.moveTo(p1.x, p1.y);
@@ -118,7 +118,7 @@ class VectorBackground {
         if (distSq < mouseRadiusSq) {
           const distance = Math.sqrt(distSq);
           const opacity = 1 - (distance / this.mouse.radius);
-          this.ctx.strokeStyle = `rgba(0, 255, 163, ${opacity * 0.3})`;
+          this.ctx.strokeStyle = `rgba(242, 98, 46, ${opacity * 0.25})`;
           this.ctx.lineWidth = 1;
           this.ctx.beginPath();
           this.ctx.moveTo(p1.x, p1.y);
@@ -167,7 +167,7 @@ class Particle {
   }
 
   draw(ctx) {
-    ctx.fillStyle = 'rgba(0, 255, 163, 0.5)';
+    ctx.fillStyle = 'rgba(46, 86, 224, 0.3)';
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
