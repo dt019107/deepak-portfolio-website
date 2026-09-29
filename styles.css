@@ -344,8 +344,8 @@ img {
 .floating-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px;
+  gap: 3px;
+  padding: 4px 6px;
   background: var(--nav-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -411,29 +411,76 @@ img {
   white-space: nowrap;
 }
 
+/* ── REDESIGNED NAV ITEMS WITH SECTION NAMES ── */
 .fnav-item {
-  width: 42px;
-  height: 42px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  font-size: 0.95rem;
+  gap: 7px;
+  height: 38px;
+  padding: 0 13px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--cobalt-900);
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
+  cursor: pointer;
+}
+
+.fnav-item i {
+  font-size: 0.82rem;
+  line-height: 1;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fnav-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  transition: color 0.25s ease;
 }
 
 .fnav-item:hover {
   color: var(--cobalt-600);
   background: var(--cobalt-100);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+
+.fnav-item:hover i {
+  transform: scale(1.1);
 }
 
 .fnav-item.active {
   color: #ffffff;
   background: var(--cobalt-600);
   box-shadow: 0 4px 14px rgba(46, 86, 224, 0.35);
+}
+
+.fnav-item.active:hover {
+  color: #ffffff;
+  background: var(--cobalt-600);
+}
+
+.fnav-item.active i {
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .fnav-label {
+    display: none;
+  }
+
+  .fnav-item {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
+  }
 }
 
 /* ── 5. LAYOUT ── */
@@ -2106,14 +2153,21 @@ img {
   }
 
   .floating-nav {
-    padding: 7px 10px;
-    gap: 4px;
+    padding: 5px 8px;
+    gap: 3px;
+  }
+
+  .fnav-label {
+    display: none;
   }
 
   .fnav-item {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
+    font-size: 0.95rem;
   }
 
   .header-clock {
