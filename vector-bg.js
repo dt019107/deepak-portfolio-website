@@ -2,7 +2,7 @@
  * Interactive Vector Background
  * - Particle mesh network
  * - Mouse interaction
- * - Performance optimized
+ * - Performance optimized 
  */
 
 class VectorBackground {
