@@ -1,766 +1,404 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deepak Tiwari | UI/UX Designer Portfolio</title>
-  <meta name="description"
-    content="Professional portfolio of Deepak Tiwari – a passionate UI/UX Designer crafting beautiful, human-centered digital experiences." />
-  <meta name="keywords"
-    content="Deepak Tiwari, UI/UX Designer, Product Designer, Portfolio, Graphic Designer, Mumbai Designer, Freelance Designer" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://deepaktiwari.design/" />
-  <meta property="og:title" content="Deepak Tiwari | UI/UX Designer" />
-  <meta property="og:description"
-    content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
-  <meta property="og:image" content="https://deepaktiwari.design/profile_photo.png" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://deepaktiwari.design/" />
-  <meta property="twitter:title" content="Deepak Tiwari | UI/UX Designer" />
-  <meta property="twitter:description"
-    content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
-  <meta property="twitter:image" content="https://deepaktiwari.design/profile_photo.png" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap"
-    rel="stylesheet" />
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-<body>
-
-  <!-- ── SCROLL PROGRESS BAR ── -->
-  <div id="scroll-progress"></div>
-
-  <!-- ── BACK TO TOP ── -->
-  <button id="back-to-top" title="Back to top" aria-label="Back to top">
-    <i class="fa-solid fa-chevron-up"></i>
-  </button>
-
-  <!-- ── CUSTOM CURSOR ── -->
-  <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-outline" id="cursor-outline"></div>
-
-  <!-- ── VECTOR BACKGROUND ── -->
-  <div class="vector-container">
-    <canvas id="vector-canvas"></canvas>
-  </div>
-
-  <!-- ── TOP HEADER ── -->
-  <header class="top-header">
-    <div class="header-unit">
-      <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
-        <a href="#home" class="fnav-item active" data-section="home" title="Home">
-          <i class="fa-solid fa-house"></i>
-          <span class="fnav-label">Home</span>
-        </a>
-        <a href="#about" class="fnav-item" data-section="about" title="About">
-          <i class="fa-solid fa-user"></i>
-          <span class="fnav-label">About</span>
-        </a>
-        <a href="#experience" class="fnav-item" data-section="experience" title="Work">
-          <i class="fa-solid fa-briefcase"></i>
-          <span class="fnav-label">Work</span>
-        </a>
-        <a href="#projects" class="fnav-item" data-section="projects" title="Projects">
-          <i class="fa-solid fa-folder-open"></i>
-          <span class="fnav-label">Projects</span>
-        </a>
-        <a href="#skills" class="fnav-item" data-section="skills" title="Skills">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-          <span class="fnav-label">Skills</span>
-        </a>
-        <a href="#certifications" class="fnav-item" data-section="certifications" title="Certifications">
-          <i class="fa-solid fa-certificate"></i>
-          <span class="fnav-label">Certifications</span>
-        </a>
-        <a href="#contact" class="fnav-item" data-section="contact" title="Contact">
-          <i class="fa-solid fa-paper-plane"></i>
-          <span class="fnav-label">Contact</span>
-        </a>
-      </nav>
-
-      <div class="header-clock">
-        <span class="live-dot"></span>
-        <div class="clock-display">
-          <span class="live-time" id="live-time">00:00:00</span>
-          <span class="live-ampm" id="live-ampm">AM</span>
-          <span class="divider">|</span>
-          <span class="live-date" id="live-date">Mon, Mar 30</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ── LAYOUT ── -->
-  <div class="layout">
-
-    <!-- ── SIDEBAR ── -->
-    <aside class="sidebar">
-      <div class="profile-card" id="profile-card">
-
-        <div class="profile-avatar">
-          <img src="profile_photo.png" alt="Deepak Tiwari" loading="lazy" decoding="async">
-        </div>
-
-        <div class="profile-info">
-          <h2 class="profile-name">Deepak Tiwari</h2>
-          <div class="availability-badge">
-            <span class="pulse"></span> Available for work
-          </div>
-        </div>
-
-        <!-- Card glow follows cursor -->
-        <div class="card-glow" id="card-glow"></div>
-
-        <div class="profile-socials">
-          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank" title="LinkedIn"><i
-              class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" title="Behance"><i
-              class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com/dt019107" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-        </div>
-
-        <!-- CTAs -->
-        <div class="sidebar-ctas">
-          <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank"
-            class="btn-cv">
-            <i class="fa-solid fa-download"></i>Resume
-          </a>
-          <a href="mailto:dt019107@gmail.com" class="btn-contact">
-            <i class="fa-solid fa-paper-plane"></i> Contact Me
-          </a>
-        </div>
-
-      </div>
-    </aside>
-
-    <!-- ── MAIN CONTENT ── -->
-    <main class="content" id="main-content">
-
-      <!-- ── HERO ── -->
-      <section id="home" class="section hero-section">
-        <div class="hero-bg-visual" id="hero-mesh"></div>
-        <div class="hero-noise"></div>
-
-        <div class="hero-content-wrapper">
-          <!-- Say Hello with wave animation -->
-          <div class="hero-tag reveal-el" data-parallax="0.15">
-            <span class="wave-emoji">👋</span>
-            <span class="hello-text">Say Hello</span>
-          </div>
-
-          <!-- Title -->
-          <h1 class="hero-title reveal-el" data-parallax="0.08">
-            I'm <span class="grad-name">Deepak Tiwari</span>,<br>
-            <span class="role-prefix">UI/UX </span><span class="outline-text">Designer</span>
-          </h1>
-
-          <!-- Animated role cycler -->
-          <div class="role-cycler" data-parallax="0.06">
-            <span class="role-static">Crafting&nbsp;</span>
-            <span class="role-words" id="role-words">
-              <span class="rw active">beautiful interfaces</span>
-              <span class="rw">user experiences</span>
-              <span class="rw">intuitive products</span>
-              <span class="rw">impactful designs</span>
-            </span>
-            <span class="role-cursor"></span>
-          </div>
-
-          <p class="hero-bio reveal-el">
-            Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into
-            beautifully crafted products.
-          </p>
-
-          <div class="hero-ctas reveal-el">
-            <a href="#projects" class="btn-primary magnetic-item">View Projects <i
-                class="fa-solid fa-arrow-right"></i></a>
-            <a href="#contact" class="btn-ghost magnetic-item">Let's Talk</a>
-          </div>
-
-          <!-- Stats Bento -->
-          <div class="stats-bento-grid reveal-el">
-            <!-- Years Experience (Large) -->
-            <div class="bento-card stat-bento stat-medium">
-              <div class="bento-noise"></div>
-              <div class="bento-content">
-                <div class="stat-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
-                <div class="stat-top">
-                  <span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span>
-                </div>
-                <span class="stat-label">Years of Experience</span>
-              </div>
-            </div>
-
-            <!-- Projects Completed (Medium) -->
-            <div class="bento-card stat-bento stat-medium">
-              <div class="bento-noise"></div>
-              <div class="bento-content">
-                <div class="stat-icon-wrap"><i class="fa-solid fa-rocket"></i></div>
-                <div class="stat-top">
-                  <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
-                </div>
-                <span class="stat-label">Projects Completed</span>
-              </div>
-            </div>
-
-            <!-- Certifications (Medium) -->
-            <div class="bento-card stat-bento stat-medium">
-              <div class="bento-noise"></div>
-              <div class="bento-content">
-                <div class="stat-icon-wrap"><i class="fa-solid fa-certificate"></i></div>
-                <div class="stat-top">
-                  <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
-                </div>
-                <span class="stat-label">Certifications</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- ── ABOUT ── -->
-      <section id="about" class="section">
-        <div class="section-label reveal-el">About Me</div>
-        <h2 class="section-title reveal-el">Passionate about<br><span class="accent">human-centered</span> design</h2>
-        <p class="section-desc reveal-el">
-          My expertise covers the entire design lifecycle — from user research and wireframing to high-fidelity
-          prototyping and interactive design. I bridge the gap between aesthetics and functionality, partnering with
-          cross-functional teams to create products that users love.
-        </p>
-        <div class="about-cards reveal-el">
-          <div class="about-card">
-            <div class="about-card-icon"><i class="fa-solid fa-pen-nib"></i></div>
-            <h4>UI Design</h4>
-            <p>Crafting visually stunning, pixel-perfect interfaces with Figma and Framer.</p>
-          </div>
-          <div class="about-card">
-            <div class="about-card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-            <h4>UX Research</h4>
-            <p>Using empathy-driven research to uncover user needs and design painpoints.</p>
-          </div>
-          <div class="about-card">
-            <div class="about-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-            <h4>Prototyping</h4>
-            <p>Building interactive prototypes that communicate design intent and flow.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── EXPERIENCE ── -->
-      <section id="experience" class="section">
-        <div class="section-label reveal-el">My Journey</div>
-        <h2 class="section-title reveal-el">Work <span class="accent">Experience</span></h2>
-
-        <div class="timeline">
-
-          <div class="timeline-item reveal-el">
-            <div class="tl-left">
-              <div class="tl-icon" style="background:#fff;overflow:hidden;"><img src="PlanNet_Logo.jpg" alt="Plan.Net"
-                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="tl-right">
-              <div class="tl-top">
-                <div>
-                  <h3 class="tl-role">UX Designer Consultant</h3>
-                  <p class="tl-company">Plan.Net TechNest India</p>
-                </div>
-                <div class="tl-badge">Current</div>
-              </div>
-              <p class="tl-date"><i class="fa-regular fa-calendar"></i> Nov 2025 – Present · Mumbai, Hybrid</p>
-              <p class="tl-desc">Led end-to-end UX/UI design across client products—from research and wireframing to
-                design systems and high-fidelity delivery. Optimized responsive landing pages through user journey
-                mapping to boost conversions, while partnering with engineering to streamline developer handoff and
-                ensure brand consistency.</p>
-              <div class="tl-tags">
-                <span>Figma</span><span>UX Research</span><span>Prototyping</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal-el">
-            <div class="tl-left">
-              <div class="tl-icon" style="background:linear-gradient(135deg,var(--cobalt-900),var(--cobalt-600))"><i
-                  class="fa-solid fa-building" style="color:var(--tangerine-100)"></i></div>
-            </div>
-            <div class="tl-right">
-              <div class="tl-top">
-                <div>
-                  <h3 class="tl-role">UI/UX Designer</h3>
-                  <p class="tl-company">SAAA Consultants</p>
-                </div>
-              </div>
-              <p class="tl-date"><i class="fa-regular fa-calendar"></i> Jan 2025 – Oct 2025 · Mumbai, On-site</p>
-              <p class="tl-desc">Designed end-to-end web and mobile interfaces, producing wireframes, design systems,
-                and interactive prototypes. Accomplished user-centric web and mobile interface designs by conducting
-                in-depth user research and applying iterative design principles, resulting in intuitive products that
-                improved user satisfaction and engagement.</p>
-              <div class="tl-tags">
-                <span>Figma</span><span>Canva</span><span>UI Design</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal-el">
-            <div class="tl-left">
-              <div class="tl-icon" style="background:#fff;overflow:hidden;"><img src="LPU_Logo.png" alt="LPU"
-                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="tl-right">
-              <div class="tl-top">
-                <div>
-                  <h3 class="tl-role">B.Tech — Information Technology</h3>
-                  <p class="tl-company">Lovely Professional University</p>
-                </div>
-              </div>
-              <p class="tl-date"><i class="fa-regular fa-calendar"></i> 2020 – 2024 · Phagwara, Punjab</p>
-              <p class="tl-desc">Completed Bachelors in Information Technology with a focus on UI/UX, frontend
-                development, and product design.</p>
-              <div class="tl-tags">
-                <span>B.Tech</span><span>IT</span><span>4 Years</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ── PROJECTS ── -->
-      <section id="projects" class="section">
-        <div class="section-label reveal-el">My Work</div>
-        <h2 class="section-title reveal-el">Featured <span class="accent">Projects</span></h2>
-
-        <div class="projects-grid">
-
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
-            <div class="project-img" style="padding:0;overflow:hidden;">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/f8a061235468505.Y3JvcCw2MDY0LDQ3NDMsMCww.png"
-                alt="Fitness Tracker App"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
-                loading="lazy" decoding="async" />
-              <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-running-in-the-forest-1225-large.mp4" loop muted
-                playsinline></video>
-              <div class="project-overlay">
-                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags"><span>Mobile App</span><span>UX Case Study</span></div>
-              <h3>Fitness Tracker App</h3>
-              <p>End-to-end mobile UI/UX design for a health & fitness tracking application.</p>
-            </div>
-          </a>
-
-          <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study"
-            target="_blank" class="project-card reveal-el">
-            <div class="project-img" style="padding:0;overflow:hidden;">
-              <img
-                src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=1920"
-                alt="IndiGo Case Study"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
-                loading="lazy" decoding="async" />
-              <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-world-map-742-large.mp4" loop
-                muted playsinline></video>
-              <div class="project-overlay">
-                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags"><span>Case Study</span><span>UX</span></div>
-              <h3>IndiGo</h3>
-              <p>UX case study redesigning IndiGo's booking flow, improving usability through research and data-driven
-                design decisions.</p>
-            </div>
-          </a>
-
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
-            <div class="project-img" style="padding:0;overflow:hidden;">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png"
-                alt="Task Management App"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
-                loading="lazy" decoding="async" />
-              <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-keyboard-4614-large.mp4"
-                loop muted playsinline></video>
-              <div class="project-overlay">
-                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags"><span>Web App</span><span>PWA</span></div>
-              <h3>Kanban Task Tracker</h3>
-              <p>A feature-rich productivity PWA with Kanban board, analytics, and automation engine.</p>
-            </div>
-          </a>
-
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
-            <div class="project-img" style="padding:0;overflow:hidden;">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png"
-                alt="Yoga Fitness Landing Page"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
-                loading="lazy" decoding="async" />
-              <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-airplane-taking-off-in-the-sun-2790-large.mp4" loop
-                muted playsinline></video>
-              <div class="project-overlay">
-                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags"><span>Mobile App</span><span>UI Design</span></div>
-              <h3>Travel Booking App</h3>
-              <p>Full-stack mobile design for a hotel, flight & travel booking super-app.</p>
-            </div>
-          </a>
-
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
-            <div class="project-img" style="padding:0;overflow:hidden;">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Domino's Pizza Poster"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
-                loading="lazy" decoding="async" />
-              <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-web-browsing-on-a-digital-tablet-4617-large.mp4"
-                loop muted playsinline></video>
-              <div class="project-overlay">
-                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags"><span>Redesign</span><span>Web UX</span></div>
-              <h3>Zidio Website Redesign</h3>
-              <p>Professional UX overhaul of an enterprise SaaS website to improve usability.</p>
-            </div>
-          </a>
-
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
-            <div class="project-img" style="padding:0;overflow:hidden;">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Burger Poster"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
-                loading="lazy" decoding="async" />
-              <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-chef-preparing-a-salad-in-the-kitchen-4621-large.mp4"
-                loop muted playsinline></video>
-              <div class="project-overlay">
-                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags"><span>Mobile App</span><span>Figma</span></div>
-              <h3>Restaurant Menu App</h3>
-              <p>A clean, intuitive mobile food ordering and restaurant menu experience.</p>
-            </div>
-          </a>
-
-        </div>
-
-        <div class="view-more-wrap reveal-el">
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="btn-ghost">
-            View All on Behance <i class="fa-brands fa-behance"></i>
-          </a>
-        </div>
-      </section>
-
-      <!-- ── SKILLS ── -->
-      <section id="skills" class="section">
-        <div class="section-label reveal-el">My Tool Stack</div>
-        <h2 class="section-title reveal-el">Skills & <span class="accent">Tools</span></h2>
-
-        <div class="skills-bento-grid">
-
-          <!-- Large Card: Primary Design Tools -->
-          <div class="bento-card bento-large reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content">
-              <h4 class="bento-label">Primary Design Toolkit</h4>
-              <div class="bento-icons-main">
-                <div class="bento-icon-item magnetic-item">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma">
-                  <span>Figma</span>
-                </div>
-                <div class="bento-icon-item magnetic-item">
-                  <img src="https://cdn.simpleicons.org/framer/1a1a1a" class="skill-logo-adaptive" alt="Framer">
-                  <span>Framer</span>
-                </div>
-              </div>
-              <p class="bento-desc">Creating pixel-perfect interfaces and high-fidelity interactive prototypes.</p>
-            </div>
-            <div class="bento-bg-glow"></div>
-          </div>
-
-          <!-- Medium Card: AI & Workflow -->
-          <div class="bento-card bento-medium-1 reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content">
-              <h4 class="bento-label">AI & Workflow</h4>
-              <div class="bento-pills">
-                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/claude/CC785C" width="16"
-                    alt="Claude AI" class="skill-logo-claude">Claude AI</span>
-                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2"
-                    width="16" alt="Gemini AI">Gemini AI</span>
-                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/notion/1a1a1a" width="16"
-                    alt="Notion" class="skill-logo-adaptive">Notion</span>
-              </div>
-              <p class="bento-desc">Leveraging AI to speed up design workflows and complex documentation.</p>
-            </div>
-            <div class="bento-bg-glow"></div>
-          </div>
-
-          <!-- Medium Card: Development -->
-          <div class="bento-card bento-medium-2 reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content">
-              <h4 class="bento-label">Code Stack</h4>
-              <div class="bento-pills dev-stack">
-                <span class="skill-pill magnetic-item"><i class="devicon-html5-plain colored"></i>HTML5</span>
-                <span class="skill-pill magnetic-item"><i class="devicon-css3-plain colored"></i>CSS3</span>
-                <span class="skill-pill magnetic-item"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
-                <span class="skill-pill magnetic-item"><i
-                    class="devicon-github-original skill-icon-adaptive"></i>GitHub</span>
-              </div>
-            </div>
-            <div class="bento-bg-glow"></div>
-          </div>
-
-          <!-- Wide Card: Infinite Marquee -->
-          <div class="bento-card bento-wide reveal-el">
-            <div class="marquee-wrap">
-              <div class="marquee-content" id="marquee-content">
-                <div class="marquee-item"><i class="devicon-figma-plain colored"></i> Figma</div>
-                <div class="marquee-item"><i class="devicon-html5-plain colored"></i> HTML</div>
-                <div class="marquee-item"><i class="devicon-css3-plain colored"></i> CSS</div>
-                <div class="marquee-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
-                <div class="marquee-item"><i class="devicon-canva-original colored"></i> Canva</div>
-                <div class="marquee-item"><i class="fa-solid fa-pen-nib"></i> UI Design</div>
-                <div class="marquee-item"><i class="fa-solid fa-users"></i> UX Research</div>
-                <div class="marquee-item"><i class="devicon-github-original"></i> GitHub</div>
-                <!-- Duplicate for seamless loop -->
-                <div class="marquee-item"><i class="devicon-figma-plain colored"></i> Figma</div>
-                <div class="marquee-item"><i class="devicon-html5-plain colored"></i> HTML</div>
-                <div class="marquee-item"><i class="devicon-css3-plain colored"></i> CSS</div>
-                <div class="marquee-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
-                <div class="marquee-item"><i class="devicon-canva-original colored"></i> Canva</div>
-                <div class="marquee-item"><i class="fa-solid fa-pen-nib"></i> UI Design</div>
-                <div class="marquee-item"><i class="fa-solid fa-users"></i> UX Research</div>
-                <div class="marquee-item"><i class="devicon-github-original"></i> GitHub</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Small Cards: Specialties -->
-          <div class="bento-card bento-small reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content centered magnetic-item">
-              <i class="fa-solid fa-users specialty-icon"></i>
-              <span>UX Research</span>
-            </div>
-          </div>
-          <div class="bento-card bento-small reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content centered magnetic-item">
-              <i class="fa-solid fa-mobile-screen specialty-icon"></i>
-              <span>Prototyping</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ── CERTIFICATIONS ── -->
-      <section id="certifications" class="section">
-        <div class="section-label reveal-el">Verified</div>
-        <h2 class="section-title reveal-el">My <span class="accent">Certifications</span></h2>
-
-        <div class="certs-grid">
-
-          <a href="https://www.life-global.org/certificate/969411ad-c96f-4180-afc4-58ba678c9738" target="_blank"
-            class="cert-card reveal-el">
-            <div class="cert-icon" style="background:#fff;padding:4px;overflow:hidden;"><img src="hp_logo.svg" alt="HP"
-                style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async"></div>
-            <div class="cert-info">
-              <h4>Agile Project Management</h4>
-              <p>HP LIFE</p>
-            </div>
-            <div class="cert-arrow">↗</div>
-          </a>
-
-          <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3"
-            target="_blank" class="cert-card reveal-el">
-            <div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img
-                src="atlassian_agile_logo.png" alt="Atlassian" style="width:100%;height:100%;object-fit:contain;"
-                loading="lazy" decoding="async"></div>
-            <div class="cert-info">
-              <h4>Atlassian Agile PM Certificate</h4>
-              <p>Atlassian</p>
-            </div>
-            <div class="cert-arrow">↗</div>
-          </a>
-
-          <a href="https://canva.com/designschool/certification-award/b5dfb0f3-5eb6-4314-9a5a-9b637077a001"
-            target="_blank" class="cert-card reveal-el">
-            <div class="cert-icon"
-              style="background:linear-gradient(135deg,#00c4cc,#7d2ae8);padding:0;overflow:hidden;"><svg
-                xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="12" fill="url(#canva-grad)" />
-                <defs>
-                  <linearGradient id="canva-grad" x1="0" y1="0" x2="24" y2="24">
-                    <stop offset="0%" stop-color="#00C4CC" />
-                    <stop offset="50%" stop-color="#7D2AE8" />
-                    <stop offset="100%" stop-color="#7D2AE8" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M15.5 8.5C14.8 7.4 13.5 6.7 12 6.7c-2.9 0-5.3 2.4-5.3 5.3s2.4 5.3 5.3 5.3c1.5 0 2.8-.6 3.7-1.6.2-.2.1-.5-.1-.6-.2-.1-.5-.1-.6.1-.7.8-1.8 1.3-3 1.3-2.3 0-4.1-1.8-4.1-4.1S9.7 8.3 12 8.3c1.1 0 2.1.5 2.8 1.2.2.2.5.2.6 0 .3-.4.3-.7.1-1z"
-                  fill="#fff" />
-              </svg></div>
-            <div class="cert-info">
-              <h4>Canva Essentials</h4>
-              <p>Canva</p>
-            </div>
-            <div class="cert-arrow">↗</div>
-          </a>
-
-          <a href="https://www.linkedin.com/learning/certificates/dd6acb3e53420f300a875b2a67cceec72f976187bb0633ecc4f5d0e1d07b0d8a"
-            target="_blank" class="cert-card reveal-el">
-            <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69)"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="18" alt="Figma"></div>
-            <div class="cert-info">
-              <h4>Figma for UX Design</h4>
-              <p>LinkedIn Learning</p>
-            </div>
-            <div class="cert-arrow">↗</div>
-          </a>
-
-          <a href="https://grow.google/certificates/ux-design/" target="_blank" class="cert-card reveal-el">
-            <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2563eb)"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="24"
-                alt="Google"></div>
-            <div class="cert-info">
-              <h4>Foundations of UX Design</h4>
-              <p>Google / Coursera</p>
-            </div>
-            <div class="cert-arrow">↗</div>
-          </a>
-
-          <a href="https://www.linkedin.com/learning/certificates/bbfb1b17d2438f6b0e75081d54318745932ed7b2f5f9912e43771a4b2f2d4308"
-            target="_blank" class="cert-card reveal-el">
-            <div class="cert-icon" style="background:linear-gradient(135deg,#312e81,#7c3aed)"><i
-                class="fa-solid fa-desktop" style="color:#a78bfa"></i></div>
-            <div class="cert-info">
-              <h4>UX Foundations: Prototyping</h4>
-              <p>LinkedIn Learning</p>
-            </div>
-            <div class="cert-arrow">↗</div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- ── CONTACT ── -->
-      <section id="contact" class="section contact-section">
-        <div class="section-label reveal-el">Get In Touch</div>
-        <h2 class="section-title reveal-el">Let's <span class="accent">Work Together</span></h2>
-        <p class="section-desc reveal-el">Have a project in mind? I'd love to hear about it. Send me a message and let's
-          create something amazing.</p>
-
-        <form id="contact-form" class="contact-form" action="https://formsubmit.co/dt019107@gmail.com" method="POST"
-          novalidate>
-          <!-- FormSubmit configuration -->
-          <input type="hidden" name="_subject" value="New message from your portfolio!" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="text" name="_honey" style="display:none" />
-          <div class="form-row reveal-el">
-            <div class="form-group">
-              <label for="cf-name">Name</label>
-              <input type="text" id="cf-name" name="name" placeholder="Your full name" required />
-            </div>
-            <div class="form-group">
-              <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
-            </div>
-          </div>
-          <div class="form-group reveal-el">
-            <label for="cf-budget">Budget</label>
-            <select id="cf-budget" name="budget">
-              <option value="" disabled selected>Select budget range</option>
-              <option>Under $1,000</option>
-              <option>$1,000 – $5,000</option>
-              <option>$5,000 – $15,000</option>
-              <option>$15,000+</option>
-            </select>
-          </div>
-          <div class="form-group reveal-el">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project..."
-              required></textarea>
-          </div>
-          <div class="reveal-el">
-            <button type="submit" class="btn-primary btn-full" id="send-btn">
-              <span id="btn-text">Send Message <i class="fa-solid fa-paper-plane"></i></span>
-              <span id="btn-loading" class="hidden"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>
-            </button>
-          </div>
-          <div id="form-success" class="form-success hidden">
-            <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
-          </div>
-        </form>
-      </section>
-
-      <!-- ── FOOTER ── -->
-      <footer class="site-footer">
-        <div class="footer-left">
-          <span class="footer-logo">DT</span>
-          <span>© <span id="year"></span> Deepak Tiwari</span>
-        </div>
-        <p class="footer-email"><a href="mailto:dt019107@gmail.com">dt019107@gmail.com</a></p>
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank"><i class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com/dt019107" target="_blank"><i class="fa-brands fa-github"></i></a>
-        </div>
-      </footer>
-
-    </main>
-  </div><!-- /layout -->
-
-  <!-- ── PROJECT CURSOR PREVIEW ── -->
-  <div class="project-cursor-preview" id="project-cursor-preview">
-    <img src="" alt="Project Preview" id="pc-image">
-  </div>
-
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script src="app.js"></script>
-  <script src="vector-bg.js"></script>
-</body>
-
-</html>
+/* =============================================
+   DEEPAK TIWARI – PORTFOLIO SCRIPTS
+   ============================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ── 0. SMOOTH SCROLL (LENIS) ────────────────────
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 1.5,
+    infinite: false,
+  });
+
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  // ── 1. FOOTER YEAR ──────────────────────────────
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Clean up any legacy dark mode settings
+  localStorage.removeItem('dt-theme');
+  document.documentElement.removeAttribute('data-theme');
+
+  // ── 2. REAL-TIME CLOCK ──────────────────────────
+  const clockEl = document.getElementById('live-time');
+  const ampmEl = document.getElementById('live-ampm');
+  const dateEl = document.getElementById('live-date');
+
+  function updateClock() {
+    const now = new Date();
+    let hrs = now.getHours();
+    const ampm = hrs >= 12 ? 'PM' : 'AM';
+    hrs = hrs % 12 || 12;
+    if (clockEl) clockEl.textContent = `${String(hrs).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    if (ampmEl) ampmEl.textContent = ampm;
+    if (dateEl) dateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // ── 4. SCROLL PROGRESS BAR ─────────────────────
+  const progressBar = document.getElementById('scroll-progress');
+  function updateScrollProgress() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = total > 0 ? (scrolled / total) * 100 : 0;
+    if (progressBar) progressBar.style.width = Math.min(pct, 100) + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+  // ── 5. BACK TO TOP ─────────────────────────────
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => lenis.scrollTo(0, { duration: 1.2 }));
+  }
+
+  // ── 6. RIPPLE EFFECT ───────────────────────────
+  function addRipple(el) {
+    el.addEventListener('click', function (e) {
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple-wave');
+      ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px`;
+      this.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  }
+  document.querySelectorAll('.btn-primary, .btn-ghost, .btn-contact, .btn-cv').forEach(addRipple);
+
+  // ── 7. PROFILE CARD GLOW ───────────────────────
+  const profileCard = document.getElementById('profile-card');
+  const cardGlow = document.getElementById('card-glow');
+  if (profileCard && cardGlow) {
+    profileCard.addEventListener('mousemove', (e) => {
+      const rect = profileCard.getBoundingClientRect();
+      cardGlow.style.left = (e.clientX - rect.left) + 'px';
+      cardGlow.style.top = (e.clientY - rect.top) + 'px';
+    });
+  }
+
+  // ── 8. CUSTOM CURSOR ───────────────────────────
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (!isTouch && window.matchMedia('(pointer: fine)').matches) {
+    const dot = document.getElementById('cursor-dot');
+    const outline = document.getElementById('cursor-outline');
+    let mx = -100, my = -100, ox = -100, oy = -100;
+
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      if (dot) dot.style.transform = `translate(${mx}px,${my}px)`;
+    });
+
+    function trackOutline() {
+      ox += (mx - ox) * 0.12;
+      oy += (my - oy) * 0.12;
+      if (outline) outline.style.transform = `translate(${ox}px,${oy}px)`;
+      requestAnimationFrame(trackOutline);
+    }
+    requestAnimationFrame(trackOutline);
+
+    document.querySelectorAll('a, button, .project-card, .cert-card, .about-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { if (outline) outline.classList.add('cursor-hover'); if (dot) dot.style.opacity = '0'; });
+      el.addEventListener('mouseleave', () => { if (outline) outline.classList.remove('cursor-hover'); if (dot) dot.style.opacity = '1'; });
+    });
+  }
+
+  // ── 9. SMOOTH ANCHOR SCROLL ────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: 0, duration: 1.5, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    });
+  });
+
+  // ── 10. FLOATING NAV ACTIVE ────────────────────
+  const sections = document.querySelectorAll('.section[id]');
+  const navItems = document.querySelectorAll('.fnav-item');
+
+  function updateNav() {
+    let current = '';
+    sections.forEach(sec => {
+      if (sec.getBoundingClientRect().top <= window.innerHeight * 0.45) current = sec.id;
+    });
+    navItems.forEach(item => item.classList.toggle('active', item.dataset.section === current));
+  }
+  let navTimer;
+  window.addEventListener('scroll', () => {
+    if (!navTimer) { navTimer = setTimeout(() => { updateNav(); navTimer = null; }, 100); }
+  }, { passive: true });
+  updateNav();
+
+  // ── 11. MAGNETIC NAV ───────────────────────────
+  navItems.forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.5}px,${(e.clientY - r.top - r.height / 2) * 0.5}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+
+  // ── 12. SCROLL REVEAL ──────────────────────────
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('revealed'), i * 90);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal-el').forEach(el => revealObserver.observe(el));
+
+  // ── 13. COUNT-UP STATS ─────────────────────────
+  function countUp(el, target, dur = 1600) {
+    let start = null;
+    const step = ts => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / dur, 1);
+      el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target);
+      if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+    };
+    requestAnimationFrame(step);
+  }
+  const statObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        countUp(entry.target, parseInt(entry.target.dataset.target));
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.8 });
+  document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
+
+  // ── 14. 3D TILT ON CARDS ───────────────────────
+  if (!isTouch) {
+    document.querySelectorAll('.project-card, .about-card, .cert-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top - r.height / 2) / (r.height / 2)) * -6;
+        const ry = ((e.clientX - r.left - r.width / 2) / (r.width / 2)) * 6;
+        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02,1.02,1.02)`;
+        card.style.transition = 'none';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'transform 0.6s cubic-bezier(0.2,0.8,0.2,1), border-color 0.3s, box-shadow 0.3s';
+      });
+    });
+
+    // Profile card tilt
+    if (profileCard) {
+      profileCard.addEventListener('mousemove', e => {
+        const r = profileCard.getBoundingClientRect();
+        const rx = ((e.clientY - r.top - r.height / 2) / (r.height / 2)) * -5;
+        const ry = ((e.clientX - r.left - r.width / 2) / (r.width / 2)) * 5;
+        profileCard.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        profileCard.style.transition = 'none';
+      });
+      profileCard.addEventListener('mouseleave', () => {
+        profileCard.style.transform = '';
+        profileCard.style.transition = 'transform 0.6s cubic-bezier(0.2,0.8,0.2,1)';
+      });
+    }
+  }
+
+  // ── 15. CONTACT FORM ───────────────────────────
+  const form = document.getElementById('contact-form');
+  const btnText = document.getElementById('btn-text');
+  const btnLoad = document.getElementById('btn-loading');
+  const success = document.getElementById('form-success');
+
+  const shakeStyle = document.createElement('style');
+  shakeStyle.textContent = `@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}`;
+  document.head.appendChild(shakeStyle);
+
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!document.getElementById('cf-name').value.trim() ||
+        !document.getElementById('cf-email').value.trim() ||
+        !document.getElementById('cf-message').value.trim()) {
+        form.style.animation = 'shake .4s ease';
+        form.addEventListener('animationend', () => { form.style.animation = ''; }, { once: true });
+        return;
+      }
+      if (btnText) btnText.classList.add('hidden');
+      if (btnLoad) btnLoad.classList.remove('hidden');
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(res => {
+          if (btnText) btnText.classList.remove('hidden');
+          if (btnLoad) btnLoad.classList.add('hidden');
+          if (res.ok) { if (success) { success.classList.remove('hidden'); setTimeout(() => success.classList.add('hidden'), 5000); } form.reset(); }
+          else throw new Error('fail');
+        })
+        .catch(() => {
+          if (btnText) btnText.classList.remove('hidden');
+          if (btnLoad) btnLoad.classList.add('hidden');
+          alert('Oops! Something went wrong. Please try again.');
+        });
+    });
+  }
+
+  // ── 16. ROLE CYCLER ────────────────────────────
+  const words = document.querySelectorAll('.rw');
+  if (words.length) {
+    let current = 0;
+    function cycle() {
+      const prev = current;
+      current = (current + 1) % words.length;
+      words[prev].classList.remove('active');
+      words[prev].classList.add('exit');
+      words[current].classList.remove('exit');
+      words[current].classList.add('active');
+      setTimeout(() => words[prev].classList.remove('exit'), 1000);
+    }
+    setInterval(cycle, 3000);
+  }
+
+  // ── 17. STAT CARD HOVER PULSE ──────────────────
+  document.querySelectorAll('.bento-card.stat-bento').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const num = card.querySelector('.stat-num');
+      if (num) { num.style.transition = 'transform 0.3s cubic-bezier(0.34,1.56,0.64,1)'; num.style.transform = 'scale(1.15)'; }
+    });
+    card.addEventListener('mouseleave', () => {
+      const num = card.querySelector('.stat-num');
+      if (num) num.style.transform = 'scale(1)';
+    });
+  });
+
+  // ── 18. PARALLAX SCROLLING ENGINE ─────────────
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion && !isTouch) {
+    const parallaxEls = [];
+
+    function initParallax() {
+      parallaxEls.length = 0;
+      document.querySelectorAll('[data-parallax]').forEach(el => {
+        parallaxEls.push({ el, speed: parseFloat(el.getAttribute('data-parallax')) || 0.1 });
+      });
+    }
+    initParallax();
+
+    let resizeTimer;
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(initParallax, 250); }, { passive: true });
+
+    let parallaxTicking = false;
+    function applyParallax() {
+      const viewH = window.innerHeight;
+      parallaxEls.forEach(({ el, speed }) => {
+        if (el.classList.contains('reveal-el') && !el.classList.contains('revealed')) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < -400 || rect.top > viewH + 400) return;
+        const offset = -((rect.top + rect.height / 2 - viewH / 2) * speed);
+        el.style.setProperty('--py', `${offset}px`);
+      });
+      parallaxTicking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!parallaxTicking) { requestAnimationFrame(applyParallax); parallaxTicking = true; }
+    }, { passive: true });
+    requestAnimationFrame(applyParallax);
+  }
+
+  // ── 19. PROJECT PREVIEWS ON HOVER ─────────────
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectCursorPreview = document.getElementById('project-cursor-preview');
+  const pcImage = document.getElementById('pc-image');
+  const dot = document.getElementById('cursor-dot');
+  const outline = document.getElementById('cursor-outline');
+
+  if (!isTouch && projectCursorPreview && pcImage) {
+    let px = 0, py = 0, tpx = 0, tpy = 0;
+
+    projectCards.forEach(card => {
+      const video = card.querySelector('.project-video');
+      const img = card.querySelector('.project-img img');
+      const title = card.querySelector('.project-info h3');
+
+      // Video Hover Logic
+      card.addEventListener('mouseenter', () => {
+        if (video) {
+          video.currentTime = 0;
+          video.play().catch(() => { });
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (video) {
+          video.pause();
+        }
+      });
+
+      // Floating Image Logic (on Card or Title hover)
+      const showPreview = () => {
+        if (img) {
+          pcImage.src = img.src;
+          projectCursorPreview.classList.add('active');
+          if (outline) outline.classList.add('hide');
+        }
+      };
+
+      const hidePreview = () => {
+        projectCursorPreview.classList.remove('active');
+        if (outline) outline.classList.remove('hide');
+      };
+
+      // Trigger on whole card for better experience, or just title as requested
+      // The user said: "As the user hovers over a project title, a 'floating' image... follow the cursor"
+      // But usually it feels better on the whole card. I'll stick to 'project-card' for general hover, 
+      // and maybe emphasize 'title' if they really want just that. 
+      // I'll apply it to the whole card as it's more standard for this effect.
+      card.addEventListener('mouseenter', showPreview);
+      card.addEventListener('mouseleave', hidePreview);
+    });
+
+    // Bento Card Glow Effect
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--x', `${x}%`);
+        card.style.setProperty('--y', `${y}%`);
+      });
+    });
+
+    // Cursor Follow Logic for Preview
+    window.addEventListener('mousemove', e => {
+      tpx = e.clientX;
+      tpy = e.clientY;
+    });
+
+    function updatePreviewPos() {
+      // Smooth follow with lerp
+      px += (tpx - px) * 0.15;
+      py += (tpy - py) * 0.15;
+
+      // Offset preview slightly from cursor
+      projectCursorPreview.style.left = `${px + 20}px`;
+      projectCursorPreview.style.top = `${py + 20}px`;
+
+      requestAnimationFrame(updatePreviewPos);
+    }
+    requestAnimationFrame(updatePreviewPos);
+  }
+
+}); // end DOMContentLoaded
