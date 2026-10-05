@@ -5,24 +5,36 @@
 /* ── 1. COLOR TOKENS & DESIGN SYSTEM ── */
 :root {
   /* Primary — Cobalt */
-  --cobalt-900: #101B42;   /* headlines, nav text on light bg */
-  --cobalt-600: #2E56E0;   /* buttons, links, hover/focus states */
-  --cobalt-100: #E8EDFC;   /* tag fills, tinted section backgrounds */
+  --cobalt-900: #101B42;
+  /* headlines, nav text on light bg */
+  --cobalt-600: #2E56E0;
+  /* buttons, links, hover/focus states */
+  --cobalt-100: #E8EDFC;
+  /* tag fills, tinted section backgrounds */
 
   /* Base — Cream Linen */
-  --linen-50:  #FCF9F3;    /* page background */
-  --linen-100: #F6EEE0;    /* card / alternating section background */
-  --linen-300: #E9DFC8;    /* hairline borders, dividers */
+  --linen-50: #FCF9F3;
+  /* page background */
+  --linen-100: #F6EEE0;
+  /* card / alternating section background */
+  --linen-300: #E9DFC8;
+  /* hairline borders, dividers */
 
   /* Neutral — Ink (high contrast deep slate/ink) */
-  --ink-900: #0F172A;      /* body text - deepest readable slate */
-  --ink-700: #334155;      /* secondary text, bio, prominent descriptions */
-  --ink-600: #475569;      /* meta text, captions, timestamps */
+  --ink-900: #0F172A;
+  /* body text - deepest readable slate */
+  --ink-700: #334155;
+  /* secondary text, bio, prominent descriptions */
+  --ink-600: #475569;
+  /* meta text, captions, timestamps */
 
   /* Accent — Tangerine */
-  --tangerine-500: #F2622E; /* CTAs, highlights, tags, active states */
-  --tangerine-300: #F79A6E; /* secondary accent, illustration/chart highlight */
-  --tangerine-100: #FCE4D6; /* tinted callout backgrounds */
+  --tangerine-500: #F2622E;
+  /* CTAs, highlights, tags, active states */
+  --tangerine-300: #F79A6E;
+  /* secondary accent, illustration/chart highlight */
+  --tangerine-100: #FCE4D6;
+  /* tinted callout backgrounds */
 
   /* Semantic Mappings */
   --bg: var(--linen-50);
@@ -591,7 +603,7 @@ img {
   overflow: hidden;
   border: 3px solid transparent;
   background: linear-gradient(var(--linen-100), var(--linen-100)) padding-box,
-              linear-gradient(135deg, var(--cobalt-600), var(--tangerine-300)) border-box;
+    linear-gradient(135deg, var(--cobalt-600), var(--tangerine-300)) border-box;
   box-shadow:
     0 0 0 6px rgba(46, 86, 224, 0.08),
     0 16px 36px rgba(16, 27, 66, 0.12);
@@ -604,7 +616,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 30%;
   display: block;
   border-radius: 50%;
 }
@@ -1251,7 +1263,7 @@ img {
   position: relative;
 }
 
-.timeline-item + .timeline-item {
+.timeline-item+.timeline-item {
   border-top: 1px solid var(--linen-300);
 }
 
@@ -2574,9 +2586,18 @@ img {
   animation: navActivePulse 3s ease-in-out infinite;
   pointer-events: none;
 }
+
 @keyframes navActivePulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; box-shadow: 0 0 0 2px var(--cobalt-600), 0 0 22px rgba(46, 86, 224, 0.4); }
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 2px var(--cobalt-600), 0 0 22px rgba(46, 86, 224, 0.4);
+  }
 }
 
 /* ── P4. PROFILE CARD — elevated glass ── */
@@ -2591,24 +2612,26 @@ img {
 .profile-avatar {
   position: relative;
 }
+
 .profile-avatar::before {
   content: '';
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background: conic-gradient(
-    from 180deg,
-    var(--cobalt-600) 0deg,
-    var(--tangerine-300) 120deg,
-    var(--cobalt-100) 240deg,
-    var(--cobalt-600) 360deg
-  );
+  background: conic-gradient(from 180deg,
+      var(--cobalt-600) 0deg,
+      var(--tangerine-300) 120deg,
+      var(--cobalt-100) 240deg,
+      var(--cobalt-600) 360deg);
   opacity: 0.55;
   animation: avatarRingSpin 8s linear infinite;
   z-index: -1;
 }
+
 @keyframes avatarRingSpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ── P5. HERO — editorial typography upgrade ── */
@@ -2620,14 +2643,12 @@ img {
 }
 
 .grad-name {
-  background: linear-gradient(
-    90deg,
-    var(--cobalt-900) 0%,
-    var(--cobalt-600) 35%,
-    var(--tangerine-500) 55%,
-    var(--cobalt-600) 75%,
-    var(--cobalt-900) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--cobalt-900) 0%,
+      var(--cobalt-600) 35%,
+      var(--tangerine-500) 55%,
+      var(--cobalt-600) 75%,
+      var(--cobalt-900) 100%);
   background-size: 300%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -2665,11 +2686,13 @@ img {
     0 1px 0 rgba(255, 255, 255, 0.8) inset;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .stat-bento:hover {
   box-shadow:
     0 24px 48px rgba(16, 27, 66, 0.1),
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
+
 .stat-num {
   font-family: 'Syne', 'Inter', sans-serif;
   letter-spacing: -2px;
@@ -2680,10 +2703,12 @@ img {
   font-family: 'Syne', 'Inter', sans-serif;
   letter-spacing: -2px;
 }
+
 .section-title .accent {
   position: relative;
   display: inline-block;
 }
+
 .section-title .accent::after {
   content: '';
   position: absolute;
@@ -2697,9 +2722,13 @@ img {
   transform-origin: left;
   animation: underlineReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
 }
+
 @keyframes underlineReveal {
-  to { transform: scaleX(1); }
+  to {
+    transform: scaleX(1);
+  }
 }
+
 .section-label {
   letter-spacing: 3px;
   font-size: 0.67rem;
@@ -2714,9 +2743,11 @@ img {
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
   overflow: hidden;
 }
+
 .about-card-icon {
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, color 0.3s ease;
 }
+
 .about-card:hover .about-card-icon {
   transform: scale(1.15) rotate(-6deg);
   background: var(--cobalt-600);
@@ -2725,29 +2756,38 @@ img {
 
 /* ── P9. TIMELINE ── */
 .timeline::before {
-  background: linear-gradient(
-    to bottom,
-    var(--cobalt-600) 0%,
-    var(--cobalt-100) 50%,
-    var(--linen-300) 100%
-  );
+  background: linear-gradient(to bottom,
+      var(--cobalt-600) 0%,
+      var(--cobalt-100) 50%,
+      var(--linen-300) 100%);
   opacity: 0.5;
 }
+
 .tl-icon {
   box-shadow:
     0 4px 12px rgba(16, 27, 66, 0.08),
     0 1px 0 rgba(255, 255, 255, 0.8) inset;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
 .timeline-item:hover .tl-icon {
   transform: scale(1.08) rotate(-3deg);
 }
+
 .tl-badge {
   animation: badgePulse 3s ease-in-out infinite;
 }
+
 @keyframes badgePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(242, 98, 46, 0); }
-  50% { box-shadow: 0 0 0 5px rgba(242, 98, 46, 0.08); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(242, 98, 46, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 5px rgba(242, 98, 46, 0.08);
+  }
 }
 
 /* ── P10. PROJECT CARDS ── */
@@ -2755,43 +2795,53 @@ img {
   gap: 24px;
   counter-reset: project-counter;
 }
+
 .project-card {
   box-shadow:
     0 4px 20px rgba(16, 27, 66, 0.06),
     0 1px 0 rgba(255, 255, 255, 0.8) inset;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .project-card:hover {
   box-shadow:
     0 20px 48px rgba(16, 27, 66, 0.12),
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
+
 .project-overlay {
   backdrop-filter: blur(8px) saturate(1.4);
 }
+
 .project-overlay span {
   box-shadow: 0 4px 16px rgba(16, 27, 66, 0.12);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
 .project-card:hover .project-overlay span {
   transform: translateY(-2px);
 }
+
 .project-info {
   padding: 22px 22px 26px;
   border-top: 1px solid var(--linen-300);
 }
+
 .project-info h3 {
   font-family: 'Syne', 'Inter', sans-serif;
   font-weight: 700;
   letter-spacing: -0.3px;
   transition: color 0.3s ease;
 }
+
 .project-card:hover .project-info h3 {
   color: var(--cobalt-600);
 }
+
 .project-img img {
   transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1) !important;
 }
+
 .project-card:hover .project-img img {
   transform: scale(1.08) !important;
 }
@@ -2803,15 +2853,18 @@ img {
     0 1px 0 rgba(255, 255, 255, 0.8) inset;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .bento-card:hover {
   box-shadow:
     0 24px 48px rgba(16, 27, 66, 0.1),
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
+
 .bento-label {
   font-size: 0.67rem;
   letter-spacing: 2px;
 }
+
 .skill-pill {
   box-shadow: 0 2px 6px rgba(16, 27, 66, 0.05), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
   border-radius: 999px;
@@ -2823,11 +2876,13 @@ img {
   gap: 7px;
   transition: all 0.25s ease;
 }
+
 .skill-pill:hover {
   border-color: rgba(46, 86, 224, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(16, 27, 66, 0.08);
 }
+
 .bento-small:hover .specialty-icon {
   transform: scale(1.25) rotate(-8deg);
 }
@@ -2839,15 +2894,18 @@ img {
     0 1px 0 rgba(255, 255, 255, 0.8) inset;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .cert-card:hover {
   box-shadow:
     0 14px 32px rgba(16, 27, 66, 0.08),
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
+
 .cert-info h4 {
   letter-spacing: -0.1px;
   font-size: 0.88rem;
 }
+
 .cert-icon {
   box-shadow: 0 2px 8px rgba(16, 27, 66, 0.1);
 }
@@ -2860,12 +2918,14 @@ img {
   box-shadow: 0 2px 6px rgba(16, 27, 66, 0.04) inset, 0 1px 0 rgba(255, 255, 255, 0.8);
   border-radius: 14px;
 }
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   transform: translateY(-1px);
   box-shadow: 0 0 0 3px rgba(46, 86, 224, 0.12), 0 4px 12px rgba(16, 27, 66, 0.06) inset;
 }
+
 .form-group label {
   font-size: 0.72rem;
   letter-spacing: 1.5px;
@@ -2877,22 +2937,27 @@ img {
   box-shadow: 0 4px 14px rgba(242, 98, 46, 0.25);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .btn-primary:hover,
 .btn-contact:hover {
   box-shadow: 0 10px 28px rgba(242, 98, 46, 0.35);
   transform: translateY(-3px);
 }
+
 .btn-cv {
   box-shadow: 0 4px 14px rgba(16, 27, 66, 0.12);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .btn-cv:hover {
   box-shadow: 0 10px 28px rgba(16, 27, 66, 0.2);
   transform: translateY(-3px);
 }
+
 .btn-ghost {
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .btn-ghost:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px rgba(46, 86, 224, 0.2);
@@ -2905,10 +2970,12 @@ img {
   letter-spacing: -0.5px;
   box-shadow: 0 2px 8px rgba(46, 86, 224, 0.1), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
 }
+
 .footer-email a {
   position: relative;
   display: inline-block;
 }
+
 .footer-email a::after {
   content: '';
   position: absolute;
@@ -2919,20 +2986,25 @@ img {
   background: var(--cobalt-600);
   transition: width 0.3s ease;
 }
+
 .footer-email a:hover::after {
   width: 100%;
 }
+
 .profile-socials a {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 2px 6px rgba(16, 27, 66, 0.06);
 }
+
 .profile-socials a:hover {
   transform: translateY(-4px) scale(1.08);
   box-shadow: 0 8px 18px rgba(46, 86, 224, 0.2);
 }
+
 .footer-socials a {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
 .footer-socials a:hover {
   transform: translateY(-3px) scale(1.08);
 }
@@ -2949,6 +3021,7 @@ img {
   font-weight: 700;
   letter-spacing: -0.3px;
 }
+
 .role-static {
   opacity: 0.65;
   font-weight: 500;
@@ -2972,12 +3045,15 @@ img {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--linen-300) 25%, var(--linen-300) 75%, transparent);
 }
+
 .section:last-of-type::after {
   display: none;
 }
+
 .section {
   position: relative;
 }
+
 .section:last-of-type {
   border-bottom: none;
 }
@@ -2989,16 +3065,26 @@ img {
 
 /* ── P21. MOBILE FONTS ── */
 @media (max-width: 860px) {
+
   .hero-title,
   .section-title {
     font-family: 'Syne', 'Inter', sans-serif;
     letter-spacing: -1.5px;
   }
 }
+
 @media (max-width: 640px) {
-  .hero-title { letter-spacing: -1px; }
-  .section-title { letter-spacing: -1px; }
-  .stat-num { letter-spacing: -1px; }
+  .hero-title {
+    letter-spacing: -1px;
+  }
+
+  .section-title {
+    letter-spacing: -1px;
+  }
+
+  .stat-num {
+    letter-spacing: -1px;
+  }
 }
 
 
@@ -3027,6 +3113,7 @@ img {
   transition: opacity 0.5s ease;
   opacity: 0;
 }
+
 .bento-card:hover .bento-bg-glow {
   opacity: 1;
 }
@@ -3035,6 +3122,7 @@ img {
 .hero-section {
   border-bottom: none;
 }
+
 .hero-section::after {
   display: none;
 }
@@ -3048,6 +3136,7 @@ img {
 .profile-info {
   gap: 8px;
 }
+
 .profile-name {
   font-family: 'Syne', 'Inter', sans-serif;
   letter-spacing: -0.5px;
@@ -3149,10 +3238,12 @@ img {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
   }
+
   70% {
     transform: scale(1);
     box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
   }
+
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
@@ -3478,5 +3569,3 @@ img {
   letter-spacing: -0.6px;
   font-stretch: 100%;
 }
-
-
