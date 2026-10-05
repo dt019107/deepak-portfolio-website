@@ -3,7 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FCF9F3" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101B42" media="(prefers-color-scheme: dark)" />
   <title>Deepak Tiwari | UI/UX Designer Portfolio</title>
   <meta name="description"
     content="Professional portfolio of Deepak Tiwari – a passionate UI/UX Designer crafting beautiful, human-centered digital experiences." />
@@ -37,16 +39,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=DM+Serif+Display:ital@1&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=DM+Serif+Display:ital@1&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="profile_photo.png" fetchpriority="high" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+
+  <!-- Skip to main content (accessibility) -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- ── SCROLL PROGRESS BAR ── -->
   <div id="scroll-progress"></div>
@@ -65,9 +74,48 @@
     <canvas id="vector-canvas"></canvas>
   </div>
 
+  <!-- ── MOBILE NAV OVERLAY ── -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-drawer" role="dialog" aria-label="Mobile Navigation">
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+        <a href="#home" class="mobile-nav-item" data-section="home">
+          <i class="fa-solid fa-house"></i><span>Home</span>
+        </a>
+        <a href="#about" class="mobile-nav-item" data-section="about">
+          <i class="fa-solid fa-user"></i><span>About</span>
+        </a>
+        <a href="#experience" class="mobile-nav-item" data-section="experience">
+          <i class="fa-solid fa-briefcase"></i><span>Work</span>
+        </a>
+        <a href="#projects" class="mobile-nav-item" data-section="projects">
+          <i class="fa-solid fa-folder-open"></i><span>Projects</span>
+        </a>
+        <a href="#skills" class="mobile-nav-item" data-section="skills">
+          <i class="fa-solid fa-wand-magic-sparkles"></i><span>Skills</span>
+        </a>
+        <a href="#certifications" class="mobile-nav-item" data-section="certifications">
+          <i class="fa-solid fa-certificate"></i><span>Certifications</span>
+        </a>
+        <a href="#contact" class="mobile-nav-item" data-section="contact">
+          <i class="fa-solid fa-paper-plane"></i><span>Contact</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
   <!-- ── TOP HEADER ── -->
   <header class="top-header">
     <div class="header-unit">
+      <!-- Mobile hamburger button -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
       <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
         <a href="#home" class="fnav-item active" data-section="home" title="Home">
           <i class="fa-solid fa-house"></i>
