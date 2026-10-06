@@ -197,8 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = 'none';
       });
       card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-        card.style.transition = 'transform 0.6s cubic-bezier(0.2,0.8,0.2,1), border-color 0.3s, box-shadow 0.3s';
+        requestAnimationFrame(() => {
+          card.style.transition = 'transform 0.6s cubic-bezier(0.2,0.8,0.2,1), border-color 0.3s, box-shadow 0.3s';
+          card.style.transform = '';
+        });
       });
     });
 
@@ -223,34 +225,119 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnText = document.getElementById('btn-text');
   const btnLoad = document.getElementById('btn-loading');
   const success = document.getElementById('form-success');
+  const formError = document.getElementById('form-error');
+
+  const nameInput = document.getElementById('cf-name');
+  const emailInput = document.getElementById('cf-email');
+  const msgInput = document.getElementById('cf-message');
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const msgError = document.getElementById('message-error');
 
   const shakeStyle = document.createElement('style');
   shakeStyle.textContent = `@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}`;
   document.head.appendChild(shakeStyle);
 
+  function clearFieldError(input, errorEl) {
+    if (input) {
+      input.classList.remove('is-invalid');
+      input.removeAttribute('aria-invalid');
+    }
+    if (errorEl) {
+      errorEl.classList.add('hidden');
+    }
+  }
+
+  if (nameInput) nameInput.addEventListener('input', () => clearFieldError(nameInput, nameError));
+  if (emailInput) emailInput.addEventListener('input', () => clearFieldError(emailInput, emailError));
+  if (msgInput) msgInput.addEventListener('input', () => clearFieldError(msgInput, msgError));
+
   if (form) {
     form.addEventListener('submit', e => {
       e.preventDefault();
-      if (!document.getElementById('cf-name').value.trim() ||
-        !document.getElementById('cf-email').value.trim() ||
-        !document.getElementById('cf-message').value.trim()) {
+
+      let hasError = false;
+      let firstInvalid = null;
+
+      // Validate Name
+      if (!nameInput || !nameInput.value.trim()) {
+        if (nameInput) {
+          nameInput.classList.add('is-invalid');
+          nameInput.setAttribute('aria-invalid', 'true');
+        }
+        if (nameError) nameError.classList.remove('hidden');
+        hasError = true;
+        firstInvalid = firstInvalid || nameInput;
+      } else {
+        clearFieldError(nameInput, nameError);
+      }
+
+      // Validate Email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput || !emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        if (emailInput) {
+          emailInput.classList.add('is-invalid');
+          emailInput.setAttribute('aria-invalid', 'true');
+        }
+        if (emailError) emailError.classList.remove('hidden');
+        hasError = true;
+        firstInvalid = firstInvalid || emailInput;
+      } else {
+        clearFieldError(emailInput, emailError);
+      }
+
+      // Validate Message
+      if (!msgInput || !msgInput.value.trim()) {
+        if (msgInput) {
+          msgInput.classList.add('is-invalid');
+          msgInput.setAttribute('aria-invalid', 'true');
+        }
+        if (msgError) msgError.classList.remove('hidden');
+        hasError = true;
+        firstInvalid = firstInvalid || msgInput;
+      } else {
+        clearFieldError(msgInput, msgError);
+      }
+
+      if (hasError) {
+        if (formError) formError.classList.add('hidden');
         form.style.animation = 'shake .4s ease';
         form.addEventListener('animationend', () => { form.style.animation = ''; }, { once: true });
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
+
+      if (formError) formError.classList.add('hidden');
       if (btnText) btnText.classList.add('hidden');
       if (btnLoad) btnLoad.classList.remove('hidden');
-      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
         .then(res => {
           if (btnText) btnText.classList.remove('hidden');
           if (btnLoad) btnLoad.classList.add('hidden');
-          if (res.ok) { if (success) { success.classList.remove('hidden'); setTimeout(() => success.classList.add('hidden'), 5000); } form.reset(); }
-          else throw new Error('fail');
+          if (res.ok) {
+            if (success) {
+              success.classList.remove('hidden');
+              setTimeout(() => success.classList.add('hidden'), 7000);
+            }
+            form.reset();
+            clearFieldError(nameInput, nameError);
+            clearFieldError(emailInput, emailError);
+            clearFieldError(msgInput, msgError);
+          } else {
+            throw new Error('Form submission failed');
+          }
         })
         .catch(() => {
           if (btnText) btnText.classList.remove('hidden');
           if (btnLoad) btnLoad.classList.add('hidden');
-          alert('Oops! Something went wrong. Please try again.');
+          if (formError) {
+            formError.classList.remove('hidden');
+          }
         });
     });
   }
@@ -392,9 +479,15 @@ document.addEventListener('DOMContentLoaded', () => {
       px += (tpx - px) * 0.15;
       py += (tpy - py) * 0.15;
 
-      // Offset preview slightly from cursor
-      projectCursorPreview.style.left = `${px + 20}px`;
-      projectCursorPreview.style.top = `${py + 20}px`;
+      // Offset preview slightly from cursor with boundary clamping
+      const previewWidth = projectCursorPreview.offsetWidth || 260;
+      const previewHeight = projectCursorPreview.offsetHeight || 180;
+      const maxX = window.innerWidth - previewWidth - 16;
+      const maxY = window.innerHeight - previewHeight - 16;
+      const posX = Math.max(16, Math.min(px + 20, maxX));
+      const posY = Math.max(16, Math.min(py + 20, maxY));
+      projectCursorPreview.style.left = `${posX}px`;
+      projectCursorPreview.style.top = `${posY}px`;
 
       requestAnimationFrame(updatePreviewPos);
     }

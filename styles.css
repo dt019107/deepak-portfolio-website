@@ -953,8 +953,13 @@ img {
 .wave-emoji {
   display: inline-block;
   font-size: 1.3rem;
-  animation: waveHand 2.5s ease-in-out infinite;
+  animation: waveHand 2.5s ease-in-out 3 forwards;
   transform-origin: 70% 70%;
+  cursor: default;
+}
+
+.wave-emoji:hover {
+  animation: waveHand 1.2s ease-in-out 1;
 }
 
 @keyframes waveHand {
@@ -1677,74 +1682,6 @@ img {
   margin-bottom: 4px;
 }
 
-/* Logo Marquee */
-.marquee-wrap {
-  width: 100%;
-  overflow: hidden;
-  padding: 30px 0;
-  position: relative;
-}
-
-.marquee-wrap::before,
-.marquee-wrap::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.marquee-wrap::before {
-  left: 0;
-  background: linear-gradient(to right, var(--linen-100), transparent);
-}
-
-.marquee-wrap::after {
-  right: 0;
-  background: linear-gradient(to left, var(--linen-100), transparent);
-}
-
-.marquee-content {
-  display: flex;
-  gap: 60px;
-  animation: marquee-scroll 30s linear infinite;
-  width: max-content;
-}
-
-.marquee-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink-600);
-  white-space: nowrap;
-  transition: color 0.3s ease;
-}
-
-.marquee-item i {
-  font-size: 1.4rem;
-}
-
-.marquee-item:hover {
-  color: var(--cobalt-600);
-}
-
-.marquee-wrap:hover .marquee-content {
-  animation-play-state: paused;
-}
-
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
 @media (max-width: 900px) {
   .skills-bento-grid {
@@ -1908,13 +1845,49 @@ img {
   align-items: center;
   gap: 10px;
   padding: 14px 18px;
-  background: var(--tangerine-100);
-  border: 1px solid rgba(242, 98, 46, 0.25);
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
   border-radius: 12px;
-  color: var(--tangerine-500);
+  color: #16a34a;
   font-weight: 600;
   font-size: 0.88rem;
-  margin-top: 4px;
+  margin-top: 12px;
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 12px;
+  color: #dc2626;
+  font-weight: 500;
+  font-size: 0.88rem;
+  margin-top: 12px;
+  line-height: 1.45;
+}
+
+.required-indicator {
+  color: #ef4444;
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18) !important;
+}
+
+.field-error-msg {
+  display: block;
+  font-size: 0.78rem;
+  color: #ef4444;
+  margin-top: 5px;
+  font-weight: 500;
 }
 
 .hidden {
@@ -2306,10 +2279,6 @@ img {
 
   .project-img {
     height: 180px !important;
-  }
-
-  .section {
-    padding: 60px 0;
   }
 
   .site-footer {
@@ -4481,14 +4450,6 @@ html {
     left: 4px;
   }
 
-  .marquee-item {
-    font-size: 0.95rem;
-    gap: 10px;
-  }
-
-  .marquee-content {
-    gap: 40px;
-  }
 
   .bento-card {
     padding: 16px;
@@ -4668,9 +4629,6 @@ html {
     transform: none;
   }
 
-  .marquee-content {
-    animation: none;
-  }
 
   html {
     scroll-behavior: auto;

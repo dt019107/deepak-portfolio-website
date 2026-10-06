@@ -40,7 +40,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=DM+Serif+Display:ital@1&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=DM+Serif+Display:ital@1&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"></noscript>
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=DM+Serif+Display:ital@1&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
+      rel="stylesheet">
+  </noscript>
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -88,7 +92,7 @@
           <i class="fa-solid fa-user"></i><span>About</span>
         </a>
         <a href="#experience" class="mobile-nav-item" data-section="experience">
-          <i class="fa-solid fa-briefcase"></i><span>Work</span>
+          <i class="fa-solid fa-briefcase"></i><span>Experience</span>
         </a>
         <a href="#projects" class="mobile-nav-item" data-section="projects">
           <i class="fa-solid fa-folder-open"></i><span>Projects</span>
@@ -125,9 +129,9 @@
           <i class="fa-solid fa-user"></i>
           <span class="fnav-label">About</span>
         </a>
-        <a href="#experience" class="fnav-item" data-section="experience" title="Work">
+        <a href="#experience" class="fnav-item" data-section="experience" title="Experience">
           <i class="fa-solid fa-briefcase"></i>
-          <span class="fnav-label">Work</span>
+          <span class="fnav-label">Experience</span>
         </a>
         <a href="#projects" class="fnav-item" data-section="projects" title="Projects">
           <i class="fa-solid fa-folder-open"></i>
@@ -167,12 +171,12 @@
       <div class="profile-card" id="profile-card">
 
         <div class="profile-avatar">
-          <img src="profile_photo.png" alt="Deepak Tiwari" loading="lazy" decoding="async">
+          <img src="profile_photo.png" alt="Deepak Tiwari" decoding="async" fetchpriority="high">
         </div>
 
         <div class="profile-info">
-          <h2 class="profile-name">Deepak Tiwari</h2>
-          <p class="profile-role">UI/UX Designer</p>
+          <h2 class="profile-name"></h2>
+          <p class="profile-role"></p>
           <p class="profile-location"><i class="fa-solid fa-location-dot"></i> Mumbai, India</p>
           <div class="availability-badge">
             <span class="pulse"></span> Available for work
@@ -183,20 +187,23 @@
         <div class="card-glow" id="card-glow"></div>
 
         <div class="profile-socials">
-          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank" title="LinkedIn"><i
+          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank"
+            rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile"><i
               class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" title="Behance"><i
-              class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com/dt019107" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer" title="Behance"
+            aria-label="Behance portfolio"><i class="fa-brands fa-behance"></i></a>
+          <a href="https://github.com/dt019107" target="_blank" rel="noopener noreferrer" title="GitHub"
+            aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
         </div>
 
         <!-- CTAs -->
         <div class="sidebar-ctas">
           <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank"
-            class="btn-cv">
-            <i class="fa-solid fa-download"></i>Resume
+            rel="noopener noreferrer" class="btn-cv" aria-label="View Resume (opens in new tab)">
+            <i class="fa-solid fa-file-lines"></i>Resume <i class="fa-solid fa-arrow-up-right-from-square"
+              style="font-size:0.7em;margin-left:3px;" aria-hidden="true"></i>
           </a>
-          <a href="mailto:dt019107@gmail.com" class="btn-contact">
+          <a href="mailto:dt019107@gmail.com" class="btn-contact" aria-label="Contact Deepak Tiwari via email">
             <i class="fa-solid fa-paper-plane"></i> Contact Me
           </a>
         </div>
@@ -324,15 +331,17 @@
 
       <!-- ── EXPERIENCE ── -->
       <section id="experience" class="section">
-        <div class="section-label reveal-el">My Journey</div>
+        <div class="section-label reveal-el">Experience</div>
         <h2 class="section-title reveal-el">Work <span class="accent">Experience</span></h2>
 
         <div class="timeline">
 
           <div class="timeline-item reveal-el">
             <div class="tl-left">
-              <div class="tl-icon" style="background:#fff;overflow:hidden;"><img src="DecisionCulture_Logo.jpg" alt="Decision Culture"
-                  style="width:100%;height:100%;object-fit:contain;padding:2px;border-radius:12px;" loading="lazy" decoding="async">
+              <div class="tl-icon" style="background:#fff;overflow:hidden;"><img src="DecisionCulture_Logo.jpg"
+                  alt="Decision Culture"
+                  style="width:100%;height:100%;object-fit:contain;padding:2px;border-radius:12px;" loading="lazy"
+                  decoding="async">
               </div>
             </div>
             <div class="tl-right">
@@ -404,16 +413,17 @@
 
       <!-- ── PROJECTS ── -->
       <section id="projects" class="section">
-        <div class="section-label reveal-el">My Work</div>
+        <div class="section-label reveal-el">Featured Work</div>
         <h2 class="section-title reveal-el">Featured <span class="accent">Projects</span></h2>
 
         <div class="projects-grid">
 
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
+          <a href="https://www.behance.net/gallery/235468505" target="_blank" rel="noopener noreferrer"
+            class="project-card reveal-el" aria-label="View Fitness Tracker App case study on Behance">
             <div class="project-img" style="padding:0;overflow:hidden;">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/f8a061235468505.Y3JvcCw2MDY0LDQ3NDMsMCww.png"
-                alt="Fitness Tracker App"
+                alt="Fitness Tracker App UI/UX Case Study"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
               <video class="project-video"
@@ -426,16 +436,18 @@
             <div class="project-info">
               <div class="project-tags"><span>Mobile App</span><span>UX Case Study</span></div>
               <h3>Fitness Tracker App</h3>
-              <p>End-to-end mobile UI/UX design for a health & fitness tracking application.</p>
+              <p>End-to-end mobile UI/UX design for a health & fitness tracking application with workout metrics and
+                analytics.</p>
             </div>
           </a>
 
           <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study"
-            target="_blank" class="project-card reveal-el">
+            target="_blank" rel="noopener noreferrer" class="project-card reveal-el"
+            aria-label="View IndiGo Booking Experience case study">
             <div class="project-img" style="padding:0;overflow:hidden;">
               <img
                 src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=1920"
-                alt="IndiGo Case Study"
+                alt="IndiGo Flight Booking Flow UX Case Study"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
               <video class="project-video"
@@ -446,18 +458,19 @@
               </div>
             </div>
             <div class="project-info">
-              <div class="project-tags"><span>Case Study</span><span>UX</span></div>
-              <h3>IndiGo</h3>
+              <div class="project-tags"><span>Case Study</span><span>UX Research</span></div>
+              <h3>IndiGo Booking Experience</h3>
               <p>UX case study redesigning IndiGo's booking flow, improving usability through research and data-driven
                 design decisions.</p>
             </div>
           </a>
 
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
+          <a href="https://www.behance.net/gallery/235653015" target="_blank" rel="noopener noreferrer"
+            class="project-card reveal-el" aria-label="View Kanban Task Tracker project on Behance">
             <div class="project-img" style="padding:0;overflow:hidden;">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png"
-                alt="Task Management App"
+                alt="Kanban Task Management Web Application"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
               <video class="project-video"
@@ -468,59 +481,42 @@
               </div>
             </div>
             <div class="project-info">
-              <div class="project-tags"><span>Web App</span><span>PWA</span></div>
+              <div class="project-tags"><span>Web App</span><span>Productivity</span></div>
               <h3>Kanban Task Tracker</h3>
-              <p>A feature-rich productivity PWA with Kanban board, analytics, and automation engine.</p>
+              <p>A feature-rich productivity PWA with Kanban board, workflow analytics, and intuitive task organization.
+              </p>
             </div>
           </a>
 
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
+          <a href="https://www.behance.net/gallery/235520313" target="_blank" rel="noopener noreferrer"
+            class="project-card reveal-el" aria-label="View Yoga and Wellness Platform design on Behance">
             <div class="project-img" style="padding:0;overflow:hidden;">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png"
-                alt="Yoga Fitness Landing Page"
+                alt="Yoga and Wellness Platform Landing Page"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
               <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-airplane-taking-off-in-the-sun-2790-large.mp4" loop
-                muted playsinline></video>
+                src="https://assets.mixkit.co/videos/preview/mixkit-running-in-the-forest-1225-large.mp4" loop muted
+                playsinline></video>
               <div class="project-overlay">
                 <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
               </div>
             </div>
             <div class="project-info">
-              <div class="project-tags"><span>Mobile App</span><span>UI Design</span></div>
-              <h3>Travel Booking App</h3>
-              <p>Full-stack mobile design for a hotel, flight & travel booking super-app.</p>
+              <div class="project-tags"><span>Web Design</span><span>Landing Page</span></div>
+              <h3>Yoga &amp; Wellness Platform</h3>
+              <p>Responsive web experience and schedule booking interface crafted for a modern holistic wellness brand.
+              </p>
             </div>
           </a>
 
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
+          <a href="https://www.behance.net/gallery/214354057" target="_blank" rel="noopener noreferrer"
+            class="project-card reveal-el" aria-label="View Domino's Promotional Campaign design on Behance">
             <div class="project-img" style="padding:0;overflow:hidden;">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Domino's Pizza Poster"
-                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
-                loading="lazy" decoding="async" />
-              <video class="project-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-web-browsing-on-a-digital-tablet-4617-large.mp4"
-                loop muted playsinline></video>
-              <div class="project-overlay">
-                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags"><span>Redesign</span><span>Web UX</span></div>
-              <h3>Zidio Website Redesign</h3>
-              <p>Professional UX overhaul of an enterprise SaaS website to improve usability.</p>
-            </div>
-          </a>
-
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="project-card reveal-el">
-            <div class="project-img" style="padding:0;overflow:hidden;">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Burger Poster"
+                alt="Domino's Pizza Brand Promotional Campaign Poster"
                 style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
                 loading="lazy" decoding="async" />
               <video class="project-video"
@@ -531,16 +527,40 @@
               </div>
             </div>
             <div class="project-info">
-              <div class="project-tags"><span>Mobile App</span><span>Figma</span></div>
-              <h3>Restaurant Menu App</h3>
-              <p>A clean, intuitive mobile food ordering and restaurant menu experience.</p>
+              <div class="project-tags"><span>Brand Campaign</span><span>Visual Design</span></div>
+              <h3>Domino's Promotional Campaign</h3>
+              <p>High-conversion promotional poster and social campaign visual design for Domino's Pizza promotions.</p>
+            </div>
+          </a>
+
+          <a href="https://www.behance.net/gallery/214274261" target="_blank" rel="noopener noreferrer"
+            class="project-card reveal-el" aria-label="View Gourmet Burger Brand Campaign design on Behance">
+            <div class="project-img" style="padding:0;overflow:hidden;">
+              <img
+                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
+                alt="Gourmet Burger Brand Identity and Promotional Poster"
+                style="width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.4s ease;"
+                loading="lazy" decoding="async" />
+              <video class="project-video"
+                src="https://assets.mixkit.co/videos/preview/mixkit-chef-preparing-a-salad-in-the-kitchen-4621-large.mp4"
+                loop muted playsinline></video>
+              <div class="project-overlay">
+                <span>View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags"><span>Brand Identity</span><span>Visual Design</span></div>
+              <h3>Gourmet Burger Brand Campaign</h3>
+              <p>Appetizing visual advertising design and creative promotional campaign assets for a specialty burger
+                house.</p>
             </div>
           </a>
 
         </div>
 
         <div class="view-more-wrap reveal-el">
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" class="btn-ghost">
+          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer"
+            class="btn-ghost" aria-label="View full portfolio on Behance (opens in new tab)">
             View All on Behance <i class="fa-brands fa-behance"></i>
           </a>
         </div>
@@ -607,31 +627,6 @@
             <div class="bento-bg-glow"></div>
           </div>
 
-          <!-- Wide Card: Infinite Marquee -->
-          <div class="bento-card bento-wide reveal-el">
-            <div class="marquee-wrap">
-              <div class="marquee-content" id="marquee-content">
-                <div class="marquee-item"><i class="devicon-figma-plain colored"></i> Figma</div>
-                <div class="marquee-item"><i class="devicon-html5-plain colored"></i> HTML</div>
-                <div class="marquee-item"><i class="devicon-css3-plain colored"></i> CSS</div>
-                <div class="marquee-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
-                <div class="marquee-item"><i class="devicon-canva-original colored"></i> Canva</div>
-                <div class="marquee-item"><i class="fa-solid fa-pen-nib"></i> UI Design</div>
-                <div class="marquee-item"><i class="fa-solid fa-users"></i> UX Research</div>
-                <div class="marquee-item"><i class="devicon-github-original"></i> GitHub</div>
-                <!-- Duplicate for seamless loop -->
-                <div class="marquee-item"><i class="devicon-figma-plain colored"></i> Figma</div>
-                <div class="marquee-item"><i class="devicon-html5-plain colored"></i> HTML</div>
-                <div class="marquee-item"><i class="devicon-css3-plain colored"></i> CSS</div>
-                <div class="marquee-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
-                <div class="marquee-item"><i class="devicon-canva-original colored"></i> Canva</div>
-                <div class="marquee-item"><i class="fa-solid fa-pen-nib"></i> UI Design</div>
-                <div class="marquee-item"><i class="fa-solid fa-users"></i> UX Research</div>
-                <div class="marquee-item"><i class="devicon-github-original"></i> GitHub</div>
-              </div>
-            </div>
-          </div>
-
           <!-- Small Cards: Specialties -->
           <div class="bento-card bento-small reveal-el">
             <div class="bento-noise"></div>
@@ -647,6 +642,20 @@
               <span>Prototyping</span>
             </div>
           </div>
+          <div class="bento-card bento-small reveal-el">
+            <div class="bento-noise"></div>
+            <div class="bento-content centered magnetic-item">
+              <i class="fa-solid fa-layer-group specialty-icon"></i>
+              <span>Design Systems</span>
+            </div>
+          </div>
+          <div class="bento-card bento-small reveal-el">
+            <div class="bento-noise"></div>
+            <div class="bento-content centered magnetic-item">
+              <i class="fa-solid fa-bezier-curve specialty-icon"></i>
+              <span>Wireframing</span>
+            </div>
+          </div>
 
         </div>
       </section>
@@ -659,7 +668,8 @@
         <div class="certs-grid">
 
           <a href="https://www.life-global.org/certificate/969411ad-c96f-4180-afc4-58ba678c9738" target="_blank"
-            class="cert-card reveal-el">
+            rel="noopener noreferrer" class="cert-card reveal-el"
+            aria-label="View HP LIFE Agile Project Management certificate">
             <div class="cert-icon" style="background:#fff;padding:4px;overflow:hidden;"><img src="hp_logo.svg" alt="HP"
                 style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async"></div>
             <div class="cert-info">
@@ -670,7 +680,8 @@
           </a>
 
           <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3"
-            target="_blank" class="cert-card reveal-el">
+            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
+            aria-label="View Atlassian Agile PM certificate on LinkedIn Learning">
             <div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img
                 src="atlassian_agile_logo.png" alt="Atlassian" style="width:100%;height:100%;object-fit:contain;"
                 loading="lazy" decoding="async"></div>
@@ -682,7 +693,8 @@
           </a>
 
           <a href="https://canva.com/designschool/certification-award/b5dfb0f3-5eb6-4314-9a5a-9b637077a001"
-            target="_blank" class="cert-card reveal-el">
+            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
+            aria-label="View Canva Essentials certificate">
             <div class="cert-icon"
               style="background:linear-gradient(135deg,#00c4cc,#7d2ae8);padding:0;overflow:hidden;"><svg
                 xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -706,7 +718,8 @@
           </a>
 
           <a href="https://www.linkedin.com/learning/certificates/dd6acb3e53420f300a875b2a67cceec72f976187bb0633ecc4f5d0e1d07b0d8a"
-            target="_blank" class="cert-card reveal-el">
+            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
+            aria-label="View Figma for UX Design certificate on LinkedIn Learning">
             <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69)"><img
                 src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="18" alt="Figma"></div>
             <div class="cert-info">
@@ -716,7 +729,8 @@
             <div class="cert-arrow">↗</div>
           </a>
 
-          <a href="https://grow.google/certificates/ux-design/" target="_blank" class="cert-card reveal-el">
+          <a href="https://grow.google/certificates/ux-design/" target="_blank" rel="noopener noreferrer"
+            class="cert-card reveal-el" aria-label="View Google Foundations of UX Design certificate">
             <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2563eb)"><img
                 src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="24"
                 alt="Google"></div>
@@ -728,7 +742,8 @@
           </a>
 
           <a href="https://www.linkedin.com/learning/certificates/bbfb1b17d2438f6b0e75081d54318745932ed7b2f5f9912e43771a4b2f2d4308"
-            target="_blank" class="cert-card reveal-el">
+            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
+            aria-label="View UX Foundations Prototyping certificate on LinkedIn Learning">
             <div class="cert-icon" style="background:linear-gradient(135deg,#312e81,#7c3aed)"><i
                 class="fa-solid fa-desktop" style="color:#a78bfa"></i></div>
             <div class="cert-info">
@@ -757,37 +772,63 @@
           <input type="text" name="_honey" style="display:none" />
           <div class="form-row reveal-el">
             <div class="form-group">
-              <label for="cf-name">Name</label>
-              <input type="text" id="cf-name" name="name" placeholder="Your full name" required />
+              <label for="cf-name">Name <span class="required-indicator" aria-hidden="true">*</span></label>
+              <input type="text" id="cf-name" name="name" placeholder="Your full name" required autocomplete="name" />
+              <span id="name-error" class="field-error-msg hidden" role="alert">Please enter your name</span>
             </div>
             <div class="form-group">
-              <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+              <label for="cf-email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required
+                autocomplete="email" />
+              <span id="email-error" class="field-error-msg hidden" role="alert">Please enter a valid email
+                address</span>
+            </div>
+          </div>
+          <div class="form-row reveal-el">
+            <div class="form-group">
+              <label for="cf-type">Project Type</label>
+              <select id="cf-type" name="project_type">
+                <option value="" disabled selected>Select project type</option>
+                <option value="UI/UX Design">UI / UX Design (Web or Mobile)</option>
+                <option value="Website Redesign">Website Redesign</option>
+                <option value="Design System">Design System &amp; Tokens</option>
+                <option value="Prototyping">Interactive Prototyping</option>
+                <option value="UX Audit">UX Audit &amp; Usability Review</option>
+                <option value="Consultation">Consultation &amp; Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-budget">Budget</label>
+              <select id="cf-budget" name="budget">
+                <option value="" disabled selected>Select budget range</option>
+                <option value="Under $1,000">Under $1,000</option>
+                <option value="$1,000 – $5,000">$1,000 – $5,000</option>
+                <option value="$5,000 – $15,000">$5,000 – $15,000</option>
+                <option value="$15,000+">$15,000+</option>
+              </select>
             </div>
           </div>
           <div class="form-group reveal-el">
-            <label for="cf-budget">Budget</label>
-            <select id="cf-budget" name="budget">
-              <option value="" disabled selected>Select budget range</option>
-              <option>Under $1,000</option>
-              <option>$1,000 – $5,000</option>
-              <option>$5,000 – $15,000</option>
-              <option>$15,000+</option>
-            </select>
-          </div>
-          <div class="form-group reveal-el">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project..."
-              required></textarea>
+            <label for="cf-message">Message <span class="required-indicator" aria-hidden="true">*</span></label>
+            <textarea id="cf-message" name="message" rows="5"
+              placeholder="Tell me about your project goals, scope, and timeline..." required></textarea>
+            <span id="message-error" class="field-error-msg hidden" role="alert">Please enter details about your
+              project</span>
           </div>
           <div class="reveal-el">
-            <button type="submit" class="btn-primary btn-full" id="send-btn">
+            <button type="submit" class="btn-primary btn-full" id="send-btn" aria-label="Send message">
               <span id="btn-text">Send Message <i class="fa-solid fa-paper-plane"></i></span>
               <span id="btn-loading" class="hidden"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>
             </button>
           </div>
-          <div id="form-success" class="form-success hidden">
-            <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
+          <div id="form-success" class="form-success hidden" role="status" aria-live="polite">
+            <i class="fa-solid fa-circle-check"></i> Message sent successfully! I'll get back to you within 24 hours.
+          </div>
+          <div id="form-error" class="form-error hidden" role="alert" aria-live="assertive">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span>Oops! Something went wrong sending your message. Please try again or email me directly at <a
+                href="mailto:dt019107@gmail.com"
+                style="text-decoration:underline;color:inherit;font-weight:600;">dt019107@gmail.com</a>.</span>
           </div>
         </form>
       </section>
@@ -800,10 +841,12 @@
         </div>
         <p class="footer-email"><a href="mailto:dt019107@gmail.com">dt019107@gmail.com</a></p>
         <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank"><i class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com/dt019107" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank"
+            rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer"
+            aria-label="Behance portfolio"><i class="fa-brands fa-behance"></i></a>
+          <a href="https://github.com/dt019107" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i
+              class="fa-brands fa-github"></i></a>
         </div>
       </footer>
 
