@@ -1392,13 +1392,22 @@ img {
 }
 
 .project-img {
-  height: 210px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
   position: relative;
   overflow: hidden;
+  background: var(--linen-200);
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .fitness-bg {
@@ -2239,7 +2248,8 @@ img {
   }
 
   .project-img {
-    height: 180px !important;
+    aspect-ratio: 16 / 9;
+    height: auto !important;
   }
 
   .site-footer {
@@ -2717,11 +2727,11 @@ img {
 }
 
 .project-img img {
-  transition: none !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .project-card:hover .project-img img {
-  transform: none !important;
+  transform: scale(1.03) !important;
 }
 
 /* ── P11. BENTO SKILLS ── */
@@ -3007,7 +3017,8 @@ img {
 
 /* ── P25. PROJECT CARD IMG HEIGHT ── */
 .project-img {
-  height: 220px;
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 
 /* ── P26. PROFILE CARD — inner structure ── */
@@ -4205,7 +4216,8 @@ html {
   }
 
   .project-img {
-    height: 180px !important;
+    aspect-ratio: 16 / 9;
+    height: auto !important;
   }
 
   .project-info {
