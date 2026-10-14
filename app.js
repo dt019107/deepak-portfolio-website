@@ -28,23 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   localStorage.removeItem('dt-theme');
   document.documentElement.removeAttribute('data-theme');
 
-  // ── 2. REAL-TIME CLOCK ──────────────────────────
-  const clockEl = document.getElementById('live-time');
-  const ampmEl = document.getElementById('live-ampm');
-  const dateEl = document.getElementById('live-date');
-
-  function updateClock() {
-    const now = new Date();
-    let hrs = now.getHours();
-    const ampm = hrs >= 12 ? 'PM' : 'AM';
-    hrs = hrs % 12 || 12;
-    if (clockEl) clockEl.textContent = `${String(hrs).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-    if (ampmEl) ampmEl.textContent = ampm;
-    if (dateEl) dateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
-
   // ── 4. SCROLL PROGRESS BAR ─────────────────────
   const progressBar = document.getElementById('scroll-progress');
   function updateScrollProgress() {
@@ -188,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 14. 3D TILT ON CARDS ───────────────────────
   if (!isTouch) {
-    document.querySelectorAll('.project-card, .about-card, .cert-card').forEach(card => {
+    document.querySelectorAll('.about-card, .cert-card').forEach(card => {
       card.addEventListener('mousemove', e => {
         const r = card.getBoundingClientRect();
         const rx = ((e.clientY - r.top - r.height / 2) / (r.height / 2)) * -6;
@@ -405,59 +388,8 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(applyParallax);
   }
 
-  // ── 19. PROJECT PREVIEWS ON HOVER ─────────────
-  const projectCards = document.querySelectorAll('.project-card');
-  const projectCursorPreview = document.getElementById('project-cursor-preview');
-  const pcImage = document.getElementById('pc-image');
-  const dot = document.getElementById('cursor-dot');
-  const outline = document.getElementById('cursor-outline');
-
-  if (!isTouch && projectCursorPreview && pcImage) {
-    let px = 0, py = 0, tpx = 0, tpy = 0;
-
-    projectCards.forEach(card => {
-      const video = card.querySelector('.project-video');
-      const img = card.querySelector('.project-img img');
-      const title = card.querySelector('.project-info h3');
-
-      // Video Hover Logic
-      card.addEventListener('mouseenter', () => {
-        if (video) {
-          video.currentTime = 0;
-          video.play().catch(() => { });
-        }
-      });
-
-      card.addEventListener('mouseleave', () => {
-        if (video) {
-          video.pause();
-        }
-      });
-
-      // Floating Image Logic (on Card or Title hover)
-      const showPreview = () => {
-        if (img) {
-          pcImage.src = img.src;
-          projectCursorPreview.classList.add('active');
-          if (outline) outline.classList.add('hide');
-        }
-      };
-
-      const hidePreview = () => {
-        projectCursorPreview.classList.remove('active');
-        if (outline) outline.classList.remove('hide');
-      };
-
-      // Trigger on whole card for better experience, or just title as requested
-      // The user said: "As the user hovers over a project title, a 'floating' image... follow the cursor"
-      // But usually it feels better on the whole card. I'll stick to 'project-card' for general hover, 
-      // and maybe emphasize 'title' if they really want just that. 
-      // I'll apply it to the whole card as it's more standard for this effect.
-      card.addEventListener('mouseenter', showPreview);
-      card.addEventListener('mouseleave', hidePreview);
-    });
-
-    // Bento Card Glow Effect
+  // ── 19. BENTO CARD GLOW EFFECT ─────────────────
+  if (!isTouch) {
     document.querySelectorAll('.bento-card').forEach(card => {
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -467,31 +399,6 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--y', `${y}%`);
       });
     });
-
-    // Cursor Follow Logic for Preview
-    window.addEventListener('mousemove', e => {
-      tpx = e.clientX;
-      tpy = e.clientY;
-    });
-
-    function updatePreviewPos() {
-      // Smooth follow with lerp
-      px += (tpx - px) * 0.15;
-      py += (tpy - py) * 0.15;
-
-      // Offset preview slightly from cursor with boundary clamping
-      const previewWidth = projectCursorPreview.offsetWidth || 260;
-      const previewHeight = projectCursorPreview.offsetHeight || 180;
-      const maxX = window.innerWidth - previewWidth - 16;
-      const maxY = window.innerHeight - previewHeight - 16;
-      const posX = Math.max(16, Math.min(px + 20, maxX));
-      const posY = Math.max(16, Math.min(py + 20, maxY));
-      projectCursorPreview.style.left = `${posX}px`;
-      projectCursorPreview.style.top = `${posY}px`;
-
-      requestAnimationFrame(updatePreviewPos);
-    }
-    requestAnimationFrame(updatePreviewPos);
   }
 
 }); // end DOMContentLoaded
