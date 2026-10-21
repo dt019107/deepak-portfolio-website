@@ -38,12 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
-  // ── 5. BACK TO TOP ─────────────────────────────
+  // ── 5. BACK TO TOP & HEADER SCROLL ─────────────
   const backToTop = document.getElementById('back-to-top');
+  const topHeader = document.getElementById('top-header');
+  window.addEventListener('scroll', () => {
+    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
+    if (topHeader) topHeader.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
   if (backToTop) {
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
     backToTop.addEventListener('click', () => lenis.scrollTo(0, { duration: 1.2 }));
   }
 
@@ -128,14 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
   updateNav();
 
-  // ── 11. MAGNETIC NAV ───────────────────────────
-  navItems.forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r = btn.getBoundingClientRect();
-      btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.5}px,${(e.clientY - r.top - r.height / 2) * 0.5}px)`;
-    });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-  });
+  // ── 11. NAV HOVER ─────────────────────────────
+  // Clean neo-brutalist spring hover handled via CSS classes
+
 
   // ── 12. SCROLL REVEAL ──────────────────────────
   const revealObserver = new IntersectionObserver((entries) => {
@@ -409,6 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileOverlay = document.getElementById('mobile-nav-overlay');
   const mobileClose = document.getElementById('mobile-nav-close');
   const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+  const mobileCtas = document.querySelectorAll('.mobile-nav-cta');
 
   if (!hamburgerBtn || !mobileOverlay) return;
 
@@ -421,6 +419,15 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileOverlay.classList.add('open');
     mobileOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    // Stagger links entrance
+    mobileNavItems.forEach((item, index) => {
+      setTimeout(() => {
+        if (mobileOverlay.classList.contains('open')) {
+          item.classList.add('stagger-in');
+        }
+      }, index * 50);
+    });
   }
 
   function closeMobileNav() {
@@ -429,6 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileOverlay.classList.remove('open');
     mobileOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    mobileNavItems.forEach(item => item.classList.remove('stagger-in'));
     // Wait for animation to finish before hiding
     setTimeout(() => {
       if (!mobileOverlay.classList.contains('open')) {
@@ -456,11 +464,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close on nav link click and scroll to section
   mobileNavItems.forEach(item => {
-    item.addEventListener('click', (e) => {
+    item.addEventListener('click', () => {
       closeMobileNav();
-      // Update active state in mobile nav
       mobileNavItems.forEach(i => i.classList.remove('active'));
       item.classList.add('active');
+    });
+  });
+
+  // Close on mobile CTA button clicks (e.g. Say hi link)
+  mobileCtas.forEach(cta => {
+    cta.addEventListener('click', () => {
+      closeMobileNav();
     });
   });
 

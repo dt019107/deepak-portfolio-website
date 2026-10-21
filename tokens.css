@@ -615,3 +615,462 @@ img { max-width: 100%; display: block; }
 @media (max-width: 480px) {
   .nb-btn { padding: 10px 18px; font-size: var(--text-xs); }
 }
+
+
+/* ============================================================
+   PHASE 2: FLOATING PILL NAVIGATION — NEO-BRUTALIST
+   ============================================================ */
+
+/* ── .top-header container ── */
+.top-header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-nav);
+  width: auto;
+  max-width: calc(100vw - 32px);
+  transition: none;
+}
+
+/* Animate drop-in on page load */
+@media (prefers-reduced-motion: no-preference) {
+  .top-header {
+    animation: nav-drop-in 0.5s var(--ease-spring) 0.7s both;
+  }
+}
+@keyframes nav-drop-in {
+  from { transform: translateX(-50%) translateY(-80px); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);     opacity: 1; }
+}
+
+/* ── The pill shell ── */
+.nb-nav-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 8px 10px;
+  background: var(--cream);
+  border: var(--border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+
+/* ── DT logo badge ── */
+.nav-logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: var(--blue);
+  color: var(--white);
+  border: var(--border);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-logo-badge {
+    transition:
+      transform var(--dur-fast) var(--ease-spring),
+      box-shadow var(--dur-fast) var(--ease-spring);
+  }
+  .nav-logo-badge:hover {
+    transform: translate(-2px, -2px) rotate(-3deg);
+    box-shadow: 5px 5px 0 var(--blue-dark);
+  }
+  .nav-logo-badge:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--blue-dark);
+  }
+}
+
+/* ── Centre nav links ── */
+.floating-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.fnav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  border: none;
+  background: none;
+}
+
+/* hide the old FA icons completely */
+.fnav-item i,
+.fnav-label { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fnav-item {
+    transition:
+      background var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out);
+  }
+}
+
+.fnav-item:hover {
+  background: var(--cream-dark);
+  color: var(--ink);
+}
+
+/* Active = yellow pill */
+.fnav-item.active {
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 700;
+  border: 2px solid var(--yellow-dark);
+}
+
+.fnav-item.active:hover {
+  background: var(--yellow);
+}
+
+/* ── Nav right actions ── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-left: var(--sp-1);
+}
+
+/* Size the nav action buttons smaller than default nb-btn */
+.nav-resume-btn,
+.nav-sayhi-btn {
+  padding: 9px 18px;
+  font-size: var(--text-xs);
+  height: 38px;
+}
+
+/* ── Hamburger button (mobile only, hidden on desktop) ── */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: var(--ink);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  padding: 0;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.hamburger-line {
+  width: 18px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hamburger-line {
+    transition: transform 0.3s var(--ease-spring), opacity 0.2s var(--ease-out);
+  }
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hamburger-btn {
+    transition:
+      transform var(--dur-fast) var(--ease-spring),
+      box-shadow var(--dur-fast) var(--ease-spring);
+  }
+  .hamburger-btn:hover  { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .hamburger-btn:active { transform: translate(2px, 2px);   box-shadow: 0 0 0 var(--ink); }
+}
+
+/* ============================================================
+   PHASE 2: MOBILE NAV DRAWER — NEO-BRUTALIST CARD
+   ============================================================ */
+
+/* Backdrop */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+  background: rgba(26, 26, 23, 0.35);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-nav-overlay {
+    opacity: 0;
+    transition: opacity var(--dur-base) var(--ease-out);
+  }
+  .mobile-nav-overlay.open {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-overlay { opacity: 1; }
+}
+
+/* Drawer card — drops in from top */
+.mobile-nav-drawer {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  background: var(--cream);
+  border: var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  padding: var(--sp-5) var(--sp-6) var(--sp-6);
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-nav-drawer {
+    transform: translateY(-30px);
+    opacity: 0;
+    transition:
+      transform var(--dur-slow) var(--ease-spring),
+      opacity   var(--dur-base) var(--ease-out);
+  }
+  .mobile-nav-overlay.open .mobile-nav-drawer {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Remove old ::before pull-handle */
+.mobile-nav-drawer::before { display: none; }
+
+/* ── Mobile drawer header row ── */
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-5);
+  padding-bottom: var(--sp-4);
+  border-bottom: var(--border);
+}
+
+.mobile-nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--blue);
+  color: var(--white);
+  border: var(--border);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.mobile-nav-close {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--ink);
+  border: var(--border);
+  color: var(--cream);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-nav-close {
+    transition: transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-fast) var(--ease-spring);
+  }
+  .mobile-nav-close:hover  { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--ink); }
+  .mobile-nav-close:active { transform: translate(2px,2px);   box-shadow: 0 0 0 var(--ink); }
+}
+
+/* ── Mobile nav links ── */
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: 0;
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: 14px var(--sp-4);
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-height: 54px;
+  position: relative;
+}
+
+/* Stagger entrance — set by JS */
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-nav-item {
+    opacity: 0;
+    transform: translateX(-16px);
+    transition:
+      opacity   var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-spring),
+      background var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+  .mobile-nav-overlay.open .mobile-nav-item.stagger-in {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-item { opacity: 1; transform: none; }
+}
+
+.mobile-nav-num {
+  font-family: var(--font-hand);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text3);
+  min-width: 24px;
+  flex-shrink: 0;
+}
+
+.mobile-nav-item:active,
+.mobile-nav-item:hover {
+  background: var(--cream-dark);
+  border-color: var(--ink);
+}
+
+.mobile-nav-item.active {
+  background: var(--yellow);
+  border-color: var(--yellow-dark);
+}
+.mobile-nav-item.active .mobile-nav-num {
+  color: var(--ink);
+}
+
+/* ── Mobile CTA row ── */
+.mobile-nav-ctas {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
+  border-top: var(--border);
+}
+
+.mobile-nav-cta {
+  flex: 1;
+  justify-content: center;
+  height: 48px;
+  font-size: var(--text-sm);
+}
+
+/* ============================================================
+   PHASE 2: RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* On tablet/mobile: hide centre links + action buttons, show hamburger */
+@media (max-width: 820px) {
+  .floating-nav,
+  .nav-actions {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .nb-nav-pill {
+    gap: var(--sp-3);
+    padding: 8px 12px;
+  }
+}
+
+/* Very small screens: pill shrinks to fit */
+@media (max-width: 400px) {
+  .top-header {
+    top: 12px;
+    max-width: calc(100vw - 24px);
+  }
+}
+
+/* Medium: hide "Certs" label, still show nav */
+@media (max-width: 1060px) and (min-width: 821px) {
+  .fnav-item {
+    padding: 0 10px;
+    font-size: var(--text-xs);
+  }
+
+  .nav-resume-btn,
+  .nav-sayhi-btn {
+    padding: 8px 14px;
+  }
+}
+
+/* ── Scroll-shrink effect: pills shadow grows on scroll ── */
+/* Handled in app.js by toggling .scrolled class on header */
+@media (prefers-reduced-motion: no-preference) {
+  .top-header.scrolled .nb-nav-pill {
+    box-shadow: var(--shadow-lg);
+  }
+}
