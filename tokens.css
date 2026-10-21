@@ -39,6 +39,7 @@
   --bg2:              var(--cream-dark);
   --card:             var(--white);
   --text:             var(--ink);
+  --text1:            var(--ink);
   --text2:            #2C2C28;
   --text3:            #52524C;
   --headline:         var(--ink);
@@ -134,91 +135,473 @@
 }
 
 /* ============================================================
-   DUAL-THEME: STUDIO DARK MODE (MIDNIGHT OBSIDIAN & NEON INK)
+   DUAL-THEME: STUDIO DARK MODE (MIDNIGHT OBSIDIAN & HIGH CONTRAST)
    ============================================================ */
 [data-theme="dark"] {
-  --cream:        #141412;
-  --cream-dark:   #1E1E19;
-  --ink:          #FAF7F2;
-  --white:        #1C1C18;
+  --cream:        #0E0E0C;       /* Deepest Obsidian Canvas */
+  --cream-dark:   #181814;       /* Tonal Charcoal Surface */
+  --ink:          #FAF7F2;       /* Crisp Warm White Typography */
+  --white:        #1A1A16;       /* Card Surface */
 
-  --text2:        #E0DDD6;
-  --text3:        #A39F97;
+  --text:         #FAF7F2;
+  --text1:        #FAF7F2;       /* 100% Crisp White */
+  --text2:        #DCD8CF;       /* High Contrast Warm Light Silver */
+  --text3:        #AFAAA0;       /* Muted Light Grey */
   --headline:     #FAF7F2;
 
-  --blue:         #4B5BFF;
-  --blue-dark:    #2232E0;
-  --blue-light:   #1C2566;
+  --blue:         #5C6CFF;       /* High-visibility Electric Cobalt */
+  --blue-dark:    #3748E6;
+  --blue-light:   #252D6E;
 
-  --yellow:       #FFDE43;
+  --yellow:       #FFDF4A;       /* High-luminance Primrose */
   --yellow-dark:  #C4A51A;
 
-  --mint:         #4EE39B;
+  --mint:         #4EE39B;       /* Vibrant Mint */
   --mint-dark:    #28A76B;
 
-  --lavender:     #BBA5FE;
-  --lavender-dark:#7557E0;
+  --lavender:     #C4B0FF;       /* Vibrant Lavender */
+  --lavender-dark:#8566E8;
 
-  --pink:         #F687B3;
+  --pink:         #F8A4C8;       /* High-visibility Pink */
   --pink-dark:    #C5306B;
 
-  --border:       2.5px solid #FAF7F2;
+  --border:       2px solid #FAF7F2;
   --shadow-sm:    2px 2px 0 #FAF7F2;
   --shadow-md:    5px 5px 0 #FAF7F2;
   --shadow-lg:    8px 8px 0 #FAF7F2;
   --shadow-xl:    12px 12px 0 #FAF7F2;
 
-  --shadow-yellow:5px 5px 0 #FFDE43;
+  --shadow-yellow:5px 5px 0 #FFDF4A;
   --shadow-mint:  5px 5px 0 #4EE39B;
-  --shadow-lavender: 5px 5px 0 #BBA5FE;
-  --shadow-pink:  5px 5px 0 #F687B3;
-  --shadow-blue:  5px 5px 0 #4B5BFF;
+  --shadow-lavender: 5px 5px 0 #C4B0FF;
+  --shadow-pink:  5px 5px 0 #F8A4C8;
+  --shadow-blue:  5px 5px 0 #5C6CFF;
 
-  --nav-bg:       rgba(20, 20, 18, 0.92);
+  --nav-bg:       rgba(14, 14, 12, 0.94);
+  --card:         #1A1A16;
+}
+
+[data-theme="dark"] body {
+  background-color: #0E0E0C !important;
+  color: #FAF7F2 !important;
 }
 
 [data-theme="dark"] body::before {
-  opacity: 0.055;
+  opacity: 0.045;
   mix-blend-mode: screen;
   filter: invert(1);
 }
 
-[data-theme="dark"] .nb-card--yellow,
-[data-theme="dark"] .nb-card--mint,
-[data-theme="dark"] .nb-card--lavender,
-[data-theme="dark"] .nb-card--pink,
-[data-theme="dark"] .nb-card--cream,
-[data-theme="dark"] .stat-bento--yellow,
-[data-theme="dark"] .stat-bento--mint,
-[data-theme="dark"] .stat-bento--lavender,
-[data-theme="dark"] .about-card--yellow,
-[data-theme="dark"] .about-card--mint,
-[data-theme="dark"] .about-card--lavender,
-[data-theme="dark"] .project-card--yellow,
-[data-theme="dark"] .project-card--mint,
-[data-theme="dark"] .project-card--lavender,
-[data-theme="dark"] .project-card--pink,
-[data-theme="dark"] .project-card--cream {
-  color: #141412 !important;
+/* ── Typography Contrast in Dark Mode ── */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #FAF7F2;
 }
 
-[data-theme="dark"] .nb-card--yellow h3,
-[data-theme="dark"] .nb-card--mint h3,
-[data-theme="dark"] .nb-card--lavender h3,
-[data-theme="dark"] .nb-card--pink h3,
-[data-theme="dark"] .nb-card--cream h3,
-[data-theme="dark"] .stat-bento h3,
+[data-theme="dark"] p {
+  color: #DCD8CF;
+}
+
+[data-theme="dark"] .hero-bio,
+[data-theme="dark"] .section-desc,
+[data-theme="dark"] .tl-desc {
+  color: #E2DFD8 !important;
+}
+
+[data-theme="dark"] .hero-title {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .outline-text {
+  -webkit-text-stroke: 1.5px #FAF7F2 !important;
+  color: transparent !important;
+}
+
+/* ── Hero Section Contrast in Dark Mode ── */
+[data-theme="dark"] .hero-tag {
+  background: #1A1A16 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .hello-text,
+[data-theme="dark"] .hero-tag-sub {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .hero-ctas .btn-primary {
+  background: #5C6CFF !important;
+  color: #FFFFFF !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .hero-ctas .btn-ghost {
+  background: #1A1A16 !important;
+  color: #FAF7F2 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .role-cycler {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .stat-bento {
+  border-color: #0E0E0C !important;
+  box-shadow: 6px 6px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .stat-bento .stat-num,
+[data-theme="dark"] .stat-bento .stat-plus,
+[data-theme="dark"] .stat-bento .stat-label {
+  color: #0E0E0C !important;
+  font-weight: 800;
+}
+
+[data-theme="dark"] .stat-bento .stat-icon-wrap {
+  background: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .section-label {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+/* ── Global Cards Base in Dark Mode ── */
+[data-theme="dark"] .profile-card,
+[data-theme="dark"] .tl-right,
+[data-theme="dark"] .cert-card.nb-card,
+[data-theme="dark"] .contact-card {
+  background: #1A1A16 !important;
+  border-color: #FAF7F2 !important;
+}
+
+/* ── Sticky Profile Card Contrast ── */
+[data-theme="dark"] .profile-name {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .profile-role {
+  background: #252D6E !important;
+  color: #DDE2FE !important;
+  border-color: #5C6CFF !important;
+}
+
+[data-theme="dark"] .profile-location {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .profile-socials a {
+  background: #242420 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .btn-cv {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .btn-contact {
+  background: #FAF7F2 !important;
+  color: #0E0E0C !important;
+  border-color: #FAF7F2 !important;
+}
+
+/* ── About Cards (Bright Pastel surfaces with Jet Black text) ── */
+[data-theme="dark"] .about-card--yellow { background: #FFDF4A !important; }
+[data-theme="dark"] .about-card--mint   { background: #4EE39B !important; }
+[data-theme="dark"] .about-card--lavender { background: #C4B0FF !important; }
+
+[data-theme="dark"] .about-card {
+  border-color: #0E0E0C !important;
+  box-shadow: 6px 6px 0 #FAF7F2 !important;
+}
+
 [data-theme="dark"] .about-card h3,
-[data-theme="dark"] .project-card h3,
-[data-theme="dark"] .project-card p,
 [data-theme="dark"] .about-card p {
-  color: #141412 !important;
+  color: #0E0E0C !important;
+  font-weight: 600;
 }
 
-[data-theme="dark"] .nb-btn--black {
-  background: var(--ink);
-  color: #141412;
-  box-shadow: 6px 6px 0 rgba(250, 247, 242, 0.4);
+[data-theme="dark"] .about-card .about-card-icon {
+  background: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  color: #FAF7F2 !important;
+  box-shadow: 2px 2px 0 rgba(250, 247, 242, 0.4) !important;
+}
+
+/* ── Work Experience Timeline in Dark Mode ── */
+[data-theme="dark"] .timeline::before {
+  background: repeating-linear-gradient(
+    to bottom,
+    #FAF7F2 0,
+    #FAF7F2 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+[data-theme="dark"] .tl-icon {
+  background: #242420 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .tl-right {
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .tl-role {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .tl-company {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .tl-date {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .tl-date i {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .tl-tags .nb-pill {
+  background: #262622 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .tl-badge {
+  background: #F8A4C8 !important;
+  color: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+/* ── Projects Cards in Dark Mode (High-contrast bright pastel surfaces) ── */
+[data-theme="dark"] .project-card--yellow   { background: #FFDF4A !important; }
+[data-theme="dark"] .project-card--mint     { background: #4EE39B !important; }
+[data-theme="dark"] .project-card--lavender { background: #C4B0FF !important; }
+[data-theme="dark"] .project-card--pink     { background: #F8A4C8 !important; }
+[data-theme="dark"] .project-card--cream    { background: #F0ECE1 !important; }
+[data-theme="dark"] .project-card--blue     { background: #96ACFF !important; }
+
+[data-theme="dark"] .project-card {
+  border: 2.5px solid #0E0E0C !important;
+  box-shadow: 6px 6px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .project-card:hover {
+  box-shadow: 10px 10px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .project-card h3 {
+  color: #0E0E0C !important;
+  font-weight: 800;
+}
+
+[data-theme="dark"] .project-card p {
+  color: #1A1A17 !important;
+  font-weight: 500;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .project-tags .nb-pill {
+  background: #0E0E0C !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid #0E0E0C !important;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .project-arrow {
+  background: #0E0E0C !important;
+  color: #FAF7F2 !important;
+  border: 2px solid #0E0E0C !important;
+}
+
+/* ── Skills & Tool Stack in Dark Mode ── */
+[data-theme="dark"] .skills-card.nb-card--yellow { background: #FFDF4A !important; }
+[data-theme="dark"] .skills-card.nb-card--mint   { background: #4EE39B !important; }
+[data-theme="dark"] .skills-card.nb-card--lavender { background: #C4B0FF !important; }
+
+[data-theme="dark"] .skills-card {
+  border-color: #0E0E0C !important;
+  box-shadow: 6px 6px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .skills-card-title {
+  color: #0E0E0C !important;
+  font-weight: 800;
+}
+
+[data-theme="dark"] .skill-chip {
+  background: #0E0E0C !important;
+  color: #FAF7F2 !important;
+  border: 2px solid #0E0E0C !important;
+}
+
+[data-theme="dark"] .skill-chip i {
+  color: #FAF7F2 !important;
+}
+
+/* ── Infinite Marquee Strip in Dark Mode ── */
+[data-theme="dark"] .marquee {
+  background: #FFDF4A !important;
+  border-top-color: #FAF7F2 !important;
+  border-bottom-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .marquee__item {
+  color: #0E0E0C !important;
+  font-weight: 800;
+}
+
+/* ── Certifications in Dark Mode ── */
+[data-theme="dark"] .cert-card.nb-card {
+  background: #1A1A16 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .cert-info h3,
+[data-theme="dark"] .cert-info h4 {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .cert-info p {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .cert-arrow {
+  color: #FFDF4A !important;
+}
+
+/* ── Contact Form in Dark Mode ── */
+[data-theme="dark"] .contact-card {
+  background: #1A1A16 !important;
+  border: 2.5px solid #4EE39B !important;
+  box-shadow: 7px 7px 0 #4EE39B !important;
+}
+
+[data-theme="dark"] .contact-card h3 {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .contact-card p {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .contact-form label,
+[data-theme="dark"] .form-group label {
+  color: #FAF7F2 !important;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group select {
+  background: #252520 !important;
+  border: 2px solid #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder {
+  color: rgba(250, 247, 242, 0.5) !important;
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+  border-color: #5C6CFF !important;
+  box-shadow: 4px 4px 0 #5C6CFF !important;
+}
+
+[data-theme="dark"] .nb-btn--blue {
+  background: #5C6CFF !important;
+  color: #FFFFFF !important;
+  box-shadow: 5px 5px 0 #3748E6 !important;
+}
+
+/* ── Footer in Dark Mode ── */
+[data-theme="dark"] .site-footer {
+  background: #0A0A08 !important;
+  border-top-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .footer-copy {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .footer-email a {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .footer-social-btn {
+  background: #1A1A16 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .footer-social-btn:hover {
+  background: #FFDF4A !important;
+  border-color: #FFDF4A !important;
+  color: #0E0E0C !important;
+}
+
+/* ── Floating Nav in Dark Mode ── */
+[data-theme="dark"] .nb-nav-pill {
+  background: rgba(14, 14, 12, 0.94) !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .fnav-item {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .fnav-item:hover {
+  background: #252520 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .fnav-item.active {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .mobile-nav-drawer {
+  background: #141412 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 8px 8px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .mobile-nav-brand {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .mobile-nav-item {
+  color: #FAF7F2 !important;
+  border-color: rgba(250, 247, 242, 0.2) !important;
+}
+
+[data-theme="dark"] .mobile-nav-item.active {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
 }
 
 /* ── Editorial Serif Accent ── */
