@@ -13,7 +13,7 @@
   --cobalt-100: var(--blue-light);
 
   /* Linen → Cream */
-  --linen-50:  var(--cream);
+  --linen-50: var(--cream);
   --linen-100: var(--cream-dark);
   --linen-300: var(--cream-dark);
 
@@ -28,26 +28,26 @@
   --tangerine-100: var(--yellow);
 
   /* Card / border from new tokens */
-  --card:    var(--white);
-  --card2:   var(--cream-dark);
+  --card: var(--white);
+  --card2: var(--cream-dark);
   --border2: rgba(48, 64, 248, 0.22);
 
   /* Legacy ease */
-  --ease:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Button legacy */
-  --cv-btn-bg:    var(--blue);
+  --cv-btn-bg: var(--blue);
   --cv-btn-color: var(--white);
-  --social-btn-bg:    var(--blue-light);
+  --social-btn-bg: var(--blue-light);
   --social-btn-color: var(--blue);
   --profile-card-bg: var(--white);
-  --theme-shadow: 0 8px 24px rgba(26,26,23,0.10);
+  --theme-shadow: 0 8px 24px rgba(26, 26, 23, 0.10);
   --back-top-border: var(--ink);
-  --label-bg:    var(--yellow);
-  --label-border:rgba(245,200,81,0.4);
+  --label-bg: var(--yellow);
+  --label-border: rgba(245, 200, 81, 0.4);
   --label-color: var(--ink);
-  --pill-bg:    var(--cream);
-  --pill-border:rgba(26,26,23,0.15);
+  --pill-bg: var(--cream);
+  --pill-border: rgba(26, 26, 23, 0.15);
   --pill-color: var(--ink);
   --logo-filter: none;
   --icon-github-color: var(--ink);
@@ -130,7 +130,8 @@ img {
 /* ── AMBIENT BACKGROUND: HIDDEN for neo-brutalist flat aesthetic ── */
 /* Canvas is kept in DOM so vector-bg.js initialises without errors */
 .vector-container {
-  display: none; /* flat cream bg replaces the particle mesh */
+  display: none;
+  /* flat cream bg replaces the particle mesh */
   pointer-events: none;
 }
 

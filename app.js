@@ -37,32 +37,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // -- 2. PAGE LOAD CASCADE (< 1.2s total) --
   if (!prefersReducedMotion) {
-    const heroTag    = document.querySelector('.hero-tag');
-    const heroBio    = document.querySelector('.hero-bio');
-    const heroCtas   = document.querySelector('.hero-ctas');
-    const statsGrid  = document.querySelector('.stats-bento-grid');
-    const roleCycler = document.querySelector('.role-cycler');
-    const cascadeEls = [heroTag, roleCycler, heroBio, heroCtas, statsGrid].filter(Boolean);
+    const heroAvail = document.querySelector('.hero-availability-pill');
+    const heroGreeting = document.querySelector('.hero-greeting-wrap');
+    const heroSubline = document.querySelector('.hero-subline');
+    const heroCtas = document.querySelector('.hero-ctas');
+    const heroStats = document.querySelector('.hero-stats-strip');
+    const heroStickers = document.querySelector('.hero-stickers-tray');
+    const heroCluster = document.querySelector('.hero-cluster-col');
+
+    const cascadeEls = [heroAvail, heroGreeting, heroSubline, heroCtas, heroStats, heroStickers, heroCluster].filter(Boolean);
     cascadeEls.forEach((el, i) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
+      el.style.transform = 'translateY(18px)';
       setTimeout(() => {
-        el.style.transition = 'opacity 0.5s cubic-bezier(0.2,0,0,1), transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+        el.style.transition = 'opacity 0.35s cubic-bezier(0.2,0,0,1), transform 0.35s cubic-bezier(0.34,1.56,0.64,1)';
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
-      }, 800 + i * 80);
+      }, 500 + i * 50);
     });
   }
 
-  // -- 3. HERO HEADLINE WORD-POP --
+  // -- 3. HERO HEADLINE WORD-POP (< 1.2s total) --
   if (!prefersReducedMotion) {
     const wordSplitEls = document.querySelectorAll('.hero-word-split');
     wordSplitEls.forEach((el, i) => {
-      setTimeout(() => { el.classList.add('word-visible'); }, 900 + i * 120);
+      setTimeout(() => { el.classList.add('word-visible'); }, 200 + i * 70);
     });
     setTimeout(() => {
       document.querySelectorAll('.highlight-block').forEach(hb => hb.classList.add('is-visible'));
-    }, 1100);
+    }, 580);
+  } else {
+    document.querySelectorAll('.highlight-block').forEach(hb => hb.classList.add('is-visible'));
   }
 
   // -- 4. SCROLL PROGRESS BAR --
@@ -88,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // -- 6. RIPPLE EFFECT --
   function addRipple(el) {
-    el.addEventListener('click', function(e) {
+    el.addEventListener('click', function (e) {
       const rect = this.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       const ripple = document.createElement('span');
@@ -111,26 +116,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // -- 8. CUSTOM CURSOR (desktop fine-pointer only) --
+  // -- 8. CUSTOM CURSOR (desktop fine-pointer only, never overlaps hero text at rest) --
   if (!isTouch && isFinePointer && !prefersReducedMotion) {
-    const dot     = document.getElementById('cursor-dot');
+    const dot = document.getElementById('cursor-dot');
     const outline = document.getElementById('cursor-outline');
     let mx = -100, my = -100, ox = -100, oy = -100;
+    let hasMoved = false;
+
+    if (dot) dot.style.opacity = '0';
+    if (outline) outline.style.opacity = '0';
 
     window.addEventListener('mousemove', e => {
+      if (!hasMoved) {
+        hasMoved = true;
+        if (dot) dot.style.opacity = '1';
+        if (outline) outline.style.opacity = '1';
+      }
       mx = e.clientX; my = e.clientY;
       if (dot) dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-    });
+    }, { passive: true });
 
     function trackOutline() {
-      ox += (mx - ox) * 0.12;
-      oy += (my - oy) * 0.12;
+      ox += (mx - ox) * 0.14;
+      oy += (my - oy) * 0.14;
       if (outline) outline.style.transform = 'translate(' + ox + 'px,' + oy + 'px)';
       requestAnimationFrame(trackOutline);
     }
     requestAnimationFrame(trackOutline);
 
-    const interactiveEls = document.querySelectorAll('a, button, .project-card, .cert-card, .about-card, .skill-chip, .nb-btn, .sticker');
+    document.addEventListener('mouseleave', () => {
+      if (dot) dot.style.opacity = '0';
+      if (outline) outline.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      if (hasMoved) {
+        if (dot) dot.style.opacity = '1';
+        if (outline) outline.style.opacity = '1';
+      }
+    });
+
+    const interactiveEls = document.querySelectorAll('a, button, .project-card, .cert-card, .about-card, .skill-chip, .nb-btn, .sticker, .draggable-sticker, .cluster-card');
     interactiveEls.forEach(el => {
       el.addEventListener('mouseenter', () => {
         if (outline) outline.classList.add('cursor-hover');
@@ -138,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       el.addEventListener('mouseleave', () => {
         if (outline) outline.classList.remove('cursor-hover');
-        if (dot) dot.style.opacity = '1';
+        if (dot && hasMoved) dot.style.opacity = '1';
       });
     });
   }
@@ -228,12 +253,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.3 });
   document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
 
-  // -- 14. 3D TILT ON PROFILE CARD --
+  // -- 14. 3D TILT ON PROFILE CARD (subtle cursor tilt, max 6deg) --
   if (!isTouch && !prefersReducedMotion && profileCard) {
     profileCard.addEventListener('mousemove', e => {
       const r = profileCard.getBoundingClientRect();
-      const rx = ((e.clientY - r.top - r.height / 2) / (r.height / 2)) * -5;
-      const ry = ((e.clientX - r.left - r.width / 2) / (r.width / 2)) * 5;
+      const rawRx = ((e.clientY - r.top - r.height / 2) / (r.height / 2)) * -6;
+      const rawRy = ((e.clientX - r.left - r.width / 2) / (r.width / 2)) * 6;
+      const rx = Math.max(-6, Math.min(6, rawRx));
+      const ry = Math.max(-6, Math.min(6, rawRy));
       profileCard.style.transform = 'perspective(600px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
       profileCard.style.transition = 'none';
     });
@@ -244,17 +271,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -- 15. CONTACT FORM --
-  const form      = document.getElementById('contact-form');
-  const btnText   = document.getElementById('btn-text');
-  const btnLoad   = document.getElementById('btn-loading');
-  const success   = document.getElementById('form-success');
+  const form = document.getElementById('contact-form');
+  const btnText = document.getElementById('btn-text');
+  const btnLoad = document.getElementById('btn-loading');
+  const success = document.getElementById('form-success');
   const formError = document.getElementById('form-error');
-  const nameInput  = document.getElementById('cf-name');
+  const nameInput = document.getElementById('cf-name');
   const emailInput = document.getElementById('cf-email');
-  const msgInput   = document.getElementById('cf-message');
-  const nameError  = document.getElementById('name-error');
+  const msgInput = document.getElementById('cf-message');
+  const nameError = document.getElementById('name-error');
   const emailError = document.getElementById('email-error');
-  const msgError   = document.getElementById('message-error');
+  const msgError = document.getElementById('message-error');
 
   const shakeStyle = document.createElement('style');
   shakeStyle.textContent = '@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}';
@@ -265,9 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (errorEl) errorEl.classList.add('hidden');
   }
 
-  if (nameInput)  nameInput.addEventListener('input',  () => clearFieldError(nameInput, nameError));
+  if (nameInput) nameInput.addEventListener('input', () => clearFieldError(nameInput, nameError));
   if (emailInput) emailInput.addEventListener('input', () => clearFieldError(emailInput, emailError));
-  if (msgInput)   msgInput.addEventListener('input',   () => clearFieldError(msgInput, msgError));
+  if (msgInput) msgInput.addEventListener('input', () => clearFieldError(msgInput, msgError));
 
   if (form) {
     form.addEventListener('submit', e => {
@@ -385,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let parallaxTicking = false;
     function applyParallax() {
       const viewH = window.innerHeight;
-      parallaxEls.forEach(function(item) {
+      parallaxEls.forEach(function (item) {
         const el = item.el, speed = item.speed;
         if (el.classList.contains('reveal-el') && !el.classList.contains('revealed')) return;
         const rect = el.getBoundingClientRect();
@@ -425,11 +452,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* -- MOBILE NAV DRAWER -- */
 (function () {
-  const hamburgerBtn   = document.getElementById('hamburger-btn');
-  const mobileOverlay  = document.getElementById('mobile-nav-overlay');
-  const mobileClose    = document.getElementById('mobile-nav-close');
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileOverlay = document.getElementById('mobile-nav-overlay');
+  const mobileClose = document.getElementById('mobile-nav-close');
   const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
-  const mobileCtas     = document.querySelectorAll('.mobile-nav-cta');
+  const mobileCtas = document.querySelectorAll('.mobile-nav-cta');
 
   if (!hamburgerBtn || !mobileOverlay) return;
 
@@ -504,28 +531,76 @@ document.addEventListener('DOMContentLoaded', () => {
    TOP 1% ADVANCED STUDIO SUITE ENGINES
    ============================================================ */
 
-// -- 1. LIVE TIMEZONE CLOCK ENGINE (Mumbai, IST) --
+// -- 1. LIVE TIMEZONE CLOCK ENGINE (Mumbai · HH:MM - no seconds) --
 (function initLiveTimezoneClock() {
-  const clockEl = document.getElementById('live-ist-clock');
-  if (!clockEl) return;
+  const clockEls = [
+    document.getElementById('hero-live-clock'),
+    document.getElementById('live-ist-clock')
+  ].filter(Boolean);
+  if (!clockEls.length) return;
 
   function updateClock() {
     try {
       const now = new Date();
-      const timeStr = now.toLocaleTimeString('en-US', {
+      const timeStr = new Intl.DateTimeFormat('en-GB', {
         timeZone: 'Asia/Kolkata',
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit',
-        hour12: true
+        hour12: false
+      }).format(now);
+      clockEls.forEach(el => {
+        el.textContent = 'Mumbai · ' + timeStr;
       });
-      clockEl.textContent = timeStr + ' IST';
     } catch (e) {
-      clockEl.textContent = 'Active (IST)';
+      clockEls.forEach(el => {
+        el.textContent = 'Mumbai · Active';
+      });
     }
   }
   updateClock();
-  setInterval(updateClock, 1000);
+  setInterval(updateClock, 1000 * 30);
+})();
+
+// -- 1B. DRAGGABLE STICKER PILLS ENGINE (Idle float & pointer drag-to-move) --
+(function initDraggableStickers() {
+  const stickers = document.querySelectorAll('.draggable-sticker');
+  if (!stickers.length) return;
+
+  stickers.forEach(sticker => {
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let currentX = 0, currentY = 0;
+
+    sticker.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0 && e.pointerType === 'mouse') return;
+      isDragging = true;
+      try { sticker.setPointerCapture(e.pointerId); } catch (_) {}
+      sticker.classList.add('is-dragging');
+      sticker.classList.remove('float-idle');
+
+      startX = e.clientX - currentX;
+      startY = e.clientY - currentY;
+      e.preventDefault();
+    });
+
+    sticker.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      currentX = e.clientX - startX;
+      currentY = e.clientY - startY;
+      sticker.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) scale(1.08) rotate(var(--tilt, 0deg))`;
+    });
+
+    function stopDrag(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      try { sticker.releasePointerCapture(e.pointerId); } catch (_) {}
+      sticker.classList.remove('is-dragging');
+      sticker.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotate(var(--tilt, 0deg))`;
+    }
+
+    sticker.addEventListener('pointerup', stopDrag);
+    sticker.addEventListener('pointercancel', stopDrag);
+  });
 })();
 
 // -- 2. DUAL-THEME SWITCHER ENGINE (STUDIO DARK MODE) --
