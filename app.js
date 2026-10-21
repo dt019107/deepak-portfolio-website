@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         statObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.8 });
+  }, { threshold: 0.3 });
   document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
 
   // ── 14. 3D TILT ON CARDS ───────────────────────
