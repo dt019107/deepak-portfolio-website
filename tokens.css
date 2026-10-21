@@ -2239,7 +2239,7 @@ img {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center center;
   display: block;
 }
 
