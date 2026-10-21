@@ -1,252 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#FDF3E1" />
   <title>Deepak Tiwari | UI/UX Designer Portfolio</title>
-  <meta name="description"
-    content="Professional portfolio of Deepak Tiwari – a passionate UI/UX Designer crafting beautiful, human-centered digital experiences." />
-  <meta name="keywords"
-    content="Deepak Tiwari, UI/UX Designer, Product Designer, Portfolio, Graphic Designer, Mumbai Designer, Freelance Designer" />
-
-  <!-- Open Graph / Facebook -->
+  <meta name="description" content="Professional portfolio of Deepak Tiwari - a passionate UI/UX Designer crafting beautiful, human-centered digital experiences." />
+  <meta name="keywords" content="Deepak Tiwari, UI/UX Designer, Product Designer, Portfolio, Graphic Designer, Mumbai Designer, Freelance Designer" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://deepaktiwari.design/" />
   <meta property="og:title" content="Deepak Tiwari | UI/UX Designer" />
-  <meta property="og:description"
-    content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
+  <meta property="og:description" content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
   <meta property="og:image" content="https://deepaktiwari.design/profile_photo.png" />
-
-  <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://deepaktiwari.design/" />
   <meta property="twitter:title" content="Deepak Tiwari | UI/UX Designer" />
-  <meta property="twitter:description"
-    content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
+  <meta property="twitter:description" content="Crafting intuitive and engaging digital experiences. Explore my latest work and journey." />
   <meta property="twitter:image" content="https://deepaktiwari.design/profile_photo.png" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Fonts: Space Grotesk (display 700/800) + DM Sans (body) + Caveat (handwritten) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Preload critical display font for LCP -->
-  <link rel="preload"
-    href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gozuEnL.woff2"
-    as="font" type="font/woff2" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap"
-      rel="stylesheet">
-  </noscript>
-
-  <!-- Icons -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gozuEnL.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CyRH7bvLDVt.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-  <!-- Preload hero image for faster LCP -->
-  <link rel="preload" as="image" href="profile_photo.png" fetchpriority="high" />
-
-  <!-- Stylesheets: styles.css legacy base, tokens.css neo-brutalist system & restyle -->
+  <link rel="preload" as="image" href="profile_photo.webp" type="image/webp" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="tokens.css" />
 </head>
-
 <body>
-
-  <!-- ── PAGE INTRO WIPE (animates out in < 1s, CSS-only) ── -->
   <div id="page-intro" aria-hidden="true"></div>
-
-  <!-- Skip to main content (accessibility) -->
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <button id="back-to-top" title="Back to top" aria-label="Back to top"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></button>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" id="cursor-outline" aria-hidden="true"></div>
+  <div class="vector-container" aria-hidden="true"><canvas id="vector-canvas"></canvas></div>
 
-  <!-- ── SCROLL PROGRESS BAR ── -->
-  <div id="scroll-progress"></div>
-
-  <!-- ── BACK TO TOP ── -->
-  <button id="back-to-top" title="Back to top" aria-label="Back to top">
-    <i class="fa-solid fa-chevron-up"></i>
-  </button>
-
-  <!-- ── CUSTOM CURSOR ── -->
-  <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-outline" id="cursor-outline"></div>
-
-  <!-- ── VECTOR BACKGROUND ── -->
-  <div class="vector-container">
-    <canvas id="vector-canvas"></canvas>
-  </div>
-
-  <!-- ── MOBILE NAV OVERLAY (neo-brutalist card) ── -->
   <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
-    <div class="mobile-nav-drawer" role="dialog" aria-label="Mobile Navigation">
-      <!-- Header row -->
+    <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
       <div class="mobile-nav-header">
-        <span class="mobile-nav-logo">DT</span>
-        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+        <span class="mobile-nav-logo" aria-hidden="true">DT</span>
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </div>
-      <!-- Links with stagger -->
       <nav class="mobile-nav-links" aria-label="Mobile Navigation">
-        <a href="#home" class="mobile-nav-item" data-section="home">
-          <span class="mobile-nav-num">01</span><span>Home</span>
-        </a>
-        <a href="#about" class="mobile-nav-item" data-section="about">
-          <span class="mobile-nav-num">02</span><span>About</span>
-        </a>
-        <a href="#experience" class="mobile-nav-item" data-section="experience">
-          <span class="mobile-nav-num">03</span><span>Experience</span>
-        </a>
-        <a href="#projects" class="mobile-nav-item" data-section="projects">
-          <span class="mobile-nav-num">04</span><span>Projects</span>
-        </a>
-        <a href="#skills" class="mobile-nav-item" data-section="skills">
-          <span class="mobile-nav-num">05</span><span>Skills</span>
-        </a>
-        <a href="#certifications" class="mobile-nav-item" data-section="certifications">
-          <span class="mobile-nav-num">06</span><span>Certifications</span>
-        </a>
-        <a href="#contact" class="mobile-nav-item" data-section="contact">
-          <span class="mobile-nav-num">07</span><span>Contact</span>
-        </a>
+        <a href="#home" class="mobile-nav-item" data-section="home"><span class="mobile-nav-num" aria-hidden="true">01</span><span>Home</span></a>
+        <a href="#about" class="mobile-nav-item" data-section="about"><span class="mobile-nav-num" aria-hidden="true">02</span><span>About</span></a>
+        <a href="#experience" class="mobile-nav-item" data-section="experience"><span class="mobile-nav-num" aria-hidden="true">03</span><span>Experience</span></a>
+        <a href="#projects" class="mobile-nav-item" data-section="projects"><span class="mobile-nav-num" aria-hidden="true">04</span><span>Projects</span></a>
+        <a href="#skills" class="mobile-nav-item" data-section="skills"><span class="mobile-nav-num" aria-hidden="true">05</span><span>Skills</span></a>
+        <a href="#certifications" class="mobile-nav-item" data-section="certifications"><span class="mobile-nav-num" aria-hidden="true">06</span><span>Certifications</span></a>
+        <a href="#contact" class="mobile-nav-item" data-section="contact"><span class="mobile-nav-num" aria-hidden="true">07</span><span>Contact</span></a>
       </nav>
-      <!-- Mobile CTA row -->
       <div class="mobile-nav-ctas">
-        <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing"
-           target="_blank" rel="noopener noreferrer"
-           class="nb-btn nb-btn--yellow mobile-nav-cta" aria-label="View Resume">
-          Resume <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em" aria-hidden="true"></i>
-        </a>
-        <a href="#contact" class="nb-btn nb-btn--black mobile-nav-cta">Say hi 👋</a>
+        <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nb-btn nb-btn--yellow mobile-nav-cta" aria-label="View Resume (opens in new tab)">Resume <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em" aria-hidden="true"></i></a>
+        <a href="#contact" class="nb-btn nb-btn--black mobile-nav-cta">Say hi &#x1F44B;</a>
       </div>
     </div>
   </div>
 
-  <!-- ── TOP HEADER: Floating neo-brutalist pill ── -->
   <header class="top-header" id="top-header">
     <div class="nb-nav-pill">
-
-      <!-- Left: DT logo badge -->
-      <a href="#home" class="nav-logo-badge" aria-label="Deepak Tiwari — Home">
-        <span>DT</span>
-      </a>
-
-      <!-- Centre: links (JS keeps data-section + .active) -->
+      <a href="#home" class="nav-logo-badge" aria-label="Deepak Tiwari - Home"><span aria-hidden="true">DT</span></a>
       <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
-        <a href="#home"          class="fnav-item active" data-section="home"          title="Home">Home</a>
-        <a href="#about"         class="fnav-item"        data-section="about"         title="About">About</a>
-        <a href="#experience"    class="fnav-item"        data-section="experience"    title="Experience">Experience</a>
-        <a href="#projects"      class="fnav-item"        data-section="projects"      title="Projects">Projects</a>
-        <a href="#skills"        class="fnav-item"        data-section="skills"        title="Skills">Skills</a>
-        <a href="#certifications"class="fnav-item"        data-section="certifications"title="Certifications">Certs</a>
-        <a href="#contact"       class="fnav-item"        data-section="contact"       title="Contact">Contact</a>
+        <a href="#home" class="fnav-item active" data-section="home" title="Home">Home</a>
+        <a href="#about" class="fnav-item" data-section="about" title="About">About</a>
+        <a href="#experience" class="fnav-item" data-section="experience" title="Experience">Experience</a>
+        <a href="#projects" class="fnav-item" data-section="projects" title="Projects">Projects</a>
+        <a href="#skills" class="fnav-item" data-section="skills" title="Skills">Skills</a>
+        <a href="#certifications" class="fnav-item" data-section="certifications" title="Certifications">Certs</a>
+        <a href="#contact" class="fnav-item" data-section="contact" title="Contact">Contact</a>
       </nav>
-
-      <!-- Right: Resume + Say hi -->
       <div class="nav-actions">
-        <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing"
-           target="_blank" rel="noopener noreferrer"
-           class="nb-btn nb-btn--yellow nav-resume-btn"
-           aria-label="View Resume (opens in new tab)">
-          Resume <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em;margin-left:2px" aria-hidden="true"></i>
-        </a>
-        <a href="#contact" class="nb-btn nb-btn--black nav-sayhi-btn">Say hi 👋</a>
+        <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nb-btn nb-btn--yellow nav-resume-btn" aria-label="View Resume (opens in new tab)">Resume <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em;margin-left:2px" aria-hidden="true"></i></a>
+        <a href="#contact" class="nb-btn nb-btn--black nav-sayhi-btn">Say hi &#x1F44B;</a>
       </div>
-
-      <!-- Hamburger (mobile only, JS controls) -->
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-overlay">
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
       </button>
-
     </div>
   </header>
 
-  <!-- ── LAYOUT ── -->
   <div class="layout">
-
-    <!-- ── SIDEBAR ── -->
     <aside class="sidebar">
       <div class="profile-card" id="profile-card">
-        <!-- Washi tape collage sticker -->
         <div class="profile-tape" aria-hidden="true"></div>
-
         <div class="profile-avatar">
-          <img src="profile_photo.png" alt="Deepak Tiwari" decoding="async" fetchpriority="high">
-          <span class="avatar-badge" aria-hidden="true">✦ UI/UX</span>
+          <picture>
+            <source srcset="profile_photo.webp" type="image/webp">
+            <img src="profile_photo.png" alt="Deepak Tiwari - UI/UX Designer" decoding="async" fetchpriority="high" width="156" height="156">
+          </picture>
+          <span class="avatar-badge" aria-hidden="true">&#x2736; UI/UX</span>
         </div>
-
         <div class="profile-info">
           <h2 class="profile-name">Deepak Tiwari</h2>
           <p class="profile-role">Product &amp; UI/UX Designer</p>
-          <p class="profile-location"><i class="fa-solid fa-location-dot"></i> Mumbai, India</p>
-          <div class="availability-badge">
-            <span class="pulse"></span> Available for work
-          </div>
+          <p class="profile-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Mumbai, India</p>
+          <div class="availability-badge"><span class="pulse" aria-hidden="true"></span> Available for work</div>
         </div>
-
-        <!-- Card glow follows cursor -->
-        <div class="card-glow" id="card-glow"></div>
-
+        <div class="card-glow" id="card-glow" aria-hidden="true"></div>
         <div class="profile-socials">
-          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank"
-            rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile"><i
-              class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer" title="Behance"
-            aria-label="Behance portfolio"><i class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com/dt019107" target="_blank" rel="noopener noreferrer" title="GitHub"
-            aria-label="GitHub profile"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer" title="Behance" aria-label="Behance portfolio"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+          <a href="https://github.com/dt019107" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub profile"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
         </div>
-
-        <!-- CTAs -->
         <div class="sidebar-ctas">
-          <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank"
-            rel="noopener noreferrer" class="btn-cv" aria-label="View Resume (opens in new tab)">
-            <i class="fa-solid fa-file-lines"></i>Resume <i class="fa-solid fa-arrow-up-right-from-square"
-              style="font-size:0.7em;margin-left:3px;" aria-hidden="true"></i>
-          </a>
-          <a href="mailto:dt019107@gmail.com" class="btn-contact" aria-label="Contact Deepak Tiwari via email">
-            <i class="fa-solid fa-paper-plane"></i> Contact Me
-          </a>
+          <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-cv" aria-label="View Resume (opens in new tab)"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Resume <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em;margin-left:3px;" aria-hidden="true"></i></a>
+          <a href="mailto:dt019107@gmail.com" class="btn-contact" aria-label="Contact Deepak Tiwari via email"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact Me</a>
         </div>
-
       </div>
     </aside>
 
-    <!-- ── MAIN CONTENT ── -->
     <main class="content" id="main-content">
 
-      <!-- ── HERO ── -->
+      <!-- HERO -->
       <section id="home" class="section hero-section">
         <div class="hero-content-wrapper">
-          <!-- Say Hello / Availability Status Pill -->
           <div class="hero-tag reveal-el" data-parallax="0.15">
             <span class="status-pulse-dot" aria-hidden="true"></span>
             <span class="hello-text">Available for selected projects</span>
             <span class="hero-tag-divider" aria-hidden="true"></span>
-            <span class="hero-tag-sub">Say Hello <span class="wave-emoji">👋</span></span>
+            <span class="hero-tag-sub">Say Hello <span class="wave-emoji" aria-hidden="true">&#x1F44B;</span></span>
           </div>
-
-          <!-- Title -->
-          <h1 class="hero-title reveal-el" data-parallax="0.08">
-            <span class="hero-name-row"><span class="hero-greeting">I'm </span><span class="hero-name">Deepak
-                Tiwari</span></span>
-            <span class="hero-role-row"><span class="role-prefix">UI/UX </span><span
-                class="outline-text">Designer</span></span>
+          <h1 class="hero-title" data-parallax="0.08">
+            <span class="hero-name-row"><span class="hero-greeting">I'm </span><span class="hero-name hero-word-split">Deepak Tiwari</span></span>
+            <span class="hero-role-row"><span class="role-prefix hero-word-split">UI/UX </span><span class="outline-text hero-word-split">Designer</span></span>
           </h1>
-
-          <!-- Animated role cycler -->
           <div class="role-cycler" data-parallax="0.06">
             <span class="role-static">Crafting&nbsp;</span>
             <span class="role-words" id="role-words">
@@ -256,573 +142,364 @@
               <span class="rw">impactful designs</span>
             </span>
           </div>
-
-          <p class="hero-bio reveal-el">
-            Product & UI/UX Designer turning complex ideas into sleek, human-centered digital experiences. Specialized
-            in web & mobile apps, design systems, and data-driven user flows.
-          </p>
-
+          <p class="hero-bio reveal-el">Product &amp; UI/UX Designer turning complex ideas into sleek, human-centered digital experiences. Specialized in web &amp; mobile apps, design systems, and data-driven user flows.</p>
           <div class="hero-ctas reveal-el">
-            <a href="#projects" class="btn-primary magnetic-item">View Projects <i
-                class="fa-solid fa-arrow-right"></i></a>
+            <a href="#projects" class="btn-primary magnetic-item">View Projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             <a href="#contact" class="btn-ghost magnetic-item">Let's Talk</a>
           </div>
-
-          <!-- Stats Bento -->
           <div class="stats-bento-grid reveal-el">
-            <!-- Years Experience (Large) -->
             <div class="bento-card stat-bento stat-medium stat-bento--yellow">
-              <div class="bento-noise"></div>
-              <div class="bento-bg-glow"></div>
               <div class="bento-content">
-                <div class="stat-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
-                <div class="stat-top">
-                  <span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span>
-                </div>
+                <div class="stat-icon-wrap"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+                <div class="stat-top"><span class="stat-num" data-target="2">0</span><span class="stat-plus" aria-hidden="true">+</span></div>
                 <span class="stat-label">Years of Experience</span>
               </div>
             </div>
-
-            <!-- Projects Completed (Medium) -->
             <div class="bento-card stat-bento stat-medium stat-bento--mint">
-              <div class="bento-noise"></div>
-              <div class="bento-bg-glow"></div>
               <div class="bento-content">
-                <div class="stat-icon-wrap"><i class="fa-solid fa-rocket"></i></div>
-                <div class="stat-top">
-                  <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
-                </div>
+                <div class="stat-icon-wrap"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+                <div class="stat-top"><span class="stat-num" data-target="20">0</span><span class="stat-plus" aria-hidden="true">+</span></div>
                 <span class="stat-label">Projects Completed</span>
               </div>
             </div>
-
-            <!-- Certifications (Medium) -->
             <div class="bento-card stat-bento stat-medium stat-bento--lavender">
-              <div class="bento-noise"></div>
-              <div class="bento-bg-glow"></div>
               <div class="bento-content">
-                <div class="stat-icon-wrap"><i class="fa-solid fa-certificate"></i></div>
-                <div class="stat-top">
-                  <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
-                </div>
+                <div class="stat-icon-wrap"><i class="fa-solid fa-certificate" aria-hidden="true"></i></div>
+                <div class="stat-top"><span class="stat-num" data-target="10">0</span><span class="stat-plus" aria-hidden="true">+</span></div>
                 <span class="stat-label">Certifications</span>
               </div>
             </div>
           </div>
         </div>
-
       </section>
 
-      <!-- ── ABOUT ── -->
+      <!-- ABOUT -->
       <section id="about" class="section">
         <div class="section-label reveal-el">About Me</div>
         <h2 class="section-title reveal-el">Passionate about<br><span class="accent">human-centered</span> design</h2>
-        <p class="section-desc reveal-el">
-          From initial research and wireframes to interactive high-fidelity prototypes, I lead products through the full
-          design lifecycle. I bridge aesthetics and functionality to build intuitive, user-loved digital experiences
-          alongside cross-functional teams.
-        </p>
-        <div class="about-cards reveal-el">
-          <div class="about-card about-card--lavender">
-            <div class="about-card-icon"><i class="fa-solid fa-pen-nib"></i></div>
-            <h4>UI Design</h4>
+        <p class="section-desc reveal-el">From initial research and wireframes to interactive high-fidelity prototypes, I lead products through the full design lifecycle. I bridge aesthetics and functionality to build intuitive, user-loved digital experiences alongside cross-functional teams.</p>
+        <div class="about-cards">
+          <div class="about-card nb-card nb-card--yellow about-card--yellow tilt-l-sm tilt-on-hover reveal-el">
+            <div class="about-card-icon" aria-hidden="true"><i class="fa-regular fa-pen-nib"></i></div>
+            <h3>UI Design</h3>
             <p>Crafting visually stunning, pixel-perfect interfaces with Figma and Framer.</p>
           </div>
-          <div class="about-card about-card--yellow">
-            <div class="about-card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-            <h4>UX Research</h4>
+          <div class="about-card nb-card nb-card--mint about-card--mint tilt-on-hover reveal-el" style="transform:rotate(1deg)">
+            <div class="about-card-icon" aria-hidden="true"><i class="fa-regular fa-magnifying-glass-chart"></i></div>
+            <h3>UX Research</h3>
             <p>Using empathy-driven research to uncover user needs and design painpoints.</p>
           </div>
-          <div class="about-card about-card--mint">
-            <div class="about-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-            <h4>Prototyping</h4>
+          <div class="about-card nb-card nb-card--lavender about-card--lavender tilt-l-sm tilt-on-hover reveal-el">
+            <div class="about-card-icon" aria-hidden="true"><i class="fa-regular fa-mobile-screen"></i></div>
+            <h3>Prototyping</h3>
             <p>Building interactive prototypes that communicate design intent and flow.</p>
           </div>
         </div>
       </section>
 
-      <!-- ── EXPERIENCE ── -->
+      <!-- EXPERIENCE -->
       <section id="experience" class="section">
         <div class="section-label reveal-el">Experience</div>
         <h2 class="section-title reveal-el">Work <span class="accent">Experience</span></h2>
-
         <div class="timeline">
-
           <div class="timeline-item reveal-el">
-            <div class="tl-left">
-              <div class="tl-icon">
-                <img src="DecisionCulture_Logo.jpg" alt="Decision Culture" loading="lazy" decoding="async">
-              </div>
-            </div>
+            <div class="tl-left"><div class="tl-icon" aria-label="Decision Culture logo"><img src="DecisionCulture_Logo.jpg" alt="Decision Culture" loading="lazy" decoding="async" width="48" height="48"></div></div>
             <div class="tl-right tl-card--yellow">
               <div class="tl-top">
-                <div>
-                  <h3 class="tl-role">UX Designer Consultant</h3>
-                  <p class="tl-company">Decision Culture</p>
-                </div>
-                <div class="tl-badge"><span class="tl-badge-dot"></span>Current</div>
+                <div><h3 class="tl-role">UX Designer Consultant</h3><p class="tl-company">Decision Culture</p></div>
+                <div class="tl-badge" role="status" aria-label="Current position"><span class="tl-badge-dot" aria-hidden="true"></span>Current</div>
               </div>
-              <p class="tl-date"><i class="fa-regular fa-calendar"></i> Nov 2025 – Present · Hybrid</p>
-              <p class="tl-desc">Led end-to-end UX/UI design across client products—from research and wireframing to
-                design systems and high-fidelity delivery. Optimized responsive landing pages through user journey
-                mapping to boost conversions, while partnering with engineering to streamline developer handoff and
-                ensure brand consistency.</p>
-              <div class="tl-tags">
-                <span>Figma</span><span>UX Research</span><span>Prototyping</span>
+              <p class="tl-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Nov 2025 - Present &middot; Hybrid</p>
+              <p class="tl-desc">Led end-to-end UX/UI design across client products from research and wireframing to design systems and high-fidelity delivery. Optimized responsive landing pages through user journey mapping to boost conversions, while partnering with engineering to streamline developer handoff and ensure brand consistency.</p>
+              <div class="tl-tags" aria-label="Skills used">
+                <span class="nb-pill">Figma</span><span class="nb-pill">UX Research</span><span class="nb-pill">Prototyping</span>
               </div>
             </div>
           </div>
-
           <div class="timeline-item reveal-el">
-            <div class="tl-left">
-              <div class="tl-icon tl-icon--building">
-                <i class="fa-solid fa-building"></i>
-              </div>
-            </div>
+            <div class="tl-left"><div class="tl-icon tl-icon--building" aria-label="SAAA Consultants"><i class="fa-solid fa-building" aria-hidden="true"></i></div></div>
             <div class="tl-right tl-card--mint">
-              <div class="tl-top">
-                <div>
-                  <h3 class="tl-role">UI/UX Designer</h3>
-                  <p class="tl-company">SAAA Consultants</p>
-                </div>
-              </div>
-              <p class="tl-date"><i class="fa-regular fa-calendar"></i> Jan 2025 – Oct 2025 · Mumbai, On-site</p>
-              <p class="tl-desc">Designed end-to-end web and mobile interfaces, producing wireframes, design systems,
-                and interactive prototypes. Accomplished user-centric web and mobile interface designs by conducting
-                in-depth user research and applying iterative design principles, resulting in intuitive products that
-                improved user satisfaction and engagement.</p>
-              <div class="tl-tags">
-                <span>Figma</span><span>Canva</span><span>UI Design</span>
+              <div class="tl-top"><div><h3 class="tl-role">UI/UX Designer</h3><p class="tl-company">SAAA Consultants</p></div></div>
+              <p class="tl-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Jan 2025 - Oct 2025 &middot; Mumbai, On-site</p>
+              <p class="tl-desc">Designed end-to-end web and mobile interfaces, producing wireframes, design systems, and interactive prototypes. Accomplished user-centric designs by conducting in-depth user research and applying iterative design principles, resulting in intuitive products that improved user satisfaction and engagement.</p>
+              <div class="tl-tags" aria-label="Skills used">
+                <span class="nb-pill">Figma</span><span class="nb-pill">Canva</span><span class="nb-pill">UI Design</span>
               </div>
             </div>
           </div>
-
           <div class="timeline-item reveal-el">
-            <div class="tl-left">
-              <div class="tl-icon">
-                <img src="LPU_Logo.png" alt="LPU" loading="lazy" decoding="async">
-              </div>
-            </div>
+            <div class="tl-left"><div class="tl-icon" aria-label="Lovely Professional University logo"><img src="LPU_Logo.png" alt="LPU" loading="lazy" decoding="async" width="48" height="48"></div></div>
             <div class="tl-right tl-card--lavender">
-              <div class="tl-top">
-                <div>
-                  <h3 class="tl-role">B.Tech — Information Technology</h3>
-                  <p class="tl-company">Lovely Professional University</p>
-                </div>
-              </div>
-              <p class="tl-date"><i class="fa-regular fa-calendar"></i> 2020 – 2024 · Phagwara, Punjab</p>
-              <p class="tl-desc">Completed Bachelors in Information Technology with a focus on UI/UX, frontend
-                development, and product design.</p>
-              <div class="tl-tags">
-                <span>B.Tech</span><span>IT</span><span>4 Years</span>
+              <div class="tl-top"><div><h3 class="tl-role">B.Tech - Information Technology</h3><p class="tl-company">Lovely Professional University</p></div></div>
+              <p class="tl-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 2020 - 2024 &middot; Phagwara, Punjab</p>
+              <p class="tl-desc">Completed Bachelors in Information Technology with a focus on UI/UX, frontend development, and product design.</p>
+              <div class="tl-tags" aria-label="Details">
+                <span class="nb-pill">B.Tech</span><span class="nb-pill">IT</span><span class="nb-pill">4 Years</span>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
-      <!-- ── PROJECTS ── -->
+      <!-- PROJECTS -->
       <section id="projects" class="section">
-        <div class="section-label">Featured Work</div>
-        <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
-
+        <div class="section-label reveal-el">Featured Work</div>
+        <h2 class="section-title reveal-el">Featured <span class="accent">Projects</span></h2>
         <div class="projects-grid">
-
-          <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer"
-            class="project-card" aria-label="View Ola Partner UX case study">
+          <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer" class="project-card nb-card project-card--yellow reveal-el" aria-label="View Ola Partner UX case study (opens in new tab)">
             <div class="project-img">
-              <img src="ola_partner_preview.png" alt="Ola Partner - Designing for the Driver Case Study" loading="lazy"
-                decoding="async" />
+              <picture>
+                <source srcset="ola_partner_preview.webp" type="image/webp">
+                <img src="ola_partner_preview.png" alt="Ola Partner - Designing for the Driver Case Study" loading="lazy" decoding="async" width="400" height="225" />
+              </picture>
             </div>
             <div class="project-info">
-              <div class="project-tags"><span>UX Case Study</span><span>Product Design</span></div>
+              <div class="project-tags" aria-label="Categories"><span class="nb-pill">UX Case Study</span><span class="nb-pill">Product Design</span></div>
               <h3>Ola Partner</h3>
-              <p>Designing for the Driver: Rebuilding supply-side trust at Ola through driver-centric UX and product
-                redesign.</p>
+              <p>Designing for the Driver: Rebuilding supply-side trust at Ola through driver-centric UX and product redesign.</p>
             </div>
+            <span class="project-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
           </a>
-
-          <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study"
-            target="_blank" rel="noopener noreferrer" class="project-card"
-            aria-label="View IndiGo Booking Experience case study">
-            <div class="project-img">
-              <img
-                src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=1920"
-                alt="IndiGo Flight Booking Flow UX Case Study" referrerpolicy="no-referrer" loading="lazy"
-                decoding="async" />
-            </div>
+          <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study" target="_blank" rel="noopener noreferrer" class="project-card nb-card project-card--mint reveal-el" aria-label="View IndiGo Booking Experience case study (opens in new tab)">
+            <div class="project-img"><img src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=800" alt="IndiGo Flight Booking Flow UX Case Study" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="225" /></div>
             <div class="project-info">
-              <div class="project-tags"><span>Case Study</span><span>UX Research</span></div>
+              <div class="project-tags" aria-label="Categories"><span class="nb-pill">Case Study</span><span class="nb-pill">UX Research</span></div>
               <h3>IndiGo Booking Experience</h3>
-              <p>UX case study redesigning IndiGo's booking flow, improving usability through research and data-driven
-                design decisions.</p>
+              <p>UX case study redesigning IndiGo's booking flow, improving usability through research and data-driven design decisions.</p>
             </div>
+            <span class="project-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
           </a>
-
-          <a href="https://www.behance.net/gallery/235653015" target="_blank" rel="noopener noreferrer"
-            class="project-card" aria-label="View Kanban Task Tracker project on Behance">
-            <div class="project-img">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png"
-                alt="Kanban Task Management Web Application" referrerpolicy="no-referrer" loading="lazy"
-                decoding="async" />
-            </div>
+          <a href="https://www.behance.net/gallery/235653015" target="_blank" rel="noopener noreferrer" class="project-card nb-card project-card--lavender reveal-el" aria-label="View Kanban Task Tracker on Behance (opens in new tab)">
+            <div class="project-img"><img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png" alt="Kanban Task Management Web Application" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="225" /></div>
             <div class="project-info">
-              <div class="project-tags"><span>Web App</span><span>Productivity</span></div>
+              <div class="project-tags" aria-label="Categories"><span class="nb-pill">Web App</span><span class="nb-pill">Productivity</span></div>
               <h3>Kanban Task Tracker</h3>
-              <p>A feature-rich productivity PWA with Kanban board, workflow analytics, and intuitive task organization.
-              </p>
+              <p>A feature-rich productivity PWA with Kanban board, workflow analytics, and intuitive task organization.</p>
             </div>
+            <span class="project-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
           </a>
-
-          <a href="https://www.behance.net/gallery/235520313" target="_blank" rel="noopener noreferrer"
-            class="project-card" aria-label="View Yoga and Wellness Platform design on Behance">
-            <div class="project-img">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png"
-                alt="Yoga and Wellness Platform Landing Page" referrerpolicy="no-referrer" loading="lazy"
-                decoding="async" />
-            </div>
+          <a href="https://www.behance.net/gallery/235520313" target="_blank" rel="noopener noreferrer" class="project-card nb-card project-card--pink reveal-el" aria-label="View Yoga and Wellness Platform on Behance (opens in new tab)">
+            <div class="project-img"><img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png" alt="Yoga and Wellness Platform Landing Page" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="225" /></div>
             <div class="project-info">
-              <div class="project-tags"><span>Web Design</span><span>Landing Page</span></div>
+              <div class="project-tags" aria-label="Categories"><span class="nb-pill">Web Design</span><span class="nb-pill">Landing Page</span></div>
               <h3>Yoga &amp; Wellness Platform</h3>
-              <p>Responsive web experience and schedule booking interface crafted for a modern holistic wellness brand.
-              </p>
+              <p>Responsive web experience and schedule booking interface crafted for a modern holistic wellness brand.</p>
             </div>
+            <span class="project-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
           </a>
-
-          <a href="https://www.behance.net/gallery/214354057" target="_blank" rel="noopener noreferrer"
-            class="project-card" aria-label="View Domino's Promotional Campaign design on Behance">
-            <div class="project-img">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Domino's Pizza Brand Promotional Campaign Poster" referrerpolicy="no-referrer" loading="lazy"
-                decoding="async" />
-            </div>
+          <a href="https://www.behance.net/gallery/214354057" target="_blank" rel="noopener noreferrer" class="project-card nb-card project-card--cream reveal-el" aria-label="View Domino's Promotional Campaign on Behance (opens in new tab)">
+            <div class="project-img"><img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png" alt="Domino's Pizza Brand Promotional Campaign Poster" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="225" /></div>
             <div class="project-info">
-              <div class="project-tags"><span>Brand Campaign</span><span>Visual Design</span></div>
+              <div class="project-tags" aria-label="Categories"><span class="nb-pill">Brand Campaign</span><span class="nb-pill">Visual Design</span></div>
               <h3>Domino's Promotional Campaign</h3>
               <p>High-conversion promotional poster and social campaign visual design for Domino's Pizza promotions.</p>
             </div>
+            <span class="project-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
           </a>
-
-          <a href="https://www.behance.net/gallery/214274261" target="_blank" rel="noopener noreferrer"
-            class="project-card" aria-label="View Gourmet Burger Brand Campaign design on Behance">
-            <div class="project-img">
-              <img
-                src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Gourmet Burger Brand Identity and Promotional Poster" referrerpolicy="no-referrer" loading="lazy"
-                decoding="async" />
-            </div>
+          <a href="https://www.behance.net/gallery/214274261" target="_blank" rel="noopener noreferrer" class="project-card nb-card project-card--blue reveal-el" aria-label="View Gourmet Burger Brand Campaign on Behance (opens in new tab)">
+            <div class="project-img"><img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png" alt="Gourmet Burger Brand Identity and Promotional Poster" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="225" /></div>
             <div class="project-info">
-              <div class="project-tags"><span>Brand Identity</span><span>Visual Design</span></div>
+              <div class="project-tags" aria-label="Categories"><span class="nb-pill">Brand Identity</span><span class="nb-pill">Visual Design</span></div>
               <h3>Gourmet Burger Brand Campaign</h3>
-              <p>Appetizing visual advertising design and creative promotional campaign assets for a specialty burger
-                house.</p>
+              <p>Appetizing visual advertising design and creative promotional campaign assets for a specialty burger house.</p>
             </div>
+            <span class="project-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
           </a>
-
         </div>
-
-        <div class="view-more-wrap">
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer"
-            class="btn-ghost" aria-label="View full portfolio on Behance (opens in new tab)">
-            View All on Behance <i class="fa-brands fa-behance"></i>
-          </a>
+        <div class="view-more-wrap reveal-el">
+          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer" class="nb-btn" aria-label="View full portfolio on Behance (opens in new tab)">View All on Behance <i class="fa-brands fa-behance" aria-hidden="true"></i></a>
         </div>
       </section>
 
-      <!-- ── SKILLS ── -->
+      <!-- SKILLS MARQUEE STRIP -->
+      <div class="marquee" aria-hidden="true" role="presentation">
+        <div class="marquee__inner">
+          <span class="marquee__item">UX Research <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Prototyping <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Design Systems <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Wireframing <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Figma <span class="marquee__dot"></span></span>
+          <span class="marquee__item">User Research <span class="marquee__dot"></span></span>
+          <span class="marquee__item">UI Design <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Interaction Design <span class="marquee__dot"></span></span>
+          <span class="marquee__item">UX Research <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Prototyping <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Design Systems <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Wireframing <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Figma <span class="marquee__dot"></span></span>
+          <span class="marquee__item">User Research <span class="marquee__dot"></span></span>
+          <span class="marquee__item">UI Design <span class="marquee__dot"></span></span>
+          <span class="marquee__item">Interaction Design <span class="marquee__dot"></span></span>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
       <section id="skills" class="section">
         <div class="section-label reveal-el">My Tool Stack</div>
-        <h2 class="section-title reveal-el">Skills & <span class="accent">Tools</span></h2>
-
-        <div class="skills-bento-grid">
-
-          <!-- Large Card: Primary Design Tools -->
-          <div class="bento-card bento-large reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content">
-              <h4 class="bento-label">Primary Design Toolkit</h4>
-              <div class="bento-icons-main">
-                <div class="bento-icon-item magnetic-item">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma">
-                  <span>Figma</span>
-                </div>
-                <div class="bento-icon-item magnetic-item">
-                  <img src="https://cdn.simpleicons.org/framer/1a1a1a" class="skill-logo-adaptive" alt="Framer">
-                  <span>Framer</span>
-                </div>
-              </div>
-              <p class="bento-desc">Creating pixel-perfect interfaces and high-fidelity interactive prototypes.</p>
-            </div>
-            <div class="bento-bg-glow"></div>
-          </div>
-
-          <!-- Medium Card: AI & Workflow -->
-          <div class="bento-card bento-medium-1 reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content">
-              <h4 class="bento-label">AI & Workflow</h4>
-              <div class="bento-pills">
-                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/claude/CC785C" width="16"
-                    alt="Claude AI" class="skill-logo-claude">Claude AI</span>
-                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2"
-                    width="16" alt="Gemini AI">Gemini AI</span>
-                <span class="skill-pill magnetic-item"><img src="https://cdn.simpleicons.org/notion/1a1a1a" width="16"
-                    alt="Notion" class="skill-logo-adaptive">Notion</span>
-              </div>
-              <p class="bento-desc">Leveraging AI to speed up design workflows and complex documentation.</p>
-            </div>
-            <div class="bento-bg-glow"></div>
-          </div>
-
-          <!-- Medium Card: Development -->
-          <div class="bento-card bento-medium-2 reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content">
-              <h4 class="bento-label">Code Stack</h4>
-              <div class="bento-pills dev-stack">
-                <span class="skill-pill magnetic-item"><i class="devicon-html5-plain colored"></i>HTML5</span>
-                <span class="skill-pill magnetic-item"><i class="devicon-css3-plain colored"></i>CSS3</span>
-                <span class="skill-pill magnetic-item"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
-                <span class="skill-pill magnetic-item"><i
-                    class="devicon-github-original skill-icon-adaptive"></i>GitHub</span>
-              </div>
-            </div>
-            <div class="bento-bg-glow"></div>
-          </div>
-
-          <!-- Small Cards: Specialties -->
-          <div class="bento-card bento-small reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content centered magnetic-item">
-              <i class="fa-solid fa-users specialty-icon"></i>
-              <span>UX Research</span>
+        <h2 class="section-title reveal-el">Skills &amp; <span class="accent">Tools</span></h2>
+        <div class="skills-nb-grid">
+          <div class="nb-card nb-card--yellow skills-card reveal-el">
+            <h3 class="skills-card-title">Design Toolkit</h3>
+            <div class="skills-chips">
+              <span class="skill-chip sticker sticker--yellow float-idle" style="--tilt:-2deg;animation-delay:0s"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="16" height="16" alt="Figma" loading="lazy">Figma</span>
+              <span class="skill-chip sticker sticker--yellow float-idle" style="--tilt:1.5deg;animation-delay:-0.8s"><img src="https://cdn.simpleicons.org/framer/1a1a1a" width="16" height="16" alt="Framer" loading="lazy" class="skill-logo-adaptive">Framer</span>
+              <span class="skill-chip sticker sticker--yellow float-idle" style="--tilt:-1deg;animation-delay:-1.5s"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>Adobe XD</span>
+              <span class="skill-chip sticker sticker--yellow float-idle" style="--tilt:2deg;animation-delay:-2.3s"><img src="https://cdn.simpleicons.org/canva/00C4CC" width="16" height="16" alt="Canva" loading="lazy">Canva</span>
+              <span class="skill-chip sticker sticker--yellow float-idle" style="--tilt:-1.5deg;animation-delay:-0.4s"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Design Systems</span>
+              <span class="skill-chip sticker sticker--yellow float-idle" style="--tilt:1deg;animation-delay:-1.9s"><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i>Wireframing</span>
             </div>
           </div>
-          <div class="bento-card bento-small reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content centered magnetic-item">
-              <i class="fa-solid fa-mobile-screen specialty-icon"></i>
-              <span>Prototyping</span>
+          <div class="nb-card nb-card--mint skills-card reveal-el">
+            <h3 class="skills-card-title">AI &amp; Workflow</h3>
+            <div class="skills-chips">
+              <span class="skill-chip sticker sticker--mint float-idle" style="--tilt:2deg;animation-delay:-0.6s"><img src="https://cdn.simpleicons.org/claude/CC785C" width="16" height="16" alt="Claude AI" loading="lazy">Claude AI</span>
+              <span class="skill-chip sticker sticker--mint float-idle" style="--tilt:-1.5deg;animation-delay:-1.2s"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" width="16" height="16" alt="Gemini AI" loading="lazy">Gemini AI</span>
+              <span class="skill-chip sticker sticker--mint float-idle" style="--tilt:1deg;animation-delay:-2s"><img src="https://cdn.simpleicons.org/notion/1a1a1a" width="16" height="16" alt="Notion" loading="lazy" class="skill-logo-adaptive">Notion</span>
+              <span class="skill-chip sticker sticker--mint float-idle" style="--tilt:-2deg;animation-delay:-0.3s"><i class="fa-solid fa-users" aria-hidden="true"></i>UX Research</span>
+              <span class="skill-chip sticker sticker--mint float-idle" style="--tilt:1.5deg;animation-delay:-1.7s"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>Prototyping</span>
             </div>
           </div>
-          <div class="bento-card bento-small reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content centered magnetic-item">
-              <i class="fa-solid fa-layer-group specialty-icon"></i>
-              <span>Design Systems</span>
+          <div class="nb-card nb-card--lavender skills-card reveal-el">
+            <h3 class="skills-card-title">Code Stack</h3>
+            <div class="skills-chips">
+              <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:-1deg;animation-delay:-0.5s"><i class="devicon-html5-plain colored" aria-hidden="true"></i>HTML5</span>
+              <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:2deg;animation-delay:-1s"><i class="devicon-css3-plain colored" aria-hidden="true"></i>CSS3</span>
+              <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:-2deg;animation-delay:-1.8s"><i class="devicon-javascript-plain colored" aria-hidden="true"></i>JavaScript</span>
+              <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:1.5deg;animation-delay:-0.7s"><i class="devicon-github-original skill-icon-adaptive" aria-hidden="true"></i>GitHub</span>
+              <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:-1.5deg;animation-delay:-2.1s"><i class="fa-solid fa-code" aria-hidden="true"></i>SVG &amp; Motion</span>
             </div>
           </div>
-          <div class="bento-card bento-small reveal-el">
-            <div class="bento-noise"></div>
-            <div class="bento-content centered magnetic-item">
-              <i class="fa-solid fa-bezier-curve specialty-icon"></i>
-              <span>Wireframing</span>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      <!-- ── CERTIFICATIONS ── -->
+      <!-- CERTIFICATIONS -->
       <section id="certifications" class="section">
         <div class="section-label reveal-el">Verified</div>
         <h2 class="section-title reveal-el">My <span class="accent">Certifications</span></h2>
-
         <div class="certs-grid">
-
-          <a href="https://www.life-global.org/certificate/969411ad-c96f-4180-afc4-58ba678c9738" target="_blank"
-            rel="noopener noreferrer" class="cert-card reveal-el"
-            aria-label="View HP LIFE Agile Project Management certificate">
-            <div class="cert-icon" style="background:#fff;padding:4px;overflow:hidden;"><img src="hp_logo.svg" alt="HP"
-                style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async"></div>
-            <div class="cert-info">
-              <h4>Agile Project Management</h4>
-              <p>HP LIFE</p>
-            </div>
-            <div class="cert-arrow">↗</div>
+          <a href="https://www.life-global.org/certificate/969411ad-c96f-4180-afc4-58ba678c9738" target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el" aria-label="View HP LIFE Agile Project Management certificate (opens in new tab)">
+            <div class="cert-icon-wrap"><div class="cert-icon" style="background:#fff;padding:4px;overflow:hidden;"><img src="hp_logo.svg" alt="HP LIFE logo" style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async"></div></div>
+            <div class="cert-info"><h3>Agile Project Management</h3><p>HP LIFE</p></div>
+            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
           </a>
-
-          <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3"
-            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
-            aria-label="View Atlassian Agile PM certificate on LinkedIn Learning">
-            <div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img
-                src="atlassian_agile_logo.png" alt="Atlassian" style="width:100%;height:100%;object-fit:contain;"
-                loading="lazy" decoding="async"></div>
-            <div class="cert-info">
-              <h4>Atlassian Agile PM Certificate</h4>
-              <p>Atlassian</p>
-            </div>
-            <div class="cert-arrow">↗</div>
+          <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3" target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el" aria-label="View Atlassian Agile PM certificate (opens in new tab)">
+            <div class="cert-icon-wrap"><div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img src="atlassian_agile_logo.png" alt="Atlassian logo" style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async"></div></div>
+            <div class="cert-info"><h3>Atlassian Agile PM Certificate</h3><p>Atlassian</p></div>
+            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
           </a>
-
-          <a href="https://canva.com/designschool/certification-award/b5dfb0f3-5eb6-4314-9a5a-9b637077a001"
-            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
-            aria-label="View Canva Essentials certificate">
-            <div class="cert-icon"
-              style="background:linear-gradient(135deg,#00c4cc,#7d2ae8);padding:0;overflow:hidden;"><svg
-                xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="12" fill="url(#canva-grad)" />
-                <defs>
-                  <linearGradient id="canva-grad" x1="0" y1="0" x2="24" y2="24">
-                    <stop offset="0%" stop-color="#00C4CC" />
-                    <stop offset="50%" stop-color="#7D2AE8" />
-                    <stop offset="100%" stop-color="#7D2AE8" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M15.5 8.5C14.8 7.4 13.5 6.7 12 6.7c-2.9 0-5.3 2.4-5.3 5.3s2.4 5.3 5.3 5.3c1.5 0 2.8-.6 3.7-1.6.2-.2.1-.5-.1-.6-.2-.1-.5-.1-.6.1-.7.8-1.8 1.3-3 1.3-2.3 0-4.1-1.8-4.1-4.1S9.7 8.3 12 8.3c1.1 0 2.1.5 2.8 1.2.2.2.5.2.6 0 .3-.4.3-.7.1-1z"
-                  fill="#fff" />
-              </svg></div>
-            <div class="cert-info">
-              <h4>Canva Essentials</h4>
-              <p>Canva</p>
-            </div>
-            <div class="cert-arrow">↗</div>
+          <a href="https://canva.com/designschool/certification-award/b5dfb0f3-5eb6-4314-9a5a-9b637077a001" target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el" aria-label="View Canva Essentials certificate (opens in new tab)">
+            <div class="cert-icon-wrap"><div class="cert-icon" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8);"><i class="fa-brands fa-figma" style="color:#fff" aria-hidden="true"></i></div></div>
+            <div class="cert-info"><h3>Canva Essentials</h3><p>Canva</p></div>
+            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
           </a>
-
-          <a href="https://www.linkedin.com/learning/certificates/dd6acb3e53420f300a875b2a67cceec72f976187bb0633ecc4f5d0e1d07b0d8a"
-            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
-            aria-label="View Figma for UX Design certificate on LinkedIn Learning">
-            <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69)"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="18" alt="Figma"></div>
-            <div class="cert-info">
-              <h4>Figma for UX Design</h4>
-              <p>LinkedIn Learning</p>
-            </div>
-            <div class="cert-arrow">↗</div>
+          <a href="https://www.linkedin.com/learning/certificates/dd6acb3e53420f300a875b2a67cceec72f976187bb0633ecc4f5d0e1d07b0d8a" target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el" aria-label="View Figma for UX Design certificate (opens in new tab)">
+            <div class="cert-icon-wrap"><div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69)"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="18" height="18" alt="Figma logo"></div></div>
+            <div class="cert-info"><h3>Figma for UX Design</h3><p>LinkedIn Learning</p></div>
+            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
           </a>
-
-          <a href="https://grow.google/certificates/ux-design/" target="_blank" rel="noopener noreferrer"
-            class="cert-card reveal-el" aria-label="View Google Foundations of UX Design certificate">
-            <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2563eb)"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="24"
-                alt="Google"></div>
-            <div class="cert-info">
-              <h4>Foundations of UX Design</h4>
-              <p>Google / Coursera</p>
-            </div>
-            <div class="cert-arrow">↗</div>
+          <a href="https://grow.google/certificates/ux-design/" target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el" aria-label="View Google Foundations of UX Design certificate (opens in new tab)">
+            <div class="cert-icon-wrap"><div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2563eb)"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="24" height="24" alt="Google logo"></div></div>
+            <div class="cert-info"><h3>Foundations of UX Design</h3><p>Google / Coursera</p></div>
+            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
           </a>
-
-          <a href="https://www.linkedin.com/learning/certificates/bbfb1b17d2438f6b0e75081d54318745932ed7b2f5f9912e43771a4b2f2d4308"
-            target="_blank" rel="noopener noreferrer" class="cert-card reveal-el"
-            aria-label="View UX Foundations Prototyping certificate on LinkedIn Learning">
-            <div class="cert-icon" style="background:linear-gradient(135deg,#312e81,#7c3aed)"><i
-                class="fa-solid fa-desktop" style="color:#a78bfa"></i></div>
-            <div class="cert-info">
-              <h4>UX Foundations: Prototyping</h4>
-              <p>LinkedIn Learning</p>
-            </div>
-            <div class="cert-arrow">↗</div>
+          <a href="https://www.linkedin.com/learning/certificates/bbfb1b17d2438f6b0e75081d54318745932ed7b2f5f9912e43771a4b2f2d4308" target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el" aria-label="View UX Foundations Prototyping certificate (opens in new tab)">
+            <div class="cert-icon-wrap"><div class="cert-icon" style="background:linear-gradient(135deg,#312e81,#7c3aed)"><i class="fa-solid fa-desktop" style="color:#a78bfa;font-size:1.1rem" aria-hidden="true"></i></div></div>
+            <div class="cert-info"><h3>UX Foundations: Prototyping</h3><p>LinkedIn Learning</p></div>
+            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
           </a>
-
         </div>
       </section>
 
-      <!-- ── CONTACT ── -->
+      <!-- CONTACT -->
       <section id="contact" class="section contact-section">
         <div class="section-label reveal-el">Get In Touch</div>
         <h2 class="section-title reveal-el">Let's <span class="accent">Work Together</span></h2>
-        <p class="section-desc reveal-el">Have a project in mind? I'd love to hear about it. Send me a message and let's
-          create something amazing.</p>
-
-        <form id="contact-form" class="contact-form" action="https://formsubmit.co/dt019107@gmail.com" method="POST"
-          novalidate>
-          <!-- FormSubmit configuration -->
-          <input type="hidden" name="_subject" value="New message from your portfolio!" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="text" name="_honey" style="display:none" />
-          <div class="form-row reveal-el">
-            <div class="form-group">
-              <label for="cf-name">Name <span class="required-indicator" aria-hidden="true">*</span></label>
-              <input type="text" id="cf-name" name="name" placeholder="Your full name" required autocomplete="name" />
-              <span id="name-error" class="field-error-msg hidden" role="alert">Please enter your name</span>
+        <p class="section-desc reveal-el">Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.</p>
+        <div class="nb-card nb-card--mint contact-card reveal-el">
+          <form id="contact-form" class="contact-form" action="https://formsubmit.co/dt019107@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New message from your portfolio!" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Name <span class="required-indicator" aria-hidden="true">*</span></label>
+                <input type="text" id="cf-name" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true" />
+                <span id="name-error" class="field-error-msg hidden" role="alert">Please enter your name</span>
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="your@email.com" required autocomplete="email" aria-required="true" />
+                <span id="email-error" class="field-error-msg hidden" role="alert">Please enter a valid email address</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-type">Project Type</label>
+                <select id="cf-type" name="project_type">
+                  <option value="" disabled selected>Select project type</option>
+                  <option value="UI/UX Design">UI / UX Design (Web or Mobile)</option>
+                  <option value="Website Redesign">Website Redesign</option>
+                  <option value="Design System">Design System &amp; Tokens</option>
+                  <option value="Prototyping">Interactive Prototyping</option>
+                  <option value="UX Audit">UX Audit &amp; Usability Review</option>
+                  <option value="Consultation">Consultation &amp; Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cf-budget">Budget</label>
+                <select id="cf-budget" name="budget">
+                  <option value="" disabled selected>Select budget range</option>
+                  <option value="Under $1,000">Under $1,000</option>
+                  <option value="$1,000 - $5,000">$1,000 - $5,000</option>
+                  <option value="$5,000 - $15,000">$5,000 - $15,000</option>
+                  <option value="$15,000+">$15,000+</option>
+                </select>
+              </div>
             </div>
             <div class="form-group">
-              <label for="cf-email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
-              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required
-                autocomplete="email" />
-              <span id="email-error" class="field-error-msg hidden" role="alert">Please enter a valid email
-                address</span>
+              <label for="cf-message">Message <span class="required-indicator" aria-hidden="true">*</span></label>
+              <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project goals, scope, and timeline..." required aria-required="true"></textarea>
+              <span id="message-error" class="field-error-msg hidden" role="alert">Please enter details about your project</span>
             </div>
-          </div>
-          <div class="form-row reveal-el">
-            <div class="form-group">
-              <label for="cf-type">Project Type</label>
-              <select id="cf-type" name="project_type">
-                <option value="" disabled selected>Select project type</option>
-                <option value="UI/UX Design">UI / UX Design (Web or Mobile)</option>
-                <option value="Website Redesign">Website Redesign</option>
-                <option value="Design System">Design System &amp; Tokens</option>
-                <option value="Prototyping">Interactive Prototyping</option>
-                <option value="UX Audit">UX Audit &amp; Usability Review</option>
-                <option value="Consultation">Consultation &amp; Other</option>
-              </select>
+            <div>
+              <button type="submit" class="nb-btn nb-btn--blue nb-btn--full" id="send-btn" aria-label="Send message">
+                <span id="btn-text">Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span>
+                <span id="btn-loading" class="hidden"><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Sending...</span>
+              </button>
             </div>
-            <div class="form-group">
-              <label for="cf-budget">Budget</label>
-              <select id="cf-budget" name="budget">
-                <option value="" disabled selected>Select budget range</option>
-                <option value="Under $1,000">Under $1,000</option>
-                <option value="$1,000 – $5,000">$1,000 – $5,000</option>
-                <option value="$5,000 – $15,000">$5,000 – $15,000</option>
-                <option value="$15,000+">$15,000+</option>
-              </select>
+            <div id="form-success" class="form-banner form-banner--success hidden" role="status" aria-live="polite">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Message sent successfully! I'll get back to you within 24 hours.
             </div>
-          </div>
-          <div class="form-group reveal-el">
-            <label for="cf-message">Message <span class="required-indicator" aria-hidden="true">*</span></label>
-            <textarea id="cf-message" name="message" rows="5"
-              placeholder="Tell me about your project goals, scope, and timeline..." required></textarea>
-            <span id="message-error" class="field-error-msg hidden" role="alert">Please enter details about your
-              project</span>
-          </div>
-          <div class="reveal-el">
-            <button type="submit" class="btn-primary btn-full" id="send-btn" aria-label="Send message">
-              <span id="btn-text">Send Message <i class="fa-solid fa-paper-plane"></i></span>
-              <span id="btn-loading" class="hidden"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>
-            </button>
-          </div>
-          <div id="form-success" class="form-success hidden" role="status" aria-live="polite">
-            <i class="fa-solid fa-circle-check"></i> Message sent successfully! I'll get back to you within 24 hours.
-          </div>
-          <div id="form-error" class="form-error hidden" role="alert" aria-live="assertive">
-            <i class="fa-solid fa-circle-exclamation"></i>
-            <span>Oops! Something went wrong sending your message. Please try again or email me directly at <a
-                href="mailto:dt019107@gmail.com"
-                style="text-decoration:underline;color:inherit;font-weight:600;">dt019107@gmail.com</a>.</span>
-          </div>
-        </form>
+            <div id="form-error" class="form-banner form-banner--error hidden" role="alert" aria-live="assertive">
+              <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+              <span>Oops! Something went wrong. Please try again or email me at <a href="mailto:dt019107@gmail.com" style="text-decoration:underline;color:inherit;font-weight:600;">dt019107@gmail.com</a>.</span>
+            </div>
+          </form>
+        </div>
       </section>
 
-      <!-- ── FOOTER ── -->
+      <!-- FOOTER -->
       <footer class="site-footer">
-        <div class="footer-left">
-          <span class="footer-logo">DT</span>
-          <span>© <span id="year"></span> Deepak Tiwari</span>
-        </div>
-        <p class="footer-email"><a href="mailto:dt019107@gmail.com">dt019107@gmail.com</a></p>
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank"
-            rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer"
-            aria-label="Behance portfolio"><i class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com/dt019107" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i
-              class="fa-brands fa-github"></i></a>
+        <div class="footer-inner">
+          <div class="footer-left">
+            <span class="footer-logo" aria-hidden="true">DT</span>
+            <span class="footer-copy">&#169; <span id="year"></span> Deepak Tiwari. All rights reserved.</span>
+          </div>
+          <p class="footer-email"><a href="mailto:dt019107@gmail.com" aria-label="Email Deepak Tiwari">dt019107@gmail.com</a></p>
+          <nav class="footer-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn profile (opens in new tab)"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Behance portfolio (opens in new tab)"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+            <a href="https://github.com/dt019107" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="GitHub profile (opens in new tab)"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </nav>
         </div>
       </footer>
 
     </main>
-  </div><!-- /layout -->
+  </div>
 
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="app.js"></script>
   <script src="vector-bg.js"></script>
 </body>
-
 </html>
