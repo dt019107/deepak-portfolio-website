@@ -12,20 +12,31 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 document.addEventListener('DOMContentLoaded', () => {
 
   // -- 0. SMOOTH SCROLL (LENIS) --
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-    mouseMultiplier: 1,
-    smoothTouch: false,
-    touchMultiplier: 1.5,
-    infinite: false,
-  });
+  // On mobile touch devices, native 120Hz/60Hz momentum scrolling is preserved to avoid touch locking
+  let lenis = null;
+  if (typeof Lenis !== 'undefined' && !isTouch && isFinePointer) {
+    try {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 1.5,
+        infinite: false,
+      });
 
-  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
+      function raf(time) {
+        if (lenis) lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    } catch (e) {
+      console.warn('Lenis smooth scrolling bypassed:', e);
+    }
+  }
 
   // -- 1. FOOTER YEAR --
   const yearEl = document.getElementById('year');
@@ -88,7 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (topHeader) topHeader.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
   if (backToTop) {
-    backToTop.addEventListener('click', () => lenis.scrollTo(0, { duration: 1.2 }));
+    backToTop.addEventListener('click', () => {
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   }
 
   // -- 6. RIPPLE EFFECT --
@@ -176,7 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: 0, duration: 1.5, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+      if (lenis) {
+        lenis.scrollTo(target, { offset: 0, duration: 1.5, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 
@@ -523,8 +544,14 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavItems.forEach(item => item.classList.toggle('active', item.dataset.section === current));
   }
   window.addEventListener('scroll', updateMobileNavActive, { passive: true });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 820 && mobileOverlay.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
   updateMobileNavActive();
   mobileOverlay.style.display = 'none';
+  document.body.style.overflow = '';
 })();
 
 /* ============================================================
@@ -572,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentX = 0, currentY = 0;
 
     sticker.addEventListener('pointerdown', (e) => {
-      if (e.button !== 0 && e.pointerType === 'mouse') return;
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
       isDragging = true;
       try { sticker.setPointerCapture(e.pointerId); } catch (_) {}
       sticker.classList.add('is-dragging');
@@ -1432,14 +1459,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // 5. DRAGGABLE PILLS WITH SPRING-BACK
-  if (!prefersReduced) {
+  // 5. DRAGGABLE PILLS WITH SPRING-BACK (Fine pointer / mouse only)
+  if (isFinePointer && !prefersReduced) {
     let startX = 0;
     let startY = 0;
 
     toolPills.forEach(pill => {
       pill.addEventListener('pointerdown', (e) => {
-        if (e.button !== 0) return;
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
         activeDragPill = pill;
         startX = e.clientX;
         startY = e.clientY;

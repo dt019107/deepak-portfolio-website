@@ -102,10 +102,15 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.65;
-  overflow-x: hidden;
+  overflow-x: clip;
   min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 a {
@@ -2856,10 +2861,6 @@ html {
     display: flex;
   }
 
-  .mobile-nav-overlay {
-    display: block;
-  }
-
   /* Hide the floating nav on very small screens - replaced by hamburger */
   .floating-nav {
     display: none;
@@ -3483,9 +3484,10 @@ html {
 @media (max-width: 640px) {
 
   /* Removed scroll-snap as it conflicts with Lenis smooth scroll */
-  /* but we keep touch-action optimizations */
   body {
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
 }
 
