@@ -1965,3 +1965,262 @@ img { max-width: 100%; display: block; }
     gap: var(--sp-4);
   }
 }
+
+
+/* ============================================================
+   PHASE 5: WORK EXPERIENCE TIMELINE — NEO-BRUTALIST
+   ============================================================ */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  position: relative;
+  margin-top: var(--sp-4);
+  padding-left: 0;
+}
+
+/* Timeline vertical dashed track */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 30px;
+  bottom: 40px;
+  width: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0,
+    var(--ink) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  z-index: 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-6);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Timeline Left Icon / Logo ── */
+.tl-left {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.tl-icon {
+  width: 56px;
+  height: 56px;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: 3px 3px 0 var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.tl-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.tl-icon--building {
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: 1.4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tl-icon {
+    transition: transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-fast) var(--ease-spring);
+  }
+  .timeline-item:hover .tl-icon {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+}
+
+/* ── Timeline Right Card ── */
+.tl-right {
+  flex: 1;
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-6) var(--sp-6) var(--sp-5);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  user-select: none;
+}
+
+/* Pastel Card Variations */
+.tl-card--yellow {
+  background: var(--white);
+  border-top: 6px solid var(--yellow);
+}
+
+.tl-card--mint {
+  background: var(--white);
+  border-top: 6px solid var(--mint);
+}
+
+.tl-card--lavender {
+  background: var(--white);
+  border-top: 6px solid var(--lavender);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tl-right {
+    transition:
+      transform var(--dur-fast) var(--ease-spring),
+      box-shadow var(--dur-fast) var(--ease-spring);
+  }
+  .timeline-item:hover .tl-right {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+}
+
+/* Header row */
+.tl-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+
+.tl-role {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.tl-company {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--blue);
+  margin: 3px 0 0;
+}
+
+/* "Current" badge */
+.tl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--mint);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-full);
+  box-shadow: 2px 2px 0 var(--ink);
+  flex-shrink: 0;
+}
+
+.tl-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #059669;
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3);
+}
+
+/* Date */
+.tl-date {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: var(--sp-2) 0 var(--sp-3);
+}
+
+.tl-date i {
+  color: var(--blue);
+  font-size: 12px;
+}
+
+/* Description */
+.tl-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 var(--sp-4);
+  font-weight: 500;
+}
+
+/* Tags */
+.tl-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tl-tags span {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  box-shadow: 2px 2px 0 var(--ink);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tl-tags span {
+    transition: transform var(--dur-fast) var(--ease-spring), background var(--dur-fast) var(--ease-out);
+  }
+  .tl-tags span:hover {
+    transform: translate(-1px, -1px);
+    background: var(--yellow);
+  }
+}
+
+/* Responsive timeline */
+@media (max-width: 640px) {
+  .timeline::before {
+    left: 24px;
+  }
+  .timeline-item {
+    gap: var(--sp-4);
+  }
+  .tl-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .tl-right {
+    padding: var(--sp-4);
+  }
+  .tl-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
