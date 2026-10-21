@@ -25,8 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gozuEnL.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CyRH7bvLDVt.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="preload" as="image" href="profile_photo.webp" type="image/webp" fetchpriority="high" />
@@ -46,7 +46,13 @@
     <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
       <div class="mobile-nav-header">
         <span class="mobile-nav-brand">Menu</span>
-        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <div class="mobile-header-actions">
+          <button class="theme-toggle-btn mobile-theme-btn" id="mobile-theme-toggle-btn" aria-label="Toggle Studio Dark Mode">
+            <i class="fa-solid fa-moon theme-moon" aria-hidden="true"></i>
+            <i class="fa-solid fa-sun theme-sun" aria-hidden="true"></i>
+          </button>
+          <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
       </div>
       <nav class="mobile-nav-links" aria-label="Mobile Navigation">
         <a href="#home" class="mobile-nav-item" data-section="home"><span class="mobile-nav-num" aria-hidden="true">01</span><span>Home</span></a>
@@ -71,6 +77,10 @@
         <a href="#certifications" class="fnav-item" data-section="certifications" title="Certifications">Certs</a>
         <a href="#contact" class="fnav-item" data-section="contact" title="Contact">Contact</a>
       </nav>
+      <button class="theme-toggle-btn magnetic-item" id="theme-toggle-btn" aria-label="Toggle Studio Dark Mode" title="Toggle Studio Dark Mode">
+        <i class="fa-solid fa-moon theme-moon" aria-hidden="true"></i>
+        <i class="fa-solid fa-sun theme-sun" aria-hidden="true"></i>
+      </button>
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-overlay">
         <span class="hamburger-line" aria-hidden="true"></span>
         <span class="hamburger-line" aria-hidden="true"></span>
@@ -93,8 +103,16 @@
         <div class="profile-info">
           <h2 class="profile-name">Deepak Tiwari</h2>
           <p class="profile-role">Product &amp; UI/UX Designer</p>
-          <p class="profile-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Mumbai, India</p>
-          <div class="availability-badge"><span class="pulse" aria-hidden="true"></span> Available for work</div>
+          <div class="hud-status-card" id="hud-status-card">
+            <div class="hud-status-top">
+              <span class="hud-dot" aria-hidden="true"></span>
+              <span class="hud-status-text">Available for Q1/Q2 Projects</span>
+            </div>
+            <div class="hud-status-meta">
+              <span class="hud-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Mumbai, IST</span>
+              <span class="hud-time" id="live-ist-clock">--:--:-- IST</span>
+            </div>
+          </div>
         </div>
         <div class="card-glow" id="card-glow" aria-hidden="true"></div>
         <div class="profile-socials">
@@ -167,7 +185,7 @@
       <!-- ABOUT -->
       <section id="about" class="section">
         <div class="section-label reveal-el">About Me</div>
-        <h2 class="section-title reveal-el">Passionate about<br><span class="accent">human-centered</span> design</h2>
+        <h2 class="section-title reveal-el">Passionate about<br><span class="accent">human-centered</span> <span class="editorial-accent">design</span></h2>
         <p class="section-desc reveal-el">From initial research and wireframes to interactive high-fidelity prototypes, I lead products through the full design lifecycle. I bridge aesthetics and functionality to build intuitive, user-loved digital experiences alongside cross-functional teams.</p>
         <div class="about-cards">
           <div class="about-card nb-card nb-card--yellow about-card--yellow tilt-l-sm tilt-on-hover reveal-el">
@@ -191,7 +209,7 @@
       <!-- EXPERIENCE -->
       <section id="experience" class="section">
         <div class="section-label reveal-el">Experience</div>
-        <h2 class="section-title reveal-el">Work <span class="accent">Experience</span></h2>
+        <h2 class="section-title reveal-el">Work <span class="accent">Experience</span> <span class="editorial-accent">&amp; Journey</span></h2>
         <div class="timeline">
           <div class="timeline-item reveal-el">
             <div class="tl-left"><div class="tl-icon" aria-label="Decision Culture logo"><img src="DecisionCulture_Logo.jpg" alt="Decision Culture" loading="lazy" decoding="async" width="48" height="48"></div></div>
@@ -235,7 +253,7 @@
       <!-- PROJECTS -->
       <section id="projects" class="section">
         <div class="section-label reveal-el">Featured Work</div>
-        <h2 class="section-title reveal-el">Featured <span class="accent">Projects</span></h2>
+        <h2 class="section-title reveal-el">Featured <span class="editorial-accent">Case Studies</span></h2>
         <div class="projects-grid">
           <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer" class="project-card nb-card project-card--yellow reveal-el" aria-label="View Ola Partner UX case study (opens in new tab)">
             <div class="project-img">
@@ -245,9 +263,9 @@
               </picture>
             </div>
             <div class="project-info">
-              <div class="project-tags" aria-label="Categories"><span class="nb-pill">UX Case Study</span><span class="nb-pill">Product Design</span></div>
+              <div class="project-tags" aria-label="Categories"><span class="nb-pill">UX Case Study</span><span class="nb-pill nb-pill--mint" style="font-weight:700;">+18% Retention</span></div>
               <h3>Ola Partner</h3>
-              <p>Designing for the Driver: Rebuilding supply-side trust at Ola through driver-centric UX and product redesign.</p>
+              <p>Designing for the Driver: Rebuilding supply-side retention at Ola through glanceable UI, high-contrast sunlight design, and single-tap confirmation.</p>
             </div>
             <span class="project-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
           </a>
@@ -358,6 +376,58 @@
               <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:-2deg;animation-delay:-1.8s"><i class="devicon-javascript-plain colored" aria-hidden="true"></i>JavaScript</span>
               <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:1.5deg;animation-delay:-0.7s"><i class="devicon-github-original skill-icon-adaptive" aria-hidden="true"></i>GitHub</span>
               <span class="skill-chip sticker sticker--lavender float-idle" style="--tilt:-1.5deg;animation-delay:-2.1s"><i class="fa-solid fa-code" aria-hidden="true"></i>SVG &amp; Motion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROOF OF CRAFT: Interactive Design System Sandbox -->
+        <div class="ds-sandbox nb-card reveal-el" id="ds-sandbox">
+          <div class="ds-sandbox-header">
+            <div class="ds-sandbox-meta">
+              <span class="nb-pill nb-pill--blue" style="font-size:11px;">Proof of Craft</span>
+              <h3 class="ds-sandbox-title">Design System Sandbox</h3>
+              <p class="ds-sandbox-desc">Interact with my live token engine. Switch corner geometry, elevation depth, and chromatic moods in real-time.</p>
+            </div>
+            <div class="ds-controls-group">
+              <div class="ds-control">
+                <span class="ds-control-label">Corner Radius</span>
+                <div class="ds-btn-group" id="ds-radius-group">
+                  <button type="button" class="ds-pill active" data-radius="0px">Sharp</button>
+                  <button type="button" class="ds-pill" data-radius="14px">Modern</button>
+                  <button type="button" class="ds-pill" data-radius="32px">Pill</button>
+                </div>
+              </div>
+              <div class="ds-control">
+                <span class="ds-control-label">Elevation</span>
+                <div class="ds-btn-group" id="ds-elevation-group">
+                  <button type="button" class="ds-pill active" data-shadow="neo">Hard Ink</button>
+                  <button type="button" class="ds-pill" data-shadow="soft">Ambient</button>
+                  <button type="button" class="ds-pill" data-shadow="flat">Flat</button>
+                </div>
+              </div>
+              <div class="ds-control">
+                <span class="ds-control-label">Accent Mood</span>
+                <div class="ds-swatches-group" id="ds-color-group">
+                  <button type="button" class="ds-swatch active" data-color="yellow" style="background:#FFE566;" title="Primrose Yellow" aria-label="Primrose Yellow"></button>
+                  <button type="button" class="ds-swatch" data-color="mint" style="background:#B4F0CE;" title="Sage Mint" aria-label="Sage Mint"></button>
+                  <button type="button" class="ds-swatch" data-color="lavender" style="background:#DDD2FE;" title="Soft Lavender" aria-label="Soft Lavender"></button>
+                  <button type="button" class="ds-swatch" data-color="blue" style="background:#2B3DF0;" title="Cobalt Blue" aria-label="Cobalt Blue"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ds-preview-stage">
+            <div class="ds-interactive-card" id="ds-interactive-card">
+              <div class="ds-card-header">
+                <span class="ds-badge" id="ds-sample-badge">Component Token v2.4</span>
+                <span class="ds-timestamp"><span class="ds-live-dot" aria-hidden="true"></span> Live Spec</span>
+              </div>
+              <h4 class="ds-card-title">Driver Onboarding Unit</h4>
+              <p class="ds-card-text">Adaptive token-driven UI component built for rapid cross-platform deployment and instant accessibility conformance.</p>
+              <div class="ds-card-actions">
+                <button type="button" class="ds-action-btn primary magnetic-item" id="ds-sample-btn">Accept Dispatch</button>
+                <button type="button" class="ds-action-btn secondary magnetic-item">View Details</button>
+              </div>
             </div>
           </div>
         </div>

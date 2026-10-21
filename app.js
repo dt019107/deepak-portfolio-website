@@ -499,3 +499,146 @@ document.addEventListener('DOMContentLoaded', () => {
   updateMobileNavActive();
   mobileOverlay.style.display = 'none';
 })();
+
+/* ============================================================
+   TOP 1% ADVANCED STUDIO SUITE ENGINES
+   ============================================================ */
+
+// -- 1. LIVE TIMEZONE CLOCK ENGINE (Mumbai, IST) --
+(function initLiveTimezoneClock() {
+  const clockEl = document.getElementById('live-ist-clock');
+  if (!clockEl) return;
+
+  function updateClock() {
+    try {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-US', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+      clockEl.textContent = timeStr + ' IST';
+    } catch (e) {
+      clockEl.textContent = 'Active (IST)';
+    }
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+})();
+
+// -- 2. DUAL-THEME SWITCHER ENGINE (STUDIO DARK MODE) --
+(function initThemeSwitcher() {
+  const toggleBtns = [
+    document.getElementById('theme-toggle-btn'),
+    document.getElementById('mobile-theme-toggle-btn')
+  ].filter(Boolean);
+
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const savedTheme = localStorage.getItem('dt-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('dt-theme', theme);
+    if (themeMeta) {
+      themeMeta.setAttribute('content', theme === 'dark' ? '#141412' : '#FAF7F2');
+    }
+  }
+
+  applyTheme(savedTheme);
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  });
+})();
+
+// -- 3. INTERACTIVE DESIGN SYSTEM PLAYGROUND --
+(function initDesignSystemSandbox() {
+  const card = document.getElementById('ds-interactive-card');
+  if (!card) return;
+
+  // Radius controls
+  const radiusBtns = document.querySelectorAll('#ds-radius-group .ds-pill');
+  radiusBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      radiusBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      card.style.borderRadius = btn.dataset.radius;
+    });
+  });
+
+  // Elevation controls
+  const elevationBtns = document.querySelectorAll('#ds-elevation-group .ds-pill');
+  elevationBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      elevationBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = btn.dataset.shadow;
+      if (mode === 'neo') {
+        card.style.boxShadow = '6px 6px 0 var(--ink)';
+      } else if (mode === 'soft') {
+        card.style.boxShadow = '0 16px 32px rgba(20, 20, 18, 0.16)';
+      } else {
+        card.style.boxShadow = 'none';
+      }
+    });
+  });
+
+  // Color Swatches
+  const colorBtns = document.querySelectorAll('#ds-color-group .ds-swatch');
+  const colorMap = {
+    yellow: '#FFE566',
+    mint: '#B4F0CE',
+    lavender: '#DDD2FE',
+    blue: '#2B3DF0'
+  };
+
+  colorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      colorBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const color = btn.dataset.color;
+      card.style.background = colorMap[color] || '#FFE566';
+      if (color === 'blue') {
+        card.style.color = '#FFFFFF';
+        const cardTitle = card.querySelector('.ds-card-title');
+        const cardText = card.querySelector('.ds-card-text');
+        if (cardTitle) cardTitle.style.color = '#FFFFFF';
+        if (cardText) cardText.style.color = '#FFFFFF';
+      } else {
+        card.style.color = '#141412';
+        const cardTitle = card.querySelector('.ds-card-title');
+        const cardText = card.querySelector('.ds-card-text');
+        if (cardTitle) cardTitle.style.color = '#141412';
+        if (cardText) cardText.style.color = '#141412';
+      }
+    });
+  });
+})();
+
+// -- 4. SPRING MAGNETIC ATTRACTION ENGINE --
+(function initMagneticItems() {
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isTouch || prefersReduced) return;
+
+  const magneticTargets = document.querySelectorAll('.magnetic-item, .fnav-item, .footer-social-btn, .project-arrow, .theme-toggle-btn');
+  magneticTargets.forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) * 0.22;
+      const dy = (e.clientY - cy) * 0.22;
+      el.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  });
+})();
