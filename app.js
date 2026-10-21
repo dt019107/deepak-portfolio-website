@@ -717,3 +717,756 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+// ============================================================
+// -- 5. EXPERIENCE TIMELINE & INTERACTION ENGINES --
+// ============================================================
+(function initExperienceEngines() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 1. DURATION AUTO-CALCULATION & COUNT-UP
+  const durationEls = document.querySelectorAll('.exp-duration');
+  function calcMonths(startStr, endStr) {
+    if (!startStr) return 1;
+    const start = new Date(startStr);
+    const end = (endStr === 'present' || !endStr) ? new Date() : new Date(endStr);
+    const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
+    return Math.max(1, months);
+  }
+
+  function formatDuration(months) {
+    if (months >= 12) {
+      const yrs = Math.floor(months / 12);
+      const rem = months % 12;
+      return rem > 0 ? `${yrs} yr ${rem} mos` : `${yrs} yr${yrs > 1 ? 's' : ''}`;
+    }
+    return `${months} mos`;
+  }
+
+  if (prefersReduced) {
+    durationEls.forEach(el => {
+      const totalMonths = calcMonths(el.dataset.start, el.dataset.end);
+      el.textContent = formatDuration(totalMonths);
+    });
+  } else {
+    const durObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          durObserver.unobserve(el);
+          const totalMonths = calcMonths(el.dataset.start, el.dataset.end);
+          const animDur = 850;
+          const startTime = performance.now();
+
+          function step(now) {
+            const progress = Math.min((now - startTime) / animDur, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const currentMonths = Math.max(1, Math.round(ease * totalMonths));
+            el.textContent = formatDuration(currentMonths);
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              el.textContent = formatDuration(totalMonths);
+            }
+          }
+          requestAnimationFrame(step);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    durationEls.forEach(el => durObserver.observe(el));
+  }
+
+  // 2. TIMELINE SCROLL PROGRESS FILL & TRAVELING STICKER MARKER
+  const timeline = document.getElementById('exp-timeline');
+  const trackFill = document.getElementById('timeline-track-fill');
+  const marker = document.getElementById('timeline-marker');
+  const nodes = document.querySelectorAll('.tl-node');
+
+  if (timeline && trackFill) {
+    function updateTimelineProgress() {
+      const rect = timeline.getBoundingClientRect();
+      const winH = window.innerHeight;
+      const startTrigger = winH * 0.7;
+      const progress = (startTrigger - rect.top) / rect.height;
+      const clamped = Math.min(Math.max(progress, 0), 1);
+      const pct = (clamped * 100).toFixed(1);
+
+      trackFill.style.height = pct + '%';
+      if (marker) {
+        marker.style.top = pct + '%';
+      }
+
+      const fillBottomY = rect.top + (rect.height * clamped);
+      nodes.forEach(node => {
+        const nodeRect = node.getBoundingClientRect();
+        const nodeCenterY = nodeRect.top + nodeRect.height / 2;
+        if (nodeCenterY <= fillBottomY + 12) {
+          node.classList.add('node-reached');
+        } else {
+          node.classList.remove('node-reached');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+    window.addEventListener('resize', updateTimelineProgress, { passive: true });
+    updateTimelineProgress();
+  }
+
+  // 3. EXPAND / COLLAPSE PER CARD WITH KEYBOARD ACCESSIBILITY
+  const collapseBtns = document.querySelectorAll('.exp-collapse-btn');
+  collapseBtns.forEach(btn => {
+    const targetId = btn.getAttribute('aria-controls');
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl) return;
+
+    function toggleDetails() {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        targetEl.style.maxHeight = targetEl.scrollHeight + 'px';
+        targetEl.offsetHeight; // force reflow
+        targetEl.classList.add('is-collapsed');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        targetEl.classList.remove('is-collapsed');
+        targetEl.style.maxHeight = targetEl.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+        setTimeout(() => {
+          if (btn.getAttribute('aria-expanded') === 'true') {
+            targetEl.style.maxHeight = '';
+          }
+        }, 400);
+      }
+    }
+
+    btn.addEventListener('click', toggleDetails);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleDetails();
+      }
+    });
+  });
+})();
+
+// ============================================================
+// -- 6. NEO-BRUTALIST FEATURED WORK ENGINE --
+// ============================================================
+(function initFeaturedWorkEngine() {
+  /**
+   * SINGLE PROJECT DATA ARRAY
+   * Edit portfolio project copy, metrics, and links here directly.
+   * If any field is empty or contains '[PLACEHOLDER', it will NOT render in the UI.
+   */
+  const PORTFOLIO_PROJECTS = [
+    {
+      id: 'ola-partner',
+      number: '01',
+      tier: 'selected', // 'selected' | 'more-product' | 'visual'
+      category: 'product', // 'product' | 'web' | 'visual'
+      type: 'Concept case study',
+      title: 'Ola Partner: Driver Retention Redesign',
+      problem: 'High driver churn during peak traffic caused by cluttered acceptance flows and poor sunlight visibility.',
+      role: 'Product Designer',
+      duration: '3 months',
+      platform: 'Android (Driver)',
+      year: '2024',
+      proof: 'Tested with 14 commercial drivers in Mumbai; 1-tap accept cut response time by 42%.',
+      metric: '+18% Retention', // Only rendered if filled; omitted if empty or [PLACEHOLDER]
+      cta: 'Read case study',
+      link: 'https://flute-beluga-59087359.figma.site/',
+      isExternal: true,
+      colorScheme: 'yellow',
+      imageWebp: 'ola_partner_preview.webp',
+      imageFallback: 'ola_partner_preview.png',
+      imageAlt: 'Ola Partner - Driver Retention & Usability Case Study',
+      tilt: '-0.6deg',
+      isLead: true
+    },
+    {
+      id: 'indigo-booking',
+      number: '02',
+      tier: 'selected',
+      category: 'product',
+      type: 'Concept case study',
+      title: 'IndiGo: Frictionless Flight Booking Flow',
+      problem: 'Complex fare tiers and hidden add-on steps caused high drop-offs before checkout.',
+      role: 'UX Researcher & Designer',
+      duration: '6 weeks',
+      platform: 'Mobile Web',
+      year: '2024',
+      proof: 'Streamlined 7-step booking funnel into 4 intuitive decision stages with zero surprise fees.',
+      metric: '', // No metric rendered if empty
+      cta: 'Read case study',
+      link: 'https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study',
+      isExternal: true,
+      colorScheme: 'mint',
+      imageFallback: 'https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=800',
+      imageAlt: 'IndiGo Flight Booking Flow UX Case Study',
+      tilt: '0.8deg',
+      isLead: false
+    },
+    {
+      id: 'kanban-tracker',
+      number: '03',
+      tier: 'selected',
+      category: 'web',
+      type: 'Web app',
+      title: 'Kanban Tracker: Distraction-Free Workflow OS',
+      problem: 'Team productivity tools suffer from feature bloat that slows daily agile sprint tracking.',
+      role: 'UI Designer & Frontend',
+      duration: '4 weeks',
+      platform: 'Web / PWA',
+      year: '2024',
+      proof: 'Keyboard-first interaction model with sub-100ms task updates and offline-first state.',
+      metric: '',
+      cta: 'Read case study',
+      link: 'https://www.behance.net/gallery/235653015',
+      isExternal: true,
+      colorScheme: 'lavender',
+      imageFallback: 'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png',
+      imageAlt: 'Kanban Task Management Web Application',
+      tilt: '-0.7deg',
+      isLead: false
+    },
+    {
+      id: 'yoga-wellness',
+      number: '04',
+      tier: 'more-product',
+      category: 'web',
+      type: 'Client project',
+      title: 'Holistic Yoga: High-Converting Class Booking',
+      problem: 'Holistic studio needed a frictionless booking schedule for recurring members and drop-ins.',
+      role: 'UI/UX Designer',
+      duration: '3 weeks',
+      platform: 'Responsive Web',
+      year: '2024',
+      proof: 'Accessible 2-step reservation schedule with live instructor availability preview.',
+      metric: '',
+      cta: 'Read case study',
+      link: 'https://www.behance.net/gallery/235520313',
+      isExternal: true,
+      colorScheme: 'pink',
+      imageFallback: 'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png',
+      imageAlt: 'Yoga and Wellness Platform Landing Page',
+      tilt: '0.5deg',
+      isLead: false
+    },
+    {
+      id: 'dominos-campaign',
+      number: '05',
+      tier: 'visual',
+      category: 'visual',
+      type: 'Client project',
+      title: 'Domino’s: Appetite-Appeal Social & Print Visuals',
+      problem: 'Digital promotional posters needed higher thumb-stop visual hierarchy across social channels.',
+      role: 'Visual Designer',
+      duration: '2 weeks',
+      platform: 'Print & Social',
+      year: '2024',
+      proof: 'Bold neo-pop typography system paired with dynamic high-contrast product staging.',
+      metric: '',
+      cta: 'Read case study',
+      link: 'https://www.behance.net/gallery/214354057',
+      isExternal: true,
+      colorScheme: 'cream',
+      imageFallback: 'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png',
+      imageAlt: 'Domino’s Pizza Brand Promotional Campaign Poster',
+      tilt: '0deg',
+      isLead: false
+    },
+    {
+      id: 'gourmet-burger',
+      number: '06',
+      tier: 'visual',
+      category: 'visual',
+      type: 'Client project',
+      title: 'Gourmet Burger: Artisanal Brand Identity & Packaging',
+      problem: 'Craft burger brand needed distinct identity guidelines to stand out in saturated market.',
+      role: 'Brand & Visual Designer',
+      duration: '3 weeks',
+      platform: 'Identity & Print',
+      year: '2024',
+      proof: 'End-to-end packaging identity suite with custom brand illustrations and menu design.',
+      metric: '',
+      cta: 'Read case study',
+      link: 'https://www.behance.net/gallery/214274261',
+      isExternal: true,
+      colorScheme: 'lavender',
+      imageFallback: 'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png',
+      imageAlt: 'Gourmet Burger Brand Identity and Promotional Poster',
+      tilt: '0deg',
+      isLead: false
+    }
+  ];
+
+  // Expose to window for user console inspectability
+  window.PORTFOLIO_PROJECTS = PORTFOLIO_PROJECTS;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // 1. SCROLL STICKER "SLAP" IN ANIMATION
+  const slapCards = document.querySelectorAll('.sticker-slap');
+  if (prefersReduced) {
+    slapCards.forEach(c => c.classList.add('is-slapped'));
+  } else if ('IntersectionObserver' in window) {
+    const slapObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          slapObserver.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('is-slapped');
+          }, idx * 100);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    slapCards.forEach(card => slapObserver.observe(card));
+  } else {
+    slapCards.forEach(c => c.classList.add('is-slapped'));
+  }
+
+  // 2. LEAD CARD: 3D CURSOR-FOLLOWING TILT, GLARE & COVER PARALLAX
+  const leadCard = document.querySelector('.project-lead-split');
+  if (leadCard && isFinePointer && !prefersReduced) {
+    const glareEl = leadCard.querySelector('.card-cover-glare');
+    const previewFrame = leadCard.querySelector('.ola-preview-frame');
+    const coverImg = leadCard.querySelector('.card-cover-img');
+    let rafId = null;
+    let targetRotX = 0;
+    let targetRotY = 0;
+    let currentRotX = 0;
+    let currentRotY = 0;
+
+    function renderTilt() {
+      currentRotX += (targetRotX - currentRotX) * 0.12;
+      currentRotY += (targetRotY - currentRotY) * 0.12;
+      leadCard.style.transform = `perspective(1000px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
+      
+      if (previewFrame) {
+        const px = (currentRotY * 1.6).toFixed(1);
+        const py = (-currentRotX * 1.6).toFixed(1);
+        previewFrame.style.transform = `translate(${px}px, ${py}px) scale(1.02)`;
+      } else if (coverImg) {
+        const px = (-currentRotY * 1.5).toFixed(1);
+        const py = (currentRotX * 1.5).toFixed(1);
+        coverImg.style.transform = `scale(1.06) translate(${px}px, ${py}px)`;
+      }
+
+      if (Math.abs(targetRotX - currentRotX) > 0.01 || Math.abs(targetRotY - currentRotY) > 0.01) {
+        rafId = requestAnimationFrame(renderTilt);
+      } else {
+        rafId = null;
+      }
+    }
+
+    leadCard.addEventListener('mousemove', (e) => {
+      const rect = leadCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const normX = (x - cx) / cx;
+      const normY = (y - cy) / cy;
+
+      // Max 5deg tilt
+      targetRotX = -normY * 4.5;
+      targetRotY = normX * 4.5;
+
+      if (glareEl) {
+        glareEl.style.opacity = '0.35';
+        glareEl.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 65%)`;
+      }
+
+      if (!rafId) {
+        rafId = requestAnimationFrame(renderTilt);
+      }
+    });
+
+    leadCard.addEventListener('mouseleave', () => {
+      targetRotX = 0;
+      targetRotY = 0;
+      if (glareEl) glareEl.style.opacity = '0';
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          leadCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+          if (previewFrame) previewFrame.style.transform = 'translate(0px, 0px) scale(1)';
+          else if (coverImg) coverImg.style.transform = 'scale(1) translate(0px, 0px)';
+        });
+      }
+    });
+  }
+
+  // 3. CUSTOM CURSOR LABEL "View case study" OVER CARDS (Fine pointers only)
+  if (isFinePointer && !prefersReduced) {
+    let cursorLabel = document.getElementById('neo-card-cursor-pill');
+    if (!cursorLabel) {
+      cursorLabel = document.createElement('div');
+      cursorLabel.id = 'neo-card-cursor-pill';
+      cursorLabel.className = 'neo-card-cursor-pill';
+      cursorLabel.setAttribute('aria-hidden', 'true');
+      cursorLabel.innerHTML = 'View case study &nearr;';
+      document.body.appendChild(cursorLabel);
+    }
+
+    let cursorX = -100;
+    let cursorY = -100;
+
+    window.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      cursorLabel.style.left = cursorX + 'px';
+      cursorLabel.style.top = cursorY + 'px';
+    }, { passive: true });
+
+    const cardTargets = document.querySelectorAll('.neo-project-card, .visual-strip-item');
+    cardTargets.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        cursorLabel.classList.add('is-active');
+      });
+      card.addEventListener('mouseleave', () => {
+        cursorLabel.classList.remove('is-active');
+      });
+    });
+  }
+
+  // 4. DESKTOP STACKED STICKY PROGRESS INDICATOR ("01 / 03")
+  const counterEl = document.getElementById('cs-active-idx');
+  const leadCardEl = document.querySelector('.project-lead-split');
+  const cardIndigoEl = document.querySelector('[data-card-idx="2"]');
+  const cardKanbanEl = document.querySelector('[data-card-idx="3"]');
+
+  if (counterEl && leadCardEl && cardIndigoEl && cardKanbanEl) {
+    function updateStickyCounter() {
+      // Only active on desktop when sticky is effective
+      if (window.innerWidth <= 860) {
+        counterEl.textContent = '01';
+        return;
+      }
+
+      const kanbanRect = cardKanbanEl.getBoundingClientRect();
+      const indigoRect = cardIndigoEl.getBoundingClientRect();
+      const leadRect = leadCardEl.getBoundingClientRect();
+
+      // Top threshold when sticky stacks overlap
+      if (kanbanRect.top <= 160 && kanbanRect.bottom > 180) {
+        counterEl.textContent = '03';
+      } else if (indigoRect.top <= 160 && indigoRect.bottom > 180) {
+        counterEl.textContent = '02';
+      } else if (leadRect.top <= 150) {
+        counterEl.textContent = '01';
+      } else {
+        counterEl.textContent = '01';
+      }
+    }
+
+    window.addEventListener('scroll', updateStickyCounter, { passive: true });
+    window.addEventListener('resize', updateStickyCounter, { passive: true });
+    updateStickyCounter();
+  }
+
+  // 5. PILL FILTER WITH FLIP REFLOW ANIMATION
+  const filterPills = document.querySelectorAll('.projects-filter-bar .filter-pill');
+  const allCards = document.querySelectorAll('.neo-project-card, .visual-strip-container');
+  const tiers = document.querySelectorAll('.projects-tier');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetCategory = pill.getAttribute('data-filter');
+
+      // Update active pill
+      filterPills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
+
+      // FLIP: FIRST
+      const firstRects = new Map();
+      allCards.forEach(card => {
+        if (!card.classList.contains('is-filtered-out')) {
+          firstRects.set(card, card.getBoundingClientRect());
+        }
+      });
+
+      // APPLY FILTER
+      allCards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        const match = targetCategory === 'all' || cardCat === targetCategory;
+        if (match) {
+          card.classList.remove('is-filtered-out');
+        } else {
+          card.classList.add('is-filtered-out');
+        }
+      });
+
+      // Show / hide tiers if all cards inside tier are filtered out
+      tiers.forEach(tier => {
+        const visibleChild = tier.querySelector('.neo-project-card:not(.is-filtered-out), .visual-strip-container:not(.is-filtered-out)');
+        if (visibleChild) {
+          tier.classList.remove('is-filtered-out');
+        } else {
+          tier.classList.add('is-filtered-out');
+        }
+      });
+
+      if (prefersReduced) return;
+
+      // FLIP: LAST, INVERT & PLAY
+      allCards.forEach(card => {
+        if (!card.classList.contains('is-filtered-out') && firstRects.has(card)) {
+          const first = firstRects.get(card);
+          const last = card.getBoundingClientRect();
+          const dx = first.left - last.left;
+          const dy = first.top - last.top;
+
+          if (dx !== 0 || dy !== 0) {
+            card.style.transform = `translate(${dx}px, ${dy}px)`;
+            card.style.transition = 'none';
+
+            requestAnimationFrame(() => {
+              card.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+              card.style.transform = '';
+            });
+          }
+        }
+      });
+    });
+  });
+})();
+
+// ============================================================
+// -- 7. HOW I SHIP (SKILLS & TOOL STACK) ENGINE --
+// ============================================================
+(function initSkillsEngine() {
+  /**
+   * SINGLE TOOL STACK DATA OBJECT
+   * Easily edit tool descriptions, workflow stages, and tooltips here.
+   */
+  const TOOL_STACK_DATA = {
+    design: {
+      title: "Design & prototype",
+      desc: "High-fidelity component systems, micro-interactions, and dev-ready flows.",
+      color: "yellow",
+      tools: [
+        { id: "figma", name: "Figma", size: "lg", usage: "Daily", stages: ["design", "prototype", "handoff"], tooltip: "Dev-ready design systems & multi-screen app flows" },
+        { id: "framer", name: "Framer", size: "md", usage: "Regular", stages: ["design", "prototype", "build"], tooltip: "Interactive production prototypes & motion logic" },
+        { id: "canva", name: "Canva", size: "md", usage: "Regular", stages: ["design"], tooltip: "Fast collateral layout, deck graphics & assets" }
+      ]
+    },
+    process: {
+      title: "Process skills",
+      desc: "Evidence-based problem framing from user discovery to validated usability.",
+      color: "mint",
+      tools: [
+        { id: "ux-research", name: "UX research", size: "lg", usage: "Daily", stages: ["discover", "define"], tooltip: "User interviews, contextual inquiry & journey maps" },
+        { id: "wireframing", name: "Wireframing", size: "md", usage: "Daily", stages: ["define", "design"], tooltip: "Low-fidelity structural flows & layout architecture" },
+        { id: "prototyping", name: "Prototyping", size: "lg", usage: "Daily", stages: ["design", "prototype"], tooltip: "Clickable validation rigs for concept validation" },
+        { id: "design-systems", name: "Design systems", size: "md", usage: "Regular", stages: ["design", "handoff", "build"], tooltip: "Tokenized UI kits, auto-layout & state guidelines" },
+        { id: "usability-testing", name: "Usability testing", size: "md", usage: "Regular", stages: ["discover", "prototype"], tooltip: "Moderated task tests, heuristic audits & fix sprints" }
+      ]
+    },
+    ai: {
+      title: "AI in my workflow",
+      desc: "Accelerating research synthesis, rapid ideation, and documentation velocity.",
+      color: "lavender",
+      tools: [
+        { id: "claude", name: "Claude", size: "lg", usage: "Daily", stages: ["discover", "define", "build"], tooltip: "Synthesizing research notes & drafting PRD specs" },
+        { id: "gemini", name: "Gemini", size: "md", usage: "Daily", stages: ["discover", "define", "build"], tooltip: "Multimodal design audit & cross-referencing ideas" },
+        { id: "notion", name: "Notion", size: "md", usage: "Daily", stages: ["discover", "define", "handoff"], tooltip: "Project wikis, structured sprint docs & roadmaps" }
+      ]
+    },
+    build: {
+      title: "Build",
+      desc: "Crafting semantic, accessible code to bridge the gap between Figma and production.",
+      color: "pink",
+      tools: [
+        { id: "html5", name: "HTML5", size: "md", usage: "Regular", stages: ["build"], tooltip: "Accessible semantic structure & SEO architecture" },
+        { id: "css3", name: "CSS3", size: "md", usage: "Regular", stages: ["build"], tooltip: "Modern CSS Grid, Flexbox, Custom Properties & Animations" },
+        { id: "javascript", name: "JavaScript", size: "lg", usage: "Regular", stages: ["prototype", "build"], tooltip: "DOM dynamics, state logic & lightweight interactions" },
+        { id: "github", name: "GitHub", size: "md", usage: "Regular", stages: ["handoff", "build"], tooltip: "Version control, branching & design handoff tracking" },
+        { id: "svg-motion", name: "SVG & motion", size: "md", usage: "Learning", stages: ["design", "build"], tooltip: "Crisp vector manipulation & micro-animation curves" }
+      ]
+    }
+  };
+
+  // Expose to window for user console inspectability
+  window.TOOL_STACK_DATA = TOOL_STACK_DATA;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // 1. CARDS STAGGERED ENTRANCE & TILT-TO-STRAIGHTEN
+  const quadCards = document.querySelectorAll('.skills-quad-card');
+  const cardTilts = ['-0.8deg', '0.7deg', '-0.6deg', '0.8deg'];
+
+  if ('IntersectionObserver' in window && !prefersReduced) {
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cardObserver.unobserve(entry.target);
+          const idx = Array.from(quadCards).indexOf(entry.target);
+          entry.target.style.setProperty('--card-tilt', cardTilts[idx % cardTilts.length]);
+          setTimeout(() => {
+            entry.target.classList.add('is-in-view');
+          }, idx * 100);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    quadCards.forEach(card => cardObserver.observe(card));
+  } else {
+    quadCards.forEach(c => c.classList.add('is-in-view'));
+  }
+
+  // 2. WORKFLOW STAGE FILTER (CLICK & HOVER PREVIEW)
+  const stageButtons = document.querySelectorAll('.stage-pill');
+  const toolPills = document.querySelectorAll('.skill-tool-pill');
+  let currentActiveStage = null;
+
+  function applyStageFilter(stage) {
+    if (!stage) {
+      toolPills.forEach(p => {
+        p.classList.remove('is-stage-active', 'is-stage-dimmed');
+        p.style.transform = '';
+      });
+      return;
+    }
+    toolPills.forEach(p => {
+      const stages = (p.getAttribute('data-stages') || '').split(',');
+      if (stages.includes(stage)) {
+        p.classList.add('is-stage-active');
+        p.classList.remove('is-stage-dimmed');
+      } else {
+        p.classList.add('is-stage-dimmed');
+        p.classList.remove('is-stage-active');
+      }
+    });
+  }
+
+  stageButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const stage = btn.getAttribute('data-stage');
+      if (currentActiveStage === stage) {
+        // Reset filter
+        currentActiveStage = null;
+        stageButtons.forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        applyStageFilter(null);
+      } else {
+        currentActiveStage = stage;
+        stageButtons.forEach(b => {
+          const isActive = b.getAttribute('data-stage') === stage;
+          b.classList.toggle('is-active', isActive);
+          b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+        applyStageFilter(stage);
+      }
+    });
+
+    // Hover preview if no stage is locked
+    btn.addEventListener('mouseenter', () => {
+      if (!currentActiveStage) {
+        applyStageFilter(btn.getAttribute('data-stage'));
+      }
+    });
+    btn.addEventListener('mouseleave', () => {
+      if (!currentActiveStage) {
+        applyStageFilter(null);
+      }
+    });
+  });
+
+  // 3. TOOLTIP TAP HANDLER ON TOUCH & CLICK-OUTSIDE DISMISS
+  toolPills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      const wasOpen = pill.classList.contains('is-tooltip-open');
+      toolPills.forEach(p => p.classList.remove('is-tooltip-open'));
+      if (!wasOpen) {
+        pill.classList.add('is-tooltip-open');
+        e.stopPropagation();
+      }
+    });
+  });
+
+  document.addEventListener('click', () => {
+    toolPills.forEach(p => p.classList.remove('is-tooltip-open'));
+  });
+
+  // 4. SUBTLE MAGNETIC PULL TOWARDS CURSOR WITHIN 60px (Fine pointer only)
+  let activeDragPill = null;
+
+  if (isFinePointer && !prefersReduced) {
+    window.addEventListener('mousemove', (e) => {
+      if (activeDragPill) return;
+      const mx = e.clientX;
+      const my = e.clientY;
+
+      toolPills.forEach(pill => {
+        if (pill.classList.contains('is-stage-dimmed')) {
+          pill.style.transform = '';
+          return;
+        }
+
+        const rect = pill.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dist = Math.hypot(mx - cx, my - cy);
+
+        if (dist < 60) {
+          const pull = (60 - dist) / 60;
+          const dx = (mx - cx) * 0.22 * pull;
+          const dy = (my - cy) * 0.22 * pull;
+          pill.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) scale(1.04)`;
+        } else {
+          if (!pill.classList.contains('is-stage-active')) {
+            pill.style.transform = '';
+          }
+        }
+      });
+    }, { passive: true });
+  }
+
+  // 5. DRAGGABLE PILLS WITH SPRING-BACK
+  if (!prefersReduced) {
+    let startX = 0;
+    let startY = 0;
+
+    toolPills.forEach(pill => {
+      pill.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return;
+        activeDragPill = pill;
+        startX = e.clientX;
+        startY = e.clientY;
+        pill.style.transition = 'none';
+        try { pill.setPointerCapture(e.pointerId); } catch(err) {}
+      });
+
+      pill.addEventListener('pointermove', (e) => {
+        if (activeDragPill !== pill) return;
+        const dx = Math.max(-50, Math.min(50, e.clientX - startX));
+        const dy = Math.max(-40, Math.min(40, e.clientY - startY));
+        pill.style.transform = `translate(${dx}px, ${dy}px) scale(1.06)`;
+        pill.style.boxShadow = '6px 6px 0 var(--ink)';
+      });
+
+      function endDrag(e) {
+        if (activeDragPill === pill) {
+          activeDragPill = null;
+          pill.style.transition = 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s';
+          pill.style.transform = '';
+          pill.style.boxShadow = '';
+          try { pill.releasePointerCapture(e.pointerId); } catch(err) {}
+        }
+      }
+
+      pill.addEventListener('pointerup', endDrag);
+      pill.addEventListener('pointercancel', endDrag);
+    });
+  }
+})();
