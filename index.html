@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#FCF9F3" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#101B42" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#FDF3E1" />
   <title>Deepak Tiwari | UI/UX Designer Portfolio</title>
   <meta name="description"
     content="Professional portfolio of Deepak Tiwari – a passionate UI/UX Designer crafting beautiful, human-centered digital experiences." />
@@ -34,15 +33,19 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" href="favicon.png" />
 
-  <!-- Fonts -->
+  <!-- Fonts: Space Grotesk (display 700/800) + DM Sans (body) + Caveat (handwritten) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload critical display font for LCP -->
+  <link rel="preload"
+    href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gozuEnL.woff2"
+    as="font" type="font/woff2" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=DM+Serif+Display:ital@1&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=DM+Serif+Display:ital@1&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap"
       rel="stylesheet">
   </noscript>
 
@@ -53,10 +56,15 @@
   <!-- Preload hero image for faster LCP -->
   <link rel="preload" as="image" href="profile_photo.png" fetchpriority="high" />
 
+  <!-- Design tokens MUST load before styles.css -->
+  <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+
+  <!-- ── PAGE INTRO WIPE (animates out in < 1s, CSS-only) ── -->
+  <div id="page-intro" aria-hidden="true"></div>
 
   <!-- Skip to main content (accessibility) -->
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
@@ -411,15 +419,14 @@
           <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer"
             class="project-card" aria-label="View Ola Partner UX case study">
             <div class="project-img">
-              <img
-                src="ola_partner_preview.png"
-                alt="Ola Partner - Designing for the Driver Case Study"
-                loading="lazy" decoding="async" />
+              <img src="ola_partner_preview.png" alt="Ola Partner - Designing for the Driver Case Study" loading="lazy"
+                decoding="async" />
             </div>
             <div class="project-info">
               <div class="project-tags"><span>UX Case Study</span><span>Product Design</span></div>
               <h3>Ola Partner</h3>
-              <p>Designing for the Driver: Rebuilding supply-side trust at Ola through driver-centric UX and product redesign.</p>
+              <p>Designing for the Driver: Rebuilding supply-side trust at Ola through driver-centric UX and product
+                redesign.</p>
             </div>
           </a>
 
@@ -429,9 +436,8 @@
             <div class="project-img">
               <img
                 src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=1920"
-                alt="IndiGo Flight Booking Flow UX Case Study"
-                referrerpolicy="no-referrer"
-                loading="lazy" decoding="async" />
+                alt="IndiGo Flight Booking Flow UX Case Study" referrerpolicy="no-referrer" loading="lazy"
+                decoding="async" />
             </div>
             <div class="project-info">
               <div class="project-tags"><span>Case Study</span><span>UX Research</span></div>
@@ -446,9 +452,8 @@
             <div class="project-img">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png"
-                alt="Kanban Task Management Web Application"
-                referrerpolicy="no-referrer"
-                loading="lazy" decoding="async" />
+                alt="Kanban Task Management Web Application" referrerpolicy="no-referrer" loading="lazy"
+                decoding="async" />
             </div>
             <div class="project-info">
               <div class="project-tags"><span>Web App</span><span>Productivity</span></div>
@@ -463,9 +468,8 @@
             <div class="project-img">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png"
-                alt="Yoga and Wellness Platform Landing Page"
-                referrerpolicy="no-referrer"
-                loading="lazy" decoding="async" />
+                alt="Yoga and Wellness Platform Landing Page" referrerpolicy="no-referrer" loading="lazy"
+                decoding="async" />
             </div>
             <div class="project-info">
               <div class="project-tags"><span>Web Design</span><span>Landing Page</span></div>
@@ -480,9 +484,8 @@
             <div class="project-img">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Domino's Pizza Brand Promotional Campaign Poster"
-                referrerpolicy="no-referrer"
-                loading="lazy" decoding="async" />
+                alt="Domino's Pizza Brand Promotional Campaign Poster" referrerpolicy="no-referrer" loading="lazy"
+                decoding="async" />
             </div>
             <div class="project-info">
               <div class="project-tags"><span>Brand Campaign</span><span>Visual Design</span></div>
@@ -496,9 +499,8 @@
             <div class="project-img">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
-                alt="Gourmet Burger Brand Identity and Promotional Poster"
-                referrerpolicy="no-referrer"
-                loading="lazy" decoding="async" />
+                alt="Gourmet Burger Brand Identity and Promotional Poster" referrerpolicy="no-referrer" loading="lazy"
+                decoding="async" />
             </div>
             <div class="project-info">
               <div class="project-tags"><span>Brand Identity</span><span>Visual Design</span></div>

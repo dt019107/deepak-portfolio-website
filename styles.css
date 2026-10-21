@@ -1,86 +1,64 @@
 /* ==============================================
-   DEEPAK TIWARI – FRAMER-STYLE PORTFOLIO
+   DEEPAK TIWARI – NEO-BRUTALIST PORTFOLIO
+   tokens.css loaded first — variables defined there
+   This file: component & layout styles
    ============================================== */
 
-/* ── 1. COLOR TOKENS & DESIGN SYSTEM ── */
+/* ── 1. LEGACY VARIABLE ALIASES ── */
+/* Map old cobalt/tangerine names to new tokens for compat */
 :root {
-  /* Primary — Cobalt */
-  --cobalt-900: #101B42;
-  /* headlines, nav text on light bg */
-  --cobalt-600: #2E56E0;
-  /* buttons, links, hover/focus states */
-  --cobalt-100: #E8EDFC;
-  /* tag fills, tinted section backgrounds */
+  /* Cobalt → Blue */
+  --cobalt-900: var(--ink);
+  --cobalt-600: var(--blue);
+  --cobalt-100: var(--blue-light);
 
-  /* Base — Cream Linen */
-  --linen-50: #FCF9F3;
-  /* page background */
-  --linen-100: #F6EEE0;
-  /* card / alternating section background */
-  --linen-300: #E9DFC8;
-  /* hairline borders, dividers */
+  /* Linen → Cream */
+  --linen-50:  var(--cream);
+  --linen-100: var(--cream-dark);
+  --linen-300: var(--cream-dark);
 
-  /* Neutral — Ink (high contrast deep slate/ink) */
-  --ink-900: #0F172A;
-  /* body text - deepest readable slate */
-  --ink-700: #334155;
-  /* secondary text, bio, prominent descriptions */
-  --ink-600: #475569;
-  /* meta text, captions, timestamps */
+  /* Ink scale */
+  --ink-900: var(--ink);
+  --ink-700: var(--text2);
+  --ink-600: var(--text3);
 
-  /* Accent — Tangerine */
-  --tangerine-500: #F2622E;
-  /* CTAs, highlights, tags, active states */
-  --tangerine-300: #F79A6E;
-  /* secondary accent, illustration/chart highlight */
-  --tangerine-100: #FCE4D6;
-  /* tinted callout backgrounds */
+  /* Tangerine → Yellow (phase-out gradually) */
+  --tangerine-500: var(--yellow);
+  --tangerine-300: var(--yellow);
+  --tangerine-100: var(--yellow);
 
-  /* Semantic Mappings */
-  --bg: var(--linen-50);
-  --bg2: var(--linen-100);
-  --card: var(--linen-100);
-  --card2: #EDE5D6;
-  --border: var(--linen-300);
-  --border2: rgba(46, 86, 224, 0.22);
-  --accent: var(--tangerine-500);
-  --accent-dim: var(--tangerine-100);
-  --accent-glow: rgba(242, 98, 46, 0.22);
-  --headline: var(--cobalt-900);
-  --text: var(--ink-900);
-  --text2: var(--ink-700);
-  --text3: var(--ink-600);
-  --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  --body-bg-1: #FCF9F3;
-  --body-bg-2: #F5EEE2;
-  --nav-bg: rgba(252, 249, 243, 0.92);
-  --nav-border: var(--linen-300);
-  --profile-card-bg: var(--linen-100);
-  --social-btn-bg: var(--cobalt-100);
-  --social-btn-color: var(--cobalt-600);
-  --cv-btn-bg: var(--cobalt-600);
-  --cv-btn-color: #ffffff;
-  --theme-shadow: 0 16px 36px rgba(16, 27, 66, 0.07);
-  --scroll-bar-color: var(--cobalt-600);
-  --back-top-border: var(--linen-300);
-  --label-bg: var(--tangerine-100);
-  --label-border: rgba(242, 98, 46, 0.25);
-  --label-color: var(--tangerine-500);
-  --pill-bg: var(--cobalt-100);
-  --pill-border: rgba(46, 86, 224, 0.15);
-  --pill-color: var(--cobalt-900);
+  /* Card / border from new tokens */
+  --card:    var(--white);
+  --card2:   var(--cream-dark);
+  --border2: rgba(48, 64, 248, 0.22);
+
+  /* Legacy ease */
+  --ease:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Button legacy */
+  --cv-btn-bg:    var(--blue);
+  --cv-btn-color: var(--white);
+  --social-btn-bg:    var(--blue-light);
+  --social-btn-color: var(--blue);
+  --profile-card-bg: var(--white);
+  --theme-shadow: 0 8px 24px rgba(26,26,23,0.10);
+  --back-top-border: var(--ink);
+  --label-bg:    var(--yellow);
+  --label-border:rgba(245,200,81,0.4);
+  --label-color: var(--ink);
+  --pill-bg:    var(--cream);
+  --pill-border:rgba(26,26,23,0.15);
+  --pill-color: var(--ink);
   --logo-filter: none;
-  --icon-github-color: var(--cobalt-900);
+  --icon-github-color: var(--ink);
 }
 
 /* ── GLOBAL THEME TRANSITION ── */
+/* Explicit per-component transitions only (tokens.css controls) */
 *,
 *::before,
 *::after {
-  transition-property: background-color, border-color, color, box-shadow;
-  transition-duration: 0.35s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* reset — tokens.css killed the broad shorthand */
 }
 
 /* ── 2. RESET ── */
@@ -120,10 +98,10 @@ html.lenis {
 }
 
 body {
-  background: linear-gradient(135deg, var(--body-bg-1) 0%, var(--body-bg-2) 100%);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+  /* tokens.css sets background: var(--cream) !important */
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
   overflow-x: hidden;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -149,25 +127,16 @@ img {
   max-width: 100%;
 }
 
-/* ── AMBIENT BACKGROUND GLOW ── */
+/* ── AMBIENT BACKGROUND: HIDDEN for neo-brutalist flat aesthetic ── */
+/* Canvas is kept in DOM so vector-bg.js initialises without errors */
 .vector-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
+  display: none; /* flat cream bg replaces the particle mesh */
   pointer-events: none;
 }
 
 #vector-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.6;
+  display: none;
+  opacity: 0;
 }
 
 .bg-blobs {
@@ -520,124 +489,95 @@ img {
 }
 
 .profile-card {
-  background: var(--profile-card-bg);
-  border: 1px solid var(--border);
+  background: #f6eee0;
+  border: 1px solid #e9dfc8;
   border-radius: 40px;
-  padding: 32px 24px;
-  width: 100%;
+  padding: 20px;
+  width: 350px;
+  max-width: 100%;
+  min-height: 504px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--theme-shadow);
+  box-shadow: 0px 16px 36px 0px rgba(16, 27, 66, 0.07), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.55), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.85);
   transition: all 0.4s var(--ease);
-}
-
-.profile-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(242, 98, 46, 0.04) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 .profile-card:hover {
   transform: translateY(-5px);
   border-color: rgba(46, 86, 224, 0.28);
-  box-shadow: 0 20px 45px rgba(16, 27, 66, 0.1);
+  box-shadow: 0 20px 45px rgba(16, 27, 66, 0.1), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.55), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.85);
 }
 
-/* Removed circular glow */
-
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--tangerine-500);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(242, 98, 46, 0.5);
-  animation: livePulse 2s infinite;
-}
-
-@keyframes livePulse {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.3;
-    transform: scale(0.85);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
-
-/* Noise overlay for premium feel */
-.profile-card::after {
-  content: "";
+/* ── Profile Card Glows from Figma Design (14:1504) ── */
+.profile-card-glow-top {
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.03;
+  left: -29px;
+  top: -41px;
+  width: 180px;
+  height: 180px;
   pointer-events: none;
-  mix-blend-mode: overlay;
-  z-index: 1;
+  z-index: 0;
+}
+
+.profile-card-glow-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.profile-card-glow-bottom {
+  position: absolute;
+  left: 197px;
+  top: 319px;
+  width: 160px;
+  height: 160px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.profile-card-glow-bottom img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .profile-avatar {
   width: 170px;
   height: 170px;
-  border-radius: 50%;
+  border-radius: 85px;
   overflow: hidden;
-  border: 3px solid transparent;
-  background: linear-gradient(var(--linen-100), var(--linen-100)) padding-box,
-    linear-gradient(135deg, var(--cobalt-600), var(--tangerine-300)) border-box;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgb(46, 86, 224) 0%, rgb(247, 154, 110) 100%);
   box-shadow:
-    0 0 0 6px rgba(46, 86, 224, 0.08),
-    0 16px 36px rgba(16, 27, 66, 0.12);
+    0px 0px 0px 6px rgba(46, 86, 224, 0.08),
+    0px 16px 36px 0px rgba(16, 27, 66, 0.12);
   z-index: 2;
   transition: transform 0.6s var(--spring), box-shadow 0.4s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .profile-avatar img {
-  width: 100%;
-  height: 100%;
+  width: 164px;
+  height: 164px;
   object-fit: cover;
   object-position: center 30%;
   display: block;
-  border-radius: 50%;
+  border-radius: 82px;
 }
 
 .profile-card:hover .profile-avatar {
   transform: scale(1.05) rotate(1deg);
   box-shadow:
-    0 0 0 8px rgba(46, 86, 224, 0.12),
-    0 20px 44px rgba(16, 27, 66, 0.16);
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.8);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
+    0px 0px 0px 8px rgba(46, 86, 224, 0.12),
+    0px 20px 44px 0px rgba(16, 27, 66, 0.16);
 }
 
 .profile-info {
@@ -647,38 +587,7 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-}
-
-.profile-name {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--cobalt-900);
-  letter-spacing: -1px;
-  line-height: 1.1;
-  text-align: center;
-}
-
-.profile-role {
-  font-size: 0.8rem;
-  color: var(--tangerine-500);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  opacity: 0.95;
-}
-
-.profile-location {
-  font-size: 0.82rem;
-  color: var(--ink-600);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.profile-location i {
-  color: var(--cobalt-600);
+  width: 100%;
 }
 
 .availability-badge {
@@ -686,61 +595,85 @@ img {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: var(--tangerine-100);
+  background: #fce4d6;
   border: 1px solid rgba(242, 98, 46, 0.3);
   border-radius: 999px;
-  font-size: 0.78rem;
-  color: var(--cobalt-900);
+  font-family: 'Inter', sans-serif;
+  font-size: 12.8px;
   font-weight: 600;
+  line-height: 20.48px;
+  color: #101b42;
   z-index: 2;
-  box-shadow: 0 4px 12px rgba(242, 98, 46, 0.12);
+  box-shadow: 0px 2px 5px rgba(242, 98, 46, 0.15), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
 }
 
-.availability-badge .pulse {
+.availability-dot {
   width: 8px;
   height: 8px;
-  background: var(--tangerine-500);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(242, 98, 46, 0.5);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.availability-badge .pulse::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 2px solid var(--tangerine-500);
-  animation: pulse-ring 2s infinite;
+.availability-dot img {
+  width: 24px;
+  height: 24px;
+  max-width: none;
+  display: block;
+  pointer-events: none;
+}
+
+.profile-location {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.12px;
+  font-weight: 400;
+  line-height: 20.99px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 4px;
+  white-space: nowrap;
+}
+
+.profile-location i {
+  color: #2e56e0;
+  font-size: 13.12px;
 }
 
 .profile-socials {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 8px;
   width: 100%;
   z-index: 2;
-  margin-top: 8px;
 }
 
 .profile-socials a {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: var(--social-btn-bg);
+  background: #e8edfc;
   border: 1px solid rgba(46, 86, 224, 0.18);
+  box-shadow: 0px 2px 3px rgba(16, 27, 66, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  color: var(--cobalt-600);
+  font-size: 17.6px;
+  color: #2e56e0;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .profile-socials a:hover {
-  background: var(--cobalt-600);
+  background: #2e56e0;
   transform: translateY(-2px);
-  border-color: var(--cobalt-600);
+  border-color: #2e56e0;
   color: #ffffff;
 }
 
@@ -748,47 +681,54 @@ img {
   display: flex;
   gap: 10px;
   width: 100%;
-  margin-top: 4px;
+  height: 52.52px;
   z-index: 2;
 }
 
 .btn-cv,
 .btn-contact {
   flex: 1;
+  height: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 12px;
   border-radius: 16px;
-  font-size: 0.88rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.08px;
   font-weight: 600;
+  line-height: 22.53px;
   transition: all 0.3s ease;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .btn-cv {
-  background: var(--cv-btn-bg);
-  color: var(--cv-btn-color);
-  border: 1px solid var(--cobalt-600);
+  background: #2e56e0;
+  color: #ffffff;
+  border: 1px solid #2e56e0;
+  box-shadow: 0px 4px 7px rgba(16, 27, 66, 0.12);
 }
 
 .btn-cv:hover {
-  background: var(--cobalt-900);
+  background: #101b42;
+  border-color: #101b42;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(16, 27, 66, 0.2);
+  box-shadow: 0 8px 18px rgba(16, 27, 66, 0.22);
 }
 
 .btn-contact {
-  background: var(--tangerine-500);
+  background: #f2622e;
   color: #ffffff;
+  border: none;
+  box-shadow: 0px 4px 7px rgba(242, 98, 46, 0.25);
 }
 
 .btn-contact:hover {
   background: #d84f1d;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(242, 98, 46, 0.35);
+  box-shadow: 0 10px 24px rgba(242, 98, 46, 0.38);
 }
 
 /* ── 7. BUTTONS ── */
@@ -3177,16 +3117,17 @@ img {
 .hero-title .hero-name-row {
   display: block;
   margin-bottom: 4px;
+  color: rgb(222, 141, 255);
 }
 
 .hero-title .hero-greeting {
   font-weight: 500;
-  color: var(--ink-700);
+  color: inherit;
   letter-spacing: -0.02em;
 }
 
 .hero-title .hero-name {
-  color: var(--cobalt-900);
+  color: inherit;
   font-weight: 800;
   letter-spacing: -0.035em;
   display: inline;
@@ -3788,6 +3729,7 @@ html {
     padding: 20px;
     gap: 16px;
     align-items: center;
+    min-height: auto;
   }
 
   .profile-avatar {
