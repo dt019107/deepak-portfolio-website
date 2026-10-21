@@ -1782,3 +1782,186 @@ img { max-width: 100%; display: block; }
     width: 100%;
   }
 }
+
+
+/* ============================================================
+   PHASE 4: SECTION HEADERS & ABOUT CARDS — NEO-BRUTALIST
+   ============================================================ */
+
+/* ── Global Section Base ── */
+.section {
+  padding: 70px 0 60px;
+  border-bottom: 2px dashed rgba(26, 26, 23, 0.18);
+  content-visibility: visible;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 3px 3px 0 var(--ink);
+  margin-bottom: var(--sp-4);
+  transform: rotate(-1deg);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -0.035em;
+  margin-bottom: var(--sp-4);
+}
+
+.section-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text1);
+  max-width: 620px;
+  line-height: 1.75;
+  margin-bottom: var(--sp-8);
+}
+
+.accent {
+  background: var(--mint);
+  color: var(--ink);
+  padding: 2px 10px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  box-shadow: 3px 3px 0 var(--ink);
+  display: inline-block;
+  transform: rotate(-1deg);
+  font-style: normal;
+}
+
+/* ── About Cards Grid ── */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+  margin-top: var(--sp-4);
+}
+
+.about-card {
+  position: relative;
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-6) var(--sp-5) var(--sp-6);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  overflow: visible;
+  user-select: none;
+}
+
+/* 3 Card Color Variations */
+.about-card--lavender {
+  background: var(--lavender);
+}
+
+.about-card--yellow {
+  background: var(--yellow);
+}
+
+.about-card--mint {
+  background: var(--mint);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-card {
+    transition:
+      transform var(--dur-fast) var(--ease-spring),
+      box-shadow var(--dur-fast) var(--ease-spring);
+  }
+  .about-card--lavender:hover {
+    transform: translate(-4px, -4px) rotate(-1deg);
+    box-shadow: 10px 10px 0 var(--ink);
+  }
+  .about-card--yellow:hover {
+    transform: translate(-4px, -4px) rotate(1deg);
+    box-shadow: 10px 10px 0 var(--ink);
+  }
+  .about-card--mint:hover {
+    transform: translate(-4px, -4px) rotate(-1.5deg);
+    box-shadow: 10px 10px 0 var(--ink);
+  }
+}
+
+/* Washi tape pin on each card */
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 24px;
+  width: 50px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px dashed rgba(26, 26, 23, 0.4);
+  transform: rotate(3deg);
+  box-shadow: 1px 1px 0 rgba(26, 26, 23, 0.1);
+  pointer-events: none;
+}
+
+/* Icon Wrap */
+.about-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--white);
+  border: var(--border);
+  box-shadow: 3px 3px 0 var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-bottom: var(--sp-2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-card-icon {
+    transition: transform var(--dur-fast) var(--ease-spring);
+  }
+  .about-card:hover .about-card-icon {
+    transform: scale(1.14) rotate(6deg);
+  }
+}
+
+.about-card h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.about-card p {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  line-height: 1.65;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive breakpoint for About */
+@media (max-width: 820px) {
+  .about-cards {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+}
