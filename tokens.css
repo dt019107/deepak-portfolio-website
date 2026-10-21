@@ -12,40 +12,40 @@
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ============================================================ */
 :root {
-  /* ── Core Palette ── */
-  --cream:        #FDF3E1;
-  --cream-dark:   #F5E8C8;
-  --ink:          #1A1A17;
+  /* ── Core Palette: Premium Warm Linen & Obsidian Ink ── */
+  --cream:        #FAF7F2;
+  --cream-dark:   #F0ECE1;
+  --ink:          #141412;
   --white:        #FFFFFF;
 
-  --blue:         #3040F8;
-  --blue-dark:    #1A28D8;
-  --blue-light:   #D0D5FE;
+  --blue:         #2B3DF0;
+  --blue-dark:    #1826CC;
+  --blue-light:   #DDE2FE;
 
-  --yellow:       #F5C851;
-  --yellow-dark:  #D4A732;
+  --yellow:       #FFE566;
+  --yellow-dark:  #DFBA24;
 
-  --mint:         #A0E3C5;
-  --mint-dark:    #70C99A;
+  --mint:         #B4F0CE;
+  --mint-dark:    #6FC497;
 
-  --lavender:     #C8B8F8;
-  --lavender-dark:#9A83E8;
+  --lavender:     #DDD2FE;
+  --lavender-dark:#9E87EA;
 
-  --pink:         #F4B6C8;
-  --pink-dark:    #D88099;
+  --pink:         #FBCFE8;
+  --pink-dark:    #E087AF;
 
   /* ── Semantic Aliases (JS/styles.css bridge) ── */
   --bg:               var(--cream);
   --bg2:              var(--cream-dark);
   --card:             var(--white);
   --text:             var(--ink);
-  --text2:            #3A3A35;
-  --text3:            #5A5A54;
+  --text2:            #2C2C28;
+  --text3:            #52524C;
   --headline:         var(--ink);
   --accent:           var(--blue);
   --accent-dim:       var(--blue-light);
-  --accent-glow:      rgba(48, 64, 248, 0.18);
-  --nav-bg:           rgba(253, 243, 225, 0.96);
+  --accent-glow:      rgba(43, 61, 240, 0.18);
+  --nav-bg:           rgba(250, 247, 242, 0.92);
   --nav-border:       var(--ink);
   --label-bg:         var(--yellow);
   --label-color:      var(--ink);
@@ -165,6 +165,21 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* ── Ambient Editorial Paper Texture (tactile micro-grain) ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 ::selection {
@@ -644,61 +659,27 @@ img { max-width: 100%; display: block; }
   to   { transform: translateX(-50%) translateY(0);     opacity: 1; }
 }
 
-/* ── The pill shell ── */
+/* ── The pill shell: Centered studio capsule ── */
 .nb-nav-pill {
   display: flex;
   align-items: center;
-  gap: var(--sp-2);
-  padding: 8px 10px;
-  background: var(--cream);
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: var(--border);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-md);
   white-space: nowrap;
 }
 
-/* ── DT logo badge ── */
-.nav-logo-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  background: var(--blue);
-  color: var(--white);
-  border: var(--border);
-  border-radius: 50%;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: -0.04em;
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  user-select: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .nav-logo-badge {
-    transition:
-      transform var(--dur-fast) var(--ease-spring),
-      box-shadow var(--dur-fast) var(--ease-spring);
-  }
-  .nav-logo-badge:hover {
-    transform: translate(-2px, -2px) rotate(-3deg);
-    box-shadow: 5px 5px 0 var(--blue-dark);
-  }
-  .nav-logo-badge:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0 0 0 var(--blue-dark);
-  }
-}
-
 /* ── Centre nav links ── */
 .floating-nav {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   background: none;
   border: none;
   border-radius: 0;
@@ -712,9 +693,8 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
   height: 36px;
-  padding: 0 14px;
+  padding: 0 16px;
   border-radius: var(--radius-full);
   font-family: var(--font-display);
   font-size: var(--text-sm);
@@ -725,11 +705,11 @@ img { max-width: 100%; display: block; }
   position: relative;
   cursor: pointer;
   letter-spacing: -0.01em;
-  border: none;
+  border: 1.5px solid transparent;
   background: none;
 }
 
-/* hide the old FA icons completely */
+/* hide legacy FA icons */
 .fnav-item i,
 .fnav-label { display: none; }
 
@@ -737,41 +717,31 @@ img { max-width: 100%; display: block; }
   .fnav-item {
     transition:
       background var(--dur-fast) var(--ease-out),
-      color var(--dur-fast) var(--ease-out);
+      border-color var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out),
+      transform var(--dur-fast) var(--ease-spring);
   }
 }
 
 .fnav-item:hover {
   background: var(--cream-dark);
   color: var(--ink);
+  border-color: rgba(20, 20, 18, 0.12);
+  transform: translateY(-1px);
 }
 
-/* Active = yellow pill */
+/* Active = Primrose yellow pill with crisp ink border */
 .fnav-item.active {
   background: var(--yellow);
   color: var(--ink);
   font-weight: 700;
-  border: 2px solid var(--yellow-dark);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--yellow-dark);
 }
 
 .fnav-item.active:hover {
   background: var(--yellow);
-}
-
-/* ── Nav right actions ── */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  margin-left: var(--sp-1);
-}
-
-/* Size the nav action buttons smaller than default nb-btn */
-.nav-resume-btn,
-.nav-sayhi-btn {
-  padding: 9px 18px;
-  font-size: var(--text-xs);
-  height: 38px;
+  transform: translateY(0);
 }
 
 /* ── Hamburger button (mobile only, hidden on desktop) ── */
@@ -1029,10 +999,9 @@ img { max-width: 100%; display: block; }
    PHASE 2: RESPONSIVE BREAKPOINTS
    ============================================================ */
 
-/* On tablet/mobile: hide centre links + action buttons, show hamburger */
+/* On tablet/mobile: hide centre links, show hamburger */
 @media (max-width: 820px) {
-  .floating-nav,
-  .nav-actions {
+  .floating-nav {
     display: none;
   }
 
@@ -1041,8 +1010,8 @@ img { max-width: 100%; display: block; }
   }
 
   .nb-nav-pill {
-    gap: var(--sp-3);
-    padding: 8px 12px;
+    padding: 6px;
+    border-radius: var(--radius-md);
   }
 }
 
@@ -1054,16 +1023,11 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* Medium: hide "Certs" label, still show nav */
+/* Medium: streamline item padding */
 @media (max-width: 1060px) and (min-width: 821px) {
   .fnav-item {
-    padding: 0 10px;
+    padding: 0 12px;
     font-size: var(--text-xs);
-  }
-
-  .nav-resume-btn,
-  .nav-sayhi-btn {
-    padding: 8px 14px;
   }
 }
 
