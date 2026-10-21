@@ -72,29 +72,8 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
-}
-
-/* Lenis Recommended CSS */
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+  scroll-behavior: auto !important; /* Disabled smooth scrolling for rapid, instantaneous scroll response */
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -262,48 +241,19 @@ img {
   }
 }
 
-/* ── 3. CURSOR ── */
+/* ── 3. CURSOR (Handled by tokens.css design system) ── */
 @media (pointer: fine) {
-
-  *,
+  body,
   a,
   button {
-    cursor: none !important;
+    cursor: none;
   }
-}
 
-.cursor-dot {
-  position: fixed;
-  top: -4px;
-  left: -4px;
-  width: 8px;
-  height: 8px;
-  background: var(--tangerine-500);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transition: opacity 0.2s;
-}
-
-.cursor-outline {
-  position: fixed;
-  top: -16px;
-  left: -16px;
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid rgba(46, 86, 224, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.cursor-outline.cursor-hover {
-  width: 54px;
-  height: 54px;
-  top: -27px;
-  left: -27px;
-  background: rgba(46, 86, 224, 0.08);
-  border-color: var(--cobalt-600);
+  input,
+  textarea,
+  select {
+    cursor: text;
+  }
 }
 
 /* ── 4. TOP HEADER & NAV ── */

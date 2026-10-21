@@ -11,32 +11,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // -- 0. SMOOTH SCROLL (LENIS) --
-  // On mobile touch devices, native 120Hz/60Hz momentum scrolling is preserved to avoid touch locking
-  let lenis = null;
-  if (typeof Lenis !== 'undefined' && !isTouch && isFinePointer) {
-    try {
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 1.5,
-        infinite: false,
-      });
-
-      function raf(time) {
-        if (lenis) lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-    } catch (e) {
-      console.warn('Lenis smooth scrolling bypassed:', e);
-    }
-  }
+  // -- 0. RAPID SCROLL PERFORMANCE (Smooth scrolling disabled for immediate response) --
 
   // -- 1. FOOTER YEAR --
   const yearEl = document.getElementById('year');
@@ -100,11 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
   if (backToTop) {
     backToTop.addEventListener('click', () => {
-      if (lenis) {
-        lenis.scrollTo(0, { duration: 1.2 });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      window.scrollTo({ top: 0, behavior: 'auto' });
     });
   }
 
@@ -133,59 +104,125 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // -- 8. CUSTOM CURSOR (desktop fine-pointer only, never overlaps hero text at rest) --
+  // -- 8. PREMIUM NEO-BRUTALIST CUSTOM CURSOR DESIGN --
   if (!isTouch && isFinePointer && !prefersReducedMotion) {
     const dot = document.getElementById('cursor-dot');
     const outline = document.getElementById('cursor-outline');
-    let mx = -100, my = -100, ox = -100, oy = -100;
-    let hasMoved = false;
+    const badge = document.getElementById('cursor-badge');
 
-    if (dot) dot.style.opacity = '0';
-    if (outline) outline.style.opacity = '0';
+    if (dot && outline) {
+      let mx = -100, my = -100;
+      let isVisible = false;
+      let isMouseDown = false;
 
-    window.addEventListener('mousemove', e => {
-      if (!hasMoved) {
-        hasMoved = true;
-        if (dot) dot.style.opacity = '1';
-        if (outline) outline.style.opacity = '1';
+      dot.style.opacity = '0';
+      outline.style.opacity = '0';
+
+      function updateCursorPosition(x, y) {
+        const dotScale = isMouseDown ? ' scale(0.6)' : '';
+        const outlineScale = isMouseDown ? ' scale(0.85)' : '';
+        dot.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)' + dotScale;
+        outline.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)' + outlineScale;
       }
-      mx = e.clientX; my = e.clientY;
-      if (dot) dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-    }, { passive: true });
 
-    function trackOutline() {
-      ox += (mx - ox) * 0.14;
-      oy += (my - oy) * 0.14;
-      if (outline) outline.style.transform = 'translate(' + ox + 'px,' + oy + 'px)';
-      requestAnimationFrame(trackOutline);
+      window.addEventListener('mousemove', (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+
+        if (!isVisible) {
+          isVisible = true;
+          dot.style.opacity = '1';
+          outline.style.opacity = '1';
+        }
+
+        updateCursorPosition(mx, my);
+      }, { passive: true });
+
+      // Window boundary awareness
+      document.addEventListener('mouseleave', () => {
+        dot.style.opacity = '0';
+        outline.style.opacity = '0';
+        isVisible = false;
+      });
+
+      document.addEventListener('mouseenter', () => {
+        if (isVisible) {
+          dot.style.opacity = '1';
+          outline.style.opacity = '1';
+        }
+      });
+
+      // Mousedown tactile snap feedback (instant response)
+      window.addEventListener('mousedown', (e) => {
+        if (e.button === 0) {
+          isMouseDown = true;
+          dot.classList.add('cursor-active');
+          outline.classList.add('cursor-active');
+          if (isVisible) updateCursorPosition(mx, my);
+        }
+      });
+
+      window.addEventListener('mouseup', () => {
+        isMouseDown = false;
+        dot.classList.remove('cursor-active');
+        outline.classList.remove('cursor-active');
+        if (isVisible) updateCursorPosition(mx, my);
+      });
+
+      // Contextual state: Project cards / Featured Case Studies
+      const viewTargets = document.querySelectorAll(
+        '.project-card, .cluster-card, .featured-case-card, .case-study-progress-pill, .hero-project-cluster a, .visual-work-card'
+      );
+      viewTargets.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          outline.classList.add('cursor-view');
+          dot.classList.add('cursor-hidden');
+          if (badge) badge.textContent = 'VIEW ↗';
+        });
+        el.addEventListener('mouseleave', () => {
+          outline.classList.remove('cursor-view');
+          dot.classList.remove('cursor-hidden');
+          if (badge) badge.textContent = '';
+        });
+      });
+
+      // Contextual state: Peelable Stickers / Draggable items
+      const dragTargets = document.querySelectorAll(
+        '.sticker, .draggable-sticker, .skill-tool-pill'
+      );
+      dragTargets.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          outline.classList.add('cursor-drag');
+          dot.classList.add('cursor-hidden');
+          if (badge) badge.textContent = 'PEEL ✦';
+        });
+        el.addEventListener('mouseleave', () => {
+          outline.classList.remove('cursor-drag');
+          dot.classList.remove('cursor-hidden');
+          if (badge) badge.textContent = '';
+        });
+      });
+
+      // Contextual state: Standard links & buttons
+      const hoverTargets = document.querySelectorAll(
+        'a:not(.cluster-card):not(.project-card):not(.visual-work-card), button, .nb-btn, .fnav-item, .magnetic-item, .cert-card, .about-card, [role="button"]:not(.skill-tool-pill)'
+      );
+      hoverTargets.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          if (!outline.classList.contains('cursor-view') && !outline.classList.contains('cursor-drag')) {
+            outline.classList.add('cursor-hover');
+            dot.classList.add('cursor-hover');
+          }
+        });
+        el.addEventListener('mouseleave', () => {
+          outline.classList.remove('cursor-hover');
+          dot.classList.remove('cursor-hover');
+        });
+      });
     }
-    requestAnimationFrame(trackOutline);
-
-    document.addEventListener('mouseleave', () => {
-      if (dot) dot.style.opacity = '0';
-      if (outline) outline.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-      if (hasMoved) {
-        if (dot) dot.style.opacity = '1';
-        if (outline) outline.style.opacity = '1';
-      }
-    });
-
-    const interactiveEls = document.querySelectorAll('a, button, .project-card, .cert-card, .about-card, .skill-chip, .nb-btn, .sticker, .draggable-sticker, .cluster-card');
-    interactiveEls.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        if (outline) outline.classList.add('cursor-hover');
-        if (dot) dot.style.opacity = '0';
-      });
-      el.addEventListener('mouseleave', () => {
-        if (outline) outline.classList.remove('cursor-hover');
-        if (dot && hasMoved) dot.style.opacity = '1';
-      });
-    });
   }
 
-  // -- 9. SMOOTH ANCHOR SCROLL --
+  // -- 9. RAPID ANCHOR NAVIGATION (Smooth scrolling disabled for instant response) --
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href');
@@ -193,10 +230,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      if (lenis) {
-        lenis.scrollTo(target, { offset: 0, duration: 1.5, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-      } else {
-        target.scrollIntoView({ behavior: 'smooth' });
+      // Instantaneous rapid response scroll
+      target.scrollIntoView({ behavior: 'auto' });
+      if (history.pushState) {
+        history.pushState(null, null, id);
       }
     });
   });

@@ -906,8 +906,8 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-behavior: auto !important; /* Disabled smooth scrolling for rapid, instantaneous response */
+  scroll-padding-top: 90px;
   overflow-x: clip;
   height: auto;
 }
@@ -1464,36 +1464,188 @@ img {
   }
 }
 
-/* ── Custom cursor overrides ── */
+/* ═══════════════════════════════════════════════
+   PREMIUM NEO-BRUTALIST CUSTOM CURSOR DESIGN
+   ═══════════════════════════════════════════════ */
 @media (pointer: fine) {
-  .cursor-dot {
-    background: var(--blue);
-    width: 10px;
-    height: 10px;
-    top: -5px;
-    left: -5px;
-    transition: opacity 0.2s;
+  body,
+  a,
+  button,
+  .nb-btn,
+  .sticker,
+  .draggable-sticker,
+  .cluster-card,
+  .project-card,
+  .about-card,
+  .cert-card,
+  [role="button"] {
+    cursor: none !important;
   }
 
+  input,
+  textarea,
+  select {
+    cursor: text !important;
+  }
+
+  /* ── Cursor Lead Point ── */
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    transition: opacity 0.15s ease, background-color 0.15s ease;
+    will-change: transform;
+    box-shadow: 0 0 10px rgba(48, 64, 248, 0.45);
+  }
+
+  /* ── Cursor Follower Halo ── */
   .cursor-outline {
-    border: 2px solid var(--ink);
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 36px;
     height: 36px;
-    top: -18px;
-    left: -18px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
     background: transparent;
-    transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring),
-      top 0.3s var(--ease-spring), left 0.3s var(--ease-spring),
-      background 0.3s, border-color 0.3s;
+    pointer-events: none;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    transition: width 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+                height 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-radius 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
+    will-change: transform, width, height;
   }
 
+  .cursor-badge {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* ── Interactive State: Links / Buttons ── */
   .cursor-outline.cursor-hover {
-    width: 56px;
-    height: 56px;
-    top: -28px;
-    left: -28px;
-    background: rgba(48, 64, 248, 0.08);
+    width: 52px;
+    height: 52px;
+    background: rgba(48, 64, 248, 0.1);
     border-color: var(--blue);
+    box-shadow: 0 0 16px rgba(48, 64, 248, 0.25);
+  }
+
+  .cursor-dot.cursor-hover {
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%) scale(1.4);
+    background: var(--blue);
+  }
+
+  /* ── Interactive State: View Case Studies ── */
+  .cursor-outline.cursor-view {
+    width: 86px;
+    height: 34px;
+    border-radius: 999px;
+    background: var(--ink);
+    border-color: var(--cream);
+    box-shadow: 3px 3px 0 var(--blue);
+  }
+
+  .cursor-outline.cursor-view .cursor-badge {
+    opacity: 1;
+    transform: scale(1);
+    color: var(--cream);
+  }
+
+  .cursor-dot.cursor-hidden {
+    opacity: 0 !important;
+  }
+
+  /* ── Interactive State: Drag / Peel ── */
+  .cursor-outline.cursor-drag {
+    width: 78px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--yellow);
+    border-color: var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .cursor-outline.cursor-drag .cursor-badge {
+    opacity: 1;
+    transform: scale(1);
+    color: var(--ink);
+  }
+
+  /* ── Active / Click State ── */
+  .cursor-outline.cursor-active {
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%) scale(0.85);
+  }
+
+  .cursor-dot.cursor-active {
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%) scale(0.6);
+  }
+}
+
+/* ── Dark Mode Cursor Overrides ── */
+[data-theme="dark"] .cursor-dot {
+  background: var(--yellow);
+  box-shadow: 0 0 10px rgba(245, 200, 81, 0.55);
+}
+
+[data-theme="dark"] .cursor-outline {
+  border-color: var(--cream);
+}
+
+[data-theme="dark"] .cursor-outline.cursor-hover {
+  background: rgba(245, 200, 81, 0.12);
+  border-color: var(--yellow);
+  box-shadow: 0 0 16px rgba(245, 200, 81, 0.3);
+}
+
+[data-theme="dark"] .cursor-outline.cursor-view {
+  background: var(--yellow);
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--blue-light);
+}
+
+[data-theme="dark"] .cursor-outline.cursor-view .cursor-badge {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .cursor-outline.cursor-drag {
+  background: var(--mint);
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+[data-theme="dark"] .cursor-outline.cursor-drag .cursor-badge {
+  color: var(--ink);
+}
+
+/* ── Disabled on touch/mobile devices ── */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
   }
 }
 
@@ -2219,54 +2371,25 @@ img {
 /* Washi tape sticker accent on top-left */
 .profile-tape {
   position: absolute;
-  top: -16px;
-  left: 24px;
-  width: 112px;
-  height: 36px;
-  transform: rotate(-6deg);
+  top: -22px;
+  left: -20px;
+  width: 126px;
+  height: auto;
   z-index: 6;
   pointer-events: none;
-  filter: drop-shadow(0 2px 3px rgba(26, 26, 23, 0.08));
   transition: transform var(--dur-fast) var(--ease-spring);
 }
 
-.profile-card:hover .profile-tape {
-  transform: rotate(-8deg) scale(1.04);
-}
-
-.tape-illustration {
+.profile-tape-img {
   width: 100%;
-  height: 100%;
-  overflow: visible;
+  height: auto;
   display: block;
-}
-
-.tape-shadow-path {
-  fill: var(--ink);
-  opacity: 0.95;
-}
-
-.tape-body-path {
-  fill: #F5C851; /* Vibrant washi tape yellow */
-  fill-opacity: 0.92;
-}
-
-.tape-stripes-group {
-  color: var(--ink);
-}
-
-.tape-text-stamp {
-  color: var(--ink);
-  opacity: 0.65;
   user-select: none;
+  -webkit-user-drag: none;
 }
 
-.tape-border-path {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 2.5px;
-  stroke-linejoin: miter;
-  stroke-miterlimit: 4;
+.profile-card:hover .profile-tape {
+  transform: translateY(-3px) scale(1.05);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -2276,10 +2399,10 @@ img {
 }
 
 @keyframes tape-wiggle {
-  0% { transform: rotate(-6deg); }
-  35% { transform: rotate(-10deg) scale(1.06); }
-  70% { transform: rotate(-4deg); }
-  100% { transform: rotate(-6deg); }
+  0% { transform: scale(1); }
+  35% { transform: translateY(-4px) scale(1.08) rotate(-1deg); }
+  70% { transform: translateY(1px) scale(0.98); }
+  100% { transform: scale(1); }
 }
 
 /* ── Avatar Frame (Clean photo area, 16px gap below) ── */
