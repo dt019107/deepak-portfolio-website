@@ -54,7 +54,8 @@
   <button id="back-to-top" title="Back to top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"
       aria-hidden="true"></i></button>
   <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-outline" id="cursor-outline" aria-hidden="true"><span class="cursor-badge" id="cursor-badge" aria-hidden="true"></span></div>
+  <div class="cursor-outline" id="cursor-outline" aria-hidden="true"><span class="cursor-badge" id="cursor-badge"
+      aria-hidden="true"></span></div>
   <div class="vector-container" aria-hidden="true"><canvas id="vector-canvas"></canvas></div>
 
   <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
@@ -82,10 +83,8 @@
             aria-hidden="true">04</span><span>Projects</span></a>
         <a href="#skills" class="mobile-nav-item" data-section="skills"><span class="mobile-nav-num"
             aria-hidden="true">05</span><span>Skills</span></a>
-        <a href="#certifications" class="mobile-nav-item" data-section="certifications"><span class="mobile-nav-num"
-            aria-hidden="true">06</span><span>Certifications</span></a>
         <a href="#contact" class="mobile-nav-item" data-section="contact"><span class="mobile-nav-num"
-            aria-hidden="true">07</span><span>Contact</span></a>
+            aria-hidden="true">06</span><span>Contact</span></a>
       </nav>
     </div>
   </div>
@@ -98,7 +97,6 @@
         <a href="#experience" class="fnav-item" data-section="experience" title="Experience">Experience</a>
         <a href="#projects" class="fnav-item" data-section="projects" title="Projects">Projects</a>
         <a href="#skills" class="fnav-item" data-section="skills" title="Skills">Skills</a>
-        <a href="#certifications" class="fnav-item" data-section="certifications" title="Certifications">Certs</a>
         <a href="#contact" class="fnav-item" data-section="contact" title="Contact">Contact</a>
       </nav>
       <button class="theme-toggle-btn magnetic-item" id="theme-toggle-btn" aria-label="Toggle Studio Dark Mode"
@@ -119,7 +117,33 @@
     <aside class="sidebar">
       <div class="profile-card" id="profile-card">
         <div class="profile-tape" aria-hidden="true">
-          <img src="profile_tape.png" alt="" class="profile-tape-img" width="360" height="277" decoding="async">
+          <svg class="tape-illustration" viewBox="0 0 112 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Hard offset drop shadow -->
+            <path class="tape-shadow-path"
+              d="M 8 7 L 11 10 L 8 13 L 11 16 L 8 19 L 11 22 L 8 25 L 11 28 L 8 31 L 11 34 L 106 34 L 103 31 L 106 28 L 103 25 L 106 22 L 103 19 L 106 16 L 103 13 L 106 10 L 103 7 Z" />
+            <!-- Main tape body with serrated torn edges -->
+            <path class="tape-body-path"
+              d="M 4 3 L 7 6 L 4 9 L 7 12 L 4 15 L 7 18 L 4 21 L 7 24 L 4 27 L 7 30 L 102 30 L 99 27 L 102 24 L 99 21 L 102 18 L 99 15 L 102 12 L 99 9 L 102 6 L 99 3 Z" />
+            <!-- Washi tape diagonal drafting stripes -->
+            <g class="tape-stripes-group" opacity="0.16">
+              <line x1="12" y1="3" x2="39" y2="30" stroke="currentColor" stroke-width="2" />
+              <line x1="24" y1="3" x2="51" y2="30" stroke="currentColor" stroke-width="2" />
+              <line x1="36" y1="3" x2="63" y2="30" stroke="currentColor" stroke-width="2" />
+              <line x1="48" y1="3" x2="75" y2="30" stroke="currentColor" stroke-width="2" />
+              <line x1="60" y1="3" x2="87" y2="30" stroke="currentColor" stroke-width="2" />
+              <line x1="72" y1="3" x2="99" y2="30" stroke="currentColor" stroke-width="2" />
+            </g>
+            <!-- Translucent top sheen highlight -->
+            <path d="M 8 5 L 98 5 L 97 9 L 7 9 Z" fill="rgba(255, 255, 255, 0.55)" />
+            <!-- Vertical tape creases / fold lines -->
+            <path d="M 28 3.5 L 30 29.5" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M 29.5 3.5 L 31.5 29.5" stroke="rgba(26, 26, 23, 0.22)" stroke-width="1" stroke-linecap="round" />
+            <path d="M 76 3.5 L 74 29.5" stroke="rgba(255, 255, 255, 0.7)" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M 77.5 3.5 L 75.5 29.5" stroke="rgba(26, 26, 23, 0.2)" stroke-width="1" stroke-linecap="round" />
+            <!-- Outer 2.5px solid ink border tracking the serrated perimeter -->
+            <path class="tape-border-path"
+              d="M 4 3 L 7 6 L 4 9 L 7 12 L 4 15 L 7 18 L 4 21 L 7 24 L 4 27 L 7 30 L 102 30 L 99 27 L 102 24 L 99 21 L 102 18 L 99 15 L 102 12 L 99 9 L 102 6 L 99 3 Z" />
+          </svg>
         </div>
         <div class="profile-avatar">
           <picture>
@@ -135,10 +159,11 @@
         <div class="card-glow" id="card-glow" aria-hidden="true"></div>
         <div class="profile-socials">
           <a href="https://www.linkedin.com/in/deepak-tiwari2205/?skipRedirect=true" target="_blank"
-            rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile" class="magnetic-item"><i class="fa-brands fa-linkedin-in"
-              aria-hidden="true"></i></a>
+            rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile" class="magnetic-item"><i
+              class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
           <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer" title="Behance"
-            aria-label="Behance portfolio" class="magnetic-item"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+            aria-label="Behance portfolio" class="magnetic-item"><i class="fa-brands fa-behance"
+              aria-hidden="true"></i></a>
           <a href="https://github.com/dt019107" target="_blank" rel="noopener noreferrer" title="GitHub"
             aria-label="GitHub profile" class="magnetic-item"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
         </div>
@@ -162,7 +187,8 @@
 
             <!-- Small handwritten greeting -->
             <div class="hero-greeting-wrap reveal-el">
-              <span class="hero-hand-greeting hand hand--ink">Hi, I'm Deepak <span class="wave-emoji" aria-hidden="true">&#x1F44B;</span></span>
+              <span class="hero-hand-greeting hand hand--ink">Hi, I'm Deepak <span class="wave-emoji"
+                  aria-hidden="true">&#x1F44B;</span></span>
             </div>
 
             <!-- Huge tight-tracked headline (~1.6x size) -->
@@ -176,29 +202,17 @@
             </h1>
 
             <!-- Subline -->
-            <p class="hero-subline reveal-el">UI/UX designer turning confusing flows into simple ones, from research to dev-ready Figma. Currently at <span class="hero-company-badge">Decision Culture</span>.</p>
+            <p class="hero-subline reveal-el">UI/UX designer turning confusing flows into simple ones, from research to
+              dev-ready Figma. Currently at <span class="hero-company-badge">Decision Culture</span>.</p>
 
             <!-- Buttons with 24px spacing above them -->
             <div class="hero-ctas reveal-el">
-              <a href="#projects" class="btn-primary magnetic-item">View case studies <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
-              <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-secondary-outline magnetic-item" aria-label="Download resume (opens in new tab)">Download resume <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75em;" aria-hidden="true"></i></a>
-            </div>
-
-            <!-- Compact stats strip -->
-            <div class="hero-stats-strip reveal-el">
-              <span class="stat-pill"><span class="stat-pill-dot" aria-hidden="true"></span> 2 yrs designing</span>
-              <span class="stat-pill"><span class="stat-pill-dot" aria-hidden="true"></span> 3 case studies</span>
-              <span class="stat-pill"><span class="stat-pill-dot" aria-hidden="true"></span> Figma &middot; Framer &middot; AI workflow</span>
-            </div>
-
-            <!-- Floating sticker pills with drag-to-move -->
-            <div class="hero-stickers-tray reveal-el">
-              <span class="tray-note hand hand--blue">psst, these peel off &rarr;</span>
-              <div class="draggable-stickers-wrap">
-                <span class="sticker sticker--yellow draggable-sticker float-idle" style="--tilt:-3deg;" title="Drag me anywhere!">✦ Design Systems</span>
-                <span class="sticker sticker--mint draggable-sticker float-idle" style="--tilt:2.5deg;" title="Drag me anywhere!">⚡ 0-to-1 Product</span>
-                <span class="sticker sticker--lavender draggable-sticker float-idle" style="--tilt:-2deg;" title="Drag me anywhere!">🤝 Dev-Ready Spec</span>
-              </div>
+              <a href="#projects" class="btn-primary magnetic-item">View case studies <i class="fa-solid fa-arrow-down"
+                  aria-hidden="true"></i></a>
+              <a href="https://drive.google.com/file/d/1NbnBMsBF6K2OjHgP5UL1JG_hYSXrdFvV/view?usp=sharing"
+                target="_blank" rel="noopener noreferrer" class="btn-secondary-outline magnetic-item"
+                aria-label="Download resume (opens in new tab)">Download resume <i
+                  class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75em;" aria-hidden="true"></i></a>
             </div>
           </div>
 
@@ -208,7 +222,8 @@
               <span class="cluster-badge hand hand--ink">Featured Case Studies &darr;</span>
 
               <!-- Project 1: Ola Partner -->
-              <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer" class="cluster-card cluster-card--ola nb-card" aria-label="Ola Partner Case Study (+18% Retention)">
+              <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer"
+                class="cluster-card cluster-card--ola nb-card" aria-label="Ola Partner Case Study (+18% Retention)">
                 <div class="cluster-card-top">
                   <span class="cluster-pill nb-pill--mint">+18% Retention</span>
                   <span class="cluster-arrow" aria-hidden="true">&nearr;</span>
@@ -224,26 +239,33 @@
               </a>
 
               <!-- Project 2: IndiGo Booking -->
-              <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study" target="_blank" rel="noopener noreferrer" class="cluster-card cluster-card--indigo nb-card" aria-label="IndiGo Booking Experience Case Study">
+              <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study"
+                target="_blank" rel="noopener noreferrer" class="cluster-card cluster-card--indigo nb-card"
+                aria-label="IndiGo Booking Experience Case Study">
                 <div class="cluster-card-top">
                   <span class="cluster-pill nb-pill--blue">UX Research</span>
                   <span class="cluster-arrow" aria-hidden="true">&nearr;</span>
                 </div>
                 <div class="cluster-thumb">
-                  <img src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=400" alt="IndiGo Case Study" width="220" height="120" loading="lazy" referrerpolicy="no-referrer">
+                  <img
+                    src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&cs=tinysrgb&w=400"
+                    alt="IndiGo Case Study" width="220" height="120" loading="lazy" referrerpolicy="no-referrer">
                 </div>
                 <h4 class="cluster-title">IndiGo Flight Flow</h4>
                 <p class="cluster-desc">Frictionless Booking Experience</p>
               </a>
 
               <!-- Project 3: Kanban Task Tracker -->
-              <a href="https://www.behance.net/gallery/235653015" target="_blank" rel="noopener noreferrer" class="cluster-card cluster-card--kanban nb-card" aria-label="Kanban Task Management Web App">
+              <a href="https://www.behance.net/gallery/235653015" target="_blank" rel="noopener noreferrer"
+                class="cluster-card cluster-card--kanban nb-card" aria-label="Kanban Task Management Web App">
                 <div class="cluster-card-top">
                   <span class="cluster-pill nb-pill--yellow">PWA App</span>
                   <span class="cluster-arrow" aria-hidden="true">&nearr;</span>
                 </div>
                 <div class="cluster-thumb">
-                  <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png" alt="Kanban Tracker" width="220" height="120" loading="lazy" referrerpolicy="no-referrer">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png"
+                    alt="Kanban Tracker" width="220" height="120" loading="lazy" referrerpolicy="no-referrer">
                 </div>
                 <h4 class="cluster-title">Kanban Task Tracker</h4>
                 <p class="cluster-desc">Productivity &amp; Workflow PWA</p>
@@ -256,27 +278,24 @@
       <!-- ABOUT -->
       <section id="about" class="section">
         <div class="section-label reveal-el">About Me</div>
-        <h2 class="section-title reveal-el">Passionate about<br><span class="accent">human-centered</span> <span
-            class="editorial-accent">design</span></h2>
-        <p class="section-desc reveal-el">From initial research and wireframes to interactive high-fidelity prototypes,
-          I lead products through the full design lifecycle. I bridge aesthetics and functionality to build intuitive,
-          user-loved digital experiences alongside cross-functional teams.</p>
+        <h2 class="section-title reveal-el">I start with the user's friction,<br><span class="accent">then design backward</span> to the screen</h2>
+        <p class="section-desc reveal-el">Every project begins by understanding where people get stuck. I map messy user flows, explore solutions in low-fidelity, and stress-test interactive prototypes before finalizing tokenized design systems and dev specs.</p>
         <div class="about-cards">
           <div class="about-card nb-card nb-card--yellow about-card--yellow tilt-l-sm tilt-on-hover reveal-el">
-            <div class="about-card-icon" aria-hidden="true"><i class="fa-regular fa-pen-nib"></i></div>
-            <h3>UI Design</h3>
-            <p>Crafting visually stunning, pixel-perfect interfaces with Figma and Framer.</p>
+            <div class="about-card-icon" aria-hidden="true"><i class="fa-solid fa-shapes"></i></div>
+            <h3>Design Systems</h3>
+            <p>Component-driven UI kits in Figma with strict tokens, auto-layout, and dev-ready handoff specs.</p>
           </div>
           <div class="about-card nb-card nb-card--mint about-card--mint tilt-on-hover reveal-el"
             style="transform:rotate(1deg)">
-            <div class="about-card-icon" aria-hidden="true"><i class="fa-regular fa-magnifying-glass-chart"></i></div>
-            <h3>UX Research</h3>
-            <p>Using empathy-driven research to uncover user needs and design painpoints.</p>
+            <div class="about-card-icon" aria-hidden="true"><i class="fa-solid fa-users-viewfinder"></i></div>
+            <h3>User Research</h3>
+            <p>Field interviews &amp; usability testing to uncover real blockers (like 14 driver tests for Ola Partner).</p>
           </div>
           <div class="about-card nb-card nb-card--lavender about-card--lavender tilt-l-sm tilt-on-hover reveal-el">
-            <div class="about-card-icon" aria-hidden="true"><i class="fa-regular fa-mobile-screen"></i></div>
-            <h3>Prototyping</h3>
-            <p>Building interactive prototypes that communicate design intent and flow.</p>
+            <div class="about-card-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Interactive Prototyping</h3>
+            <p>Micro-interactions and clickable prototypes in Figma and code to validate flows before engineering writes a line.</p>
           </div>
         </div>
       </section>
@@ -313,13 +332,16 @@
                     <span class="exp-meta-sep" aria-hidden="true">&middot;</span>
                     <span class="exp-dates">
                       <i class="fa-regular fa-calendar" aria-hidden="true"></i> Nov 2025 &ndash; Present
-                      <span class="exp-duration-pill">(<span class="exp-duration" data-start="2025-11-01" data-end="present">1 yr</span>)</span>
+                      <span class="exp-duration-pill">(<span class="exp-duration" data-start="2025-11-01"
+                          data-end="present">1 yr</span>)</span>
                     </span>
                     <span class="exp-meta-sep" aria-hidden="true">&middot;</span>
-                    <span class="exp-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Mumbai &middot; Hybrid</span>
+                    <span class="exp-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Mumbai
+                      &middot; Hybrid</span>
                   </div>
                 </div>
-                <button type="button" class="exp-collapse-btn" aria-expanded="true" aria-controls="exp-details-1" aria-label="Toggle role details">
+                <button type="button" class="exp-collapse-btn" aria-expanded="true" aria-controls="exp-details-1"
+                  aria-label="Toggle role details">
                   <i class="fa-solid fa-chevron-down exp-chevron" aria-hidden="true"></i>
                 </button>
               </div>
@@ -329,9 +351,10 @@
                 <div class="exp-columns">
                   <!-- Left: What I owned (max 3 one-line bullets) -->
                   <div class="exp-col">
-                    <h4 class="exp-col-title"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> What I owned</h4>
+                    <h4 class="exp-col-title"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> What I
+                      owned</h4>
                     <ul class="exp-bullets">
-                      <li><span>Led end-to-end UX/UI design across client products from research to dev-ready Figma specs.</span></li>
+                      <li><span>Owned UX for 2 client products (3-person design pod) from user research to dev-ready Figma specs.</span></li>
                       <li><span>Mapped user journeys and wireframed responsive landing flows optimized for conversions.</span></li>
                       <li><span>Standardized design system components and managed handoff documentation with engineering.</span></li>
                     </ul>
@@ -341,18 +364,19 @@
                   <div class="exp-col">
                     <h4 class="exp-col-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Impact</h4>
                     <ul class="exp-bullets">
-                      <li><span>Optimized core checkout &amp; onboarding flows to boost conversion by [PLACEHOLDER: +X%].</span></li>
-                      <li><span>Streamlined developer handoff, reducing design QA rework cycles by [PLACEHOLDER: -X%].</span></li>
-                      <li><span>Architected reusable UI tokens across [PLACEHOLDER: X+] multi-platform client screens.</span></li>
+                      <li><span>Reduced onboarding friction by simplifying multi-screen signups into clear 3-step flows.</span></li>
+                      <li><span>Streamlined developer handoff with tokenized spec sheets, reducing design QA rework cycles.</span></li>
+                      <li><span>Architected reusable UI tokens across multi-platform client design files.</span></li>
                     </ul>
                   </div>
                 </div>
 
-                <!-- Worked on row (empty array by default for user to fill) -->
+                <!-- Worked on row (descriptive NDA project types) -->
                 <div class="exp-worked-on">
                   <span class="exp-row-label">Worked on:</span>
-                  <div class="exp-chips-wrap" data-case-studies="[]">
-                    <span class="exp-chip-placeholder">Case studies in progress &middot; NDA</span>
+                  <div class="exp-chips-wrap">
+                    <span class="tool-chip"><i class="fa-solid fa-lock" style="font-size:10px;margin-right:4px;" aria-hidden="true"></i>E-Commerce Checkout (NDA)</span>
+                    <span class="tool-chip"><i class="fa-solid fa-lock" style="font-size:10px;margin-right:4px;" aria-hidden="true"></i>SaaS Onboarding Portal (NDA)</span>
                   </div>
                 </div>
 
@@ -389,13 +413,16 @@
                     <span class="exp-meta-sep" aria-hidden="true">&middot;</span>
                     <span class="exp-dates">
                       <i class="fa-regular fa-calendar" aria-hidden="true"></i> Jan 2025 &ndash; Oct 2025
-                      <span class="exp-duration-pill">(<span class="exp-duration" data-start="2025-01-01" data-end="2025-10-31">10 mos</span>)</span>
+                      <span class="exp-duration-pill">(<span class="exp-duration" data-start="2025-01-01"
+                          data-end="2025-10-31">10 mos</span>)</span>
                     </span>
                     <span class="exp-meta-sep" aria-hidden="true">&middot;</span>
-                    <span class="exp-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Mumbai &middot; On-site</span>
+                    <span class="exp-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Mumbai
+                      &middot; On-site</span>
                   </div>
                 </div>
-                <button type="button" class="exp-collapse-btn" aria-expanded="true" aria-controls="exp-details-2" aria-label="Toggle role details">
+                <button type="button" class="exp-collapse-btn" aria-expanded="true" aria-controls="exp-details-2"
+                  aria-label="Toggle role details">
                   <i class="fa-solid fa-chevron-down exp-chevron" aria-hidden="true"></i>
                 </button>
               </div>
@@ -405,11 +432,12 @@
                 <div class="exp-columns">
                   <!-- Left: What I owned (max 3 one-line bullets) -->
                   <div class="exp-col">
-                    <h4 class="exp-col-title"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> What I owned</h4>
+                    <h4 class="exp-col-title"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> What I
+                      owned</h4>
                     <ul class="exp-bullets">
-                      <li><span>Designed end-to-end wireframes, UI kits, and user journeys for web and mobile products.</span></li>
+                      <li><span>Designed end-to-end wireframes, UI kits, and user journeys for web and mobile products (1 of 2 designers).</span></li>
                       <li><span>Conducted user research sessions, usability tests, and competitive feature audits.</span></li>
-                      <li><span>Built interactive prototypes to communicate motion, micro-interactions, and edge cases.</span></li>
+                      <li><span>Built interactive prototypes to communicate micro-interactions, motion, and edge cases.</span></li>
                     </ul>
                   </div>
 
@@ -417,18 +445,19 @@
                   <div class="exp-col">
                     <h4 class="exp-col-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Impact</h4>
                     <ul class="exp-bullets">
-                      <li><span>Shipped user-centric redesigns improving overall product engagement by [PLACEHOLDER: +X%].</span></li>
-                      <li><span>Reduced new user drop-off during onboarding by [PLACEHOLDER: -X%] via simplified UX.</span></li>
-                      <li><span>Delivered [PLACEHOLDER: X+] validated prototypes directly adopted by engineering partners.</span></li>
+                      <li><span>Shipped user-centric redesigns improving task completion clarity across core dashboard screens.</span></li>
+                      <li><span>Reduced user drop-off during onboarding via progressive disclosure and inline validation.</span></li>
+                      <li><span>Delivered interactive Figma prototypes validated with stakeholders prior to eng handoff.</span></li>
                     </ul>
                   </div>
                 </div>
 
-                <!-- Worked on row (empty array by default for user to fill) -->
+                <!-- Worked on row (descriptive NDA project types) -->
                 <div class="exp-worked-on">
                   <span class="exp-row-label">Worked on:</span>
-                  <div class="exp-chips-wrap" data-case-studies="[]">
-                    <span class="exp-chip-placeholder">Case studies in progress &middot; NDA</span>
+                  <div class="exp-chips-wrap">
+                    <span class="tool-chip"><i class="fa-solid fa-lock" style="font-size:10px;margin-right:4px;" aria-hidden="true"></i>Web &amp; Mobile Dashboard (NDA)</span>
+                    <span class="tool-chip"><i class="fa-solid fa-lock" style="font-size:10px;margin-right:4px;" aria-hidden="true"></i>Client Web Applications (NDA)</span>
                   </div>
                 </div>
 
@@ -475,16 +504,18 @@
             <h2 class="section-title">Selected <span class="editorial-accent">case studies</span></h2>
             <div class="case-study-progress-pill" id="case-study-progress" aria-live="polite">
               <span class="progress-dot" aria-hidden="true"></span>
-              <span class="progress-counter"><strong id="cs-active-idx">01</strong> / 03</span>
+              <span class="progress-counter"><strong id="cs-active-idx">01</strong> / 04</span>
             </div>
           </div>
-          
+
           <!-- Pill Filter (FLIP reflow) -->
           <div class="projects-filter-bar" role="tablist" aria-label="Filter featured work">
-            <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true" type="button">All (6)</button>
-            <button class="filter-pill" data-filter="product" role="tab" aria-selected="false" type="button">Product (2)</button>
-            <button class="filter-pill" data-filter="web" role="tab" aria-selected="false" type="button">Web (2)</button>
-            <button class="filter-pill" data-filter="visual" role="tab" aria-selected="false" type="button">Visual (2)</button>
+            <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true" type="button">All
+              (4)</button>
+            <button class="filter-pill" data-filter="product" role="tab" aria-selected="false" type="button">Product
+              (2)</button>
+            <button class="filter-pill" data-filter="web" role="tab" aria-selected="false" type="button">Web
+              (2)</button>
           </div>
         </div>
 
@@ -493,8 +524,10 @@
           <div class="projects-tier tier-selected" data-tier="selected">
             <div class="sticky-stack-container" id="sticky-stack">
               <!-- Card 01: Lead Card (Split layout, cursor 3D tilt, glare, parallax) -->
-              <article class="neo-project-card project-lead-split nb-card--yellow sticker-slap reveal-el" data-category="product" data-card-idx="1" style="--card-tilt: -0.6deg;">
-                <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer" class="card-inner-link" aria-label="Ola Partner - Driver Retention Redesign (opens in new tab)">
+              <article class="neo-project-card project-lead-split nb-card--yellow sticker-slap reveal-el"
+                data-category="product" data-card-idx="1" style="--card-tilt: -0.6deg;">
+                <a href="https://flute-beluga-59087359.figma.site/" target="_blank" rel="noopener noreferrer"
+                  class="card-inner-link" aria-label="Ola Partner - Driver Retention Redesign (opens in new tab)">
                   <div class="card-cover-wrap ola-cover-wrap">
                     <div class="card-cover-glare" aria-hidden="true"></div>
                     <!-- Refined Uncropped Browser Mockup Frame -->
@@ -509,12 +542,15 @@
                           <i class="fa-solid fa-lock browser-lock-icon" aria-hidden="true"></i>
                           <span>figma.site/ola-partner-driver</span>
                         </div>
-                        <span class="browser-live-badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Live Prototype</span>
+                        <span class="browser-live-badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Live
+                          Prototype</span>
                       </div>
                       <div class="ola-preview-canvas">
                         <picture class="card-cover-picture">
                           <source srcset="ola_partner_preview.webp" type="image/webp">
-                          <img src="ola_partner_preview.png" alt="Ola Partner - Driver Retention &amp; Usability Case Study" class="card-cover-img ola-img" loading="lazy" decoding="async" width="600" height="380" />
+                          <img src="ola_partner_preview.png"
+                            alt="Ola Partner - Driver Retention &amp; Usability Case Study"
+                            class="card-cover-img ola-img" loading="lazy" decoding="async" width="600" height="380" />
                         </picture>
                       </div>
                     </div>
@@ -526,25 +562,32 @@
                         <span class="nb-pill project-type-chip">Concept case study</span>
                         <span class="nb-pill nb-pill--mint project-metric-chip">+18% Retention</span>
                       </div>
-                      <span class="card-corner-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
+                      <span class="card-corner-arrow" aria-hidden="true"><i
+                          class="fa-solid fa-arrow-up-right"></i></span>
                     </div>
                     <h3 class="card-title">Ola Partner: Driver Retention Redesign</h3>
-                    <p class="card-problem">High driver churn during peak traffic caused by cluttered acceptance flows and poor sunlight visibility.</p>
+                    <p class="card-problem">High driver churn during peak traffic caused by cluttered acceptance flows
+                      and poor sunlight visibility.</p>
                     <div class="card-meta-row">
-                      <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> Product Designer</span>
+                      <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> Product
+                        Designer</span>
                       <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 3 months</span>
+                      <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 3
+                        months</span>
                       <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item"><i class="fa-brands fa-android meta-icon" aria-hidden="true"></i> Android (Driver)</span>
+                      <span class="meta-item"><i class="fa-brands fa-android meta-icon" aria-hidden="true"></i> Android
+                        (Driver)</span>
                       <span class="meta-sep" aria-hidden="true">&middot;</span>
                       <span class="meta-item">2024</span>
                     </div>
                     <div class="card-proof-row">
                       <i class="fa-solid fa-check card-proof-icon" aria-hidden="true"></i>
-                      <span class="card-proof-text">Tested with 14 commercial drivers in Mumbai; 1-tap accept cut response time by 42%.</span>
+                      <span class="card-proof-text">Tested with 14 commercial drivers in Mumbai; 1-tap accept cut
+                        response time by 42%.</span>
                     </div>
                     <div class="card-footer-cta">
-                      <span class="card-cta-text">Read case study <span class="cta-arrow" aria-hidden="true">&rarr;</span></span>
+                      <span class="card-cta-text">Read case study <span class="cta-arrow"
+                          aria-hidden="true">&rarr;</span></span>
                     </div>
                   </div>
                 </a>
@@ -553,10 +596,16 @@
               <!-- Two Half-Width Cards in Sticky Tier -->
               <div class="sticky-half-grid">
                 <!-- Card 02: IndiGo -->
-                <article class="neo-project-card project-half-card nb-card--mint sticker-slap reveal-el" data-category="product" data-card-idx="2" style="--card-tilt: 0.8deg;">
-                  <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study" target="_blank" rel="noopener noreferrer" class="card-inner-link" aria-label="IndiGo - Frictionless Flight Booking Flow (opens in new tab)">
+                <article class="neo-project-card project-half-card nb-card--mint sticker-slap reveal-el"
+                  data-category="product" data-card-idx="2" style="--card-tilt: 0.8deg;">
+                  <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study"
+                    target="_blank" rel="noopener noreferrer" class="card-inner-link"
+                    aria-label="IndiGo - Frictionless Flight Booking Flow (opens in new tab)">
                     <div class="card-cover-wrap">
-                      <img src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="IndiGo Flight Booking Flow UX Case Study" class="card-cover-img" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="240" />
+                      <img
+                        src="https://images.pexels.com/photos/13328092/pexels-photo-13328092.png?auto=compress&amp;cs=tinysrgb&amp;w=800"
+                        alt="IndiGo Flight Booking Flow UX Case Study" class="card-cover-img"
+                        referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="240" />
                     </div>
                     <div class="card-body">
                       <div class="card-top-row">
@@ -564,35 +613,48 @@
                         <div class="card-chips">
                           <span class="nb-pill project-type-chip">Concept case study</span>
                         </div>
-                        <span class="card-corner-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
+                        <span class="card-corner-arrow" aria-hidden="true"><i
+                            class="fa-solid fa-arrow-up-right"></i></span>
                       </div>
                       <h3 class="card-title">IndiGo: Frictionless Flight Booking Flow</h3>
-                      <p class="card-problem">Complex fare tiers and hidden add-on steps caused high drop-offs before checkout.</p>
+                      <p class="card-problem">Complex fare tiers and hidden add-on steps caused high drop-offs before
+                        checkout.</p>
                       <div class="card-meta-row">
-                        <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> UX Researcher &amp; Designer</span>
+                        <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> UX
+                          Researcher &amp; Designer</span>
                         <span class="meta-sep" aria-hidden="true">&middot;</span>
-                        <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 6 weeks</span>
+                        <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 6
+                          weeks</span>
                         <span class="meta-sep" aria-hidden="true">&middot;</span>
-                        <span class="meta-item"><i class="fa-solid fa-mobile-screen meta-icon" aria-hidden="true"></i> Mobile Web</span>
+                        <span class="meta-item"><i class="fa-solid fa-mobile-screen meta-icon" aria-hidden="true"></i>
+                          Mobile Web</span>
                         <span class="meta-sep" aria-hidden="true">&middot;</span>
                         <span class="meta-item">2024</span>
                       </div>
                       <div class="card-proof-row">
                         <i class="fa-solid fa-check card-proof-icon" aria-hidden="true"></i>
-                        <span class="card-proof-text">Streamlined 7-step booking funnel into 4 intuitive decision stages with zero surprise fees.</span>
+                        <span class="card-proof-text">Streamlined 7-step booking funnel into 4 intuitive decision stages
+                          with zero surprise fees.</span>
                       </div>
                       <div class="card-footer-cta">
-                        <span class="card-cta-text">Read case study <span class="cta-arrow" aria-hidden="true">&rarr;</span></span>
+                        <span class="card-cta-text">Read case study <span class="cta-arrow"
+                            aria-hidden="true">&rarr;</span></span>
                       </div>
                     </div>
                   </a>
                 </article>
 
                 <!-- Card 03: Kanban Task Tracker -->
-                <article class="neo-project-card project-half-card nb-card--lavender sticker-slap reveal-el" data-category="web" data-card-idx="3" style="--card-tilt: -0.7deg;">
-                  <a href="https://www.behance.net/gallery/235653015" target="_blank" rel="noopener noreferrer" class="card-inner-link" aria-label="Kanban Tracker - Distraction-Free Workflow OS (opens in new tab)">
+                <article class="neo-project-card project-half-card nb-card--lavender sticker-slap reveal-el"
+                  data-category="web" data-card-idx="3" style="--card-tilt: -0.7deg;">
+                  <a href="https://www.behance.net/gallery/235653015" target="_blank" rel="noopener noreferrer"
+                    class="card-inner-link"
+                    aria-label="Kanban Tracker - Distraction-Free Workflow OS (opens in new tab)">
                     <div class="card-cover-wrap">
-                      <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png" alt="Kanban Task Management Web Application" class="card-cover-img" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="240" />
+                      <img
+                        src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/30b3a7235653015.Y3JvcCwyOTQzLDIzMDIsMTQsMA.png"
+                        alt="Kanban Task Management Web Application" class="card-cover-img" referrerpolicy="no-referrer"
+                        loading="lazy" decoding="async" width="400" height="240" />
                     </div>
                     <div class="card-body">
                       <div class="card-top-row">
@@ -600,25 +662,80 @@
                         <div class="card-chips">
                           <span class="nb-pill project-type-chip">Web app</span>
                         </div>
-                        <span class="card-corner-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
+                        <span class="card-corner-arrow" aria-hidden="true"><i
+                            class="fa-solid fa-arrow-up-right"></i></span>
                       </div>
                       <h3 class="card-title">Kanban Tracker: Distraction-Free Workflow OS</h3>
-                      <p class="card-problem">Team productivity tools suffer from feature bloat that slows daily agile sprint tracking.</p>
+                      <p class="card-problem">Team productivity tools suffer from feature bloat that slows daily agile
+                        sprint tracking.</p>
                       <div class="card-meta-row">
-                        <span class="meta-item"><i class="fa-solid fa-code meta-icon" aria-hidden="true"></i> UI Designer &amp; Frontend</span>
+                        <span class="meta-item"><i class="fa-solid fa-code meta-icon" aria-hidden="true"></i> UI
+                          Designer &amp; Frontend</span>
                         <span class="meta-sep" aria-hidden="true">&middot;</span>
-                        <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 4 weeks</span>
+                        <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 4
+                          weeks</span>
                         <span class="meta-sep" aria-hidden="true">&middot;</span>
-                        <span class="meta-item"><i class="fa-solid fa-globe meta-icon" aria-hidden="true"></i> Web / PWA</span>
+                        <span class="meta-item"><i class="fa-solid fa-globe meta-icon" aria-hidden="true"></i> Web /
+                          PWA</span>
                         <span class="meta-sep" aria-hidden="true">&middot;</span>
                         <span class="meta-item">2024</span>
                       </div>
                       <div class="card-proof-row">
                         <i class="fa-solid fa-check card-proof-icon" aria-hidden="true"></i>
-                        <span class="card-proof-text">Keyboard-first interaction model with sub-100ms task updates and offline-first state.</span>
+                        <span class="card-proof-text">Keyboard-first interaction model with sub-100ms task updates and
+                          offline-first state.</span>
                       </div>
                       <div class="card-footer-cta">
-                        <span class="card-cta-text">Read case study <span class="cta-arrow" aria-hidden="true">&rarr;</span></span>
+                        <span class="card-cta-text">Read case study <span class="cta-arrow"
+                            aria-hidden="true">&rarr;</span></span>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+
+                <!-- Card 04: Holistic Yoga (Moved to Primary Selected) -->
+                <article class="neo-project-card project-half-card nb-card--cream sticker-slap reveal-el"
+                  data-category="web" data-card-idx="4" style="--card-tilt: 0.5deg;">
+                  <a href="https://www.behance.net/gallery/235520313" target="_blank" rel="noopener noreferrer"
+                    class="card-inner-link" aria-label="Holistic Yoga - High-Converting Class Booking (opens in new tab)">
+                    <div class="card-cover-wrap">
+                      <img
+                        src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png"
+                        alt="Yoga and Wellness Platform Landing Page" class="card-cover-img" referrerpolicy="no-referrer"
+                        loading="lazy" decoding="async" width="400" height="230" />
+                    </div>
+                    <div class="card-body">
+                      <div class="card-top-row">
+                        <span class="project-num">04</span>
+                        <div class="card-chips">
+                          <span class="nb-pill project-type-chip">Web App &amp; Booking</span>
+                        </div>
+                        <span class="card-corner-arrow" aria-hidden="true"><i
+                            class="fa-solid fa-arrow-up-right"></i></span>
+                      </div>
+                      <h3 class="card-title">Holistic Yoga: High-Converting Class Booking</h3>
+                      <p class="card-problem">Holistic studio needed a frictionless booking schedule for recurring members
+                        and drop-ins.</p>
+                      <div class="card-meta-row">
+                        <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> UI/UX
+                          Designer</span>
+                        <span class="meta-sep" aria-hidden="true">&middot;</span>
+                        <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 3
+                          weeks</span>
+                        <span class="meta-sep" aria-hidden="true">&middot;</span>
+                        <span class="meta-item"><i class="fa-solid fa-display meta-icon" aria-hidden="true"></i>
+                          Responsive Web</span>
+                        <span class="meta-sep" aria-hidden="true">&middot;</span>
+                        <span class="meta-item">2024</span>
+                      </div>
+                      <div class="card-proof-row">
+                        <i class="fa-solid fa-check card-proof-icon" aria-hidden="true"></i>
+                        <span class="card-proof-text">Accessible 2-step reservation schedule with live instructor
+                          availability preview.</span>
+                      </div>
+                      <div class="card-footer-cta">
+                        <span class="card-cta-text">Read case study <span class="cta-arrow"
+                            aria-hidden="true">&rarr;</span></span>
                       </div>
                     </div>
                   </a>
@@ -627,197 +744,59 @@
             </div>
           </div>
 
-          <!-- TIER 2: MORE PRODUCT WORK -->
-          <div class="projects-tier tier-more-product" data-tier="more-product">
-            <div class="tier-label-header reveal-el">
-              <span class="tier-pill">More product work</span>
-              <div class="tier-divider-line" aria-hidden="true"></div>
-            </div>
-            
-            <div class="more-product-grid">
-              <!-- Card 04: Yoga & Wellness -->
-              <article class="neo-project-card project-medium-card nb-card--pink sticker-slap reveal-el" data-category="web" data-card-idx="4" style="--card-tilt: 0.5deg;">
-                <a href="https://www.behance.net/gallery/235520313" target="_blank" rel="noopener noreferrer" class="card-inner-link" aria-label="Holistic Yoga - High-Converting Class Booking (opens in new tab)">
-                  <div class="card-cover-wrap">
-                    <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png" alt="Yoga and Wellness Platform Landing Page" class="card-cover-img" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="400" height="230" />
-                  </div>
-                  <div class="card-body">
-                    <div class="card-top-row">
-                      <span class="project-num">04</span>
-                      <div class="card-chips">
-                        <span class="nb-pill project-type-chip">Client project</span>
-                      </div>
-                      <span class="card-corner-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </div>
-                    <h3 class="card-title">Holistic Yoga: High-Converting Class Booking</h3>
-                    <p class="card-problem">Holistic studio needed a frictionless booking schedule for recurring members and drop-ins.</p>
-                    <div class="card-meta-row">
-                      <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> UI/UX Designer</span>
-                      <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item"><i class="fa-regular fa-clock meta-icon" aria-hidden="true"></i> 3 weeks</span>
-                      <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item"><i class="fa-solid fa-display meta-icon" aria-hidden="true"></i> Responsive Web</span>
-                      <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item">2024</span>
-                    </div>
-                    <div class="card-proof-row">
-                      <i class="fa-solid fa-check card-proof-icon" aria-hidden="true"></i>
-                      <span class="card-proof-text">Accessible 2-step reservation schedule with live instructor availability preview.</span>
-                    </div>
-                    <div class="card-footer-cta">
-                      <span class="card-cta-text">Read case study <span class="cta-arrow" aria-hidden="true">&rarr;</span></span>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-          </div>
-
-          <!-- TIER 3: VISUAL DESIGN & BRANDING -->
-          <div class="projects-tier tier-visual" data-tier="visual">
-            <div class="tier-label-header reveal-el">
-              <span class="tier-pill"><i class="fa-solid fa-palette" aria-hidden="true"></i> Visual design &amp; branding</span>
-              <span class="tier-sublabel">Print campaigns, packaging systems &amp; art direction</span>
+          <!-- OTHER WORK & VISUAL DESIGN (Demoted from case studies into a crisp visual strip) -->
+          <div class="projects-other-work reveal-el">
+            <div class="tier-label-header">
+              <span class="tier-pill"><i class="fa-solid fa-palette" aria-hidden="true"></i> Other work &amp; visual design</span>
+              <span class="tier-sublabel">Speculative brand campaigns &amp; packaging systems</span>
               <div class="tier-divider-line" aria-hidden="true"></div>
             </div>
 
-            <div class="visual-strip-container sticker-slap reveal-el" data-category="visual">
-              <!-- Card 05: Domino's Promotional Campaign -->
-              <article class="neo-project-card visual-showcase-card visual-strip-item nb-card--cream" data-category="visual" data-card-idx="5" style="--card-tilt: 0.5deg;">
-                <a href="https://www.behance.net/gallery/214354057" target="_blank" rel="noopener noreferrer" class="visual-card-inner" aria-label="Domino's Promotional Campaign (opens in new tab on Behance)">
-                  <div class="visual-preview-frame">
-                    <div class="visual-frame-header">
-                      <span class="v-pill"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Campaign &amp; Social Ads</span>
-                      <span class="v-format-tag"><i class="fa-brands fa-behance" aria-hidden="true"></i> Behance Verified</span>
-                    </div>
-                    <div class="visual-thumb-wrap">
-                      <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png" alt="Domino's Pizza Brand Promotional Campaign Poster Design" class="visual-thumb-img" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="540" height="340" />
-                      <div class="visual-preview-glare" aria-hidden="true"></div>
-                      <div class="visual-inspect-pill" aria-hidden="true">
-                        <i class="fa-brands fa-behance"></i> Explore Project ↗
-                      </div>
-                    </div>
+            <div class="other-work-grid">
+              <!-- Domino's -->
+              <a href="https://www.behance.net/gallery/214354057" target="_blank" rel="noopener noreferrer"
+                class="other-work-card nb-card nb-card--cream" aria-label="Domino's Promotional Campaign (opens in new tab on Behance)">
+                <div class="other-work-thumb">
+                  <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8e2424214354057.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
+                    alt="Domino's Promotional Campaign Poster" loading="lazy" decoding="async" width="280" height="180">
+                </div>
+                <div class="other-work-content">
+                  <div class="other-work-tag-row">
+                    <span class="nb-pill">Speculative &middot; Campaign</span>
+                    <span class="other-work-year">2024</span>
                   </div>
+                  <h4 class="other-work-title">Domino’s: Promotional Campaign</h4>
+                  <p class="other-work-desc">High-contrast promotional posters &amp; social campaign system engineered for feed engagement.</p>
+                  <span class="other-work-cta">View project on Behance <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i></span>
+                </div>
+              </a>
 
-                  <div class="visual-card-body">
-                    <div class="visual-top-row">
-                      <div class="visual-tag-group">
-                        <span class="project-num">05</span>
-                        <span class="nb-pill project-type-chip">Client project</span>
-                      </div>
-                      <span class="strip-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </div>
-
-                    <h4 class="visual-card-title">Domino’s: Promotional Campaign</h4>
-                    <p class="visual-card-problem">Engineered high-impact promotional posters with maximum thumb-stopping contrast across digital social feeds and print touchpoints.</p>
-
-                    <!-- Design Deliverable Chips -->
-                    <div class="visual-chips-row">
-                      <span class="v-chip">Poster Art</span>
-                      <span class="v-chip">Social Ads</span>
-                      <span class="v-chip">Art Direction</span>
-                    </div>
-
-                    <!-- Brand Color Swatches -->
-                    <div class="visual-palette-strip" aria-label="Brand Color Tokens">
-                      <span class="palette-label">Palette:</span>
-                      <span class="palette-swatch" style="--swatch-color: #006491;" title="Domino Blue (#006491)" aria-label="Domino Blue"></span>
-                      <span class="palette-swatch" style="--swatch-color: #E31837;" title="Pizza Red (#E31837)" aria-label="Pizza Red"></span>
-                      <span class="palette-swatch" style="--swatch-color: #FFFFFF;" title="Crust White (#FFFFFF)" aria-label="Crust White"></span>
-                      <span class="palette-swatch" style="--swatch-color: #F5C851;" title="Cheddar Gold (#F5C851)" aria-label="Cheddar Gold"></span>
-                    </div>
-
-                    <div class="card-meta-row visual-meta-row">
-                      <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> Visual Designer</span>
-                      <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item"><i class="fa-solid fa-bullseye meta-icon" aria-hidden="true"></i> Print &amp; Social</span>
-                      <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item">2024</span>
-                    </div>
-
-                    <div class="card-proof-row visual-proof-row">
-                      <i class="fa-solid fa-wand-magic-sparkles card-proof-icon" aria-hidden="true"></i>
-                      <span class="card-proof-text">Bold neo-pop typography system paired with dynamic product lighting for appetite appeal.</span>
-                    </div>
-
-                    <div class="card-footer-cta">
-                      <span class="card-cta-text">Read case study <span class="cta-arrow" aria-hidden="true">&rarr;</span></span>
-                    </div>
+              <!-- Gourmet Burger -->
+              <a href="https://www.behance.net/gallery/214274261" target="_blank" rel="noopener noreferrer"
+                class="other-work-card nb-card nb-card--lavender" aria-label="Gourmet Burger Brand Identity and Packaging (opens in new tab on Behance)">
+                <div class="other-work-thumb">
+                  <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png"
+                    alt="Gourmet Burger Brand Identity and Packaging" loading="lazy" decoding="async" width="280" height="180">
+                </div>
+                <div class="other-work-content">
+                  <div class="other-work-tag-row">
+                    <span class="nb-pill">Speculative &middot; Brand Identity</span>
+                    <span class="other-work-year">2024</span>
                   </div>
-                </a>
-              </article>
-
-              <!-- Card 06: Gourmet Burger Brand Identity -->
-              <article class="neo-project-card visual-showcase-card visual-strip-item nb-card--lavender" data-category="visual" data-card-idx="6" style="--card-tilt: -0.5deg;">
-                <a href="https://www.behance.net/gallery/214274261" target="_blank" rel="noopener noreferrer" class="visual-card-inner" aria-label="Gourmet Burger Brand Identity and Packaging (opens in new tab on Behance)">
-                  <div class="visual-preview-frame">
-                    <div class="visual-frame-header">
-                      <span class="v-pill"><i class="fa-solid fa-box-open" aria-hidden="true"></i> Identity &amp; Packaging</span>
-                      <span class="v-format-tag"><i class="fa-brands fa-behance" aria-hidden="true"></i> Behance Verified</span>
-                    </div>
-                    <div class="visual-thumb-wrap">
-                      <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/ee571d214274261.Y3JvcCwzMzc1LDI2MzksMCwzNjc.png" alt="Gourmet Burger Brand Identity and Packaging Poster" class="visual-thumb-img" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="540" height="340" />
-                      <div class="visual-preview-glare" aria-hidden="true"></div>
-                      <div class="visual-inspect-pill" aria-hidden="true">
-                        <i class="fa-brands fa-behance"></i> Explore Project ↗
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="visual-card-body">
-                    <div class="visual-top-row">
-                      <div class="visual-tag-group">
-                        <span class="project-num">06</span>
-                        <span class="nb-pill project-type-chip">Client project</span>
-                      </div>
-                      <span class="strip-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-up-right"></i></span>
-                    </div>
-
-                    <h4 class="visual-card-title">Gourmet Burger: Brand Identity</h4>
-                    <p class="visual-card-problem">Developed a complete artisanal branding suite, bespoke logo lockup, custom illustrative patterns, and eco-friendly takeaway packaging.</p>
-
-                    <!-- Design Deliverable Chips -->
-                    <div class="visual-chips-row">
-                      <span class="v-chip">Logo Lockup</span>
-                      <span class="v-chip">Packaging</span>
-                      <span class="v-chip">Menu System</span>
-                    </div>
-
-                    <!-- Brand Color Swatches -->
-                    <div class="visual-palette-strip" aria-label="Brand Color Tokens">
-                      <span class="palette-label">Palette:</span>
-                      <span class="palette-swatch" style="--swatch-color: #D9531E;" title="Charred Rust (#D9531E)" aria-label="Charred Rust"></span>
-                      <span class="palette-swatch" style="--swatch-color: #F3A83B;" title="Brioche Gold (#F3A83B)" aria-label="Brioche Gold"></span>
-                      <span class="palette-swatch" style="--swatch-color: #2E4A34;" title="Fresh Pickle (#2E4A34)" aria-label="Fresh Pickle"></span>
-                      <span class="palette-swatch" style="--swatch-color: #1A1A17;" title="Charcoal Ink (#1A1A17)" aria-label="Charcoal Ink"></span>
-                    </div>
-
-                    <div class="card-meta-row visual-meta-row">
-                      <span class="meta-item"><i class="fa-solid fa-user-pen meta-icon" aria-hidden="true"></i> Brand &amp; Visual Designer</span>
-                      <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item"><i class="fa-solid fa-cubes meta-icon" aria-hidden="true"></i> Identity &amp; Print</span>
-                      <span class="meta-sep" aria-hidden="true">&middot;</span>
-                      <span class="meta-item">2024</span>
-                    </div>
-
-                    <div class="card-proof-row visual-proof-row">
-                      <i class="fa-solid fa-medal card-proof-icon" aria-hidden="true"></i>
-                      <span class="card-proof-text">End-to-end packaging identity with custom typography, sticker seals, and menu collateral.</span>
-                    </div>
-
-                    <div class="card-footer-cta">
-                      <span class="card-cta-text">Read case study <span class="cta-arrow" aria-hidden="true">&rarr;</span></span>
-                    </div>
-                  </div>
-                </a>
-              </article>
+                  <h4 class="other-work-title">Gourmet Burger: Brand Identity</h4>
+                  <p class="other-work-desc">Artisanal branding suite, custom illustrative patterns, and eco-friendly takeaway packaging.</p>
+                  <span class="other-work-cta">View project on Behance <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i></span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
 
         <!-- SEE MORE ON BEHANCE (Placed below final project section) -->
         <div class="projects-footer-cta reveal-el">
-          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer" class="nb-btn projects-behance-cta" aria-label="Explore more design case studies and visuals on Behance (opens in new tab)">
+          <a href="https://www.behance.net/DeepakTiwariUI-UX" target="_blank" rel="noopener noreferrer"
+            class="nb-btn projects-behance-cta"
+            aria-label="Explore more design case studies and visuals on Behance (opens in new tab)">
             <i class="fa-brands fa-behance" aria-hidden="true"></i>
             <span>See more on Behance</span>
             <i class="fa-solid fa-arrow-up-right cta-arrow-icon" aria-hidden="true"></i>
@@ -847,406 +826,159 @@
         </div>
       </div>
 
-      <!-- SKILLS -->
+      <!-- HOW I WORK / PROCESS & CRAFT -->
       <section id="skills" class="section skills-section">
         <div class="skills-header reveal-el">
-          <div class="section-label">MY TOOL STACK</div>
-          <h2 class="section-title">How I <span class="editorial-accent">ship</span></h2>
-          
-          <!-- WORKFLOW FILTER STRIP (6 Stages) -->
-          <div class="workflow-strip-wrapper">
-            <span class="workflow-strip-label"><i class="fa-solid fa-filter" aria-hidden="true"></i> Filter by workflow stage:</span>
-            <div class="workflow-strip" role="group" aria-label="Filter skills by workflow stage">
-              <button type="button" class="stage-pill" data-stage="discover" aria-pressed="false">
-                <span class="stage-num">01</span> Discover
-              </button>
-              <button type="button" class="stage-pill" data-stage="define" aria-pressed="false">
-                <span class="stage-num">02</span> Define
-              </button>
-              <button type="button" class="stage-pill" data-stage="design" aria-pressed="false">
-                <span class="stage-num">03</span> Design
-              </button>
-              <button type="button" class="stage-pill" data-stage="prototype" aria-pressed="false">
-                <span class="stage-num">04</span> Prototype
-              </button>
-              <button type="button" class="stage-pill" data-stage="handoff" aria-pressed="false">
-                <span class="stage-num">05</span> Hand off
-              </button>
-              <button type="button" class="stage-pill" data-stage="build" aria-pressed="false">
-                <span class="stage-num">06</span> Build
-              </button>
-            </div>
-          </div>
+          <div class="section-label">HOW I WORK</div>
+          <h2 class="section-title">From user friction<br><span class="accent">to live product</span></h2>
+          <p class="section-desc">I don't just push pixels. Here is the 4-stage product design methodology I use across complex web and mobile apps.</p>
         </div>
 
-        <!-- 4 EQUAL-HEIGHT CARDS CSS GRID -->
-        <div class="skills-quad-grid" id="skills-quad-grid">
-          <!-- CARD 1: Design & Prototype -->
-          <div class="nb-card nb-card--yellow skills-quad-card reveal-el" data-card-key="design">
-            <div class="skills-card-header">
-              <div class="skills-card-title-row">
-                <h3 class="skills-card-title">Design &amp; prototype</h3>
-                <span class="skills-card-badge">01 / TOOLKIT</span>
-              </div>
-              <p class="skills-card-desc">High-fidelity component systems, micro-interactions, and dev-ready flows.</p>
+        <div class="process-timeline-grid reveal-el">
+          <!-- Step 1: Discover -->
+          <div class="process-card nb-card nb-card--yellow">
+            <div class="process-card-top">
+              <span class="process-step-num">01</span>
+              <span class="process-badge"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i> Research</span>
             </div>
-            <div class="skills-chips">
-              <!-- Figma (Primary / Daily) -->
-              <div class="skill-tool-pill pill--lg" tabindex="0" role="button" data-tool="figma" data-stages="design,prototype,handoff" aria-label="Figma: Dev-ready design systems &amp; multi-screen app flows">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 12c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3zm-6 6c0-1.657 1.343-3 3-3h3v3a3 3 0 0 1-3 3 3 3 0 0 1-3-3zm0-6c0-1.657 1.343-3 3-3h3v6H9a3 3 0 0 1-3-3zm0-6c0-1.657 1.343-3 3-3h3v6H9a3 3 0 0 1-3-3zm6-3h3a3 3 0 0 1 3 3 3 3 0 0 1-3 3h-3V3z"/></svg>
-                </span>
-                <span class="tool-name">Figma</span>
-                <span class="usage-badge usage-badge--daily">Daily</span>
-                <span class="tool-tooltip" role="tooltip">Dev-ready design systems &amp; multi-screen app flows</span>
-              </div>
-
-              <!-- Framer (Regular) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="framer" data-stages="design,prototype,build" aria-label="Framer: Interactive production prototypes &amp; motion logic">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4 2h16v7h-8l8 7H4v-7h8L4 2zm0 14h8v7l-8-7z"/></svg>
-                </span>
-                <span class="tool-name">Framer</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">Interactive production prototypes &amp; motion logic</span>
-              </div>
-
-              <!-- Canva (Regular - Fixed Inline SVG) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="canva" data-stages="design" aria-label="Canva: Fast collateral layout, deck graphics &amp; assets">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.65 14.62c-2.42.33-4.52-.77-5.11-2.92-.6-2.18.7-4.47 3.09-4.8 1.48-.2 2.87.35 3.65 1.34l-1.38 1.13c-.48-.6-1.28-.9-2.17-.78-1.38.19-2.07 1.47-1.74 2.68.32 1.18 1.5 1.83 2.76 1.66.75-.1 1.42-.48 1.83-.98l1.32 1.15c-.65.82-1.62 1.38-2.85 1.52z"/></svg>
-                </span>
-                <span class="tool-name">Canva</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">Fast collateral layout, deck graphics &amp; assets</span>
-              </div>
+            <h3 class="process-step-title">Discover</h3>
+            <p class="process-step-desc">Talking directly to users, observing live workflows, and mapping friction points before touching layout.</p>
+            <div class="process-proof-box">
+              <span class="proof-label">Real Project Proof:</span>
+              <p>Conducted field interviews with 14 commercial drivers in Mumbai for the Ola Partner redesign.</p>
+            </div>
+            <div class="process-tools-row">
+              <span class="tool-chip">User Interviews</span>
+              <span class="tool-chip">Journey Mapping</span>
+              <span class="tool-chip">Affinity Maps</span>
             </div>
           </div>
 
-          <!-- CARD 2: Process Skills -->
-          <div class="nb-card nb-card--mint skills-quad-card reveal-el" data-card-key="process">
-            <div class="skills-card-header">
-              <div class="skills-card-title-row">
-                <h3 class="skills-card-title">Process skills</h3>
-                <span class="skills-card-badge">02 / CRAFT</span>
-              </div>
-              <p class="skills-card-desc">Evidence-based problem framing from user discovery to validated usability.</p>
+          <!-- Step 2: Define -->
+          <div class="process-card nb-card nb-card--cream">
+            <div class="process-card-top">
+              <span class="process-step-num">02</span>
+              <span class="process-badge"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Architecture</span>
             </div>
-            <div class="skills-chips">
-              <!-- UX Research (Primary / Daily) -->
-              <div class="skill-tool-pill pill--lg" tabindex="0" role="button" data-tool="ux-research" data-stages="discover,define" aria-label="UX research: User interviews, contextual inquiry &amp; journey maps">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zm-1-7a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm-3.5 6.5c0-1.17 2.33-1.8 3.5-1.8s3.5.63 3.5 1.8V12h-7v-.5z"/></svg>
-                </span>
-                <span class="tool-name">UX research</span>
-                <span class="usage-badge usage-badge--daily">Daily</span>
-                <span class="tool-tooltip" role="tooltip">User interviews, contextual inquiry &amp; journey maps</span>
-              </div>
-
-              <!-- Wireframing (Daily) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="wireframing" data-stages="define,design" aria-label="Wireframing: Low-fidelity structural flows &amp; layout architecture">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 3h18v18H3V3zm2 2v4h6V5H5zm8 0v4h6V5h-6zm6 6H5v8h14v-8zM7 13h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
-                </span>
-                <span class="tool-name">Wireframing</span>
-                <span class="usage-badge usage-badge--daily">Daily</span>
-                <span class="tool-tooltip" role="tooltip">Low-fidelity structural flows &amp; layout architecture</span>
-              </div>
-
-              <!-- Prototyping (Primary / Daily) -->
-              <div class="skill-tool-pill pill--lg" tabindex="0" role="button" data-tool="prototyping" data-stages="design,prototype" aria-label="Prototyping: Clickable validation rigs for concept validation">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-2-9l5-3-5-3v6z"/></svg>
-                </span>
-                <span class="tool-name">Prototyping</span>
-                <span class="usage-badge usage-badge--daily">Daily</span>
-                <span class="tool-tooltip" role="tooltip">Clickable validation rigs for concept validation</span>
-              </div>
-
-              <!-- Design systems (Regular) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="design-systems" data-stages="design,handoff,build" aria-label="Design systems: Tokenized UI kits, auto-layout &amp; state guidelines">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                </span>
-                <span class="tool-name">Design systems</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">Tokenized UI kits, auto-layout &amp; state guidelines</span>
-              </div>
-
-              <!-- Usability testing (Regular) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="usability-testing" data-stages="discover,prototype" aria-label="Usability testing: Moderated task tests, heuristic audits &amp; fix sprints">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                </span>
-                <span class="tool-name">Usability testing</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">Moderated task tests, heuristic audits &amp; fix sprints</span>
-              </div>
+            <h3 class="process-step-title">Define</h3>
+            <p class="process-step-desc">Translating messy user insights into clear problem statements, simplified user flows, and wireframe hierarchies.</p>
+            <div class="process-proof-box">
+              <span class="proof-label">Real Project Proof:</span>
+              <p>Streamlined IndiGo's 7-step booking funnel into 4 intuitive decision stages with zero surprise fees.</p>
+            </div>
+            <div class="process-tools-row">
+              <span class="tool-chip">Information Arch</span>
+              <span class="tool-chip">Wireframing</span>
+              <span class="tool-chip">User Flows</span>
             </div>
           </div>
 
-          <!-- CARD 3: AI in My Workflow -->
-          <div class="nb-card nb-card--lavender skills-quad-card reveal-el" data-card-key="ai">
-            <div class="skills-card-header">
-              <div class="skills-card-title-row">
-                <h3 class="skills-card-title">AI in my workflow</h3>
-                <span class="skills-card-badge">03 / VELOCITY</span>
-              </div>
-              <p class="skills-card-desc">Accelerating research synthesis, rapid ideation, and documentation velocity.</p>
+          <!-- Step 3: Design -->
+          <div class="process-card nb-card nb-card--cream">
+            <div class="process-card-top">
+              <span class="process-step-num">03</span>
+              <span class="process-badge"><i class="fa-solid fa-shapes" aria-hidden="true"></i> UI &amp; Systems</span>
             </div>
-            <div class="skills-chips">
-              <!-- Claude (Primary / Daily) -->
-              <div class="skill-tool-pill pill--lg" tabindex="0" role="button" data-tool="claude" data-stages="discover,define,build" aria-label="Claude: Synthesizing research notes &amp; drafting PRD specs">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2a2 2 0 0 0-2 2v1.1A8 8 0 0 0 4 13a8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-6-7.9V4a2 2 0 0 0-2-2zm0 5a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm-2 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm4 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
-                </span>
-                <span class="tool-name">Claude</span>
-                <span class="usage-badge usage-badge--daily">Daily</span>
-                <span class="tool-tooltip" role="tooltip">Synthesizing research notes &amp; drafting PRD specs</span>
-              </div>
-
-              <!-- Gemini (Daily) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="gemini" data-stages="discover,define,build" aria-label="Gemini: Multimodal design audit &amp; cross-referencing ideas">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2zm6 12l-1.25 3.75L13 19l3.75 1.25L18 24l1.25-3.75L23 19l-3.75-1.25L18 14z"/></svg>
-                </span>
-                <span class="tool-name">Gemini</span>
-                <span class="usage-badge usage-badge--daily">Daily</span>
-                <span class="tool-tooltip" role="tooltip">Multimodal design audit &amp; cross-referencing ideas</span>
-              </div>
-
-              <!-- Notion (Daily) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="notion" data-stages="discover,define,handoff" aria-label="Notion: Project wikis, structured sprint docs &amp; roadmaps">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l11.413-.84c1.12-.093 1.306.373 1.12 1.213l-1.96 11.854c-.187 1.12-.653 1.493-1.68 1.586l-11.413.747c-.84.093-1.307-.28-1.12-1.213L4.46 4.208zm3.827 3.36c-.56 0-.84.28-.934.747l-1.12 7.093c-.093.56.094.84.654.84h1.493c.56 0 .84-.28.933-.84l.654-4.2 3.08 4.76c.28.467.653.7 1.213.607l2.427-.187c.653-.093.84-.467.933-1.027l1.12-7.093c.094-.56-.093-.84-.653-.84h-1.493c-.56 0-.84.28-.934.84l-.653 4.2-3.173-4.853c-.28-.467-.654-.7-1.214-.607l-2.426.187z"/></svg>
-                </span>
-                <span class="tool-name">Notion</span>
-                <span class="usage-badge usage-badge--daily">Daily</span>
-                <span class="tool-tooltip" role="tooltip">Project wikis, structured sprint docs &amp; roadmaps</span>
-              </div>
+            <h3 class="process-step-title">Design</h3>
+            <p class="process-step-desc">Engineering tokenized component libraries in Figma with auto-layout, strict typography scales, and accessible contrast.</p>
+            <div class="process-proof-box">
+              <span class="proof-label">Real Project Proof:</span>
+              <p>Architected multi-brand design tokens used across 3 client platforms at Decision Culture.</p>
+            </div>
+            <div class="process-tools-row">
+              <span class="tool-chip">Figma Auto-Layout</span>
+              <span class="tool-chip">Design Tokens</span>
+              <span class="tool-chip">Responsive Web</span>
             </div>
           </div>
 
-          <!-- CARD 4: Build -->
-          <div class="nb-card nb-card--yellow skills-quad-card skills-quad-card--build reveal-el" data-card-key="build">
-            <div class="skills-card-header">
-              <div class="skills-card-title-row">
-                <h3 class="skills-card-title">Build</h3>
-                <span class="skills-card-badge">04 / CODE</span>
-              </div>
-              <p class="skills-card-desc">Crafting semantic, accessible code to bridge the gap between Figma and production.</p>
+          <!-- Step 4: Validate & Ship -->
+          <div class="process-card nb-card nb-card--mint">
+            <div class="process-card-top">
+              <span class="process-step-num">04</span>
+              <span class="process-badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Testing &amp; Handoff</span>
             </div>
-            <div class="skills-chips">
-              <!-- HTML5 (Regular) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="html5" data-stages="build" aria-label="HTML5: Accessible semantic structure &amp; SEO architecture">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 2l1.65 18.53L12 23l7.35-2.47L21 2H3zm15.14 5.92H8.38l.22 2.5h9.32l-.65 7.23L12 19.12l-5.27-1.47-.36-4.04h2.46l.18 2.07L12 16.5l3.01-.81.33-3.66H6.18l-.66-7.42h13l-.38 4.31z"/></svg>
-                </span>
-                <span class="tool-name">HTML5</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">Accessible semantic structure &amp; SEO architecture</span>
-              </div>
-
-              <!-- CSS3 (Regular) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="css3" data-stages="build" aria-label="CSS3: Modern CSS Grid, Flexbox, Custom Properties &amp; Animations">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 2l1.65 18.53L12 23l7.35-2.47L21 2H3zm15.14 4.31H6.18l.22 2.5h11.48l-.66 7.42L12 17.69l-5.22-1.46-.35-3.92h2.46l.18 1.95L12 15.1l2.94-.8.4-4.5H6.62l-.22-2.5h12.12l-.38 2.93z"/></svg>
-                </span>
-                <span class="tool-name">CSS3</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">Modern CSS Grid, Flexbox, Custom Properties &amp; Animations</span>
-              </div>
-
-              <!-- JavaScript (Primary / Fixed Vector SVG) -->
-              <div class="skill-tool-pill pill--lg" tabindex="0" role="button" data-tool="javascript" data-stages="prototype,build" aria-label="JavaScript: DOM dynamics, state logic &amp; lightweight interactions">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 3h18v18H3V3zm10.7 14.5c1.2 0 2-.6 2.5-1.5l-1.4-.9c-.3.5-.6.8-1.1.8-.7 0-1.1-.4-1.1-1.2v-5.2h-1.8v5.3c0 1.8 1.1 2.7 2.9 2.7zm5.5-.1c1.5 0 2.5-.8 2.5-2.2 0-1.3-.8-1.9-2.2-2.5-.9-.4-1.3-.7-1.3-1.3 0-.5.4-.9 1.1-.9.6 0 1 .3 1.3.8l1.3-1c-.6-.9-1.4-1.3-2.6-1.3-1.4 0-2.4.9-2.4 2.1 0 1.2.7 1.8 2 2.3 1 .4 1.5.8 1.5 1.5 0 .6-.5 1-1.3 1-.8 0-1.3-.4-1.7-1l-1.4 1c.6 1 1.6 1.6 3.2 1.6z"/></svg>
-                </span>
-                <span class="tool-name">JavaScript</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">DOM dynamics, state logic &amp; lightweight interactions</span>
-              </div>
-
-              <!-- GitHub (Regular) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="github" data-stages="handoff,build" aria-label="GitHub: Version control, branching &amp; design handoff tracking">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-                </span>
-                <span class="tool-name">GitHub</span>
-                <span class="usage-badge usage-badge--regular">Regular</span>
-                <span class="tool-tooltip" role="tooltip">Version control, branching &amp; design handoff tracking</span>
-              </div>
-
-              <!-- SVG & Motion (Learning) -->
-              <div class="skill-tool-pill pill--md" tabindex="0" role="button" data-tool="svg-motion" data-stages="design,build" aria-label="SVG &amp; motion: Crisp vector manipulation &amp; micro-animation curves">
-                <span class="tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5v-9l6 4.5-6 4.5zM6 8h2v8H6V8z"/></svg>
-                </span>
-                <span class="tool-name">SVG &amp; Motion</span>
-                <span class="usage-badge usage-badge--learning">Learning</span>
-                <span class="tool-tooltip" role="tooltip">Crisp vector manipulation &amp; micro-animation curves</span>
-              </div>
+            <h3 class="process-step-title">Validate &amp; Ship</h3>
+            <p class="process-step-desc">Building high-fidelity interactive prototypes to validate hypotheses with real users, paired with dev-ready spec sheets.</p>
+            <div class="process-proof-box">
+              <span class="proof-label">Real Project Proof:</span>
+              <p>Ola 1-tap accept prototype reduced driver response time by 42% in live usability testing.</p>
+            </div>
+            <div class="process-tools-row">
+              <span class="tool-chip">Interactive Prototyping</span>
+              <span class="tool-chip">Usability Testing</span>
+              <span class="tool-chip">Eng Handoff</span>
             </div>
           </div>
         </div>
       </section>
 
-        <!-- PROOF OF CRAFT: Interactive Design System Sandbox -->
-        <div class="ds-sandbox nb-card reveal-el" id="ds-sandbox">
-          <div class="ds-sandbox-header">
-            <div class="ds-sandbox-meta">
-              <span class="nb-pill nb-pill--blue" style="font-size:11px;">Proof of Craft</span>
-              <h3 class="ds-sandbox-title">Design System Sandbox</h3>
-              <p class="ds-sandbox-desc">Interact with my live token engine. Switch corner geometry, elevation depth,
-                and chromatic moods in real-time.</p>
-            </div>
-            <div class="ds-controls-group">
-              <div class="ds-control">
-                <span class="ds-control-label">Corner Radius</span>
-                <div class="ds-btn-group" id="ds-radius-group">
-                  <button type="button" class="ds-pill active" data-radius="0px">Sharp</button>
-                  <button type="button" class="ds-pill" data-radius="14px">Modern</button>
-                  <button type="button" class="ds-pill" data-radius="32px">Pill</button>
-                </div>
-              </div>
-              <div class="ds-control">
-                <span class="ds-control-label">Elevation</span>
-                <div class="ds-btn-group" id="ds-elevation-group">
-                  <button type="button" class="ds-pill active" data-shadow="neo">Hard Ink</button>
-                  <button type="button" class="ds-pill" data-shadow="soft">Ambient</button>
-                  <button type="button" class="ds-pill" data-shadow="flat">Flat</button>
-                </div>
-              </div>
-              <div class="ds-control">
-                <span class="ds-control-label">Accent Mood</span>
-                <div class="ds-swatches-group" id="ds-color-group">
-                  <button type="button" class="ds-swatch active" data-color="yellow" style="background:#FFE566;"
-                    title="Primrose Yellow" aria-label="Primrose Yellow"></button>
-                  <button type="button" class="ds-swatch" data-color="mint" style="background:#B4F0CE;"
-                    title="Sage Mint" aria-label="Sage Mint"></button>
-                  <button type="button" class="ds-swatch" data-color="lavender" style="background:#DDD2FE;"
-                    title="Soft Lavender" aria-label="Soft Lavender"></button>
-                  <button type="button" class="ds-swatch" data-color="blue" style="background:#2B3DF0;"
-                    title="Cobalt Blue" aria-label="Cobalt Blue"></button>
-                </div>
-              </div>
-            </div>
+      <!-- PROOF OF CRAFT: Interactive Design System Sandbox -->
+      <div class="ds-sandbox nb-card reveal-el" id="ds-sandbox">
+        <div class="ds-sandbox-header">
+          <div class="ds-sandbox-meta">
+            <span class="nb-pill nb-pill--blue" style="font-size:11px;">Proof of Craft</span>
+            <h3 class="ds-sandbox-title">Design System Sandbox</h3>
+            <p class="ds-sandbox-desc">Interact with my live token engine. Switch corner geometry, elevation depth,
+              and chromatic moods in real-time.</p>
           </div>
-          <div class="ds-preview-stage">
-            <div class="ds-interactive-card" id="ds-interactive-card">
-              <div class="ds-card-header">
-                <span class="ds-badge" id="ds-sample-badge">Component Token v2.4</span>
-                <span class="ds-timestamp"><span class="ds-live-dot" aria-hidden="true"></span> Live Spec</span>
+          <div class="ds-controls-group">
+            <div class="ds-control">
+              <span class="ds-control-label">Corner Radius</span>
+              <div class="ds-btn-group" id="ds-radius-group">
+                <button type="button" class="ds-pill active" data-radius="0px">Sharp</button>
+                <button type="button" class="ds-pill" data-radius="14px">Modern</button>
+                <button type="button" class="ds-pill" data-radius="32px">Pill</button>
               </div>
-              <h4 class="ds-card-title">Driver Onboarding Unit</h4>
-              <p class="ds-card-text">Adaptive token-driven UI component built for rapid cross-platform deployment and
-                instant accessibility conformance.</p>
-              <div class="ds-card-actions">
-                <button type="button" class="ds-action-btn primary magnetic-item" id="ds-sample-btn">Accept
-                  Dispatch</button>
-                <button type="button" class="ds-action-btn secondary magnetic-item">View Details</button>
+            </div>
+            <div class="ds-control">
+              <span class="ds-control-label">Elevation</span>
+              <div class="ds-btn-group" id="ds-elevation-group">
+                <button type="button" class="ds-pill active" data-shadow="neo">Hard Ink</button>
+                <button type="button" class="ds-pill" data-shadow="soft">Ambient</button>
+                <button type="button" class="ds-pill" data-shadow="flat">Flat</button>
+              </div>
+            </div>
+            <div class="ds-control">
+              <span class="ds-control-label">Accent Mood</span>
+              <div class="ds-swatches-group" id="ds-color-group">
+                <button type="button" class="ds-swatch active" data-color="yellow" style="background:#FFE566;"
+                  title="Primrose Yellow" aria-label="Primrose Yellow"></button>
+                <button type="button" class="ds-swatch" data-color="mint" style="background:#B4F0CE;" title="Sage Mint"
+                  aria-label="Sage Mint"></button>
+                <button type="button" class="ds-swatch" data-color="lavender" style="background:#DDD2FE;"
+                  title="Soft Lavender" aria-label="Soft Lavender"></button>
+                <button type="button" class="ds-swatch" data-color="blue" style="background:#2B3DF0;"
+                  title="Cobalt Blue" aria-label="Cobalt Blue"></button>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        <div class="ds-preview-stage">
+          <div class="ds-interactive-card" id="ds-interactive-card">
+            <div class="ds-card-header">
+              <span class="ds-badge" id="ds-sample-badge">Component Token v2.4</span>
+              <span class="ds-timestamp"><span class="ds-live-dot" aria-hidden="true"></span> Live Spec</span>
+            </div>
+            <h4 class="ds-card-title">Driver Onboarding Unit</h4>
+            <p class="ds-card-text">Adaptive token-driven UI component built for rapid cross-platform deployment and
+              instant accessibility conformance.</p>
+            <div class="ds-card-actions">
+              <button type="button" class="ds-action-btn primary magnetic-item" id="ds-sample-btn">Accept
+                Dispatch</button>
+              <button type="button" class="ds-action-btn secondary magnetic-item">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <!-- CERTIFICATIONS -->
-      <section id="certifications" class="section">
-        <div class="section-label reveal-el">Verified</div>
-        <h2 class="section-title reveal-el">My <span class="accent">Certifications</span></h2>
-        <div class="certs-grid">
-          <a href="https://www.life-global.org/certificate/969411ad-c96f-4180-afc4-58ba678c9738" target="_blank"
-            rel="noopener noreferrer" class="cert-card nb-card reveal-el"
-            aria-label="View HP LIFE Agile Project Management certificate (opens in new tab)">
-            <div class="cert-icon-wrap">
-              <div class="cert-icon" style="background:#fff;padding:4px;overflow:hidden;"><img src="hp_logo.svg"
-                  alt="HP LIFE logo" style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="cert-info">
-              <h3>Agile Project Management</h3>
-              <p>HP LIFE</p>
-            </div>
-            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
-          </a>
-          <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3"
-            target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el"
-            aria-label="View Atlassian Agile PM certificate (opens in new tab)">
-            <div class="cert-icon-wrap">
-              <div class="cert-icon" style="background:#fff;padding:6px;overflow:hidden;"><img
-                  src="atlassian_agile_logo.png" alt="Atlassian logo" style="width:100%;height:100%;object-fit:contain;"
-                  loading="lazy" decoding="async"></div>
-            </div>
-            <div class="cert-info">
-              <h3>Atlassian Agile PM Certificate</h3>
-              <p>Atlassian</p>
-            </div>
-            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
-          </a>
-          <a href="https://canva.com/designschool/certification-award/b5dfb0f3-5eb6-4314-9a5a-9b637077a001"
-            target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el"
-            aria-label="View Canva Essentials certificate (opens in new tab)">
-            <div class="cert-icon-wrap">
-              <div class="cert-icon" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8);"><i
-                  class="fa-brands fa-figma" style="color:#fff" aria-hidden="true"></i></div>
-            </div>
-            <div class="cert-info">
-              <h3>Canva Essentials</h3>
-              <p>Canva</p>
-            </div>
-            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
-          </a>
-          <a href="https://www.linkedin.com/learning/certificates/dd6acb3e53420f300a875b2a67cceec72f976187bb0633ecc4f5d0e1d07b0d8a"
-            target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el"
-            aria-label="View Figma for UX Design certificate (opens in new tab)">
-            <div class="cert-icon-wrap">
-              <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69)"><img
-                  src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="18" height="18"
-                  alt="Figma logo"></div>
-            </div>
-            <div class="cert-info">
-              <h3>Figma for UX Design</h3>
-              <p>LinkedIn Learning</p>
-            </div>
-            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
-          </a>
-          <a href="https://grow.google/certificates/ux-design/" target="_blank" rel="noopener noreferrer"
-            class="cert-card nb-card reveal-el"
-            aria-label="View Google Foundations of UX Design certificate (opens in new tab)">
-            <div class="cert-icon-wrap">
-              <div class="cert-icon" style="background:linear-gradient(135deg,#1a1a2e,#2563eb)"><img
-                  src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="24"
-                  height="24" alt="Google logo"></div>
-            </div>
-            <div class="cert-info">
-              <h3>Foundations of UX Design</h3>
-              <p>Google / Coursera</p>
-            </div>
-            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
-          </a>
-          <a href="https://www.linkedin.com/learning/certificates/bbfb1b17d2438f6b0e75081d54318745932ed7b2f5f9912e43771a4b2f2d4308"
-            target="_blank" rel="noopener noreferrer" class="cert-card nb-card reveal-el"
-            aria-label="View UX Foundations Prototyping certificate (opens in new tab)">
-            <div class="cert-icon-wrap">
-              <div class="cert-icon" style="background:linear-gradient(135deg,#312e81,#7c3aed)"><i
-                  class="fa-solid fa-desktop" style="color:#a78bfa;font-size:1.1rem" aria-hidden="true"></i></div>
-            </div>
-            <div class="cert-info">
-              <h3>UX Foundations: Prototyping</h3>
-              <p>LinkedIn Learning</p>
-            </div>
-            <div class="cert-arrow" aria-hidden="true">&#x2197;</div>
-          </a>
-        </div>
-      </section>
+
 
       <!-- CONTACT -->
       <section id="contact" class="section contact-section">
         <div class="section-label reveal-el">Get In Touch</div>
-        <h2 class="section-title reveal-el">Let's <span class="accent">Work Together</span></h2>
-        <p class="section-desc reveal-el">Have a project in mind? I'd love to hear about it. Send me a message and let's
-          create something amazing.</p>
+        <h2 class="section-title reveal-el">Let's <span class="accent">Get in Touch</span></h2>
+        <p class="section-desc reveal-el">Interested in full-time product design roles, design system collaboration, or just want to chat about product craft? Drop me a line.</p>
         <div class="nb-card nb-card--mint contact-card reveal-el">
           <form id="contact-form" class="contact-form" action="https://formsubmit.co/dt019107@gmail.com" method="POST"
             novalidate>
@@ -1269,37 +1001,12 @@
                   address</span>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="cf-type">Project Type</label>
-                <select id="cf-type" name="project_type">
-                  <option value="" disabled selected>Select project type</option>
-                  <option value="UI/UX Design">UI / UX Design (Web or Mobile)</option>
-                  <option value="Website Redesign">Website Redesign</option>
-                  <option value="Design System">Design System &amp; Tokens</option>
-                  <option value="Prototyping">Interactive Prototyping</option>
-                  <option value="UX Audit">UX Audit &amp; Usability Review</option>
-                  <option value="Consultation">Consultation &amp; Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="cf-budget">Budget</label>
-                <select id="cf-budget" name="budget">
-                  <option value="" disabled selected>Select budget range</option>
-                  <option value="Under $1,000">Under $1,000</option>
-                  <option value="$1,000 - $5,000">$1,000 - $5,000</option>
-                  <option value="$5,000 - $15,000">$5,000 - $15,000</option>
-                  <option value="$15,000+">$15,000+</option>
-                </select>
-              </div>
-            </div>
             <div class="form-group">
               <label for="cf-message">Message <span class="required-indicator" aria-hidden="true">*</span></label>
               <textarea id="cf-message" name="message" rows="5"
-                placeholder="Tell me about your project goals, scope, and timeline..." required
+                placeholder="What's on your mind? Share role details, questions, or just say hello..." required
                 aria-required="true"></textarea>
-              <span id="message-error" class="field-error-msg hidden" role="alert">Please enter details about your
-                project</span>
+              <span id="message-error" class="field-error-msg hidden" role="alert">Please enter your message</span>
             </div>
             <div>
               <button type="submit" class="nb-btn nb-btn--blue nb-btn--full" id="send-btn" aria-label="Send message">
@@ -1314,7 +1021,7 @@
             </div>
             <div id="form-error" class="form-banner form-banner--error hidden" role="alert" aria-live="assertive">
               <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-              <span>Oops! Something went wrong. Please try again or email me at <a href="mailto:dt019107@gmail.com"
+              <span>Oops! Something went wrong. Please try again or email me directly at <a href="mailto:dt019107@gmail.com"
                   style="text-decoration:underline;color:inherit;font-weight:600;">dt019107@gmail.com</a>.</span>
             </div>
           </form>
@@ -1323,6 +1030,14 @@
 
       <!-- FOOTER -->
       <footer class="site-footer">
+        <div class="footer-credentials">
+          <span class="cred-label"><i class="fa-solid fa-award" aria-hidden="true"></i> Verified Credentials:</span>
+          <a href="https://grow.google/certificates/ux-design/" target="_blank" rel="noopener noreferrer" class="cred-link">Google UX Design</a>
+          <span class="cred-sep" aria-hidden="true">&middot;</span>
+          <a href="https://www.linkedin.com/learning/certificates/e76772290433ef3644bf7f19c16f8ac188fbe7f940c42e97cc1bf5b6cbb11ab3" target="_blank" rel="noopener noreferrer" class="cred-link">Atlassian Agile PM</a>
+          <span class="cred-sep" aria-hidden="true">&middot;</span>
+          <a href="https://www.life-global.org/certificate/969411ad-c96f-4180-afc4-58ba678c9738" target="_blank" rel="noopener noreferrer" class="cred-link">HP LIFE Agile PM</a>
+        </div>
         <div class="footer-inner">
           <div class="footer-left">
             <span class="footer-logo" aria-hidden="true">DT</span>

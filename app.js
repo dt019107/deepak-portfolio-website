@@ -27,11 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroGreeting = document.querySelector('.hero-greeting-wrap');
     const heroSubline = document.querySelector('.hero-subline');
     const heroCtas = document.querySelector('.hero-ctas');
-    const heroStats = document.querySelector('.hero-stats-strip');
-    const heroStickers = document.querySelector('.hero-stickers-tray');
     const heroCluster = document.querySelector('.hero-cluster-col');
 
-    const cascadeEls = [heroAvail, heroGreeting, heroSubline, heroCtas, heroStats, heroStickers, heroCluster].filter(Boolean);
+    const cascadeEls = [heroAvail, heroGreeting, heroSubline, heroCtas, heroCluster].filter(Boolean);
     cascadeEls.forEach((el, i) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(18px)';
@@ -625,47 +623,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateClock, 1000 * 30);
 })();
 
-// -- 1B. DRAGGABLE STICKER PILLS ENGINE (Idle float & pointer drag-to-move) --
-(function initDraggableStickers() {
-  const stickers = document.querySelectorAll('.draggable-sticker');
-  if (!stickers.length) return;
-
-  stickers.forEach(sticker => {
-    let isDragging = false;
-    let startX = 0, startY = 0;
-    let currentX = 0, currentY = 0;
-
-    sticker.addEventListener('pointerdown', (e) => {
-      if (e.pointerType !== 'mouse' || e.button !== 0) return;
-      isDragging = true;
-      try { sticker.setPointerCapture(e.pointerId); } catch (_) {}
-      sticker.classList.add('is-dragging');
-      sticker.classList.remove('float-idle');
-
-      startX = e.clientX - currentX;
-      startY = e.clientY - currentY;
-      e.preventDefault();
-    });
-
-    sticker.addEventListener('pointermove', (e) => {
-      if (!isDragging) return;
-      currentX = e.clientX - startX;
-      currentY = e.clientY - startY;
-      sticker.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) scale(1.08) rotate(var(--tilt, 0deg))`;
-    });
-
-    function stopDrag(e) {
-      if (!isDragging) return;
-      isDragging = false;
-      try { sticker.releasePointerCapture(e.pointerId); } catch (_) {}
-      sticker.classList.remove('is-dragging');
-      sticker.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotate(var(--tilt, 0deg))`;
-    }
-
-    sticker.addEventListener('pointerup', stopDrag);
-    sticker.addEventListener('pointercancel', stopDrag);
-  });
-})();
 
 // -- 2. DUAL-THEME SWITCHER ENGINE (STUDIO DARK MODE) --
 (function initThemeSwitcher() {
@@ -1108,7 +1065,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentRotX += (targetRotX - currentRotX) * 0.12;
       currentRotY += (targetRotY - currentRotY) * 0.12;
       leadCard.style.transform = `perspective(1000px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
-      
+
       if (previewFrame) {
         const px = (currentRotY * 1.6).toFixed(1);
         const py = (-currentRotX * 1.6).toFixed(1);
@@ -1196,13 +1153,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. DESKTOP STACKED STICKY PROGRESS INDICATOR ("01 / 03")
+  // 4. DESKTOP STACKED STICKY PROGRESS INDICATOR ("01 / 04")
   const counterEl = document.getElementById('cs-active-idx');
   const leadCardEl = document.querySelector('.project-lead-split');
   const cardIndigoEl = document.querySelector('[data-card-idx="2"]');
   const cardKanbanEl = document.querySelector('[data-card-idx="3"]');
+  const cardYogaEl = document.querySelector('[data-card-idx="4"]');
 
-  if (counterEl && leadCardEl && cardIndigoEl && cardKanbanEl) {
+  if (counterEl && leadCardEl && cardIndigoEl) {
     function updateStickyCounter() {
       // Only active on desktop when sticky is effective
       if (window.innerWidth <= 860) {
@@ -1210,17 +1168,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const kanbanRect = cardKanbanEl.getBoundingClientRect();
+      const yogaRect = cardYogaEl ? cardYogaEl.getBoundingClientRect() : null;
+      const kanbanRect = cardKanbanEl ? cardKanbanEl.getBoundingClientRect() : null;
       const indigoRect = cardIndigoEl.getBoundingClientRect();
       const leadRect = leadCardEl.getBoundingClientRect();
 
-      // Top threshold when sticky stacks overlap
-      if (kanbanRect.top <= 160 && kanbanRect.bottom > 180) {
+      if (yogaRect && yogaRect.top <= 160 && yogaRect.bottom > 180) {
+        counterEl.textContent = '04';
+      } else if (kanbanRect && kanbanRect.top <= 160 && kanbanRect.bottom > 180) {
         counterEl.textContent = '03';
       } else if (indigoRect.top <= 160 && indigoRect.bottom > 180) {
         counterEl.textContent = '02';
-      } else if (leadRect.top <= 150) {
-        counterEl.textContent = '01';
       } else {
         counterEl.textContent = '01';
       }
@@ -1508,7 +1466,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startX = e.clientX;
         startY = e.clientY;
         pill.style.transition = 'none';
-        try { pill.setPointerCapture(e.pointerId); } catch(err) {}
+        try { pill.setPointerCapture(e.pointerId); } catch (err) { }
       });
 
       pill.addEventListener('pointermove', (e) => {
@@ -1525,7 +1483,7 @@ document.addEventListener('DOMContentLoaded', () => {
           pill.style.transition = 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s';
           pill.style.transform = '';
           pill.style.boxShadow = '';
-          try { pill.releasePointerCapture(e.pointerId); } catch(err) {}
+          try { pill.releasePointerCapture(e.pointerId); } catch (err) { }
         }
       }
 

@@ -8,6 +8,28 @@
 /* ── GOOGLE FONTS ─────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap');
 
+/* ── FIGMA IMPORTED FONTS ──────────────────────────────────── */
+@font-face {
+  font-family: 'DM Sans:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://static.figma.com/font/DMSans_opsz_wght__1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands:Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.figma.com/font/Font%20Awesome%206%20Brands-Regular-400_2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://static.figma.com/font/SpaceGrotesk_wght__1') format('woff2');
+}
+
 /* ============================================================
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ============================================================ */
@@ -62,9 +84,9 @@
   --font-hand: 'Caveat', cursive;
 
   /* ── Fluid Type Scale ── */
-  --text-xs: clamp(0.7rem, 1.3vw, 0.8rem);
-  --text-sm: clamp(0.8rem, 1.6vw, 0.9375rem);
-  --text-base: clamp(0.9375rem, 2vw, 1.0625rem);
+  --text-xs: clamp(0.8rem, 1.3vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 1.6vw, 1rem);
+  --text-base: clamp(0.95rem, 2vw, 1.075rem);
   --text-md: clamp(1rem, 2.2vw, 1.2rem);
   --text-lg: clamp(1.125rem, 2.5vw, 1.4rem);
   --text-xl: clamp(1.3rem, 3vw, 1.75rem);
@@ -465,7 +487,7 @@
 }
 
 [data-theme="dark"] .tape-body-path {
-  fill: #FFDF4A !important;
+  fill: #B972FF !important;
   fill-opacity: 0.96 !important;
 }
 
@@ -906,7 +928,8 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: auto !important; /* Disabled smooth scrolling for rapid, instantaneous response */
+  scroll-behavior: auto !important;
+  /* Disabled smooth scrolling for rapid, instantaneous response */
   scroll-padding-top: 90px;
   overflow-x: clip;
   height: auto;
@@ -1468,6 +1491,7 @@ img {
    PREMIUM NEO-BRUTALIST CUSTOM CURSOR DESIGN
    ═══════════════════════════════════════════════ */
 @media (pointer: fine) {
+
   body,
   a,
   button,
@@ -1522,12 +1546,12 @@ img {
     justify-content: center;
     transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
     transition: width 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
-                height 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
-                border-radius 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
-                background-color 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease,
-                opacity 0.2s ease;
+      height 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+      border-radius 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      opacity 0.2s ease;
     will-change: transform, width, height;
   }
 
@@ -1643,6 +1667,7 @@ img {
 
 /* ── Disabled on touch/mobile devices ── */
 @media (pointer: coarse) {
+
   .cursor-dot,
   .cursor-outline {
     display: none !important;
@@ -2362,6 +2387,7 @@ img {
     opacity: 0;
     transform: perspective(800px) rotateY(-14deg) translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: perspective(800px) rotateY(0deg) translateY(0);
@@ -2371,38 +2397,73 @@ img {
 /* Washi tape sticker accent on top-left */
 .profile-tape {
   position: absolute;
-  top: -22px;
-  left: -20px;
-  width: 126px;
-  height: auto;
+  top: -16px;
+  left: 24px;
+  width: 112px;
+  height: 36px;
+  transform: rotate(-6deg);
   z-index: 6;
   pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(26, 26, 23, 0.08));
   transition: transform var(--dur-fast) var(--ease-spring);
 }
 
-.profile-tape-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
+.profile-card:hover .profile-tape {
+  transform: rotate(-8deg) scale(1.04);
 }
 
-.profile-card:hover .profile-tape {
-  transform: translateY(-3px) scale(1.05);
+.tape-illustration {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: block;
+}
+
+.tape-shadow-path {
+  fill: var(--ink);
+  opacity: 0.95;
+}
+
+.tape-body-path {
+  fill: #B972FF;
+  /* Vibrant washi tape purple */
+  fill-opacity: 0.92;
+}
+
+.tape-stripes-group {
+  color: var(--ink);
+}
+
+.tape-border-path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5px;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 4;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .profile-tape {
-    animation: tape-wiggle 0.4s ease-in-out 0.45s both;
+  .profile-card:hover .profile-tape {
+    animation: tape-wiggle 0.5s var(--ease-spring) both;
   }
 }
 
 @keyframes tape-wiggle {
-  0% { transform: scale(1); }
-  35% { transform: translateY(-4px) scale(1.08) rotate(-1deg); }
-  70% { transform: translateY(1px) scale(0.98); }
-  100% { transform: scale(1); }
+  0% {
+    transform: rotate(-6deg);
+  }
+
+  35% {
+    transform: rotate(-10deg) scale(1.06);
+  }
+
+  70% {
+    transform: rotate(-4deg);
+  }
+
+  100% {
+    transform: rotate(-6deg);
+  }
 }
 
 /* ── Avatar Frame (Clean photo area, 16px gap below) ── */
@@ -2417,7 +2478,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px; /* 16px gap below photo with no overlap */
+  margin-bottom: 16px;
+  /* 16px gap below photo with no overlap */
   overflow: hidden;
 }
 
@@ -2723,8 +2785,17 @@ img {
 }
 
 @keyframes availDotPing {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.7; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 0.7;
+  }
 }
 
 .hero-avail-status {
@@ -2773,11 +2844,29 @@ img {
 }
 
 @keyframes wave-hand {
-  0%, 60%, 100% { transform: rotate(0deg); }
-  10%, 30% { transform: rotate(14deg); }
-  20% { transform: rotate(-10deg); }
-  40% { transform: rotate(8deg); }
-  50% { transform: rotate(0deg); }
+
+  0%,
+  60%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  10%,
+  30% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(8deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
 }
 
 /* ── Hero Title (~1.6x size, tight-tracked) ── */
@@ -2913,6 +3002,7 @@ img {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .hero-ctas .btn-primary,
   .hero-ctas .btn-secondary-outline {
     transition:
@@ -3033,8 +3123,13 @@ img {
   }
 
   @keyframes stickerFloat {
-    0% { transform: translateY(0px) rotate(var(--tilt, 0deg)); }
-    100% { transform: translateY(-5px) rotate(calc(var(--tilt, 0deg) + 2deg)); }
+    0% {
+      transform: translateY(0px) rotate(var(--tilt, 0deg));
+    }
+
+    100% {
+      transform: translateY(-5px) rotate(calc(var(--tilt, 0deg) + 2deg));
+    }
   }
 }
 
@@ -3424,16 +3519,14 @@ img {
   width: 58px;
   height: 22px;
   background-color: rgba(255, 255, 255, 0.88);
-  background-image: 
+  background-image:
     repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(26, 26, 23, 0.08) 4px, rgba(26, 26, 23, 0.08) 6px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, transparent 40%);
   border-top: 2px solid var(--ink);
   border-bottom: 2px solid var(--ink);
   /* Jagged serrated teeth on left and right torn edges */
-  clip-path: polygon(
-    0% 0%, 3px 20%, 0% 40%, 3px 60%, 0% 80%, 3px 100%,
-    100% 100%, calc(100% - 3px) 80%, 100% 60%, calc(100% - 3px) 40%, 100% 20%, calc(100% - 3px) 0%
-  );
+  clip-path: polygon(0% 0%, 3px 20%, 0% 40%, 3px 60%, 0% 80%, 3px 100%,
+      100% 100%, calc(100% - 3px) 80%, 100% 60%, calc(100% - 3px) 40%, 100% 20%, calc(100% - 3px) 0%);
   filter: drop-shadow(2px 2px 0 var(--ink));
   transform: rotate(3.5deg);
   pointer-events: none;
@@ -3564,9 +3657,15 @@ img {
   .timeline-marker {
     animation: markerTwirl 4s linear infinite;
   }
+
   @keyframes markerTwirl {
-    0% { transform: translateY(-50%) rotate(0deg); }
-    100% { transform: translateY(-50%) rotate(360deg); }
+    0% {
+      transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+      transform: translateY(-50%) rotate(360deg);
+    }
   }
 }
 
@@ -3623,6 +3722,7 @@ img {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .timeline-item:hover .tl-node,
   .tl-node:hover {
     transform: rotate(-8deg) scale(1.08);
@@ -3663,6 +3763,7 @@ img {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .exp-card:hover,
   .timeline-item:hover .exp-card {
     transform: translate(-4px, -4px) !important;
@@ -3789,8 +3890,17 @@ img {
 }
 
 @keyframes badgeDotPing {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.65; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+  }
 }
 
 /* Expand / Collapse Button */
@@ -3874,7 +3984,8 @@ img {
 
 .exp-bullets li {
   font-family: var(--font-body);
-  font-size: 16px; /* Exactly 16px body text as requested */
+  font-size: 16px;
+  /* Exactly 16px body text as requested */
   line-height: 1.58;
   color: var(--ink);
   font-weight: 500;
@@ -3891,9 +4002,17 @@ img {
 }
 
 /* 80ms staggered bullets animation */
-.timeline-item.revealed .exp-bullets li:nth-child(1) { transition-delay: 80ms; }
-.timeline-item.revealed .exp-bullets li:nth-child(2) { transition-delay: 160ms; }
-.timeline-item.revealed .exp-bullets li:nth-child(3) { transition-delay: 240ms; }
+.timeline-item.revealed .exp-bullets li:nth-child(1) {
+  transition-delay: 80ms;
+}
+
+.timeline-item.revealed .exp-bullets li:nth-child(2) {
+  transition-delay: 160ms;
+}
+
+.timeline-item.revealed .exp-bullets li:nth-child(3) {
+  transition-delay: 240ms;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .exp-bullets li {
@@ -3963,7 +4082,8 @@ img {
 
 .tool-chip {
   font-family: var(--font-display);
-  font-size: 14px; /* Minimum 14px text as requested */
+  font-size: 14px;
+  /* Minimum 14px text as requested */
   font-weight: 700;
   color: var(--ink);
   background: var(--white);
@@ -3978,6 +4098,7 @@ img {
   .tool-chip {
     transition: transform var(--dur-fast) var(--ease-spring), background var(--dur-fast) ease;
   }
+
   .tool-chip:hover {
     transform: translate(-1px, -1px);
     background: var(--yellow);
@@ -4230,8 +4351,17 @@ img {
 }
 
 @keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.7; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 0.7;
+  }
 }
 
 /* Filter Bar with FLIP support */
@@ -4424,9 +4554,19 @@ img {
 }
 
 @keyframes chipWiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -4601,9 +4741,18 @@ img {
   border-radius: 50%;
   border: 1.5px solid var(--ink);
 }
-.b-dot--red { background: #FF5F56; }
-.b-dot--yellow { background: #FFBD2E; }
-.b-dot--green { background: #27C93F; }
+
+.b-dot--red {
+  background: #FF5F56;
+}
+
+.b-dot--yellow {
+  background: #FFBD2E;
+}
+
+.b-dot--green {
+  background: #27C93F;
+}
 
 .browser-address-bar {
   flex: 1;
@@ -5793,12 +5942,23 @@ img {
 
 /* Micro-Wiggle & Lift on Hover/Focus */
 @keyframes chipWiggleOnce {
-  0%, 100% { transform: rotate(0deg) translate(-2px, -2px); }
-  25% { transform: rotate(-5deg) translate(-2px, -2px); }
-  75% { transform: rotate(5deg) translate(-2px, -2px); }
+
+  0%,
+  100% {
+    transform: rotate(0deg) translate(-2px, -2px);
+  }
+
+  25% {
+    transform: rotate(-5deg) translate(-2px, -2px);
+  }
+
+  75% {
+    transform: rotate(5deg) translate(-2px, -2px);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .skill-tool-pill:hover,
   .skill-tool-pill:focus-visible {
     animation: chipWiggleOnce 0.35s ease-in-out;
@@ -7196,7 +7356,8 @@ img {
   .form-group select,
   .form-group textarea {
     padding: 12px 14px;
-    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+    font-size: 16px;
+    /* Prevents auto-zoom on iOS Safari */
   }
 
   .nb-nav-pill {
