@@ -17,10 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Clean up legacy dark mode
-  localStorage.removeItem('dt-theme');
-  document.documentElement.removeAttribute('data-theme');
-
   // -- 2. PAGE LOAD CASCADE (< 1.2s total) --
   if (!prefersReducedMotion) {
     const heroAvail = document.querySelector('.hero-availability-pill');
@@ -40,6 +36,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 500 + i * 50);
     });
   }
+
+  // -- HERO GREETING SEQUENTIAL ANIMATION ("Namaste" -> "Hi, I am Deepak Tiwari") --
+  (function initHeroGreetingAnimation() {
+    const namasteEl = document.getElementById('greeting-namaste');
+    const hiEl = document.getElementById('greeting-hi');
+    if (!namasteEl || !hiEl) return;
+
+    let isNamaste = true;
+
+    function transitionGreeting() {
+      if (isNamaste) {
+        // Transition from Namaste to Hi, I am Deepak Tiwari
+        namasteEl.classList.remove('is-active');
+        namasteEl.classList.add('is-leaving');
+        setTimeout(() => {
+          namasteEl.classList.remove('is-leaving');
+          hiEl.classList.remove('is-leaving');
+          hiEl.classList.add('is-active');
+          isNamaste = false;
+        }, 260);
+      } else {
+        // Transition back to Namaste
+        hiEl.classList.remove('is-active');
+        hiEl.classList.add('is-leaving');
+        setTimeout(() => {
+          hiEl.classList.remove('is-leaving');
+          namasteEl.classList.remove('is-leaving');
+          namasteEl.classList.add('is-active');
+          isNamaste = true;
+        }, 260);
+      }
+    }
+
+    // On page opening: Show "Namaste 🙏" first, then transition to "Hi, I am Deepak Tiwari 👋" after 3.2s
+    setTimeout(() => {
+      transitionGreeting();
+      // Continue periodic smooth sequence so visitors see both greetings
+      setInterval(transitionGreeting, 5000);
+    }, 3200);
+  })();
 
   // -- 3. HERO HEADLINE WORD-POP (< 1.2s total) --
   if (!prefersReducedMotion) {
@@ -1344,42 +1380,61 @@ document.addEventListener('DOMContentLoaded', () => {
     quadCards.forEach(c => c.classList.add('is-in-view'));
   }
 
+  // 1B. RECRUITER CAPABILITY CARDS INTERACTIVE FILTER & ENTRANCE
+  const capabilityCards = document.querySelectorAll('.sc-card');
+  const skillTabButtons = document.querySelectorAll('.skills-tab-btn');
+
+  if (skillTabButtons.length && capabilityCards.length) {
+    skillTabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-skill-filter');
+
+        // Update active tab button state
+        skillTabButtons.forEach(b => {
+          const isActive = b === btn;
+          b.classList.toggle('is-active', isActive);
+          b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        // Filter / Highlight capability cards
+        capabilityCards.forEach(card => {
+          const cat = card.getAttribute('data-skill-cat');
+          if (filter === 'all' || cat === filter) {
+            card.style.display = 'flex';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            if (filter !== 'all') {
+              card.style.transform = 'translateY(-4px) scale(1.01)';
+            }
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
   // 2. WORKFLOW STAGE FILTER (CLICK & HOVER PREVIEW)
   const stageButtons = document.querySelectorAll('.stage-pill');
-  const toolPills = document.querySelectorAll('.skill-tool-pill');
+  const toolPills = document.querySelectorAll('.skill-tool-pill, .sc-pill');
   let currentActiveStage = null;
 
   function applyStageFilter(stage) {
     if (!stage) {
-      toolPills.forEach(p => {
-        p.classList.remove('is-stage-active', 'is-stage-dimmed');
-        p.style.transform = '';
-      });
+      stageButtons.forEach(b => b.classList.remove('is-active'));
       return;
     }
-    toolPills.forEach(p => {
-      const stages = (p.getAttribute('data-stages') || '').split(',');
-      if (stages.includes(stage)) {
-        p.classList.add('is-stage-active');
-        p.classList.remove('is-stage-dimmed');
-      } else {
-        p.classList.add('is-stage-dimmed');
-        p.classList.remove('is-stage-active');
-      }
-    });
   }
 
   stageButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const stage = btn.getAttribute('data-stage');
       if (currentActiveStage === stage) {
-        // Reset filter
         currentActiveStage = null;
         stageButtons.forEach(b => {
           b.classList.remove('is-active');
           b.setAttribute('aria-pressed', 'false');
         });
-        applyStageFilter(null);
       } else {
         currentActiveStage = stage;
         stageButtons.forEach(b => {
@@ -1387,19 +1442,6 @@ document.addEventListener('DOMContentLoaded', () => {
           b.classList.toggle('is-active', isActive);
           b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
-        applyStageFilter(stage);
-      }
-    });
-
-    // Hover preview if no stage is locked
-    btn.addEventListener('mouseenter', () => {
-      if (!currentActiveStage) {
-        applyStageFilter(btn.getAttribute('data-stage'));
-      }
-    });
-    btn.addEventListener('mouseleave', () => {
-      if (!currentActiveStage) {
-        applyStageFilter(null);
       }
     });
   });
@@ -1492,3 +1534,96 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 })();
+
+// ============================================================
+// REDESIGNED SECTION HANDLERS: PROJECTS, SKILLS, PROCESS
+// ============================================================
+
+// 1. PROJECTS FILTER & COUNTER
+(function initRedesignedProjects() {
+  const filterPills = document.querySelectorAll('.projects-filter-pill');
+  const projectCards = document.querySelectorAll('.projects-card');
+  const activeIdxEl = document.getElementById('cs-active-idx');
+
+  if (!filterPills.length || !projectCards.length) return;
+
+  filterPills.forEach((pill, idx) => {
+    pill.addEventListener('keydown', (e) => {
+      let targetPill = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        targetPill = filterPills[(idx + 1) % filterPills.length];
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        targetPill = filterPills[(idx - 1 + filterPills.length) % filterPills.length];
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        targetPill = filterPills[0];
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        targetPill = filterPills[filterPills.length - 1];
+      }
+
+      if (targetPill) {
+        targetPill.focus();
+        targetPill.click();
+      }
+    });
+
+    pill.addEventListener('click', () => {
+      const selectedCategory = pill.getAttribute('data-filter');
+
+      filterPills.forEach(p => {
+        const isActive = p === pill;
+        p.classList.toggle('is-active', isActive);
+        p.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      let visibleCount = 0;
+      projectCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const isMatch = selectedCategory === 'all' || cardCategory === selectedCategory;
+
+        if (isMatch) {
+          card.classList.remove('is-filtered-out');
+          visibleCount++;
+        } else {
+          card.classList.add('is-filtered-out');
+        }
+      });
+
+      if (activeIdxEl) {
+        activeIdxEl.textContent = visibleCount < 10 ? `0${visibleCount}` : visibleCount;
+      }
+    });
+  });
+})();
+
+// 2. SKILLS STICKER CLUSTER SCROLL REVEAL
+(function initSkillsStickerWall() {
+  const chips = document.querySelectorAll('.skills-chip');
+  if (!chips.length) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if ('IntersectionObserver' in window && !prefersReduced) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target);
+          chips.forEach((chip, i) => {
+            setTimeout(() => {
+              chip.classList.add('is-revealed');
+            }, i * 40);
+          });
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const clusterWrap = document.querySelector('.skills-cluster-wrap') || chips[0];
+    observer.observe(clusterWrap);
+  } else {
+    chips.forEach(chip => chip.classList.add('is-revealed'));
+  }
+})();
+

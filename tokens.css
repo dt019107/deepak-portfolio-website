@@ -6,7 +6,7 @@
    ============================================================ */
 
 /* ── GOOGLE FONTS ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap');
 
 /* ── FIGMA IMPORTED FONTS ──────────────────────────────────── */
 @font-face {
@@ -81,7 +81,7 @@
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --font-serif: 'Newsreader', Georgia, serif;
-  --font-hand: 'Caveat', cursive;
+  --font-hand: 'Kalam', 'Caveat', cursive, sans-serif;
 
   /* ── Fluid Type Scale ── */
   --text-xs: clamp(0.8rem, 1.3vw, 0.875rem);
@@ -237,15 +237,17 @@
 }
 
 [data-theme="dark"] p {
-  color: #DCD8CF;
+  color: #EDE8DF;
 }
 
 /* Base text contrast across common layouts */
 [data-theme="dark"] .hero-bio,
 [data-theme="dark"] .hero-subline,
 [data-theme="dark"] .section-desc,
-[data-theme="dark"] .tl-desc {
-  color: #E2DFD8 !important;
+[data-theme="dark"] .tl-desc,
+[data-theme="dark"] .about-lead,
+[data-theme="dark"] .contact-lead {
+  color: #EDE9E1 !important;
 }
 
 [data-theme="dark"] .hero-title {
@@ -266,18 +268,38 @@
 }
 
 [data-theme="dark"] .editorial-accent {
-  color: inherit;
+  color: #FAF7F2 !important;
 }
 
 /* ── Universal Contrast Shield for Pastel Containers in Dark Mode ── */
-/* When any container has a pastel background (Yellow, Mint, Lavender, Pink, Cream),
+/* Bright Pastel Containers (Yellow, Mint, Lavender, Pink):
    force all typography, labels, and borders to jet ink (#0E0E0C) for AAA readability */
 [data-theme="dark"] .nb-card--yellow,
 [data-theme="dark"] .nb-card--mint,
 [data-theme="dark"] .nb-card--lavender,
-[data-theme="dark"] .nb-card--pink,
-[data-theme="dark"] .nb-card--cream {
+[data-theme="dark"] .nb-card--pink {
   border-color: #0E0E0C !important;
+}
+
+/* Cream Cards in Dark Mode become crisp dark elevated surface cards */
+[data-theme="dark"] .nb-card--cream {
+  background: #181814 !important;
+  border: 2px solid #FAF7F2 !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .nb-card--cream h1,
+[data-theme="dark"] .nb-card--cream h2,
+[data-theme="dark"] .nb-card--cream h3,
+[data-theme="dark"] .nb-card--cream h4,
+[data-theme="dark"] .nb-card--cream h5,
+[data-theme="dark"] .nb-card--cream h6 {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .nb-card--cream p {
+  color: #EDE8DF !important;
 }
 
 [data-theme="dark"] .nb-card--yellow h1,
@@ -2819,32 +2841,95 @@ img {
 /* ── Handwritten Greeting ── */
 .hero-greeting-wrap {
   margin-bottom: 8px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
 }
 
 .hero-hand-greeting {
   font-family: var(--font-hand);
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.2;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  position: relative;
+  min-height: 38px;
 }
 
+.greeting-item {
+  display: none !important;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.greeting-item.is-active {
+  display: inline-flex !important;
+  animation: greetingPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.greeting-item.is-leaving {
+  display: inline-flex !important;
+  animation: greetingPopOut 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes greetingPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes greetingPopOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .greeting-item.is-active,
+  .greeting-item.is-leaving {
+    animation: none !important;
+  }
+}
+
+.namaste-emoji,
 .wave-emoji {
   display: inline-block;
   transform-origin: 70% 70%;
 }
 
+@keyframes namaste-gesture {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.15);
+  }
+}
+
+.greeting-item.is-active .namaste-emoji {
+  animation: namaste-gesture 1.8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .wave-emoji {
+  .greeting-item.is-active .wave-emoji {
     animation: wave-hand 2s ease-in-out infinite;
   }
 }
 
 @keyframes wave-hand {
-
   0%,
   60%,
   100% {
@@ -5413,6 +5498,17 @@ img {
   background: #F8A4C8 !important;
 }
 
+[data-theme="dark"] .neo-project-card.nb-card--cream,
+[data-theme="dark"] .neo-project-card.nb-card--cream .card-body {
+  background: #FFFDF8 !important;
+  border-color: #0E0E0C !important;
+  color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .neo-project-card .card-cover-wrap {
+  border-bottom-color: #0E0E0C !important;
+}
+
 [data-theme="dark"] .neo-project-card .project-num {
   background: #0E0E0C !important;
   color: #FAF7F2 !important;
@@ -5531,7 +5627,8 @@ img {
 
 /* Tier 3: Visual Design & Branding Showcase */
 [data-theme="dark"] .tier-sublabel {
-  color: #AFAAA0 !important;
+  color: #EDE8DF !important;
+  font-weight: 600;
 }
 
 [data-theme="dark"] .visual-showcase-card {
@@ -5664,6 +5761,358 @@ img {
   color: #0E0E0C !important;
   border-color: #FFDF4A !important;
   box-shadow: 8px 8px 0 #FAF7F2 !important;
+}
+
+/* ── Other Work Cards in Dark Mode ── */
+[data-theme="dark"] .other-work-card.nb-card--cream {
+  background: #181814 !important;
+  border: 2px solid #FAF7F2 !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--cream .other-work-title {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--cream .other-work-desc {
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--cream .other-work-year {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--cream .other-work-cta {
+  color: #5C6CFF !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--cream .nb-pill {
+  background: #252520 !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid #FAF7F2 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--cream .other-work-thumb {
+  border-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--lavender {
+  background: #C4B0FF !important;
+  border: 2px solid #0E0E0C !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+  color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--lavender .other-work-title {
+  color: #0E0E0C !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--lavender .other-work-desc {
+  color: #1A1A17 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--lavender .other-work-year {
+  color: #0E0E0C !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--lavender .other-work-cta {
+  color: #1C2CCB !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--lavender .nb-pill {
+  background: #0E0E0C !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid #0E0E0C !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .other-work-card.nb-card--lavender .other-work-thumb {
+  border-color: #0E0E0C !important;
+}
+
+/* ── Skills & Toolkit Section High Contrast in Dark Mode ── */
+[data-theme="dark"] .sc-card.nb-card--cream {
+  background: #181814 !important;
+  border: 2px solid #FAF7F2 !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow {
+  background: #FFDF4A !important;
+  border: 2px solid #0E0E0C !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--mint {
+  background: #4EE39B !important;
+  border: 2px solid #0E0E0C !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+}
+
+/* Yellow & Mint Skills Cards (Pastel surfaces) */
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-title,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-title {
+  color: #0E0E0C !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-tag,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-tag {
+  color: #0E0E0C !important;
+  font-weight: 800 !important;
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-header,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-header {
+  border-bottom-color: rgba(14, 14, 12, 0.25) !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-icon,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-icon {
+  background: #0E0E0C !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid #0E0E0C !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-pill,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-pill {
+  background: #FFFFFF !important;
+  border: 1.5px solid #0E0E0C !important;
+  box-shadow: 2px 2px 0 #0E0E0C !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-pill-icon,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-pill-icon {
+  background: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .method-glyph svg,
+[data-theme="dark"] .sc-card.nb-card--mint .method-glyph svg {
+  stroke: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-pill-name,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-pill-name {
+  color: #0E0E0C !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--yellow .sc-pill-sub,
+[data-theme="dark"] .sc-card.nb-card--mint .sc-pill-sub {
+  color: #2D2D2A !important;
+  font-weight: 600 !important;
+}
+
+/* Cream/Dark Cards in Skills */
+[data-theme="dark"] .sc-card.nb-card--cream .sc-header {
+  border-bottom-color: rgba(250, 247, 242, 0.25) !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-title {
+  color: #FAF7F2 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-tag {
+  color: #FFDF4A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-icon {
+  background: #252520 !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-pill {
+  background: #252520 !important;
+  border: 1.5px solid rgba(250, 247, 242, 0.35) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-pill:hover {
+  background: #303028 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 3px 3px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-pill-name {
+  color: #FAF7F2 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-pill-sub {
+  color: #EDE8DF !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="dark"] .sc-card.nb-card--cream .sc-pill-icon {
+  background: #181814 !important;
+  border-color: rgba(250, 247, 242, 0.3) !important;
+}
+
+/* Card 04 AI Prototyping Card specifics */
+[data-theme="dark"] .sc-pill--ide {
+  background: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  box-shadow: 2px 2px 0 #0E0E0C !important;
+}
+
+[data-theme="dark"] .sc-pill--ide .sc-pill-name {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .sc-pill--ide .sc-pill-sub {
+  color: #DDE2FE !important;
+}
+
+[data-theme="dark"] .sc-vibe-note {
+  background: rgba(14, 14, 12, 0.12) !important;
+  border-color: #0E0E0C !important;
+  color: #0E0E0C !important;
+  font-weight: 600 !important;
+}
+
+
+
+/* ── 14A. DARK MODE: RESTRUCTURED PROCESS PIPELINE & 4 CARDS ── */
+[data-theme="dark"] .process-pipeline-wrap {
+  background: #1C1C18 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .pipeline-step-item {
+  background: #252520 !important;
+  color: #FAF7F2 !important;
+  border-color: rgba(250, 247, 242, 0.4) !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .pipeline-step-item.is-active {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+  border-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .pipeline-step-item.is-active .pipeline-step-num {
+  background: #0E0E0C !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .pipeline-step-num {
+  background: #FAF7F2 !important;
+  color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .pipeline-step-arrow {
+  color: #FAF7F2 !important;
+  opacity: 0.8 !important;
+}
+
+/* 4 Process Cards Dark Mode */
+[data-theme="dark"] .process-card {
+  background: #1A1A16 !important;
+  border: 2px solid #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .process-card:hover {
+  box-shadow: 6px 6px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .process-card--discover {
+  border-top: 5px solid #FFDF4A !important;
+}
+
+[data-theme="dark"] .process-card--define {
+  border-top: 5px solid #7B8BFF !important;
+}
+
+[data-theme="dark"] .process-card--design {
+  border-top: 5px solid #C4B0FF !important;
+}
+
+[data-theme="dark"] .process-card--deliver {
+  border-top: 5px solid #4EE39B !important;
+}
+
+[data-theme="dark"] .pc-phase {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .pc-timeline {
+  background: #252520 !important;
+  color: #FAF7F2 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 1.5px 1.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .process-card--discover .pc-focus {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .process-card--define .pc-focus {
+  color: #7B8BFF !important;
+}
+
+[data-theme="dark"] .process-card--design .pc-focus {
+  color: #C4B0FF !important;
+}
+
+[data-theme="dark"] .process-card--deliver .pc-focus {
+  color: #4EE39B !important;
+}
+
+[data-theme="dark"] .pc-summary {
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .pc-tag {
+  background: #252520 !important;
+  color: #FAF7F2 !important;
+  border-color: rgba(250, 247, 242, 0.3) !important;
+}
+
+[data-theme="dark"] .pc-tag:hover {
+  border-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .process-card--discover .pc-tag i {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .process-card--define .pc-tag i {
+  color: #7B8BFF !important;
+}
+
+[data-theme="dark"] .process-card--design .pc-tag i {
+  color: #C4B0FF !important;
+}
+
+[data-theme="dark"] .process-card--deliver .pc-tag i {
+  color: #4EE39B !important;
+}
+
+[data-theme="dark"] .pc-footer {
+  border-top-color: rgba(250, 247, 242, 0.2) !important;
+}
+
+[data-theme="dark"] .pc-link {
+  color: #7B8BFF !important;
+}
+
+[data-theme="dark"] .pc-link:hover {
+  color: #FFDF4A !important;
 }
 
 /* ── HOW I SHIP: Refined Skills & Tool Stack System ── */
@@ -6049,130 +6498,154 @@ img {
   }
 }
 
-/* ── DARK MODE OVERRIDES FOR HOW I SHIP ── */
-[data-theme="dark"] .workflow-strip-label {
-  color: #FAF7F2 !important;
-  font-weight: 700;
-}
-
-[data-theme="dark"] .stage-pill {
-  background: #1A1A17 !important;
-  color: #FAF7F2 !important;
-  border-color: #FAF7F2 !important;
-  box-shadow: 3.5px 3.5px 0 #FAF7F2 !important;
-}
-
-[data-theme="dark"] .stage-pill:hover {
-  background: #FFDF4A !important;
-  color: #141412 !important;
-}
-
-[data-theme="dark"] .stage-pill.is-active {
-  background: #3D4FF8 !important;
-  color: #FFFFFF !important;
-  box-shadow: 4px 4px 0 #FAF7F2 !important;
-}
-
-[data-theme="dark"] .stage-num {
-  background: rgba(250, 247, 242, 0.16) !important;
-  color: #FAF7F2 !important;
-  opacity: 1 !important;
-}
-
-[data-theme="dark"] .stage-pill.is-active .stage-num {
-  background: rgba(255, 255, 255, 0.3) !important;
-  color: #FFFFFF !important;
-}
-
-[data-theme="dark"] .skills-quad-card {
-  border-color: #0E0E0C !important;
-  box-shadow: 6px 6px 0 #FAF7F2 !important;
-}
-
-[data-theme="dark"] .skills-quad-card:hover {
-  box-shadow: 10px 10px 0 #FAF7F2 !important;
-}
-
-[data-theme="dark"] .skills-quad-card.nb-card--yellow {
-  background: #FFDF4A !important;
-}
-
-[data-theme="dark"] .skills-quad-card.nb-card--mint {
-  background: #4EE39B !important;
-}
-
-[data-theme="dark"] .skills-quad-card.nb-card--lavender {
-  background: #C4B0FF !important;
-}
-
-[data-theme="dark"] .skills-quad-card--build {
-  background: #F8A4C8 !important;
-}
-
-[data-theme="dark"] .skills-card-badge {
-  background: #0E0E0C !important;
-  color: #FAF7F2 !important;
-  border-color: #0E0E0C !important;
-}
-
-[data-theme="dark"] .skills-card-title {
-  color: #0E0E0C !important;
-  font-weight: 800 !important;
-}
-
-[data-theme="dark"] .skills-card-desc {
-  color: #1A1A17 !important;
-  font-weight: 500 !important;
-  opacity: 1 !important;
-}
-
-[data-theme="dark"] .skill-tool-pill {
-  background: #FFFFFF !important;
-  color: #141412 !important;
-  border-color: #0E0E0C !important;
-  box-shadow: 3px 3px 0 #0E0E0C !important;
-}
-
-[data-theme="dark"] .skill-tool-pill .tool-icon {
-  color: #141412 !important;
-}
-
-[data-theme="dark"] .usage-badge {
-  color: #0E0E0C !important;
-  border-color: #0E0E0C !important;
-  font-weight: 800 !important;
-}
-
-[data-theme="dark"] .usage-badge--daily {
-  background: #FFDF4A !important;
-}
-
-[data-theme="dark"] .usage-badge--regular {
-  background: #4EE39B !important;
-}
-
-[data-theme="dark"] .usage-badge--learning {
-  background: #C4B0FF !important;
-}
-
-[data-theme="dark"] .tool-tooltip {
-  background: #0E0E0C !important;
-  color: #FAF7F2 !important;
+/* ── 14B. DARK MODE: REBUILT SKILLS & RECRUITER STRIP ── */
+[data-theme="dark"] .recruiter-chip {
+  background: #1C1C18 !important;
   border-color: #FAF7F2 !important;
   box-shadow: 3px 3px 0 #FAF7F2 !important;
 }
 
-[data-theme="dark"] .tool-tooltip::after {
-  border-top-color: #0E0E0C !important;
+[data-theme="dark"] .recruiter-chip:hover {
+  box-shadow: 4.5px 4.5px 0 #FFDF4A !important;
 }
 
-[data-theme="dark"] .skill-tool-pill.is-stage-active {
-  box-shadow: 5px 5px 0 #0E0E0C !important;
-  border-color: #1E2DB8 !important;
+[data-theme="dark"] .rc-title {
+  color: #FAF7F2 !important;
 }
 
-[data-theme="dark"] .skill-tool-pill.is-stage-dimmed {
-  opacity: 0.28 !important;
+[data-theme="dark"] .rc-desc {
+  color: #DCD8CF !important;
+}
+
+/* Skills Category Filter Nav */
+[data-theme="dark"] .skills-tab-btn {
+  background: #1C1C18 !important;
+  color: #FAF7F2 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .skills-tab-btn:hover {
+  background: #252520 !important;
+  box-shadow: 3.5px 3.5px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .skills-tab-btn.is-active {
+  background: #3040F8 !important;
+  color: #FFFFFF !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+/* 4 Capability Cards */
+[data-theme="dark"] .sc-card {
+  background: #1A1A16 !important;
+  border: 2.5px solid #FAF7F2 !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-card:hover {
+  box-shadow: 8px 8px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-card--strategy {
+  border-top: 5px solid #FFDF4A !important;
+}
+
+[data-theme="dark"] .sc-card--craft {
+  border-top: 5px solid #7B8BFF !important;
+}
+
+[data-theme="dark"] .sc-card--motion {
+  border-top: 5px solid #C4B0FF !important;
+}
+
+[data-theme="dark"] .sc-card--code {
+  border-top: 5px solid #4EE39B !important;
+}
+
+[data-theme="dark"] .sc-header {
+  border-bottom-color: rgba(250, 247, 242, 0.2) !important;
+}
+
+[data-theme="dark"] .sc-tag {
+  color: #7B8BFF !important;
+}
+
+[data-theme="dark"] .sc-title {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-icon {
+  background: #252520 !important;
+  color: #FAF7F2 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-summary {
+  color: #EDE8DF !important;
+}
+
+/* Skill tool item pills */
+[data-theme="dark"] .sc-pill {
+  background: #22221D !important;
+  border-color: rgba(250, 247, 242, 0.35) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .sc-pill:hover {
+  background: #2A2A23 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-pill-icon {
+  background: #181814 !important;
+  color: #FAF7F2 !important;
+  border-color: rgba(250, 247, 242, 0.4) !important;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .sc-pill-name {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-pill-sub {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .sc-badge-core {
+  background: #3040F8 !important;
+  color: #FFFFFF !important;
+  border-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-pill--ide {
+  border-color: #7B8BFF !important;
+  box-shadow: 2.5px 2.5px 0 #7B8BFF !important;
+}
+
+[data-theme="dark"] .sc-vibe-note {
+  background: rgba(123, 139, 255, 0.12) !important;
+  border-color: #7B8BFF !important;
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .sc-vibe-note i {
+  color: #7B8BFF !important;
+}
+
+[data-theme="dark"] .sc-card-footer {
+  border-top-color: rgba(250, 247, 242, 0.2) !important;
+}
+
+[data-theme="dark"] .sc-recruiter-proof {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .sc-recruiter-proof i {
+  color: #4EE39B !important;
 }
 
 /* ── SKILLS MARQUEE: positioned outside .section ── */
