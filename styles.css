@@ -4642,7 +4642,7 @@ img[loading="lazy"] {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #000000;
+  background: var(--cream-dark, #F5E8D0);
 }
 
 .projects-card-img {
@@ -4652,10 +4652,56 @@ img[loading="lazy"] {
   object-position: center;
   display: block;
   transition: transform 0.4s var(--ease, ease);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
 }
 
 .projects-card:hover .projects-card-img {
   transform: scale(1.03);
+}
+
+/* Hero card preview: Clean studio showcase with transparent device mockup support */
+.projects-card--hero .projects-img-container {
+  background: linear-gradient(145deg, #FAF7F2 0%, #EDE8DF 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.projects-card--hero .projects-card-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 14px 28px rgba(26, 26, 23, 0.16));
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.projects-card--hero:hover .projects-card-img {
+  transform: scale(1.035) translateY(-3px);
+  filter: drop-shadow(0 20px 38px rgba(26, 26, 23, 0.24));
+}
+
+/* Hero cluster card: Ola thumbnail polish */
+.cluster-card--ola .cluster-thumb {
+  background: linear-gradient(145deg, #FAF7F2 0%, #EDE8DF 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px !important;
+}
+
+.cluster-card--ola .cluster-thumb img {
+  object-fit: contain !important;
+  height: 100% !important;
+  width: auto !important;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12)) !important;
+  image-rendering: -webkit-optimize-contrast !important;
 }
 
 .projects-browser-chrome {
@@ -5570,6 +5616,26 @@ img[loading="lazy"] {
 [data-theme="dark"] .projects-browser-chrome {
   background: #22221D !important;
   border-bottom: 2px solid #FAF7F2 !important;
+}
+
+[data-theme="dark"] .projects-card--hero .projects-img-container {
+  background: linear-gradient(145deg, #1C1C18 0%, #12120F 100%) !important;
+}
+
+[data-theme="dark"] .projects-card--hero .projects-card-img {
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.7)) !important;
+}
+
+[data-theme="dark"] .projects-card--hero:hover .projects-card-img {
+  filter: drop-shadow(0 22px 42px rgba(0, 0, 0, 0.85)) !important;
+}
+
+[data-theme="dark"] .cluster-card--ola .cluster-thumb {
+  background: linear-gradient(145deg, #1C1C18 0%, #12120F 100%) !important;
+}
+
+[data-theme="dark"] .cluster-card--ola .cluster-thumb img {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) !important;
 }
 
 [data-theme="dark"] .browser-address {

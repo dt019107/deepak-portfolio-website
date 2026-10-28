@@ -156,14 +156,32 @@
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 6px 6px 0 var(--ink, #1A1A17);
-      background: #FFFFFF;
+      background: linear-gradient(145deg, #F9F7F2 0%, #EFEBE1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(20px, 4vw, 44px);
     }
 
     .cs-lead-media img {
       width: 100%;
+      max-width: 960px;
       height: auto;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 36px rgba(26, 26, 23, 0.16));
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: high-quality;
+    }
+
+    [data-theme="dark"] .cs-lead-media {
+      background: linear-gradient(145deg, #1C1C18 0%, #12120F 100%) !important;
+      border-color: #FAF7F2 !important;
+      box-shadow: 6px 6px 0 #FAF7F2 !important;
+    }
+
+    [data-theme="dark"] .cs-lead-media img {
+      filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.7)) !important;
     }
 
     /* Section Architecture */
@@ -528,10 +546,7 @@
 
       <!-- Lead Real UI Mockup Frame -->
       <div class="cs-lead-media">
-        <picture>
-          <source srcset="ola_partner_preview.webp" type="image/webp">
-          <img src="ola_partner_preview.png" alt="Ola Partner Driver App high-contrast single-tap ride acceptance screen interface" width="1120" height="680" fetchpriority="high">
-        </picture>
+        <img src="ola_partner_preview.png" alt="Ola Partner Driver App high-contrast single-tap ride acceptance screen interface" width="1120" height="680" fetchpriority="high">
       </div>
     </section>
 
@@ -729,9 +744,9 @@
     <nav class="cs-next-footer" aria-label="Next Case Study Navigation">
       <div>
         <div class="cs-next-label">Next Case Study</div>
-        <h3 class="cs-next-title">IndiGo: Frictionless Flight Booking Flow</h3>
+        <h3 class="cs-next-title">AeroFill: Filling India's 71,400 Empty Airline Seats</h3>
       </div>
-      <a href="https://indigocase-study.my.canva.site/copy-of-case-study-template-website-based-on-study" target="_blank" rel="noopener noreferrer" class="cs-btn-next" aria-label="View IndiGo Flight Flow case study (opens in new tab)">
+      <a href="https://dt019107.github.io/Case-Study-Why-do-71-400-airplane-seats-fly-empty-every-day-in-India-/" target="_blank" rel="noopener noreferrer" class="cs-btn-next" aria-label="View AeroFill Aviation Standby Systems case study (opens in new tab)">
         <span>Read Next Study</span>
         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
