@@ -5280,22 +5280,31 @@ img[loading="lazy"] {
     background-color 0.18s ease;
 }
 
-/* Entrance reveal state */
-.skills-chip.is-revealed {
-  opacity: 1;
-  transform: translateY(0) rotate(var(--chip-rot, 0deg));
+/* Entrance reveal state with subtle idle floating */
+@keyframes skillChipFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--chip-rot, 0deg));
+  }
+  50% {
+    transform: translateY(-4px) rotate(calc(var(--chip-rot, 0deg) * 0.6));
+  }
 }
 
-/* Alternating Sticker Rotations */
-.skills-chip:nth-child(1) { --chip-rot: -1.5deg; }
-.skills-chip:nth-child(2) { --chip-rot: 1.2deg; }
-.skills-chip:nth-child(3) { --chip-rot: -1.2deg; }
-.skills-chip:nth-child(4) { --chip-rot: 1.5deg; }
-.skills-chip:nth-child(5) { --chip-rot: -1deg; }
-.skills-chip:nth-child(6) { --chip-rot: 1.3deg; }
-.skills-chip:nth-child(7) { --chip-rot: -1.5deg; }
-.skills-chip:nth-child(8) { --chip-rot: 1.1deg; }
-.skills-chip:nth-child(9) { --chip-rot: -1.2deg; }
+.skills-chip.is-revealed {
+  opacity: 1;
+  animation: skillChipFloat var(--float-dur, 3.8s) ease-in-out infinite var(--float-delay, 0s);
+}
+
+/* Alternating Sticker Rotations & Staggered Float Delays */
+.skills-chip:nth-child(1) { --chip-rot: -1.5deg; --float-dur: 3.8s; --float-delay: 0s; }
+.skills-chip:nth-child(2) { --chip-rot: 1.2deg;  --float-dur: 4.2s; --float-delay: 0.4s; }
+.skills-chip:nth-child(3) { --chip-rot: -1.2deg; --float-dur: 3.5s; --float-delay: 0.8s; }
+.skills-chip:nth-child(4) { --chip-rot: 1.5deg;  --float-dur: 4.0s; --float-delay: 0.2s; }
+.skills-chip:nth-child(5) { --chip-rot: -1deg;   --float-dur: 3.7s; --float-delay: 0.6s; }
+.skills-chip:nth-child(6) { --chip-rot: 1.3deg;  --float-dur: 4.4s; --float-delay: 1.0s; }
+.skills-chip:nth-child(7) { --chip-rot: -1.5deg; --float-dur: 3.6s; --float-delay: 0.3s; }
+.skills-chip:nth-child(8) { --chip-rot: 1.1deg;  --float-dur: 4.1s; --float-delay: 0.7s; }
+.skills-chip:nth-child(9) { --chip-rot: -1.2deg; --float-dur: 3.9s; --float-delay: 0.5s; }
 
 /* ── Highlighted Yellow Chips ── */
 /* Claude: Always highlighted yellow */
@@ -5310,10 +5319,11 @@ img[loading="lazy"] {
   }
 }
 
-/* ── Hover / Focus Interaction ── */
+/* ── Hover / Focus Interaction with Magnetic Spring & Scale ── */
 .skills-chip:hover,
 .skills-chip:focus-visible {
-  transform: translate(-2px, -2px) rotate(0deg) !important;
+  animation-play-state: paused;
+  transform: translate(calc(-3px + var(--mag-x, 0px)), calc(-3px + var(--mag-y, 0px))) rotate(0deg) scale(1.04) !important;
   box-shadow: 6px 6px 0 var(--ink, #1A1A17);
   background: var(--yellow, #F5C851);
 }
@@ -5325,11 +5335,12 @@ img[loading="lazy"] {
 
 /* ── Active / Pressed Interaction (Button press feel) ── */
 .skills-chip:active {
-  transform: translate(4px, 4px) rotate(0deg) !important;
+  animation-play-state: paused;
+  transform: translate(4px, 4px) rotate(0deg) scale(0.97) !important;
   box-shadow: 0 0 0 var(--ink, #1A1A17) !important;
 }
 
-/* ── Chip Contents ── */
+/* ── Chip Contents & Interactive Logo Micro-Animations ── */
 .skills-chip-icon {
   width: 22px;
   height: 22px;
@@ -5337,6 +5348,44 @@ img[loading="lazy"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skills-chip:hover .skills-chip-icon {
+  transform: scale(1.18);
+}
+
+.skills-chip[data-skill="figma"]:hover .skills-chip-icon {
+  transform: scale(1.2) rotate(-8deg);
+}
+
+.skills-chip[data-skill="framer"]:hover .skills-chip-icon {
+  transform: scale(1.22);
+}
+
+.skills-chip[data-skill="canva"]:hover .skills-chip-icon {
+  transform: scale(1.2) rotate(6deg);
+}
+
+.skills-chip[data-skill="claude"]:hover .skills-chip-icon {
+  transform: scale(1.22) rotate(14deg);
+}
+
+.skills-chip[data-skill="gemini"]:hover .skills-chip-icon {
+  transform: scale(1.24) rotate(45deg);
+}
+
+.skills-chip[data-skill="antigravity"]:hover .skills-chip-icon {
+  transform: scale(1.22) translateY(-3px);
+}
+
+.skills-chip[data-skill="perplexity"]:hover .skills-chip-icon {
+  transform: scale(1.2) rotate(90deg);
+}
+
+.skills-chip[data-skill="html"]:hover .skills-chip-icon,
+.skills-chip[data-skill="css"]:hover .skills-chip-icon {
+  transform: scale(1.2) translateY(-2px);
 }
 
 .skills-logo-img {
@@ -5349,7 +5398,6 @@ img[loading="lazy"] {
 .skills-logo-svg {
   width: 22px;
   height: 22px;
-  color: var(--ink, #1A1A17);
   display: block;
 }
 
@@ -5361,6 +5409,29 @@ img[loading="lazy"] {
 .skills-chip-name {
   line-height: 1.2;
   letter-spacing: -0.01em;
+}
+
+/* ── Interactive Click Sparkle Particles ── */
+.skill-burst-particle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  z-index: 9999;
+  animation: skillBurstPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes skillBurstPop {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(1.3) rotate(var(--drot));
+  }
 }
 
 /* ── Reduced Motion Overrides for Projects & Skills ── */
@@ -5767,7 +5838,7 @@ img[loading="lazy"] {
   font-weight: 700 !important;
 }
 
-[data-theme="dark"] .skills-logo-svg {
+[data-theme="dark"] .skills-logo-mono {
   color: #FAF7F2 !important;
   fill: currentColor !important;
 }
@@ -5787,7 +5858,7 @@ img[loading="lazy"] {
   font-weight: 800 !important;
 }
 
-[data-theme="dark"] .skills-chip--highlight-always .skills-logo-svg {
+[data-theme="dark"] .skills-chip--highlight-always .skills-logo-mono {
   color: #0E0E0C !important;
   fill: #0E0E0C !important;
 }
@@ -5806,7 +5877,7 @@ img[loading="lazy"] {
     color: #0E0E0C !important;
     font-weight: 800 !important;
   }
-  [data-theme="dark"] .skills-chip--highlight-desktop .skills-logo-svg {
+  [data-theme="dark"] .skills-chip--highlight-desktop .skills-logo-mono {
     color: #0E0E0C !important;
     fill: #0E0E0C !important;
   }
@@ -5825,8 +5896,8 @@ img[loading="lazy"] {
   font-weight: 800 !important;
 }
 
-[data-theme="dark"] .skills-chip:hover .skills-logo-svg,
-[data-theme="dark"] .skills-chip:focus-visible .skills-logo-svg {
+[data-theme="dark"] .skills-chip:hover .skills-logo-mono,
+[data-theme="dark"] .skills-chip:focus-visible .skills-logo-mono {
   color: #0E0E0C !important;
   fill: #0E0E0C !important;
 }

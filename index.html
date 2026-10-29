@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="preload" as="image" href="profile_photo.webp" type="image/webp" fetchpriority="high" />
-  <link rel="stylesheet" href="styles.css?v=2.7" />
+  <link rel="stylesheet" href="styles.css?v=2.8" />
   <link rel="stylesheet" href="tokens.css?v=2.7" />
 </head>
 
@@ -1060,70 +1060,74 @@
 
             <!-- ROW 1: Figma, Framer, Canva -->
             <!-- Figma (Desktop Highlight Yellow, Mobile White) -->
-            <li class="skills-chip skills-chip--highlight-desktop" tabindex="0">
+            <li class="skills-chip skills-chip--highlight-desktop" tabindex="0" data-skill="figma">
               <span class="skills-chip-icon">
-                <img src="https://cdn.simpleicons.org/figma" alt="Figma logo" class="skills-logo-img" width="22"
-                  height="22" loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-                <i class="fa-brands fa-figma skills-fallback-icon" aria-hidden="true" style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 38 57" fill="none" aria-label="Figma logo">
+                  <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+                  <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+                  <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+                  <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+                  <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+                </svg>
               </span>
               <span class="skills-chip-name">Figma</span>
             </li>
 
             <!-- Framer -->
-            <li class="skills-chip" tabindex="0">
+            <li class="skills-chip" tabindex="0" data-skill="framer">
               <span class="skills-chip-icon">
-                <img src="https://cdn.simpleicons.org/framer" alt="Framer logo" class="skills-logo-img" width="22"
-                  height="22" loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-                <i class="fa-solid fa-cube skills-fallback-icon" aria-hidden="true" style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="Framer logo">
+                  <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" fill="#0055FF"/>
+                </svg>
               </span>
               <span class="skills-chip-name">Framer</span>
             </li>
 
             <!-- Canva -->
-            <li class="skills-chip" tabindex="0">
+            <li class="skills-chip" tabindex="0" data-skill="canva">
               <span class="skills-chip-icon">
-                <img src="https://cdn.simpleicons.org/canva" alt="Canva logo" class="skills-logo-img" width="22"
-                  height="22" loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-                <i class="fa-solid fa-palette skills-fallback-icon" aria-hidden="true" style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="Canva logo">
+                  <circle cx="12" cy="12" r="11" fill="#00C4CC"/>
+                  <path d="M15.4 8.7c-.5-.5-1.2-.8-2-.8-1.8 0-3.3 1.5-3.3 4.1 0 2.2 1.2 3.4 2.8 3.4 1 0 1.8-.5 2.2-1.2.2-.3.1-.6-.2-.7-.2-.1-.5 0-.7.3-.3.5-.8.8-1.4.8-1.1 0-1.9-.9-1.9-2.5 0-.2 0-.4.1-.6.5.9 1.4 1.5 2.4 1.5 1.5 0 2.6-1.1 2.6-2.6 0-1-.5-1.7-1.3-2.1l.7-.4zm-1.8 3.5c-.8 0-1.4-.7-1.4-1.6 0-.8.5-1.5 1.3-1.5.7 0 1.2.5 1.2 1.3 0 1-.5 1.8-1.1 1.8z" fill="#FFFFFF"/>
+                </svg>
               </span>
               <span class="skills-chip-name">Canva</span>
             </li>
 
             <!-- ROW 2: Claude (highlighted yellow), Gemini, Antigravity -->
             <!-- Claude (Always Highlight Yellow) -->
-            <li class="skills-chip skills-chip--highlight-always" tabindex="0">
+            <li class="skills-chip skills-chip--highlight-always" tabindex="0" data-skill="claude">
               <span class="skills-chip-icon">
-                <img src="https://cdn.simpleicons.org/claude" alt="Claude logo" class="skills-logo-img" width="22"
-                  height="22" loading="lazy"
-                  onerror="this.onerror=null; this.src='https://cdn.simpleicons.org/anthropic'; this.nextElementSibling.style.display='none';" />
-                <i class="fa-solid fa-wand-magic-sparkles skills-fallback-icon" aria-hidden="true"
-                  style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 256 257" fill="none" aria-label="Claude logo">
+                  <path fill="#D97757" d="m50.228 170.321 50.357-28.257.843-2.463-.843-1.361h-2.462l-8.426-.518-28.775-.778-24.952-1.037-24.175-1.296-6.092-1.297L0 125.796l.583-3.759 5.12-3.434 7.324.648 16.202 1.101 24.304 1.685 17.629 1.037 26.118 2.722h4.148l.583-1.685-1.426-1.037-1.101-1.037-25.147-17.045-27.22-18.017-14.258-10.37-7.713-5.25-3.888-4.925-1.685-10.758 7-7.713 9.397.649 2.398.648 9.527 7.323 20.35 15.75L94.817 91.9l3.889 3.24 1.555-1.102.195-.777-1.75-2.917-14.453-26.118-15.425-26.572-6.87-11.018-1.814-6.61c-.648-2.723-1.102-4.991-1.102-7.778l7.972-10.823L71.42 0 82.05 1.426l4.472 3.888 6.61 15.101 10.694 23.786 16.591 32.34 4.861 9.592 2.592 8.879.973 2.722h1.685v-1.556l1.36-18.211 2.528-22.36 2.463-28.776.843-8.1 4.018-9.722 7.971-5.25 6.222 2.981 5.12 7.324-.713 4.73-3.046 19.768-5.962 30.98-3.889 20.739h2.268l2.593-2.593 10.499-13.934 17.628-22.036 7.778-8.749 9.073-9.657 5.833-4.601h11.018l8.1 12.055-3.628 12.443-11.342 14.388-9.398 12.184-13.48 18.147-8.426 14.518.778 1.166 2.01-.194 30.46-6.481 16.462-2.982 19.637-3.37 8.88 4.148.971 4.213-3.5 8.62-20.998 5.184-24.628 4.926-36.682 8.685-.454.324.519.648 16.526 1.555 7.065.389h17.304l32.21 2.398 8.426 5.574 5.055 6.805-.843 5.184-12.962 6.611-17.498-4.148-40.83-9.721-14-3.5h-1.944v1.167l11.666 11.406 21.387 19.314 26.767 24.887 1.36 6.157-3.434 4.86-3.63-.518-23.526-17.693-9.073-7.972-20.545-17.304h-1.36v1.814l4.73 6.935 25.017 37.59 1.296 11.536-1.814 3.76-6.481 2.268-7.13-1.297-14.647-20.544-15.1-23.138-12.185-20.739-1.49.843-7.194 77.448-3.37Z"/>
+                </svg>
               </span>
               <span class="skills-chip-name">Claude</span>
             </li>
 
             <!-- Gemini -->
-            <li class="skills-chip" tabindex="0">
+            <li class="skills-chip" tabindex="0" data-skill="gemini">
               <span class="skills-chip-icon">
-                <img src="https://cdn.simpleicons.org/googlegemini" alt="Gemini logo" class="skills-logo-img" width="22"
-                  height="22" loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-                <i class="fa-solid fa-sparkles skills-fallback-icon" aria-hidden="true" style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="Gemini logo">
+                  <defs>
+                    <linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#1BA1E3"/>
+                      <stop offset="45%" stop-color="#5C6BC0"/>
+                      <stop offset="80%" stop-color="#AB47BC"/>
+                      <stop offset="100%" stop-color="#EC407A"/>
+                    </linearGradient>
+                  </defs>
+                  <path fill="url(#gemini-grad)" d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12Z"/>
+                </svg>
               </span>
               <span class="skills-chip-name">Gemini</span>
             </li>
 
             <!-- Antigravity -->
-            <li class="skills-chip" tabindex="0">
+            <li class="skills-chip" tabindex="0" data-skill="antigravity">
               <span class="skills-chip-icon">
-                <!-- TODO: Swap with official Antigravity IDE logo when released -->
-                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
-                  <path d="M12 16V8M8 12l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                <svg class="skills-logo-svg skills-logo-mono" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="Antigravity logo">
+                  <path fill="currentColor" d="M21.751 22.607c1.34 1.005 3.35.335 1.508-1.508C17.73 15.74 18.904 1 12.037 1 5.17 1 6.342 15.74.815 21.1c-2.01 2.009.167 2.511 1.507 1.506 5.192-3.517 4.857-9.714 9.715-9.714 4.857 0 4.522 6.197 9.714 9.715z"/>
                 </svg>
               </span>
               <span class="skills-chip-name">Antigravity</span>
@@ -1131,34 +1135,37 @@
 
             <!-- ROW 3: Perplexity, HTML, CSS -->
             <!-- Perplexity -->
-            <li class="skills-chip" tabindex="0">
+            <li class="skills-chip" tabindex="0" data-skill="perplexity">
               <span class="skills-chip-icon">
-                <img src="https://cdn.simpleicons.org/perplexity" alt="Perplexity logo" class="skills-logo-img"
-                  width="22" height="22" loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-                <i class="fa-solid fa-asterisk skills-fallback-icon" aria-hidden="true" style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="Perplexity logo">
+                  <path fill="#20B2AA" d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/>
+                </svg>
               </span>
               <span class="skills-chip-name">Perplexity</span>
             </li>
 
             <!-- HTML -->
-            <li class="skills-chip" tabindex="0">
+            <li class="skills-chip" tabindex="0" data-skill="html">
               <span class="skills-chip-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML logo"
-                  class="skills-logo-img" width="22" height="22" loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-                <i class="fa-brands fa-html5 skills-fallback-icon" aria-hidden="true" style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="HTML logo">
+                  <path fill="#E34F26" d="M1.5 0h21l-1.9 21.3L12 24l-8.6-2.7z"/>
+                  <path fill="#EF652A" d="M12 22l6.9-2.2 1.6-17.8H12z"/>
+                  <path fill="#ECECEC" d="M12 9.6H8.2l-.3-3.3H12V3.1H4.6l.8 9.7H12zm0 6.7l-4-.1-.3-3H4.5l.5 5.8 7 2.2z"/>
+                  <path fill="#FFFFFF" d="M12 9.6h3.8l-.4 3.7-3.4.9v3.3l6.2-1.7.8-9.4H12zm0-6.5v3.2h7.1l.3-3.2z"/>
+                </svg>
               </span>
               <span class="skills-chip-name">HTML</span>
             </li>
 
             <!-- CSS -->
-            <li class="skills-chip" tabindex="0">
+            <li class="skills-chip" tabindex="0" data-skill="css">
               <span class="skills-chip-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS logo"
-                  class="skills-logo-img" width="22" height="22" loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-                <i class="fa-brands fa-css3-alt skills-fallback-icon" aria-hidden="true" style="display:none;"></i>
+                <svg class="skills-logo-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="CSS logo">
+                  <path fill="#1572B6" d="M1.5 0h21l-1.9 21.3L12 24l-8.6-2.7z"/>
+                  <path fill="#33A9DC" d="M12 22l6.9-2.2 1.6-17.8H12z"/>
+                  <path fill="#ECECEC" d="M12 9.6H8.2l-.3-3.3H12V3.1H4.6l.8 9.7H12zm0 6.7l-4-.1-.3-3H4.5l.5 5.8 7 2.2z"/>
+                  <path fill="#FFFFFF" d="M12 9.6h3.8l-.4 3.7-3.4.9v3.3l6.2-1.7.8-9.4H12zm0-6.5v3.2h7.1l.3-3.2z"/>
+                </svg>
               </span>
               <span class="skills-chip-name">CSS</span>
             </li>
@@ -1248,7 +1255,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=2.5"></script>
+  <script src="app.js?v=2.6"></script>
   <script src="vector-bg.js"></script>
 </body>
 

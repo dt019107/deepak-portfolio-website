@@ -1598,13 +1598,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-// 2. SKILLS STICKER CLUSTER SCROLL REVEAL
+// 2. SKILLS STICKER CLUSTER SCROLL REVEAL & INTERACTIVE MOTION
 (function initSkillsStickerWall() {
   const chips = document.querySelectorAll('.skills-chip');
   if (!chips.length) return;
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
+  // Staggered Scroll Reveal
   if ('IntersectionObserver' in window && !prefersReduced) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1624,5 +1626,71 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     chips.forEach(chip => chip.classList.add('is-revealed'));
   }
+
+  if (prefersReduced) return;
+
+  // Interactive Click / Tap Sparkle Burst
+  const burstColors = ['#F5C851', '#3040F8', '#4EE39B', '#FF7262', '#A259FF'];
+  const burstIcons = ['✦', '★', '●', '✦', '◆'];
+
+  function triggerBurst(chip, clientX, clientY) {
+    const rect = chip.getBoundingClientRect();
+    const originX = clientX !== undefined && clientX > 0 ? clientX : (rect.left + rect.width / 2);
+    const originY = clientY !== undefined && clientY > 0 ? clientY : (rect.top + rect.height / 2);
+
+    const count = 6;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('span');
+      p.className = 'skill-burst-particle';
+      p.textContent = burstIcons[i % burstIcons.length];
+      p.style.color = burstColors[i % burstColors.length];
+      p.style.left = `${originX}px`;
+      p.style.top = `${originY}px`;
+
+      const angle = (i / count) * 2 * Math.PI + (Math.random() - 0.5) * 0.5;
+      const distance = 28 + Math.random() * 24;
+      const dx = `${Math.cos(angle) * distance}px`;
+      const dy = `${Math.sin(angle) * distance}px`;
+      const drot = `${(Math.random() - 0.5) * 120}deg`;
+
+      p.style.setProperty('--dx', dx);
+      p.style.setProperty('--dy', dy);
+      p.style.setProperty('--drot', drot);
+
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 600);
+    }
+  }
+
+  chips.forEach(chip => {
+    // Desktop Magnetic Hover Physics
+    if (!isTouch) {
+      chip.addEventListener('mousemove', (e) => {
+        const rect = chip.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
+        chip.style.setProperty('--mag-x', `${x.toFixed(1)}px`);
+        chip.style.setProperty('--mag-y', `${y.toFixed(1)}px`);
+      });
+
+      chip.addEventListener('mouseleave', () => {
+        chip.style.removeProperty('--mag-x');
+        chip.style.removeProperty('--mag-y');
+      });
+    }
+
+    // Click / Tap Burst
+    chip.addEventListener('click', (e) => {
+      triggerBurst(chip, e.clientX, e.clientY);
+    });
+
+    // Keyboard trigger (Enter or Space)
+    chip.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        triggerBurst(chip);
+      }
+    });
+  });
 })();
 
