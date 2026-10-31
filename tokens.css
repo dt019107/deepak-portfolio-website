@@ -34,8 +34,11 @@
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ============================================================ */
 :root {
+  /* Force Light Mode everywhere */
+  color-scheme: light only !important;
+
   /* ── Core Palette: Neo-Brutalist Palette ── */
-  --cream: #FDF3E1;
+  --cream: #FAF7F2;
   --cream-dark: #F5E8D0;
   --ink: #1A1A17;
   --white: #FFFFFF;
@@ -157,67 +160,57 @@
 }
 
 /* ============================================================
-   DUAL-THEME: STUDIO DARK MODE (MIDNIGHT OBSIDIAN & HIGH CONTRAST)
+   LIGHT-MODE PERMANENT ENFORCEMENT (NEUTRALIZING DARK SELECTORS)
    ============================================================ */
+html,
+body {
+  color-scheme: light only !important;
+  background-color: #FAF7F2 !important;
+  color: #1A1A17 !important;
+}
+
 [data-theme="dark"] {
-  --cream: #0E0E0C;
-  /* Deepest Obsidian Canvas */
-  --cream-dark: #181814;
-  /* Tonal Charcoal Surface */
-  --ink: #FAF7F2;
-  /* Crisp Warm White Typography */
-  --white: #1A1A16;
-  /* Card Surface */
+  color-scheme: light only !important;
+  --cream: #FAF7F2;
+  --cream-dark: #F5E8D0;
+  --ink: #1A1A17;
+  --white: #FFFFFF;
 
-  --text: #FAF7F2;
-  --text1: #FAF7F2;
-  /* 100% Crisp White */
-  --text2: #DCD8CF;
-  /* High Contrast Warm Light Silver */
-  --text3: #AFAAA0;
-  /* Muted Light Grey */
-  --headline: #FAF7F2;
+  --text: #1A1A17;
+  --text1: #1A1A17;
+  --text2: #2C2C28;
+  --text3: #52524C;
+  --headline: #1A1A17;
 
-  --blue: #5C6CFF;
-  /* High-visibility Electric Cobalt */
-  --blue-dark: #3748E6;
-  --blue-light: #252D6E;
+  --blue: #3040F8;
+  --blue-dark: #1E2DB8;
+  --blue-light: #DEE2FD;
 
-  --yellow: #FFDF4A;
-  /* High-luminance Primrose */
-  --yellow-dark: #C4A51A;
+  --yellow: #F5C851;
+  --yellow-dark: #D4A728;
 
-  --mint: #4EE39B;
-  /* Vibrant Mint */
-  --mint-dark: #28A76B;
+  --mint: #A0E3C5;
+  --mint-dark: #62C198;
 
-  --lavender: #C4B0FF;
-  /* Vibrant Lavender */
-  --lavender-dark: #8566E8;
+  --lavender: #C8B8F8;
+  --lavender-dark: #9B82EA;
 
-  --pink: #F8A4C8;
-  /* High-visibility Pink */
-  --pink-dark: #C5306B;
+  --pink: #FBCFE8;
+  --pink-dark: #E087AF;
 
-  --border: 2px solid #FAF7F2;
-  --shadow-sm: 2px 2px 0 #FAF7F2;
-  --shadow-md: 5px 5px 0 #FAF7F2;
-  --shadow-lg: 8px 8px 0 #FAF7F2;
-  --shadow-xl: 12px 12px 0 #FAF7F2;
+  --border: 3px solid #1A1A17;
+  --shadow-sm: 3px 3px 0 #1A1A17;
+  --shadow-md: 6px 6px 0 #1A1A17;
+  --shadow-lg: 10px 10px 0 #1A1A17;
+  --shadow-xl: 14px 14px 0 #1A1A17;
 
-  --shadow-yellow: 5px 5px 0 #FFDF4A;
-  --shadow-mint: 5px 5px 0 #4EE39B;
-  --shadow-lavender: 5px 5px 0 #C4B0FF;
-  --shadow-pink: 5px 5px 0 #F8A4C8;
-  --shadow-blue: 5px 5px 0 #5C6CFF;
-
-  --nav-bg: rgba(14, 14, 12, 0.94);
-  --card: #1A1A16;
+  --nav-bg: rgba(250, 247, 242, 0.94);
+  --card: #FFFFFF;
 }
 
 [data-theme="dark"] body {
-  background-color: #0E0E0C !important;
-  color: #FAF7F2 !important;
+  background-color: #FAF7F2 !important;
+  color: #1A1A17 !important;
 }
 
 [data-theme="dark"] body::before {
@@ -3289,7 +3282,7 @@ img {
   background: #FFFDF5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .hero-project-cluster:hover .cluster-card--ola {
     transform: translate(-32px, -24px) rotate(-11deg);
     box-shadow: 7px 7px 0 var(--ink);
@@ -7245,24 +7238,9 @@ img {
    TOP 1% ADVANCED STUDIO SUITE (HUD, THEME TOGGLE, DS SANDBOX)
    ============================================================ */
 
-/* ── Theme Toggle Button (Desktop & Mobile) ── */
+/* ── Theme Toggle Button (Permanently hidden — Light Mode Only) ── */
 .theme-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--cream-dark);
-  border: 1.5px solid var(--ink);
-  color: var(--ink);
-  cursor: pointer;
-  font-size: 0.95rem;
-  box-shadow: 2px 2px 0 var(--ink);
-  margin-left: 4px;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
+  display: none !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -7761,8 +7739,8 @@ img {
   }
 
   .profile-socials a {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     font-size: 1.05rem;
   }
 

@@ -552,6 +552,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!hamburgerBtn || !mobileOverlay) return;
 
+  // Accessible focus trap for mobile navigation drawer
+  function getFocusableElements() {
+    return Array.from(
+      mobileOverlay.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+  }
+
+  function handleFocusTrap(e) {
+    if (e.key !== 'Tab' || !mobileOverlay.classList.contains('open')) return;
+    const focusables = getFocusableElements();
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first || document.activeElement === mobileOverlay) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
   function openMobileNav() {
     hamburgerBtn.classList.add('active');
     hamburgerBtn.setAttribute('aria-expanded', 'true');
@@ -560,6 +589,13 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileOverlay.classList.add('open');
     mobileOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleFocusTrap);
+
+    // Initial focus on close button for accessibility
+    if (mobileClose) {
+      setTimeout(() => mobileClose.focus(), 60);
+    }
+
     mobileNavItems.forEach((item, index) => {
       setTimeout(() => {
         if (mobileOverlay.classList.contains('open')) item.classList.add('stagger-in');
@@ -573,6 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileOverlay.classList.remove('open');
     mobileOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    document.removeEventListener('keydown', handleFocusTrap);
     mobileNavItems.forEach(item => item.classList.remove('stagger-in'));
     setTimeout(() => {
       if (!mobileOverlay.classList.contains('open')) mobileOverlay.style.display = 'none';
@@ -660,33 +697,33 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// -- 2. DUAL-THEME SWITCHER ENGINE (STUDIO DARK MODE) --
-(function initThemeSwitcher() {
-  const toggleBtns = [
-    document.getElementById('theme-toggle-btn'),
-    document.getElementById('mobile-theme-toggle-btn')
-  ].filter(Boolean);
+// -- 2. PERMANENT LIGHT MODE ENFORCEMENT ENGINE --
+// Neutralizes system dark mode, user-agent force-dark, and ensures #fff8e7 theme bar
+(function enforceLightMode() {
+  function lockLight() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.style.colorScheme = 'light only';
+    try {
+      localStorage.removeItem('dt-theme');
+    } catch (e) {}
 
-  const themeMeta = document.querySelector('meta[name="theme-color"]');
-  const savedTheme = localStorage.getItem('dt-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('dt-theme', theme);
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
     if (themeMeta) {
-      themeMeta.setAttribute('content', theme === 'dark' ? '#141412' : '#FAF7F2');
+      themeMeta.setAttribute('content', '#fff8e7');
     }
   }
 
-  applyTheme(savedTheme);
+  lockLight();
 
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
+  // Guard against any runtime attempts to inject dark theme attribute
+  if (window.MutationObserver) {
+    const observer = new MutationObserver(() => {
+      if (document.documentElement.getAttribute('data-theme') !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
     });
-  });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
 })();
 
 // -- 3. INTERACTIVE DESIGN SYSTEM PLAYGROUND --

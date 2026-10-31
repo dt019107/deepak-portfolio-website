@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#FAF7F2" />
+  <!-- Force Light Mode on all platforms and devices -->
+  <meta name="color-scheme" content="light only" />
+  <meta name="theme-color" content="#fff8e7" />
   <title>Deepak Tiwari | UI/UX Designer Portfolio</title>
   <meta name="description"
     content="Professional portfolio of Deepak Tiwari - a passionate UI/UX Designer crafting beautiful, human-centered digital experiences." />
@@ -43,8 +45,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="preload" as="image" href="profile_photo.webp" type="image/webp" fetchpriority="high" />
-  <link rel="stylesheet" href="styles.css?v=2.9" />
-  <link rel="stylesheet" href="tokens.css?v=2.7" />
+  <link rel="stylesheet" href="styles.css?v=3.0" />
+  <link rel="stylesheet" href="tokens.css?v=3.0" />
 </head>
 
 <body>
@@ -63,11 +65,6 @@
       <div class="mobile-nav-header">
         <span class="mobile-nav-brand">Menu</span>
         <div class="mobile-header-actions">
-          <button class="theme-toggle-btn mobile-theme-btn" id="mobile-theme-toggle-btn"
-            aria-label="Toggle Studio Dark Mode">
-            <i class="fa-solid fa-moon theme-moon" aria-hidden="true"></i>
-            <i class="fa-solid fa-sun theme-sun" aria-hidden="true"></i>
-          </button>
           <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><i class="fa-solid fa-xmark"
               aria-hidden="true"></i></button>
         </div>
@@ -99,11 +96,6 @@
         <a href="#skills" class="fnav-item" data-section="skills" title="Skills">Skills</a>
         <a href="#contact" class="fnav-item" data-section="contact" title="Contact">Contact</a>
       </nav>
-      <button class="theme-toggle-btn magnetic-item" id="theme-toggle-btn" aria-label="Toggle Studio Dark Mode"
-        title="Toggle Studio Dark Mode">
-        <i class="fa-solid fa-moon theme-moon" aria-hidden="true"></i>
-        <i class="fa-solid fa-sun theme-sun" aria-hidden="true"></i>
-      </button>
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false"
         aria-controls="mobile-nav-overlay">
         <span class="hamburger-line" aria-hidden="true"></span>
@@ -1190,13 +1182,13 @@
               <div class="form-group">
                 <label for="cf-name">Name <span class="required-indicator" aria-hidden="true">*</span></label>
                 <input type="text" id="cf-name" name="name" placeholder="Your full name" required autocomplete="name"
-                  aria-required="true" />
+                  inputmode="text" aria-required="true" />
                 <span id="name-error" class="field-error-msg hidden" role="alert">Please enter your name</span>
               </div>
               <div class="form-group">
                 <label for="cf-email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
                 <input type="email" id="cf-email" name="email" placeholder="your@email.com" required
-                  autocomplete="email" aria-required="true" />
+                  autocomplete="email" inputmode="email" aria-required="true" />
                 <span id="email-error" class="field-error-msg hidden" role="alert">Please enter a valid email
                   address</span>
               </div>
@@ -1254,7 +1246,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=2.7"></script>
+  <script src="app.js?v=3.0"></script>
   <script src="vector-bg.js"></script>
 </body>
 
