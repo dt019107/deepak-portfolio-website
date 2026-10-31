@@ -987,25 +987,25 @@ document.addEventListener('DOMContentLoaded', () => {
       isLead: false
     },
     {
-      id: 'yoga-wellness',
+      id: 'ai-podcasts',
       number: '04',
       tier: 'more-product',
       category: 'web',
-      type: 'Client project',
-      title: 'Holistic Yoga: High-Converting Class Booking',
-      problem: 'Holistic studio needed a frictionless booking schedule for recurring members and drop-ins.',
-      role: 'UI/UX Designer',
+      type: 'Web app',
+      title: 'AIPodcasts: Studio-Quality AI Audio Platform',
+      problem: 'Traditional podcasting is slow, expensive, and exhausting, requiring thousands in studio gear and 20+ hours of tedious editing.',
+      role: 'UI/UX Designer & Frontend',
       duration: '3 weeks',
-      platform: 'Responsive Web',
-      year: '2024',
-      proof: 'Accessible 2-step reservation schedule with live instructor availability preview.',
-      metric: '',
+      platform: 'Responsive Web / SaaS',
+      year: '2026',
+      proof: 'Engineered an autonomous 3-step synthesis pipeline, dynamic waveform visualizer, and 1-click syndication to Spotify & Apple Podcasts.',
+      metric: '4x Content Reach',
       cta: 'Read case study',
-      link: 'https://www.behance.net/gallery/235520313',
+      link: 'https://dt019107.github.io/AI-Podcast-Website/',
       isExternal: true,
-      colorScheme: 'pink',
-      imageFallback: 'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/364589235520313.Y3JvcCwxNTM0MSwxMjAwMCwzNDEsMA.png',
-      imageAlt: 'Yoga and Wellness Platform Landing Page',
+      colorScheme: 'lavender',
+      imageFallback: 'ai_podcast_preview.png',
+      imageAlt: 'AIPodcasts Studio-Quality Audio Platform Preview',
       tilt: '0.5deg',
       isLead: false
     },
@@ -1193,7 +1193,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const leadCardEl = document.querySelector('.project-lead-split');
   const cardIndigoEl = document.querySelector('[data-card-idx="2"]');
   const cardKanbanEl = document.querySelector('[data-card-idx="3"]');
-  const cardYogaEl = document.querySelector('[data-card-idx="4"]');
+  const cardPodcastEl = document.querySelector('[data-card-idx="4"]');
 
   if (counterEl && leadCardEl && cardIndigoEl) {
     function updateStickyCounter() {
@@ -1203,12 +1203,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const yogaRect = cardYogaEl ? cardYogaEl.getBoundingClientRect() : null;
+      const podcastRect = cardPodcastEl ? cardPodcastEl.getBoundingClientRect() : null;
       const kanbanRect = cardKanbanEl ? cardKanbanEl.getBoundingClientRect() : null;
       const indigoRect = cardIndigoEl.getBoundingClientRect();
       const leadRect = leadCardEl.getBoundingClientRect();
 
-      if (yogaRect && yogaRect.top <= 160 && yogaRect.bottom > 180) {
+      if (podcastRect && podcastRect.top <= 160 && podcastRect.bottom > 180) {
         counterEl.textContent = '04';
       } else if (kanbanRect && kanbanRect.top <= 160 && kanbanRect.bottom > 180) {
         counterEl.textContent = '03';
