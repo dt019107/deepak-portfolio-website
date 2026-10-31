@@ -34,8 +34,8 @@
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ============================================================ */
 :root {
-  /* Force Light Mode everywhere */
-  color-scheme: light only !important;
+  /* Dual-Theme Support: Default Light with Studio Dark Mode */
+  color-scheme: light dark;
 
   /* ── Core Palette: Neo-Brutalist Palette ── */
   --cream: #FAF7F2;
@@ -160,63 +160,76 @@
 }
 
 /* ============================================================
-   LIGHT-MODE PERMANENT ENFORCEMENT (NEUTRALIZING DARK SELECTORS)
+   DUAL-THEME: LUXURY STUDIO DARK MODE & HIGH-CONTRAST PALETTE
    ============================================================ */
-html,
-body {
-  color-scheme: light only !important;
-  background-color: #FAF7F2 !important;
-  color: #1A1A17 !important;
-}
-
 [data-theme="dark"] {
-  color-scheme: light only !important;
-  --cream: #FAF7F2;
-  --cream-dark: #F5E8D0;
-  --ink: #1A1A17;
-  --white: #FFFFFF;
+  color-scheme: dark;
 
-  --text: #1A1A17;
-  --text1: #1A1A17;
-  --text2: #2C2C28;
-  --text3: #52524C;
-  --headline: #1A1A17;
+  /* ── Deep Luxury Obsidian Canvas ── */
+  --cream: #0B0B0F;
+  --cream-dark: #13131D;
+  --ink: #FAF8F5;
+  --white: #171724;
 
-  --blue: #3040F8;
-  --blue-dark: #1E2DB8;
-  --blue-light: #DEE2FD;
+  /* ── High-Contrast Luminous Typography ── */
+  --text: #FAF8F5;
+  --text1: #FFFFFF;
+  --text2: #D2D0DC;
+  --text3: #A09EAF;
+  --headline: #FFFFFF;
 
-  --yellow: #F5C851;
-  --yellow-dark: #D4A728;
+  /* ── Electric Saturated Accents for Dark Canvas ── */
+  --blue: #586BFF;
+  --blue-dark: #384BF0;
+  --blue-light: #202456;
 
-  --mint: #A0E3C5;
-  --mint-dark: #62C198;
+  --yellow: #FFE052;
+  --yellow-dark: #CCA818;
 
-  --lavender: #C8B8F8;
-  --lavender-dark: #9B82EA;
+  --mint: #4EE39B;
+  --mint-dark: #1DA060;
 
-  --pink: #FBCFE8;
-  --pink-dark: #E087AF;
+  --lavender: #C8B8FF;
+  --lavender-dark: #8C70EA;
 
-  --border: 3px solid #1A1A17;
-  --shadow-sm: 3px 3px 0 #1A1A17;
-  --shadow-md: 6px 6px 0 #1A1A17;
-  --shadow-lg: 10px 10px 0 #1A1A17;
-  --shadow-xl: 14px 14px 0 #1A1A17;
+  --pink: #FFA0CB;
+  --pink-dark: #D4367A;
 
-  --nav-bg: rgba(250, 247, 242, 0.94);
-  --card: #FFFFFF;
+  /* ── Neo-Brutalist High-Definition Borders & Crisp Shadows ── */
+  --border: 2px solid rgba(250, 248, 245, 0.85);
+  --shadow-sm: 2.5px 2.5px 0 #FAF8F5;
+  --shadow-md: 5px 5px 0 #FAF8F5;
+  --shadow-lg: 8px 8px 0 #FAF8F5;
+  --shadow-xl: 12px 12px 0 #FAF8F5;
+
+  --shadow-yellow: 5px 5px 0 #FFE052;
+  --shadow-mint: 5px 5px 0 #4EE39B;
+  --shadow-lavender: 5px 5px 0 #C8B8FF;
+  --shadow-pink: 5px 5px 0 #FFA0CB;
+  --shadow-blue: 5px 5px 0 #586BFF;
+
+  --nav-bg: rgba(13, 13, 19, 0.94);
+  --card: #171724;
 }
 
+/* ── Premium Textured Background (Atmospheric Radial Glow + Architectural Dot Matrix) ── */
 [data-theme="dark"] body {
-  background-color: #FAF7F2 !important;
-  color: #1A1A17 !important;
+  background-color: #0B0B0F !important;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -12%, rgba(88, 107, 255, 0.14), transparent),
+    radial-gradient(ellipse 65% 45% at 92% 20%, rgba(255, 224, 82, 0.05), transparent),
+    radial-gradient(ellipse 70% 50% at 8% 78%, rgba(78, 227, 155, 0.05), transparent),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px) !important;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px !important;
+  background-attachment: fixed !important;
+  color: #FAF8F5 !important;
 }
 
+/* ── Tactile Frosted Grain Texture ── */
 [data-theme="dark"] body::before {
   opacity: 0.045;
-  mix-blend-mode: screen;
-  filter: invert(1);
+  mix-blend-mode: overlay;
+  filter: brightness(1.25) contrast(1.2);
 }
 
 /* ── Typography Contrast in Dark Mode ── */
@@ -7238,28 +7251,41 @@ img {
    TOP 1% ADVANCED STUDIO SUITE (HUD, THEME TOGGLE, DS SANDBOX)
    ============================================================ */
 
-/* ── Theme Toggle Button (Permanently hidden — Light Mode Only) ── */
+/* ── Theme Toggle Button (Desktop & Mobile) ── */
 .theme-toggle-btn {
-  display: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--cream-dark);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+  margin-left: 6px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.25s ease,
+              border-color 0.25s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .theme-toggle-btn {
-    transition:
-      transform var(--dur-fast) var(--ease-spring),
-      box-shadow var(--dur-fast) var(--ease-spring),
-      background var(--dur-fast) var(--ease-out);
-  }
+.theme-toggle-btn:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 3.5px 3.5px 0 var(--ink);
+}
 
-  .theme-toggle-btn:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 3px 3px 0 var(--ink);
-  }
-
-  .theme-toggle-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0 0 0 var(--ink);
-  }
+.theme-toggle-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
 }
 
 .theme-toggle-btn .theme-sun {
@@ -7268,12 +7294,20 @@ img {
 
 .theme-toggle-btn .theme-moon {
   display: inline-block;
+  font-size: 1.05rem;
+  color: var(--ink);
 }
 
 [data-theme="dark"] .theme-toggle-btn {
-  background: #242420;
-  border-color: #FAF7F2;
-  box-shadow: 2px 2px 0 #FAF7F2;
+  background: #1C1C28;
+  border-color: #FAF8F5;
+  box-shadow: 2.5px 2.5px 0 #FAF8F5;
+  color: #FFE052;
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  box-shadow: 3.5px 3.5px 0 #FFE052;
+  border-color: #FFE052;
 }
 
 [data-theme="dark"] .theme-toggle-btn .theme-moon {
@@ -7282,7 +7316,8 @@ img {
 
 [data-theme="dark"] .theme-toggle-btn .theme-sun {
   display: inline-block;
-  color: var(--yellow);
+  color: #FFE052;
+  filter: drop-shadow(0 0 6px rgba(255, 224, 82, 0.5));
 }
 
 .mobile-header-actions {
@@ -7292,8 +7327,11 @@ img {
 }
 
 .mobile-theme-btn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  margin-left: 0;
 }
 
 /* ── Remote-First Live Timezone HUD ── */

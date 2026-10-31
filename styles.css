@@ -7,8 +7,8 @@
 /* ── 1. LEGACY VARIABLE ALIASES ── */
 /* Map old cobalt/tangerine names to new tokens for compat */
 :root {
-  /* Force Light Mode across all browser rendering engines */
-  color-scheme: light only !important;
+  /* Dual-Theme Support: Light & Dark */
+  color-scheme: light dark;
 
   /* Cobalt → Blue */
   --cobalt-900: var(--ink);
@@ -75,17 +75,15 @@
 
 html {
   font-size: 16px;
-  color-scheme: light only !important;
-  background-color: #FAF7F2 !important;
-  color: #1A1A17 !important;
+  background-color: var(--cream, #FAF7F2);
+  color: var(--ink, #1A1A17);
   scroll-behavior: auto !important;
   scroll-padding-top: 90px;
 }
 
 body {
-  background-color: #FAF7F2 !important;
-  color: #1A1A17 !important;
-  color-scheme: light only !important;
+  background-color: var(--cream, #FAF7F2);
+  color: var(--ink, #1A1A17);
   font-family: var(--font-body);
   line-height: 1.65;
   overflow-x: clip;
@@ -120,14 +118,21 @@ textarea {
   touch-action: manipulation;
 }
 
-/* Explicit light mode on all form controls to prevent auto-dark inversion */
+/* Form controls styling across themes */
 input,
 textarea,
 select,
 button {
-  color-scheme: light !important;
   background-color: #FFFFFF;
   color: #1A1A17;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: #161622 !important;
+  color: #FAF8F5 !important;
+  border-color: #38384C !important;
 }
 
 /* Accessible minimum tap targets (44x44px) */

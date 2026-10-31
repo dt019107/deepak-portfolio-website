@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <!-- Force Light Mode on all platforms and devices -->
-  <meta name="color-scheme" content="light only" />
+  <!-- Dual Theme Support: Default Light with Premium Dark Mode Toggle -->
+  <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#fff8e7" />
   <title>Deepak Tiwari | UI/UX Designer Portfolio</title>
   <meta name="description"
@@ -65,6 +65,11 @@
       <div class="mobile-nav-header">
         <span class="mobile-nav-brand">Menu</span>
         <div class="mobile-header-actions">
+          <button class="theme-toggle-btn mobile-theme-btn" id="mobile-theme-toggle-btn"
+            aria-label="Switch to Dark Mode" title="Switch to Dark Mode">
+            <i class="fa-solid fa-moon theme-moon" aria-hidden="true"></i>
+            <i class="fa-solid fa-sun theme-sun" aria-hidden="true"></i>
+          </button>
           <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><i class="fa-solid fa-xmark"
               aria-hidden="true"></i></button>
         </div>
@@ -96,6 +101,11 @@
         <a href="#skills" class="fnav-item" data-section="skills" title="Skills">Skills</a>
         <a href="#contact" class="fnav-item" data-section="contact" title="Contact">Contact</a>
       </nav>
+      <button class="theme-toggle-btn magnetic-item" id="theme-toggle-btn" aria-label="Switch to Dark Mode"
+        title="Switch to Dark Mode">
+        <i class="fa-solid fa-moon theme-moon" aria-hidden="true"></i>
+        <i class="fa-solid fa-sun theme-sun" aria-hidden="true"></i>
+      </button>
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false"
         aria-controls="mobile-nav-overlay">
         <span class="hamburger-line" aria-hidden="true"></span>

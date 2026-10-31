@@ -697,33 +697,45 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// -- 2. PERMANENT LIGHT MODE ENFORCEMENT ENGINE --
-// Neutralizes system dark mode, user-agent force-dark, and ensures #fff8e7 theme bar
-(function enforceLightMode() {
-  function lockLight() {
-    document.documentElement.setAttribute('data-theme', 'light');
-    document.documentElement.style.colorScheme = 'light only';
+// -- 2. DUAL-THEME SWITCHER ENGINE (LIGHT & PREMIUM STUDIO DARK MODE) --
+(function initThemeSwitcher() {
+  const toggleBtns = [
+    document.getElementById('theme-toggle-btn'),
+    document.getElementById('mobile-theme-toggle-btn')
+  ].filter(Boolean);
+
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  // Read saved user preference if previously selected, default to light
+  const savedTheme = localStorage.getItem('dt-theme') || 'light';
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
     try {
-      localStorage.removeItem('dt-theme');
+      localStorage.setItem('dt-theme', theme);
     } catch (e) {}
 
-    const themeMeta = document.querySelector('meta[name="theme-color"]');
     if (themeMeta) {
-      themeMeta.setAttribute('content', '#fff8e7');
+      themeMeta.setAttribute('content', theme === 'dark' ? '#0B0B0F' : '#fff8e7');
     }
-  }
 
-  lockLight();
-
-  // Guard against any runtime attempts to inject dark theme attribute
-  if (window.MutationObserver) {
-    const observer = new MutationObserver(() => {
-      if (document.documentElement.getAttribute('data-theme') !== 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
+    toggleBtns.forEach(btn => {
+      const isDark = theme === 'dark';
+      btn.setAttribute('aria-label', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+      btn.setAttribute('title', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
     });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   }
+
+  applyTheme(savedTheme);
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  });
 })();
 
 // -- 3. INTERACTIVE DESIGN SYSTEM PLAYGROUND --
