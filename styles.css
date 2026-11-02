@@ -4828,7 +4828,8 @@ img[loading="lazy"] {
   border: 1.5px solid var(--ink, #1A1A17);
   border-radius: 6px;
   padding: 3px 8px;
-  color: var(--text3, #52524C);
+  color: var(--text2, #2C2C28);
+  font-weight: 600;
   max-width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -4969,12 +4970,13 @@ img[loading="lazy"] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  background: var(--cream, #FDF3E1);
+  background: var(--white, #FFFFFF);
   border: 2px solid var(--ink, #1A1A17);
   border-radius: var(--radius-sm, 14px);
   padding: 10px 12px;
   margin-bottom: var(--sp-4, 16px);
   text-align: center;
+  box-shadow: 2px 2px 0 var(--ink, #1A1A17);
 }
 
 .projects-stat-cell .stat-number {
@@ -4982,15 +4984,15 @@ img[loading="lazy"] {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 800;
-  color: var(--blue, #3040F8);
+  color: var(--blue-dark, #1E2DB8);
   line-height: 1.1;
 }
 
 .projects-stat-cell .stat-label {
   display: block;
   font-size: 11px;
-  font-weight: 600;
-  color: var(--text3, #52524C);
+  font-weight: 700;
+  color: var(--text2, #2C2C28);
   margin-top: 2px;
 }
 
@@ -5810,9 +5812,10 @@ img[loading="lazy"] {
 }
 
 [data-theme="dark"] .browser-address {
-  background: #141410 !important;
-  border: 1px solid rgba(250, 247, 242, 0.3) !important;
-  color: #DCD8CF !important;
+  background: #101018 !important;
+  border: 1.5px solid rgba(250, 248, 245, 0.45) !important;
+  color: #FAF8F5 !important;
+  font-weight: 600 !important;
 }
 
 [data-theme="dark"] .browser-status {
@@ -5821,17 +5824,50 @@ img[loading="lazy"] {
   border: 1px solid #4EE39B !important;
 }
 
-[data-theme="dark"] .projects-stat-card {
-  background: #20201A !important;
-  border: 1.5px solid #FAF7F2 !important;
+[data-theme="dark"] .projects-stat-row {
+  background: #181824 !important;
+  border: 2px solid rgba(250, 248, 245, 0.85) !important;
+  box-shadow: 3px 3px 0 #000000 !important;
 }
 
-[data-theme="dark"] .projects-stat-num {
-  color: #FFDF4A !important;
+[data-theme="dark"] .projects-stat-cell .stat-number {
+  color: #FFE052 !important;
+  text-shadow: 0 0 16px rgba(255, 224, 82, 0.3) !important;
 }
 
-[data-theme="dark"] .projects-stat-label {
-  color: #DCD8CF !important;
+[data-theme="dark"] .projects-stat-cell .stat-label {
+  color: #D2D0DC !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="dark"] .projects-meta-row {
+  color: #D2D0DC !important;
+}
+
+[data-theme="dark"] .projects-meta-row .meta-item i {
+  color: #FFE052 !important;
+}
+
+[data-theme="dark"] .projects-proof-box {
+  background: rgba(78, 227, 155, 0.12) !important;
+  border-left: 3px solid #4EE39B !important;
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .projects-proof-box i {
+  color: #4EE39B !important;
+}
+
+[data-theme="dark"] .projects-action-arrow {
+  background: #222230 !important;
+  border-color: rgba(250, 248, 245, 0.7) !important;
+  color: #FAF8F5 !important;
+}
+
+[data-theme="dark"] .projects-card:hover .projects-action-arrow {
+  background: #FFE052 !important;
+  color: #0E0E12 !important;
+  border-color: #0E0E12 !important;
 }
 
 [data-theme="dark"] .projects-card-cta {
@@ -5847,38 +5883,62 @@ img[loading="lazy"] {
 }
 
 /* Secondary Block: Other work */
-[data-theme="dark"] .projects-secondary-wrap {
-  background: #141410 !important;
-  border: 2px dashed rgba(250, 247, 242, 0.35) !important;
+[data-theme="dark"] .projects-secondary-strip {
+  background: #13131C !important;
+  border: 2px dashed rgba(250, 248, 245, 0.45) !important;
 }
 
-[data-theme="dark"] .secondary-block-title {
-  color: #FAF7F2 !important;
+[data-theme="dark"] .secondary-badge {
+  background: #FFE052 !important;
+  color: #0E0E12 !important;
+  border: 1.5px solid #0E0E12 !important;
+}
+
+[data-theme="dark"] .secondary-heading {
+  color: #FAF8F5 !important;
+}
+
+[data-theme="dark"] .secondary-subline {
+  color: #D2D0DC !important;
 }
 
 [data-theme="dark"] .secondary-card {
-  background: #1C1C18 !important;
-  border: 2px solid #FAF7F2 !important;
-  box-shadow: 4px 4px 0 #FAF7F2 !important;
+  background: #181824 !important;
+  border: 2px solid rgba(250, 248, 245, 0.85) !important;
+  box-shadow: 4px 4px 0 #FAF8F5 !important;
 }
 
 [data-theme="dark"] .secondary-card:hover {
-  border-color: #FFDF4A !important;
-  box-shadow: 6px 6px 0 #FFDF4A !important;
+  border-color: #FFE052 !important;
+  box-shadow: 6px 6px 0 #FFE052 !important;
 }
 
 [data-theme="dark"] .secondary-card-title {
-  color: #FAF7F2 !important;
+  color: #FAF8F5 !important;
 }
 
 [data-theme="dark"] .secondary-card-desc {
-  color: #DCD8CF !important;
+  color: #D2D0DC !important;
 }
 
-[data-theme="dark"] .secondary-tag {
-  background: #252520 !important;
-  border: 1px solid #FAF7F2 !important;
-  color: #FAF7F2 !important;
+[data-theme="dark"] .secondary-chip {
+  background: #222232 !important;
+  border: 1px solid rgba(250, 248, 245, 0.45) !important;
+  color: #FFE052 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .secondary-year {
+  color: #A09EAF !important;
+}
+
+[data-theme="dark"] .secondary-card-link {
+  color: #FFE052 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .secondary-card:hover .secondary-card-link {
+  color: #FFFFFF !important;
 }
 
 [data-theme="dark"] .projects-behance-btn {

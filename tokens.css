@@ -454,6 +454,12 @@
   font-weight: 800 !important;
 }
 
+[data-theme="dark"] .cluster-pill.nb-pill--blue {
+  background: #586BFF !important;
+  color: #FFFFFF !important;
+  border-color: #0E0E0C !important;
+}
+
 [data-theme="dark"] .stat-bento {
   border-color: #0E0E0C !important;
   box-shadow: 6px 6px 0 #FAF7F2 !important;
@@ -736,6 +742,23 @@
   color: #FAF7F2 !important;
 }
 
+[data-theme="dark"] .edu-node {
+  border-color: #0E0E0C !important;
+  box-shadow: 2px 2px 0 #FAF8F5 !important;
+}
+
+[data-theme="dark"] .edu-monogram {
+  color: #0E0E0C !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .timeline-marker {
+  background: #FFE052 !important;
+  color: #0E0E12 !important;
+  border-color: #0E0E12 !important;
+  box-shadow: 2px 2px 0 #FAF8F5 !important;
+}
+
 /* ── Infinite Marquee Strip in Dark Mode ── */
 [data-theme="dark"] .marquee {
   background: #FFDF4A !important;
@@ -829,6 +852,24 @@
   background: #5C6CFF !important;
   color: #FFFFFF !important;
   box-shadow: 5px 5px 0 #3748E6 !important;
+}
+
+[data-theme="dark"] #send-btn span,
+[data-theme="dark"] .nb-btn--blue span {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] #send-btn:hover span,
+[data-theme="dark"] .nb-btn--blue:hover span {
+  color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .mobile-nav-num {
+  color: #A09EAF !important;
+}
+
+[data-theme="dark"] .mobile-nav-item.active .mobile-nav-num {
+  color: #0E0E0C !important;
 }
 
 [data-theme="dark"] .form-banner--success {
@@ -3926,6 +3967,10 @@ img {
   font-weight: 800;
   font-family: var(--font-display);
   font-size: 15px;
+}
+
+.exp-card--current .exp-company {
+  color: #12209E;
 }
 
 .exp-meta-sep {
