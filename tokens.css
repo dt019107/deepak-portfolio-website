@@ -633,10 +633,6 @@
   opacity: 0.6;
 }
 
-[data-theme="dark"] .exp-card--current .exp-bullets li::before {
-  background: #1A1A17 !important;
-}
-
 [data-theme="dark"] .exp-card--current .exp-company {
   color: #1C2CCB !important;
   font-weight: 800;
@@ -3832,6 +3828,15 @@ img {
   user-select: none;
   transform-origin: center center;
   transition: transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-fast) var(--ease-spring), background 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+}
+
+.tl-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .tl-monogram {
@@ -4285,12 +4290,21 @@ img {
   height: 40px;
   border-radius: 50%;
   border: 2px solid var(--ink);
-  background: var(--lavender);
+  background: var(--white);
   box-shadow: 2px 2px 0 var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.edu-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .edu-monogram {
