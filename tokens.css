@@ -59,6 +59,11 @@
   --pink: #FBCFE8;
   --pink-dark: #E087AF;
 
+  /* ── Case Study CTA Accents ── */
+  --case-study-orange: #FF9A56;
+  --case-study-blue: #7BB2FF;
+  --true-black: #000000;
+
   /* ── Semantic Aliases (JS/styles.css bridge) ── */
   --bg: var(--cream);
   --bg2: var(--cream-dark);
