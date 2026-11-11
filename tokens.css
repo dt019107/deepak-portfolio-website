@@ -217,15 +217,12 @@
   --card: #171724;
 }
 
-/* ── Premium Textured Background (Atmospheric Radial Glow + Architectural Dot Matrix) ── */
+/* ── Clean Dark Architectural Dot Matrix Background ── */
 [data-theme="dark"] body {
-  background-color: #0B0B0F !important;
+  background-color: #0E0E0C !important;
   background-image:
-    radial-gradient(ellipse 90% 55% at 50% -12%, rgba(88, 107, 255, 0.14), transparent),
-    radial-gradient(ellipse 65% 45% at 92% 20%, rgba(255, 224, 82, 0.05), transparent),
-    radial-gradient(ellipse 70% 50% at 8% 78%, rgba(78, 227, 155, 0.05), transparent),
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px) !important;
-  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px !important;
+  background-size: 32px 32px !important;
   background-attachment: fixed !important;
   color: #FAF8F5 !important;
 }
@@ -417,6 +414,16 @@
   box-shadow: 3px 3px 0 #FAF7F2 !important;
 }
 
+[data-theme="dark"] .stat-pill .stat-num {
+  color: #FFDF4A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .stat-pill .stat-label {
+  color: #D0CCC2 !important;
+  font-weight: 600 !important;
+}
+
 [data-theme="dark"] .tray-note {
   color: #C8B8F8 !important;
 }
@@ -556,40 +563,54 @@
   border-color: #FAF7F2 !important;
 }
 
-/* ── About Cards (Bright Pastel surfaces with Jet Black text) ── */
-[data-theme="dark"] .about-card--yellow {
-  background: #FFDF4A !important;
-}
-
-[data-theme="dark"] .about-card--mint {
-  background: #4EE39B !important;
-}
-
-[data-theme="dark"] .about-card--lavender {
-  background: #C4B0FF !important;
-}
-
+/* ── About Cards in Dark Mode (Obsidian Substrate + Neon Accent Glyphs) ── */
 [data-theme="dark"] .about-card {
-  border-color: #0E0E0C !important;
-  box-shadow: 6px 6px 0 #FAF7F2 !important;
+  background: #151512 !important;
+  border: 2px solid rgba(250, 247, 242, 0.85) !important;
+  box-shadow: 5px 5px 0 #FAF7F2 !important;
 }
 
 [data-theme="dark"] .about-card h3,
+[data-theme="dark"] .about-card h4 {
+  color: #FFFFFF !important;
+  font-weight: 800;
+}
+
 [data-theme="dark"] .about-card p {
-  color: #0E0E0C !important;
-  font-weight: 700;
+  color: #D0CCC2 !important;
+  font-weight: 500;
 }
 
 [data-theme="dark"] .about-card .about-card-icon {
-  background: #0E0E0C !important;
+  background: #1E1E19 !important;
+  border: 1.5px solid rgba(250, 247, 242, 0.85) !important;
+  box-shadow: 2.5px 2.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .about-card--yellow .about-card-icon {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
   border-color: #0E0E0C !important;
-  color: #FAF7F2 !important;
-  box-shadow: 2px 2px 0 rgba(250, 247, 242, 0.4) !important;
+  box-shadow: 2.5px 2.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .about-card--mint .about-card-icon {
+  background: #53EAA2 !important;
+  color: #022414 !important;
+  border-color: #0E0E0C !important;
+  box-shadow: 2.5px 2.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .about-card--lavender .about-card-icon {
+  background: #D5BFFF !important;
+  color: #1D0A42 !important;
+  border-color: #0E0E0C !important;
+  box-shadow: 2.5px 2.5px 0 #FAF7F2 !important;
 }
 
 /* ── Work Experience Timeline in Dark Mode ── */
 [data-theme="dark"] .timeline-track-bg {
-  background: #FAF7F2 !important;
+  background: rgba(250, 247, 242, 0.25) !important;
 }
 
 [data-theme="dark"] .tl-node {
@@ -610,44 +631,47 @@
   color: #FFFFFF !important;
 }
 
-/* Current Role: Yellow Card with Pure Jet Black Text */
+/* Current Role: Elevated Obsidian Card with Champagne Gold Border & Accents */
 [data-theme="dark"] .exp-card--current {
-  background: #F5C851 !important;
-  color: #1A1A17 !important;
-  border-color: #0E0E0C !important;
-  box-shadow: 6px 6px 0 #FAF7F2 !important;
+  background: #191914 !important;
+  color: #FAF7F2 !important;
+  border: 2.5px solid #FFDF4A !important;
+  box-shadow: 6px 6px 0 #FFDF4A !important;
 }
 
-[data-theme="dark"] .exp-card--current .exp-role,
+[data-theme="dark"] .exp-card--current .exp-role {
+  color: #FFFFFF !important;
+}
+
 [data-theme="dark"] .exp-card--current .exp-bullets li,
 [data-theme="dark"] .exp-card--current .exp-row-label,
 [data-theme="dark"] .exp-card--current .exp-col-title,
 [data-theme="dark"] .exp-card--current .exp-dates,
 [data-theme="dark"] .exp-card--current .exp-location,
 [data-theme="dark"] .exp-card--current .exp-duration-pill {
-  color: #1A1A17 !important;
+  color: #EDE8DF !important;
 }
 
 [data-theme="dark"] .exp-card--current .exp-dates i,
 [data-theme="dark"] .exp-card--current .exp-location i {
-  color: #1A1A17 !important;
+  color: #FFDF4A !important;
 }
 
 [data-theme="dark"] .exp-card--current .exp-meta-sep {
-  color: #1A1A17 !important;
-  opacity: 0.6;
+  color: #FAF7F2 !important;
+  opacity: 0.45;
 }
 
 [data-theme="dark"] .exp-card--current .exp-company {
-  color: #1C2CCB !important;
+  color: #FFDF4A !important;
   font-weight: 800;
 }
 
 [data-theme="dark"] .exp-card--current .tl-badge--current {
-  background: #F8A4C8 !important;
+  background: #FFDF4A !important;
   color: #0E0E0C !important;
-  border-color: #0E0E0C !important;
-  box-shadow: 2px 2px 0 #0E0E0C !important;
+  border: 1.5px solid #0E0E0C !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
   font-weight: 800;
 }
 
@@ -656,24 +680,24 @@
 }
 
 [data-theme="dark"] .exp-card--current .exp-chip-placeholder {
-  color: #1A1A17 !important;
-  border-color: #1A1A17 !important;
-  background: rgba(255, 255, 255, 0.45) !important;
+  color: #FAF7F2 !important;
+  border-color: rgba(250, 247, 242, 0.35) !important;
+  background: rgba(250, 247, 242, 0.08) !important;
   font-weight: 700;
 }
 
 [data-theme="dark"] .exp-card--current .exp-collapse-btn {
-  background: #FAF7F2 !important;
-  border-color: #1A1A17 !important;
-  color: #1A1A17 !important;
-  box-shadow: 2px 2px 0 #1A1A17 !important;
+  background: #24241E !important;
+  border: 1.5px solid #FAF7F2 !important;
+  color: #FFDF4A !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
 }
 
 [data-theme="dark"] .exp-card--current .tool-chip {
-  background: #FFFFFF !important;
-  color: #1A1A17 !important;
-  border-color: #1A1A17 !important;
-  box-shadow: 2px 2px 0 #1A1A17 !important;
+  background: #22221A !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid rgba(250, 247, 242, 0.45) !important;
+  box-shadow: 2px 2px 0 rgba(250, 247, 242, 0.25) !important;
   font-weight: 700;
 }
 
@@ -708,7 +732,7 @@
 }
 
 [data-theme="dark"] .exp-card--past .exp-company {
-  color: #7B8BFF !important;
+  color: #8EA0FF !important;
   font-weight: 800;
 }
 
@@ -733,14 +757,28 @@
 }
 
 [data-theme="dark"] .edu-card {
-  background: #1E1E1A !important;
-  border-color: #FAF7F2 !important;
+  background: #181814 !important;
+  border-color: rgba(250, 247, 242, 0.85) !important;
   box-shadow: 4px 4px 0 #FAF7F2 !important;
 }
 
-[data-theme="dark"] .edu-degree,
+[data-theme="dark"] .edu-degree {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .edu-uni {
+  color: #8EA0FF !important;
+  font-weight: 700 !important;
+}
+
 [data-theme="dark"] .edu-years {
+  color: #D0CCC2 !important;
+}
+
+[data-theme="dark"] .edu-sep {
   color: #FAF7F2 !important;
+  opacity: 0.45 !important;
 }
 
 [data-theme="dark"] .edu-node {
@@ -1699,10 +1737,10 @@ img {
   }
 }
 
-/* ── Dark Mode Cursor Overrides ── */
+/* ── Dark Mode Cursor Overrides (Clean, No Diffuse Glow) ── */
 [data-theme="dark"] .cursor-dot {
   background: var(--yellow);
-  box-shadow: 0 0 10px rgba(245, 200, 81, 0.55);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .cursor-outline {
@@ -1710,9 +1748,9 @@ img {
 }
 
 [data-theme="dark"] .cursor-outline.cursor-hover {
-  background: rgba(245, 200, 81, 0.12);
+  background: transparent;
   border-color: var(--yellow);
-  box-shadow: 0 0 16px rgba(245, 200, 81, 0.3);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .cursor-outline.cursor-view {
@@ -3181,6 +3219,17 @@ img {
   user-select: none;
 }
 
+.stat-pill .stat-num {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-weight: 800;
+  color: #1428A0;
+}
+
+.stat-pill .stat-label {
+  color: #363630;
+  font-weight: 600;
+}
+
 .stat-pill-dot {
   width: 7px;
   height: 7px;
@@ -3528,11 +3577,25 @@ img {
    PHASE 4: SECTION HEADERS & ABOUT CARDS — NEO-BRUTALIST
    ============================================================ */
 
-/* ── Global Section Base ── */
+/* ── Global Section Base & Clear Chapter Dividers ── */
 .section {
-  padding: 70px 0 60px;
-  border-bottom: 2px dashed rgba(26, 26, 23, 0.18);
+  padding: clamp(60px, 7vw, 90px) 0;
+  border-bottom: 2px dashed rgba(20, 20, 18, 0.16);
   content-visibility: visible;
+}
+
+.section:last-of-type,
+.contact-section {
+  border-bottom: none !important;
+}
+
+[data-theme="dark"] .section {
+  border-bottom: 2px dashed rgba(250, 247, 242, 0.16) !important;
+}
+
+[data-theme="dark"] .section:last-of-type,
+[data-theme="dark"] .contact-section {
+  border-bottom: none !important;
 }
 
 .section-label {
@@ -3698,6 +3761,7 @@ img {
   }
 }
 
+.about-card h3,
 .about-card h4 {
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -7381,7 +7445,6 @@ img {
 [data-theme="dark"] .theme-toggle-btn .theme-sun {
   display: inline-block;
   color: #FFE052;
-  filter: drop-shadow(0 0 6px rgba(255, 224, 82, 0.5));
 }
 
 .mobile-header-actions {

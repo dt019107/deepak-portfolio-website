@@ -2530,7 +2530,7 @@ img {
 /* ── P5. HERO — editorial typography upgrade ── */
 .hero-title {
   font-size: clamp(3rem, 5.5vw, 4.8rem);
-  font-family: 'Syne', 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   letter-spacing: -2.5px;
   line-height: 1.05;
 }
@@ -2587,13 +2587,13 @@ img {
 }
 
 .stat-num {
-  font-family: 'Syne', 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   letter-spacing: -2px;
 }
 
 /* ── P7. SECTION HEADINGS ── */
 .section-title {
-  font-family: 'Syne', 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   letter-spacing: -2px;
 }
 
@@ -2706,7 +2706,7 @@ img {
 }
 
 .project-info h3 {
-  font-family: 'Syne', 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-weight: 700;
   letter-spacing: -0.3px;
   transition: color 0.2s ease;
@@ -2843,7 +2843,7 @@ img {
 
 /* ── P15. FOOTER ── */
 .footer-logo {
-  font-family: 'Syne', 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-weight: 800;
   letter-spacing: -0.5px;
   box-shadow: 0 2px 8px rgba(46, 86, 224, 0.1), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
@@ -2895,7 +2895,7 @@ img {
 
 /* ── P17. ROLE CYCLER ── */
 .rw {
-  font-family: 'Syne', 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-weight: 700;
   letter-spacing: -0.3px;
 }
@@ -2946,7 +2946,7 @@ img {
 
   .hero-title,
   .section-title {
-    font-family: 'Syne', 'Inter', sans-serif;
+    font-family: var(--font-display, 'Space Grotesk', sans-serif);
     letter-spacing: -1.5px;
   }
 }
@@ -3017,7 +3017,7 @@ img {
 }
 
 .profile-name {
-  font-family: 'Syne', 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   letter-spacing: -0.5px;
 }
 
@@ -3409,7 +3409,7 @@ img {
 }
 
 .stat-num {
-  font-family: 'Syne', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-weight: 800;
   font-size: 2.8rem;
   color: var(--cobalt-900);
@@ -3420,7 +3420,7 @@ img {
 }
 
 .stat-plus {
-  font-family: 'Syne', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--tangerine-500);
@@ -3444,7 +3444,7 @@ img {
 
 /* ── Profile Name Fine-tuning ── */
 .profile-name {
-  font-family: 'Syne', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-weight: 700;
   letter-spacing: -0.6px;
   font-stretch: 100%;
@@ -5755,7 +5755,7 @@ img[loading="lazy"] {
 
 [data-theme="dark"] .projects-card:hover {
   border-color: #FFDF4A !important;
-  box-shadow: 8px 8px 0 #FFDF4A, 0 20px 48px rgba(255, 223, 74, 0.22) !important;
+  box-shadow: 8px 8px 0 #FFDF4A !important;
 }
 
 [data-theme="dark"] .projects-card .projects-stamp-num {
@@ -5876,7 +5876,6 @@ img[loading="lazy"] {
 
 [data-theme="dark"] .projects-stat-cell .stat-number {
   color: #FFDF4A !important;
-  text-shadow: 0 0 14px rgba(255, 223, 74, 0.35) !important;
 }
 
 [data-theme="dark"] .projects-stat-cell .stat-label {
@@ -6147,23 +6146,36 @@ img[loading="lazy"] {
 }
 
 [data-theme="dark"] .exp-card--current {
-  background: #F5C851 !important;
-  color: #1A1A17 !important;
-  border: 2.5px solid #0E0E0C !important;
-  box-shadow: 6px 6px 0 #FAF7F2 !important;
+  background: #191914 !important;
+  color: #FAF7F2 !important;
+  border: 2.5px solid #FFDF4A !important;
+  box-shadow: 6px 6px 0 #FFDF4A !important;
 }
 
-[data-theme="dark"] .exp-card--current .exp-role,
-[data-theme="dark"] .exp-card--current .exp-col-title,
+[data-theme="dark"] .exp-card--current .exp-role {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .exp-card--current .exp-company {
+  color: #FFDF4A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .exp-card--current .exp-col-title {
+  color: #FFFFFF !important;
+}
+
 [data-theme="dark"] .exp-card--current .exp-bullets li,
 [data-theme="dark"] .exp-card--current .exp-dates {
-  color: #1A1A17 !important;
+  color: #EDE8DF !important;
 }
 
 [data-theme="dark"] .exp-card--current .tl-badge--current {
-  background: #0E0E0C !important;
-  color: #FAF7F2 !important;
-  border-color: #0E0E0C !important;
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+  border: 1.5px solid #0E0E0C !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+  font-weight: 800 !important;
 }
 
 [data-theme="dark"] .exp-card--past {
@@ -6177,7 +6189,7 @@ img[loading="lazy"] {
 }
 
 [data-theme="dark"] .exp-card--past .exp-company {
-  color: #7B8BFF !important;
+  color: #8EA0FF !important;
   font-weight: 800 !important;
 }
 
