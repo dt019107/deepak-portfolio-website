@@ -407,6 +407,35 @@
   box-shadow: 4px 4px 0 #FAF7F2 !important;
 }
 
+/* ── Hero Client Badges in Dark Mode ── */
+[data-theme="dark"] .hero-clients-label {
+  color: #C8C5BC !important;
+}
+
+[data-theme="dark"] .hero-clients-bullet {
+  background: #FFDF4A !important;
+}
+
+[data-theme="dark"] .hero-client-pill {
+  background: #FFFFFF !important;
+  color: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .hero-client-pill:hover {
+  box-shadow: 4.5px 4.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .hero-client-name {
+  color: #0E0E0C !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .hero-client-icon img {
+  filter: none !important;
+}
+
 [data-theme="dark"] .stat-pill {
   background: #1E1E1A !important;
   color: #FAF7F2 !important;
@@ -3192,6 +3221,111 @@ img {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 var(--ink);
   }
+}
+
+/* ── Hero Client & Brand Experience Strip ── */
+.hero-clients {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.hero-clients-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3, #5F605A);
+  user-select: none;
+}
+
+.hero-clients-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue, #3D4FF8);
+  display: inline-block;
+}
+
+.hero-clients-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-client-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 12px;
+  background: var(--white, #FFFFFF);
+  border: 1.5px solid var(--ink, #141412);
+  border-radius: var(--radius-full, 9999px);
+  box-shadow: 3px 3px 0 var(--ink, #141412);
+  user-select: none;
+  cursor: default;
+  transition: transform var(--dur-fast, 0.2s) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+              box-shadow var(--dur-fast, 0.2s) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+}
+
+.hero-client-pill:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 4.5px 4.5px 0 var(--ink, #141412);
+}
+
+.hero-client-pill--serviceplan {
+  padding: 11px 20px;
+}
+
+.hero-client-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-client-icon--bmw img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-client-icon--mini img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-client-icon--gads img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-client-icon--serviceplan img {
+  width: 168px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-client-name {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink, #141412);
+  letter-spacing: -0.01em;
 }
 
 /* ── Compact Stats Strip ── */
@@ -7938,6 +8072,48 @@ img {
 
   .hero-stats-strip {
     gap: 8px;
+  }
+
+  .hero-clients {
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  .hero-clients-strip {
+    gap: 8px;
+  }
+
+  .hero-client-pill {
+    padding: 6px 14px 6px 10px;
+    gap: 9px;
+  }
+
+  .hero-client-pill--serviceplan {
+    padding: 8px 14px;
+  }
+
+  .hero-client-icon--bmw img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero-client-icon--mini img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero-client-icon--gads img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hero-client-icon--serviceplan img {
+    width: 140px;
+    height: 15px;
+  }
+
+  .hero-client-name {
+    font-size: 13px;
   }
 
   .stat-pill {

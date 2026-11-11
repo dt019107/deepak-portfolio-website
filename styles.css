@@ -5686,6 +5686,35 @@ img[loading="lazy"] {
   font-weight: 800 !important;
 }
 
+/* ── Hero Client Badges in Dark Mode ── */
+[data-theme="dark"] .hero-clients-label {
+  color: #C8C5BC !important;
+}
+
+[data-theme="dark"] .hero-clients-bullet {
+  background: #FFDF4A !important;
+}
+
+[data-theme="dark"] .hero-client-pill {
+  background: #FFFFFF !important;
+  color: #0E0E0C !important;
+  border-color: #0E0E0C !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .hero-client-pill:hover {
+  box-shadow: 4.5px 4.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .hero-client-name {
+  color: #0E0E0C !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="dark"] .hero-client-icon img {
+  filter: none !important;
+}
+
 [data-theme="dark"] .hero-cluster-col .cluster-card {
   background: #1A1A16 !important;
   border: 2.5px solid #FAF7F2 !important;
