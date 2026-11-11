@@ -3082,12 +3082,12 @@ img {
 /* ── Hero Title (~1.6x size, tight-tracked) ── */
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 6.4vw, 5rem);
+  font-size: clamp(2.4rem, 4vw, 3.75rem);
   font-weight: 800;
-  line-height: 1.03;
-  letter-spacing: -0.045em;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
   color: var(--ink);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   word-break: break-word;
 }
 
@@ -3114,12 +3114,12 @@ img {
   display: inline-block;
   background: var(--blue);
   color: #FFFFFF !important;
-  padding: 2px 14px 4px;
+  padding: 2px 12px 4px;
   border: 3px solid var(--ink);
   border-radius: 8px;
-  box-shadow: 4px 4px 0 var(--ink);
+  box-shadow: 3.5px 3.5px 0 var(--ink);
   transform: rotate(-2deg);
-  margin: 0 4px;
+  margin: 0 3px;
   vertical-align: baseline;
   position: relative;
   clip-path: inset(0 100% 0 0);
@@ -3697,7 +3697,7 @@ img {
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.15rem;
   }
 
   .hero-tag {
@@ -7409,7 +7409,7 @@ img {
 /* ── 360px: min supported mobile ── */
 @media (max-width: 480px) {
   .hero-title {
-    font-size: clamp(2rem, 10vw, 2.8rem);
+    font-size: clamp(1.75rem, 8vw, 2.3rem);
   }
 
   .section-title {
@@ -8008,7 +8008,7 @@ img {
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 7.5vw, 3.2rem) !important;
+    font-size: clamp(1.95rem, 6vw, 2.65rem) !important;
     text-align: left !important;
     line-height: 1.1 !important;
     letter-spacing: -0.035em !important;
@@ -8065,7 +8065,7 @@ img {
   }
 
   .hero-title {
-    font-size: clamp(2rem, 8vw, 2.75rem) !important;
+    font-size: clamp(1.75rem, 7vw, 2.25rem) !important;
     line-height: 1.12 !important;
     letter-spacing: -0.03em !important;
   }
@@ -8182,7 +8182,7 @@ img {
 /* ── Small Phones (≤ 420px) ── */
 @media (max-width: 420px) {
   .hero-title {
-    font-size: clamp(1.8rem, 8.5vw, 2.3rem) !important;
+    font-size: clamp(1.55rem, 7.5vw, 1.95rem) !important;
     line-height: 1.15 !important;
   }
 

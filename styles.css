@@ -1952,7 +1952,7 @@ img {
   }
 
   .hero-title {
-    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-size: clamp(2rem, 3.5vw, 2.85rem);
   }
 
   .stats-bento-grid {
@@ -2041,7 +2041,7 @@ img {
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    font-size: clamp(1.95rem, 5vw, 2.65rem);
     letter-spacing: -1.5px;
     text-align: center;
   }
@@ -2121,7 +2121,7 @@ img {
   }
 
   .hero-title {
-    font-size: clamp(2rem, 9vw, 2.8rem);
+    font-size: clamp(1.75rem, 7.5vw, 2.3rem);
     letter-spacing: -1px;
     text-align: center;
   }
@@ -2529,10 +2529,10 @@ img {
 
 /* ── P5. HERO — editorial typography upgrade ── */
 .hero-title {
-  font-size: clamp(3rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 4vw, 3.75rem);
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  letter-spacing: -2.5px;
-  line-height: 1.05;
+  letter-spacing: -2px;
+  line-height: 1.08;
 }
 
 .grad-name {
