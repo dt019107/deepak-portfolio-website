@@ -4585,6 +4585,38 @@ img {
   font-weight: 600;
 }
 
+/* ── Integrated Certifications within Education Block ── */
+.edu-certs-wrap {
+  margin-top: 24px;
+  max-width: 720px;
+}
+
+.edu-certs-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3, #5F605A);
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+.edu-certs-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue, #3D4FF8);
+  display: inline-block;
+}
+
+[data-theme="dark"] .edu-certs-label {
+  color: #DCD8CF !important;
+}
+
 /* ── Responsive Timeline (Mobile: Line on left edge, cards stacked full width) ── */
 @media (max-width: 768px) {
   .timeline {
