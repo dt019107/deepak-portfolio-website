@@ -730,6 +730,16 @@
   font-weight: 700;
 }
 
+[data-theme="dark"] .exp-summary-text {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(250, 247, 242, 0.2) !important;
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .exp-summary-text strong {
+  color: #FFDF4A !important;
+}
+
 /* Past Role: Charcoal Card with Crisp White & Luminous Cobalt */
 [data-theme="dark"] .exp-card--past {
   background: #1E1E1A !important;
@@ -4301,6 +4311,18 @@ img {
   margin-bottom: 0;
 }
 
+.exp-summary-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 18px 0;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1.5px solid rgba(26, 26, 23, 0.2);
+  border-radius: var(--radius-md, 10px);
+}
+
 .exp-columns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4366,6 +4388,10 @@ img {
 
 .timeline-item.revealed .exp-bullets li:nth-child(3) {
   transition-delay: 240ms;
+}
+
+.timeline-item.revealed .exp-bullets li:nth-child(4) {
+  transition-delay: 320ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
