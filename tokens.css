@@ -6992,7 +6992,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #FFFFFF;
+  background: #FFFFFF !important;
   overflow: hidden;
   flex-shrink: 0;
   transition: transform var(--dur-fast) var(--ease-spring);
