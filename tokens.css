@@ -310,30 +310,30 @@
   color: #EDE8DF !important;
 }
 
-[data-theme="dark"] .nb-card--yellow h1,
-[data-theme="dark"] .nb-card--yellow h2,
-[data-theme="dark"] .nb-card--yellow h3,
-[data-theme="dark"] .nb-card--yellow h4,
-[data-theme="dark"] .nb-card--yellow p,
-[data-theme="dark"] .nb-card--yellow span:not(.nb-pill--blue):not(.badge-dark),
-[data-theme="dark"] .nb-card--mint h1,
-[data-theme="dark"] .nb-card--mint h2,
-[data-theme="dark"] .nb-card--mint h3,
-[data-theme="dark"] .nb-card--mint h4,
-[data-theme="dark"] .nb-card--mint p,
-[data-theme="dark"] .nb-card--mint span:not(.nb-pill--blue):not(.badge-dark),
-[data-theme="dark"] .nb-card--lavender h1,
-[data-theme="dark"] .nb-card--lavender h2,
-[data-theme="dark"] .nb-card--lavender h3,
-[data-theme="dark"] .nb-card--lavender h4,
-[data-theme="dark"] .nb-card--lavender p,
-[data-theme="dark"] .nb-card--lavender span:not(.nb-pill--blue):not(.badge-dark),
-[data-theme="dark"] .nb-card--pink h1,
-[data-theme="dark"] .nb-card--pink h2,
-[data-theme="dark"] .nb-card--pink h3,
-[data-theme="dark"] .nb-card--pink h4,
-[data-theme="dark"] .nb-card--pink p,
-[data-theme="dark"] .nb-card--pink span:not(.nb-pill--blue):not(.badge-dark) {
+[data-theme="dark"] .nb-card--yellow:not(.about-card):not(.contact-card) h1,
+[data-theme="dark"] .nb-card--yellow:not(.about-card):not(.contact-card) h2,
+[data-theme="dark"] .nb-card--yellow:not(.about-card):not(.contact-card) h3,
+[data-theme="dark"] .nb-card--yellow:not(.about-card):not(.contact-card) h4,
+[data-theme="dark"] .nb-card--yellow:not(.about-card):not(.contact-card) p,
+[data-theme="dark"] .nb-card--yellow:not(.about-card):not(.contact-card) span:not(.nb-pill--blue):not(.badge-dark),
+[data-theme="dark"] .nb-card--mint:not(.about-card):not(.contact-card) h1,
+[data-theme="dark"] .nb-card--mint:not(.about-card):not(.contact-card) h2,
+[data-theme="dark"] .nb-card--mint:not(.about-card):not(.contact-card) h3,
+[data-theme="dark"] .nb-card--mint:not(.about-card):not(.contact-card) h4,
+[data-theme="dark"] .nb-card--mint:not(.about-card):not(.contact-card) p,
+[data-theme="dark"] .nb-card--mint:not(.about-card):not(.contact-card) span:not(.nb-pill--blue):not(.badge-dark),
+[data-theme="dark"] .nb-card--lavender:not(.about-card):not(.contact-card) h1,
+[data-theme="dark"] .nb-card--lavender:not(.about-card):not(.contact-card) h2,
+[data-theme="dark"] .nb-card--lavender:not(.about-card):not(.contact-card) h3,
+[data-theme="dark"] .nb-card--lavender:not(.about-card):not(.contact-card) h4,
+[data-theme="dark"] .nb-card--lavender:not(.about-card):not(.contact-card) p,
+[data-theme="dark"] .nb-card--lavender:not(.about-card):not(.contact-card) span:not(.nb-pill--blue):not(.badge-dark),
+[data-theme="dark"] .nb-card--pink:not(.about-card):not(.contact-card) h1,
+[data-theme="dark"] .nb-card--pink:not(.about-card):not(.contact-card) h2,
+[data-theme="dark"] .nb-card--pink:not(.about-card):not(.contact-card) h3,
+[data-theme="dark"] .nb-card--pink:not(.about-card):not(.contact-card) h4,
+[data-theme="dark"] .nb-card--pink:not(.about-card):not(.contact-card) p,
+[data-theme="dark"] .nb-card--pink:not(.about-card):not(.contact-card) span:not(.nb-pill--blue):not(.badge-dark) {
   color: #0E0E0C;
 }
 
@@ -348,7 +348,7 @@
 }
 
 [data-theme="dark"] .nb-pill--blue {
-  background: #5C6CFF !important;
+  background: #2563EB !important;
   color: #FFFFFF !important;
   border-color: #0E0E0C !important;
   font-weight: 700 !important;
@@ -379,10 +379,16 @@
 }
 
 [data-theme="dark"] .highlight-block {
-  background: #3D4FF8 !important;
-  border-color: #FAF7F2 !important;
+  background: #FFDF4A !important;
+  border-color: #0E0E0C !important;
   box-shadow: 4px 4px 0 #FAF7F2 !important;
-  color: #FFFFFF !important;
+  color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .highlight-block .hero-word-split,
+[data-theme="dark"] .highlight-block span {
+  color: #0E0E0C !important;
+  font-weight: 850 !important;
 }
 
 [data-theme="dark"] .hero-company-badge {
@@ -496,7 +502,7 @@
 }
 
 [data-theme="dark"] .cluster-pill.nb-pill--blue {
-  background: #586BFF !important;
+  background: #2563EB !important;
   color: #FFFFFF !important;
   border-color: #0E0E0C !important;
 }
@@ -595,19 +601,41 @@
 /* ── About Cards in Dark Mode (Obsidian Substrate + Neon Accent Glyphs) ── */
 [data-theme="dark"] .about-card {
   background: #151512 !important;
-  border: 2px solid rgba(250, 247, 242, 0.85) !important;
+  border: 2px solid #FAF7F2 !important;
   box-shadow: 5px 5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .about-card--yellow {
+  border-top: 6px solid #FFDF4A !important;
+}
+
+[data-theme="dark"] .about-card--mint {
+  border-top: 6px solid #53EAA2 !important;
+}
+
+[data-theme="dark"] .about-card--lavender {
+  border-top: 6px solid #D5BFFF !important;
 }
 
 [data-theme="dark"] .about-card h3,
 [data-theme="dark"] .about-card h4 {
   color: #FFFFFF !important;
-  font-weight: 800;
+  font-weight: 800 !important;
 }
 
 [data-theme="dark"] .about-card p {
-  color: #D0CCC2 !important;
-  font-weight: 500;
+  color: #EDE8DF !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="dark"] .about-card-pill {
+  background: #252520 !important;
+  border: 1.5px solid #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .about-card-tag {
+  color: #FAF7F2 !important;
 }
 
 [data-theme="dark"] .about-card .about-card-icon {
@@ -892,6 +920,10 @@
 
 [data-theme="dark"] .contact-card p {
   color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .contact-card span:not(.required-indicator):not(.nb-pill--blue) {
+  color: #FAF7F2 !important;
 }
 
 [data-theme="dark"] .contact-form label,
@@ -3141,7 +3173,7 @@ img {
 }
 
 .highlight-block .hero-word-split {
-  color: #FFFFFF !important;
+  color: inherit;
   opacity: 1;
   transform: none;
 }

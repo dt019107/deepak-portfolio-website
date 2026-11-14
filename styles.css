@@ -819,8 +819,8 @@ img {
 
 .rc-desc {
   font-size: 0.72rem;
-  font-weight: 500;
-  color: rgba(14, 14, 12, 0.7);
+  font-weight: 600;
+  color: #383832;
   line-height: 1.35;
   margin-top: 2px;
 }
@@ -950,7 +950,7 @@ img {
 .sc-summary {
   font-size: 0.84rem;
   line-height: 1.45;
-  color: rgba(14, 14, 12, 0.78);
+  color: #2C2C28;
   font-weight: 500;
   margin: 0 0 16px;
 }
@@ -1014,7 +1014,7 @@ img {
 .sc-pill-sub {
   font-size: 0.74rem;
   font-weight: 600;
-  color: rgba(14, 14, 12, 0.6);
+  color: #383832;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1090,7 +1090,7 @@ img {
 }
 
 .sc-recruiter-proof i {
-  color: #10A37F;
+  color: #047857;
 }
 
 /* ── 14C. CLEAN REDESIGNED PROCESS SECTION (SMALL-MEDIUM CARDS) ── */
@@ -1232,7 +1232,7 @@ img {
 }
 
 .process-card--define .pc-num {
-  background: #5C6CFF;
+  background: #2563EB;
   color: #FFFFFF;
   border: 1px solid #0E0E0C;
 }
@@ -1292,12 +1292,12 @@ img {
 }
 
 .process-card--deliver .pc-focus {
-  color: #059669;
+  color: #047857;
 }
 
 .pc-summary {
   font-size: 0.81rem;
-  color: rgba(14, 14, 12, 0.78);
+  color: #2C2C28;
   line-height: 1.48;
   margin: 0 0 14px;
   font-weight: 500;
@@ -1332,7 +1332,7 @@ img {
 }
 
 .process-card--discover .pc-tag i {
-  color: #D97706;
+  color: #B45309;
 }
 
 .process-card--define .pc-tag i {
@@ -1344,7 +1344,7 @@ img {
 }
 
 .process-card--deliver .pc-tag i {
-  color: #059669;
+  color: #047857;
 }
 
 .pc-footer {
@@ -1446,7 +1446,7 @@ img {
   justify-content: center;
   font-size: 1.1rem;
   background: #FFFFFF !important;
-  color: #fff;
+  color: var(--ink);
   flex-shrink: 0;
 }
 
@@ -1550,11 +1550,11 @@ img {
   align-items: center;
   gap: 10px;
   padding: 14px 18px;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: rgba(4, 120, 87, 0.12);
+  border: 1.5px solid #047857;
   border-radius: 12px;
-  color: #16a34a;
-  font-weight: 600;
+  color: #065F46;
+  font-weight: 700;
   font-size: 0.88rem;
   margin-top: 12px;
 }
@@ -1564,35 +1564,35 @@ img {
   align-items: center;
   gap: 10px;
   padding: 14px 18px;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(185, 28, 28, 0.1);
+  border: 1.5px solid #B91C1C;
   border-radius: 12px;
-  color: #dc2626;
-  font-weight: 500;
+  color: #B91C1C;
+  font-weight: 600;
   font-size: 0.88rem;
   margin-top: 12px;
   line-height: 1.45;
 }
 
 .required-indicator {
-  color: #ef4444;
+  color: #B91C1C;
   margin-left: 2px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .form-group input.is-invalid,
 .form-group select.is-invalid,
 .form-group textarea.is-invalid {
-  border-color: #ef4444 !important;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18) !important;
+  border-color: #B91C1C !important;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.22) !important;
 }
 
 .field-error-msg {
   display: block;
   font-size: 0.78rem;
-  color: #ef4444;
+  color: #B91C1C;
   margin-top: 5px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* ── HOW I WORK / PROCESS GRID ── */
@@ -1677,6 +1677,24 @@ img {
 [data-theme="dark"] .process-proof-box {
   background: rgba(250, 247, 242, 0.08);
   border-color: rgba(250, 247, 242, 0.4);
+}
+
+[data-theme="dark"] .process-proof-box .proof-label {
+  color: #7B8BFF !important;
+}
+
+[data-theme="dark"] .process-proof-box p {
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .rc-desc {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .process-card--define .pc-num {
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  border-color: #FAF7F2 !important;
 }
 
 .process-proof-box .proof-label {
@@ -2652,6 +2670,57 @@ img {
   color: #ffffff;
 }
 
+.about-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.about-card-pill {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(26, 26, 23, 0.08);
+  border: 1px solid rgba(26, 26, 23, 0.18);
+  color: var(--ink);
+}
+
+.about-card-footer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(26, 26, 23, 0.18);
+}
+
+.about-card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+[data-theme="dark"] .about-card-pill {
+  background: rgba(250, 247, 242, 0.12);
+  border-color: rgba(250, 247, 242, 0.25);
+  color: #FAF7F2;
+}
+
+[data-theme="dark"] .about-card-footer {
+  border-top-color: rgba(250, 247, 242, 0.2);
+}
+
+[data-theme="dark"] .about-card-tag {
+  color: #FAF7F2;
+}
+
 /* ── P9. TIMELINE ── */
 .timeline::before {
   background: linear-gradient(to bottom,
@@ -3172,7 +3241,7 @@ img {
 .hero-title .hero-name-row {
   display: block;
   margin-bottom: 4px;
-  color: rgb(222, 141, 255);
+  color: var(--ink);
 }
 
 .hero-title .hero-greeting {
@@ -5487,7 +5556,7 @@ img[loading="lazy"] {
   transform: scale(1.22);
 }
 
-.skills-chip[data-skill="canva"]:hover .skills-chip-icon {
+.skills-chip[data-skill="design-systems"]:hover .skills-chip-icon {
   transform: scale(1.2) rotate(6deg);
 }
 
@@ -5688,7 +5757,14 @@ img[loading="lazy"] {
   background: #FFDF4A !important;
   color: #0E0E0C !important;
   border: 2px solid #0E0E0C !important;
-  font-weight: 800 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+  font-weight: 850 !important;
+}
+
+[data-theme="dark"] .highlight-block .hero-word-split,
+[data-theme="dark"] .highlight-block span {
+  color: #0E0E0C !important;
+  font-weight: 850 !important;
 }
 
 /* ── Hero Client Badges in Dark Mode ── */
@@ -6283,6 +6359,33 @@ img[loading="lazy"] {
   color: #AFAAA0 !important;
 }
 
+[data-theme="dark"] .required-indicator {
+  color: #FCA5A5 !important;
+}
+
+[data-theme="dark"] .field-error-msg {
+  color: #FCA5A5 !important;
+}
+
+[data-theme="dark"] .form-group input.is-invalid,
+[data-theme="dark"] .form-group select.is-invalid,
+[data-theme="dark"] .form-group textarea.is-invalid {
+  border-color: #F87171 !important;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.3) !important;
+}
+
+[data-theme="dark"] .form-success {
+  background: rgba(52, 211, 153, 0.16) !important;
+  border-color: #34D399 !important;
+  color: #34D399 !important;
+}
+
+[data-theme="dark"] .form-error {
+  background: rgba(248, 113, 113, 0.16) !important;
+  border-color: #F87171 !important;
+  color: #FCA5A5 !important;
+}
+
 [data-theme="dark"] .nb-btn--blue,
 [data-theme="dark"] #send-btn {
   background: #3D4FF8 !important;
@@ -6338,4 +6441,999 @@ img[loading="lazy"] {
 [data-theme="dark"] ::selection {
   background: #FFDF4A !important;
   color: #0E0E0C !important;
+}
+
+/* ============================================================
+   TESTIMONIALS / WHAT COLLEAGUES SAY (SOFT NEO-BRUTALIST)
+   ============================================================ */
+.testimonials-section {
+  position: relative;
+}
+
+.testimonials-header {
+  margin-bottom: 24px;
+}
+
+.testimonials-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.kudos-trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.kudos-source-badge,
+.kudos-metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.kudos-heart-icon {
+  color: #BE123C;
+  font-size: 13px;
+}
+
+.kudos-star-icon {
+  color: #B45309;
+  font-size: 13px;
+}
+
+/* ── Recruiter Quick Take: 4 Superpowers Bento ── */
+/* ============================================================
+   KUDOS BENTO GRID SHOWCASE
+   ============================================================ */
+.kudos-bento-wall {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.kudos-bento-item {
+  position: relative;
+  background: var(--white);
+  border: 2.5px solid var(--ink);
+  border-radius: 18px;
+  padding: 24px 22px 20px;
+  box-shadow: 4px 4px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 230px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.kudos-bento-item.is-hidden {
+  display: none !important;
+}
+
+.kudos-bento-item:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.kudos-bento-item--span-2 {
+  grid-column: span 2;
+}
+
+/* Background Color Themes */
+.kudos-bento-item--yellow { background: #FFFDF0; border-top: 6px solid #FFDF4A; }
+.kudos-bento-item--peach { background: #FFF9F5; border-top: 6px solid #FF9A56; }
+.kudos-bento-item--mint { background: #F2FCF7; border-top: 6px solid #0ACF83; }
+.kudos-bento-item--blue { background: #F0F5FF; border-top: 6px solid #3040F8; }
+.kudos-bento-item--lavender { background: #F7F3FF; border-top: 6px solid #9B82EA; }
+.kudos-bento-item--pink { background: #FFF2F6; border-top: 6px solid #FF6584; }
+.kudos-bento-item--cream { background: #FAF7F2; border-top: 6px solid #DCD8CF; }
+
+/* Bento Top Header */
+.kudos-bento-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.kudos-bento-badge {
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  background: var(--white);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kudos-bento-verified {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: #047857;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Quote content */
+.kudos-bento-quote-wrap {
+  flex: 1;
+}
+
+.kudos-bento-lead-quote {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+}
+
+.kudos-bento-item--span-2 .kudos-bento-lead-quote {
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+.kudos-bento-sub-quote {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #52524C;
+  margin: 8px 0 0;
+}
+
+/* Author footer */
+.kudos-bento-author-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(26, 26, 23, 0.15);
+}
+
+.kudos-bento-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ink);
+}
+
+.kudos-bento-author-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+}
+
+.kudos-bento-author-role {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: #52524C;
+  margin: 2px 0 0;
+}
+
+/* Bento Hub Card (14 Notes Gateway) */
+.kudos-bento-hub {
+  background: var(--yellow) !important;
+  border-top: 6px solid var(--ink) !important;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kudos-bento-hub-center {
+  margin: 10px 0;
+}
+
+.kudos-bento-hub-stat {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.kudos-bento-hub-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 8px 0 0;
+  font-weight: 500;
+}
+
+.kudos-bento-hub-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kudos-bento-hub-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* Collapsible Full Letters Archive */
+.kudos-full-archive {
+  margin-top: 36px;
+  transition: all 0.3s ease;
+}
+
+.kudos-full-archive.is-collapsed {
+  display: none !important;
+}
+
+.kudos-archive-header {
+  margin-bottom: 18px;
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+  .kudos-bento-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .kudos-bento-wall {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .kudos-bento-item--span-2 {
+    grid-column: span 1;
+  }
+}
+
+/* ── Filter Bar ── */
+.kudos-filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0 32px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.kudos-filter-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.kudos-filter-bar::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border-radius: 4px;
+}
+
+.kudos-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  min-height: 44px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 3.5px 3.5px 0 var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.kudos-filter-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.kudos-filter-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.kudos-filter-btn:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.kudos-filter-btn.is-active {
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow: 3.5px 3.5px 0 var(--blue);
+}
+
+.kudos-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.08);
+  color: inherit;
+}
+
+.kudos-filter-btn.is-active .kudos-filter-count {
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--cream);
+}
+
+/* ── Kudos Grid Layout (Natural Left-to-Right Row Flow) ── */
+.kudos-grid-wrap {
+  width: 100%;
+}
+
+.kudos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+  align-items: stretch;
+}
+
+@media (max-width: 1150px) {
+  .kudos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  .kudos-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ── Kudos Card ── */
+.kudos-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 0;
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  padding: 24px 20px 20px;
+  box-shadow: 4px 4px 0 var(--ink);
+  position: relative;
+  box-sizing: border-box;
+  background: var(--white);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+}
+
+.kudos-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.kudos-card:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.kudos-card.is-hidden {
+  display: none !important;
+}
+
+/* ── Washi Tape Accent ── */
+.kudos-card-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 68px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px dashed rgba(26, 26, 23, 0.4);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Card Color Themes ── */
+.kudos-card--yellow {
+  background: #FFF4D0;
+}
+
+.kudos-card--mint {
+  background: #E0F7ED;
+}
+
+.kudos-card--lavender {
+  background: #EFEAFE;
+}
+
+.kudos-card--pink {
+  background: #FDE8F3;
+}
+
+.kudos-card--blue {
+  background: #E8EEFF;
+}
+
+.kudos-card--cream {
+  background: #FAF7F2;
+}
+
+/* ── Card Header & Tag ── */
+.kudos-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.kudos-tag {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.kudos-verified {
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #047857;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(16, 185, 129, 0.14);
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  white-space: nowrap;
+}
+
+/* ── Standout Recruiter Takeaway ── */
+.kudos-standout-takeaway {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #1A1A17;
+  margin-bottom: 14px;
+  padding: 9px 12px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1.5px solid var(--ink);
+  border-radius: 9px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* ── Quote Body & Highlights ── */
+.kudos-quote-text {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: #1A1A17;
+  margin: 0 0 16px;
+  padding: 0;
+  quotes: none;
+  font-style: normal;
+}
+
+.kudos-highlight {
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--blue, #3040F8);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* ── Card Footer & Author ── */
+.kudos-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(26, 26, 23, 0.22);
+  margin-top: auto;
+}
+
+.kudos-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  color: #1A1A17;
+  box-shadow: 2px 2px 0 var(--ink);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.kudos-author-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.kudos-author-name {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1A1A17;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.kudos-author-role {
+  font-size: 12px;
+  color: #4A4A45;
+  margin: 2px 0 0;
+  line-height: 1.3;
+}
+
+/* ── Recruiter Callout CTA Banner ── */
+.kudos-recruiter-cta {
+  margin-top: 48px;
+  border: 2.5px solid var(--ink);
+  border-radius: 20px;
+  padding: 34px 32px;
+  box-shadow: 6px 6px 0 var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  background: var(--yellow);
+  position: relative;
+  overflow: hidden;
+}
+
+.kudos-cta-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.kudos-cta-badge {
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.kudos-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.kudos-cta-desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: #2C2C28;
+  margin: 0;
+  max-width: 620px;
+}
+
+.kudos-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .kudos-recruiter-cta {
+    padding: 24px 20px;
+    gap: 20px;
+  }
+  .kudos-cta-actions {
+    width: 100%;
+  }
+  .kudos-cta-actions .btn-primary,
+  .kudos-cta-actions .btn-secondary-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Dark Mode Contrast Support ── */
+[data-theme="dark"] .kudos-card {
+  background: #181814 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-card:hover {
+  box-shadow: 6px 6px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-card-tape {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(250, 247, 242, 0.4) !important;
+}
+
+[data-theme="dark"] .kudos-tag {
+  border-color: #FAF7F2 !important;
+  background: #24241E !important;
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-verified,
+[data-theme="dark"] .kudos-bento-verified {
+  color: #34D399 !important;
+  background: rgba(52, 211, 153, 0.15) !important;
+  border-color: rgba(52, 211, 153, 0.4) !important;
+}
+
+[data-theme="dark"] .kudos-star-icon {
+  color: #FBBF24 !important;
+}
+
+[data-theme="dark"] .kudos-heart-icon {
+  color: #FB7185 !important;
+}
+
+[data-theme="dark"] .kudos-standout-takeaway {
+  background: #24241E !important;
+  border-color: #FAF7F2 !important;
+  color: #FFDF4A !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-quote-text {
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .kudos-highlight {
+  background: rgba(255, 223, 74, 0.18) !important;
+  color: #FFDF4A !important;
+  text-decoration-color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-footer {
+  border-top-color: rgba(250, 247, 242, 0.2) !important;
+}
+
+[data-theme="dark"] .kudos-author-name {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-author-role {
+  color: #A8A49C !important;
+}
+
+[data-theme="dark"] .kudos-avatar {
+  border-color: #FAF7F2 !important;
+  color: #0E0E0C !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-filter-btn {
+  background: #181814 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+  box-shadow: 3.5px 3.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-filter-btn.is-active {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .kudos-filter-btn .kudos-filter-count {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-filter-btn.is-active .kudos-filter-count {
+  background: #0E0E0C !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-source-badge,
+[data-theme="dark"] .kudos-metric-badge {
+  background: #181814 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-bento-item {
+  background: #181814 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+  box-shadow: 4px 4px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-bento-item--yellow { border-top: 6px solid #FFDF4A !important; }
+[data-theme="dark"] .kudos-bento-item--peach { border-top: 6px solid #FF9A56 !important; }
+[data-theme="dark"] .kudos-bento-item--mint { border-top: 6px solid #4EE39B !important; }
+[data-theme="dark"] .kudos-bento-item--blue { border-top: 6px solid #7B8BFF !important; }
+[data-theme="dark"] .kudos-bento-item--lavender { border-top: 6px solid #C8B8FF !important; }
+[data-theme="dark"] .kudos-bento-item--pink { border-top: 6px solid #FFA0CB !important; }
+[data-theme="dark"] .kudos-bento-item--cream { border-top: 6px solid #FAF7F2 !important; }
+
+[data-theme="dark"] .kudos-bento-item:hover {
+  box-shadow: 6px 6px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-bento-badge {
+  background: #252520 !important;
+  border-color: #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-bento-lead-quote {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-bento-sub-quote {
+  color: #DCD8CF !important;
+}
+
+[data-theme="dark"] .kudos-bento-author-name {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-bento-author-role {
+  color: #A8A49C !important;
+}
+
+[data-theme="dark"] .kudos-bento-avatar {
+  border-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-bento-author-row {
+  border-top-color: rgba(250, 247, 242, 0.2) !important;
+}
+
+[data-theme="dark"] .kudos-bento-hub {
+  background: #252520 !important;
+  border-top-color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-bento-hub-stat {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-bento-hub-text {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-bento-hub-btn {
+  background: #FFDF4A !important;
+  color: #1A1A17 !important;
+  border-color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-recruiter-cta {
+  background: #181814 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 6px 6px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .kudos-cta-badge {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+}
+
+[data-theme="dark"] .kudos-cta-title {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .kudos-cta-desc {
+  color: #DCD8CF !important;
+}
+
+/* ============================================================
+   EXPERIENCE SECTION: COMPACT BOTTOM-CORNER PREVIEW BOXES
+   ============================================================ */
+.exp-preview-corner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(26, 26, 23, 0.2);
+}
+
+.exp-preview-corner-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.exp-preview-live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--white);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.exp-preview-live-link:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0 var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.exp-preview-corner-cards {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.exp-mini-card-link {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: #FFFFFF;
+}
+
+.exp-mini-card-link:hover {
+  transform: translate(-2px, -3px) scale(1.025);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.exp-mini-card-link:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.exp-mini-card-img {
+  display: block;
+  height: 74px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* ── Dark Mode for Corner Preview Boxes ── */
+[data-theme="dark"] .exp-preview-corner-wrap {
+  border-top-color: rgba(250, 247, 242, 0.2);
+}
+
+[data-theme="dark"] .exp-preview-live-link {
+  background: #24241E;
+  color: #FAF7F2;
+  border-color: #FAF7F2;
+  box-shadow: 2px 2px 0 #FAF7F2;
+}
+
+[data-theme="dark"] .exp-preview-live-link:hover {
+  background: #FFDF4A;
+  color: #1A1A17;
+  box-shadow: 3.5px 3.5px 0 #FFDF4A;
+}
+
+[data-theme="dark"] .exp-mini-card-link {
+  border-color: #FAF7F2;
+  box-shadow: 3px 3px 0 #FAF7F2;
+  background: #181814;
+}
+
+[data-theme="dark"] .exp-mini-card-link:hover {
+  box-shadow: 5px 5px 0 #FFDF4A;
+  border-color: #FFDF4A;
+}
+
+@media (max-width: 640px) {
+  .exp-preview-corner-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .exp-preview-corner-cards {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .exp-mini-card-img {
+    height: 64px;
+  }
 }

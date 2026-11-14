@@ -1360,7 +1360,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tools: [
         { id: "figma", name: "Figma", size: "lg", usage: "Daily", stages: ["design", "prototype", "handoff"], tooltip: "Dev-ready design systems & multi-screen app flows" },
         { id: "framer", name: "Framer", size: "md", usage: "Regular", stages: ["design", "prototype", "build"], tooltip: "Interactive production prototypes & motion logic" },
-        { id: "canva", name: "Canva", size: "md", usage: "Regular", stages: ["design"], tooltip: "Fast collateral layout, deck graphics & assets" }
+        { id: "design-systems", name: "Design Systems", size: "md", usage: "Daily", stages: ["design", "prototype", "handoff"], tooltip: "Tokens, responsive components & dev-ready Figma specs" }
       ]
     },
     process: {
@@ -1742,4 +1742,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+// ============================================================
+// TESTIMONIALS / COLLEAGUE KUDOS BENTO & FILTER CONTROLLER
+// ============================================================
+(() => {
+  const filterBtns = document.querySelectorAll('.kudos-filter-btn');
+  const bentoItems = document.querySelectorAll('.kudos-bento-item[data-category]');
+  const cards = document.querySelectorAll('.kudos-card');
+  const toggleBtn = document.getElementById('kudos-toggle-full-notes');
+  const archive = document.getElementById('kudos-full-archive');
+  const chevron = document.getElementById('kudos-hub-chevron');
+
+  // 1. Toggle Full Letters Drawer
+  if (toggleBtn && archive) {
+    toggleBtn.addEventListener('click', () => {
+      const isCollapsed = archive.classList.toggle('is-collapsed');
+      toggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+      archive.setAttribute('aria-hidden', isCollapsed ? 'true' : 'false');
+      
+      const span = toggleBtn.querySelector('span');
+      if (span) {
+        span.textContent = isCollapsed ? 'View All 14 Complete Letters' : 'Hide Complete Letters';
+      }
+      if (chevron) {
+        chevron.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+
+      if (!isCollapsed) {
+        archive.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  // 2. Filter Handler across Bento & Detailed Cards
+  function setFilter(filter) {
+    filterBtns.forEach(btn => {
+      const match = btn.dataset.filter === filter;
+      btn.classList.toggle('is-active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+
+    // Filter Bento Items
+    bentoItems.forEach(item => {
+      const cats = (item.dataset.category || '').split(' ');
+      const visible = filter === 'all' || cats.includes(filter);
+      item.classList.toggle('is-hidden', !visible);
+    });
+
+    // Filter Detailed Archive Cards
+    cards.forEach(card => {
+      const cats = (card.dataset.category || '').split(' ');
+      const visible = filter === 'all' || cats.includes(filter);
+      card.classList.toggle('is-hidden', !visible);
+    });
+  }
+
+  if (filterBtns.length) {
+    filterBtns.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        setFilter(btn.dataset.filter);
+      });
+
+      // Keyboard Arrow navigation across tabs
+      btn.addEventListener('keydown', (e) => {
+        let targetIdx = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          targetIdx = (idx + 1) % filterBtns.length;
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          targetIdx = (idx - 1 + filterBtns.length) % filterBtns.length;
+        } else if (e.key === 'Home') {
+          targetIdx = 0;
+        } else if (e.key === 'End') {
+          targetIdx = filterBtns.length - 1;
+        }
+        if (targetIdx !== null) {
+          e.preventDefault();
+          filterBtns[targetIdx].focus();
+          filterBtns[targetIdx].click();
+        }
+      });
+    });
+  }
+})();
+
 
