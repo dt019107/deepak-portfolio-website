@@ -7437,3 +7437,529 @@ img[loading="lazy"] {
     height: 64px;
   }
 }
+
+/* ==========================================================================
+   EXECUTIVE EXPERIENCE & CREDENTIALS REDESIGN (Senior UX Portfolio Scale)
+   ========================================================================== */
+
+/* 1. Timeline Track & Nodes */
+.experience-section .timeline {
+  gap: 24px;
+}
+
+.experience-section .timeline-item {
+  gap: 16px;
+}
+
+.experience-section .tl-node {
+  width: 44px;
+  height: 44px;
+  border-width: 2.5px;
+}
+
+.experience-section .tl-logo-img {
+  width: 100%;
+  height: 100%;
+}
+
+.experience-section .tl-left {
+  padding-top: 2px;
+}
+
+/* 2. Executive Card Shells */
+.experience-section .exp-card {
+  border-width: 2.5px;
+  border-radius: var(--radius-lg, 14px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.experience-section .exp-card--current {
+  padding: 18px 22px 18px !important;
+  box-shadow: 5px 5px 0 var(--ink) !important;
+}
+
+.experience-section .exp-card--past {
+  padding: 16px 20px 16px !important;
+  box-shadow: 4px 4px 0 var(--ink) !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .experience-section .exp-card:hover,
+  .experience-section .timeline-item:hover .exp-card {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 7px 7px 0 var(--ink) !important;
+  }
+}
+
+/* 3. Streamlined Header */
+.experience-section .exp-card-header {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  gap: 12px;
+}
+
+.experience-section .exp-role-row {
+  gap: 8px;
+}
+
+.experience-section .exp-role {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem) !important;
+  letter-spacing: -0.02em;
+}
+
+.experience-section .exp-meta-row {
+  font-size: 13px !important;
+  gap: 6px;
+}
+
+.experience-section .exp-company {
+  font-size: 13.5px !important;
+}
+
+.experience-section .tl-badge--current {
+  background: #1A1A17 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #1A1A17 !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25) !important;
+  padding: 2.5px 9px !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+}
+
+.experience-section .tl-badge-dot {
+  background: #34D399 !important;
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.4) !important;
+}
+
+.experience-section .exp-collapse-btn {
+  width: 32px;
+  height: 32px;
+  border-width: 1.5px;
+}
+
+/* 4. Compact Summary Callout */
+.experience-section .exp-summary-text {
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  padding: 10px 14px !important;
+  margin-bottom: 14px !important;
+  border-radius: 8px;
+}
+
+/* Current Role: Crisp High-Contrast White Callout on Yellow Card */
+.experience-section .exp-card--current .exp-summary-text {
+  background: #FFFFFF !important;
+  border: 2px solid #1A1A17 !important;
+  box-shadow: 2.5px 2.5px 0 #1A1A17 !important;
+  color: #1A1A17 !important;
+}
+
+/* High-Contrast Bullet Arrows on Current Card */
+.experience-section .exp-card--current .exp-bullets li::before {
+  color: #12209E !important;
+  font-weight: 900 !important;
+}
+
+.experience-section .exp-card--current .exp-card-header {
+  border-bottom: 2px dashed rgba(26, 26, 23, 0.45) !important;
+}
+
+.experience-section .exp-card--current .exp-worked-on,
+.experience-section .exp-card--current .exp-tools-row {
+  border-top: 1.5px solid rgba(26, 26, 23, 0.35) !important;
+}
+
+.experience-section .exp-card--current .exp-collapse-btn {
+  background: #FFFFFF !important;
+  border: 2px solid #1A1A17 !important;
+  color: #1A1A17 !important;
+  box-shadow: 2px 2px 0 #1A1A17 !important;
+}
+
+.experience-section .exp-card--current .exp-collapse-btn:hover {
+  background: #1A1A17 !important;
+  color: #FFFFFF !important;
+}
+
+/* 5. High-Scannability Columns & Impact Bullets */
+.experience-section .exp-columns {
+  gap: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+.experience-section .exp-col {
+  gap: 6px !important;
+}
+
+.experience-section .exp-col-title {
+  font-size: 12.5px !important;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.experience-section .exp-bullets {
+  gap: 6px !important;
+}
+
+.experience-section .exp-bullets li {
+  font-size: 13.5px !important;
+  line-height: 1.48 !important;
+  padding-left: 18px !important;
+}
+
+.experience-section .exp-bullets li::before {
+  font-size: 13px;
+  line-height: 1.48;
+}
+
+/* 6. Metadata Strips (Worked on & Tools) */
+.experience-section .exp-worked-on,
+.experience-section .exp-tools-row {
+  gap: 8px !important;
+  padding-top: 10px !important;
+  margin-top: 10px !important;
+}
+
+.experience-section .exp-row-label {
+  font-size: 12px !important;
+  min-width: 72px;
+}
+
+.experience-section .exp-chips-wrap {
+  gap: 6px !important;
+}
+
+.experience-section .tool-chip {
+  font-size: 12px !important;
+  padding: 2.5px 9px !important;
+  border-width: 1.5px;
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+}
+
+.experience-section .exp-chip-placeholder {
+  font-size: 1rem !important;
+  padding: 1px 9px !important;
+}
+
+/* SAAA Live Preview Corner Card */
+.exp-mini-card-img {
+  height: 50px !important;
+}
+
+/* 7. Education & Certifications 2-Column Shelf */
+.education-block {
+  margin-top: 36px !important;
+  padding-left: 60px !important;
+}
+
+.edu-heading-row {
+  margin-bottom: 10px !important;
+}
+
+.subheading-tag {
+  font-size: 1.25rem !important;
+}
+
+.edu-flex-wrap {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.edu-flex-wrap .edu-card {
+  max-width: 100%;
+  height: 100%;
+  padding: 16px 18px;
+  border-width: 2.5px;
+  border-radius: var(--radius-lg, 14px);
+  box-shadow: 3.5px 3.5px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.edu-flex-wrap .edu-node {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 4px;
+}
+
+.edu-flex-wrap .edu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edu-flex-wrap .edu-degree {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.edu-flex-wrap .edu-uni {
+  font-size: 12.5px;
+  color: var(--text2);
+  font-weight: 600;
+}
+
+.edu-flex-wrap .edu-years {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.edu-flex-wrap .edu-sep {
+  display: none;
+}
+
+.edu-certs-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.edu-certs-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text2);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edu-certs-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: inline-block;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  margin-top: 0 !important;
+}
+
+.cert-card.nb-card {
+  padding: 8px 10px !important;
+  gap: 10px !important;
+  border-width: 2px !important;
+  border-radius: var(--radius-md, 10px) !important;
+  box-shadow: 2.5px 2.5px 0 var(--ink) !important;
+}
+
+.cert-icon {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.cert-name {
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+}
+
+.cert-issuer {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+}
+
+.cert-date {
+  font-size: 10.5px !important;
+}
+
+.cert-badge {
+  font-size: 9.5px !important;
+  padding: 1px 6px !important;
+}
+
+/* 8. Dark Mode Parity & WCAG Contrast for Redesigned Elements */
+[data-theme="dark"] .experience-section .exp-summary-text {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(250, 247, 242, 0.25) !important;
+  color: #FAF7F2 !important;
+}
+
+/* Current Role in Dark Mode: Luminous Champagne Gold on Deep Obsidian */
+[data-theme="dark"] .experience-section .exp-card--current {
+  background: #191914 !important;
+  color: #FAF7F2 !important;
+  border: 2.5px solid #FFDF4A !important;
+  box-shadow: 5px 5px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-role {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-company {
+  color: #FFDF4A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-dates,
+[data-theme="dark"] .experience-section .exp-card--current .exp-location,
+[data-theme="dark"] .experience-section .exp-card--current .exp-duration-pill {
+  color: #EDE8DF !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-dates i,
+[data-theme="dark"] .experience-section .exp-card--current .exp-location i {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .tl-badge--current {
+  background: #FFDF4A !important;
+  color: #0E0E0C !important;
+  border: 1.5px solid #0E0E0C !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .tl-badge-dot {
+  background: #0E0E0C !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-card-header {
+  border-bottom: 2px dashed rgba(250, 247, 242, 0.3) !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-summary-text {
+  background: #24241E !important;
+  border: 2px solid #FFDF4A !important;
+  box-shadow: 3px 3px 0 rgba(255, 223, 74, 0.25) !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-summary-text strong {
+  color: #FFDF4A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-col-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-col-title i {
+  color: #FFDF4A !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-bullets li {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-bullets li strong {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-bullets li::before {
+  color: #FFDF4A !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-worked-on,
+[data-theme="dark"] .experience-section .exp-card--current .exp-tools-row {
+  border-top: 1.5px solid rgba(250, 247, 242, 0.25) !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-row-label {
+  color: #FFDF4A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="dark"] .experience-section .tool-chip {
+  background: #24241E !important;
+  color: #FAF7F2 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 1.5px 1.5px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .tool-chip {
+  background: #24241E !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid rgba(250, 247, 242, 0.45) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .tool-chip:hover {
+  background: #FFDF4A !important;
+  color: #1A1A17 !important;
+  border-color: #FFDF4A !important;
+  box-shadow: 2.5px 2.5px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-collapse-btn {
+  background: #24241E !important;
+  border: 2px solid #FFDF4A !important;
+  color: #FFDF4A !important;
+  box-shadow: 2px 2px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] .experience-section .exp-card--current .exp-collapse-btn:hover {
+  background: #FFDF4A !important;
+  color: #1A1A17 !important;
+}
+
+[data-theme="dark"] .edu-flex-wrap .edu-card {
+  background: #181814 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 3.5px 3.5px 0 #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .edu-flex-wrap .edu-uni {
+  color: #D6D3CD !important;
+}
+
+[data-theme="dark"] .edu-flex-wrap .edu-years {
+  color: #7BB0FF !important;
+}
+
+[data-theme="dark"] .edu-certs-label {
+  color: #D6D3CD !important;
+}
+
+[data-theme="dark"] .cert-card.nb-card {
+  background: #181814 !important;
+  border-color: #FAF7F2 !important;
+  box-shadow: 2.5px 2.5px 0 #FAF7F2 !important;
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .cert-card.nb-card:hover {
+  border-color: #FFDF4A !important;
+  box-shadow: 4px 4px 0 #FFDF4A !important;
+}
+
+/* 9. Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .edu-flex-wrap {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .certs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-block {
+    padding-left: 0 !important;
+  }
+  .experience-section .exp-columns {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .certs-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
