@@ -5539,13 +5539,14 @@ img[loading="lazy"] {
 .marquee-strip {
   width: 100%;
   overflow: hidden;
-  background: var(--yellow, #F5C851);
-  border-top: var(--border, 3px solid var(--ink, #1A1A17));
-  border-bottom: var(--border, 3px solid var(--ink, #1A1A17));
-  padding: 14px 0;
+  background: var(--yellow, #FFDF4A);
+  border-top: 3px solid var(--ink, #141412);
+  border-bottom: 3px solid var(--ink, #141412);
+  padding: 12px 0;
   position: relative;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
 
 .marquee-strip__track {
@@ -5556,9 +5557,9 @@ img[loading="lazy"] {
 .marquee-strip__content {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding-right: 24px;
-  animation: marqueeRoll 32s linear infinite;
+  gap: 16px;
+  padding-right: 16px;
+  animation: marqueeRoll 34s linear infinite;
   will-change: transform;
 }
 
@@ -5571,32 +5572,77 @@ img[loading="lazy"] {
   100% { transform: translateX(-100%); }
 }
 
-.marquee-item {
+.marquee-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
-  color: var(--ink, #1A1A17);
+  letter-spacing: -0.01em;
+  padding: 6px 14px;
+  border-radius: 999px;
   white-space: nowrap;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.marquee-strip:hover .marquee-pill:hover {
+  transform: translateY(-2px);
+}
+
+/* Tool Pill (Light Mode: Clean White with Ink Border) */
+.marquee-pill--tool {
+  background: #FFFFFF;
+  color: var(--ink, #141412);
+  border: 1.5px solid var(--ink, #141412);
+  box-shadow: 2px 2px 0 var(--ink, #141412);
+}
+
+.marquee-pill--tool:hover {
+  box-shadow: 3.5px 3.5px 0 var(--ink, #141412);
+}
+
+/* Practice Pill (Light Mode: Ink Black with Yellow Accents) */
+.marquee-pill--practice {
+  background: var(--ink, #141412);
+  color: #FFFFFF;
+  border: 1.5px solid var(--ink, #141412);
+  box-shadow: 2px 2px 0 rgba(20, 20, 18, 0.3);
+}
+
+.marquee-pill--practice:hover {
+  box-shadow: 3.5px 3.5px 0 var(--ink, #141412);
+}
+
+.marquee-pill--practice .marquee-icon {
+  color: #FFDF4A;
 }
 
 .marquee-logo {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   object-fit: contain;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .marquee-icon {
-  font-size: 14px;
-  color: var(--ink, #1A1A17);
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .marquee-sep {
-  font-weight: 800;
-  opacity: 0.5;
+  font-size: 14px;
+  color: var(--ink, #141412);
+  opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transform: scale(1.1);
 }
 
 /* ============================================================ */
@@ -6359,35 +6405,55 @@ img[loading="lazy"] {
   color: #0E0E0C !important;
 }
 
-/* ── 2. INFINITE MARQUEE STRIP ── */
+/* ── 2. INFINITE MARQUEE STRIP (DARK MODE) ── */
 [data-theme="dark"] .marquee-strip {
+  background: #14141C !important;
+  border-top: 2.5px solid #FFDF4A !important;
+  border-bottom: 2.5px solid #FFDF4A !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .marquee-pill--tool {
+  background: #20202C !important;
+  color: #FAF7F2 !important;
+  border: 1.5px solid rgba(250, 247, 242, 0.45) !important;
+  box-shadow: 2px 2px 0 #000000 !important;
+}
+
+[data-theme="dark"] .marquee-pill--tool:hover {
+  border-color: #FAF7F2 !important;
+  box-shadow: 3px 3px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] .marquee-pill--tool .marquee-logo {
+  filter: brightness(0) invert(1) !important;
+}
+
+[data-theme="dark"] .marquee-pill--tool .marquee-icon {
+  color: #7EAFFF !important;
+}
+
+[data-theme="dark"] .marquee-pill--practice {
   background: #FFDF4A !important;
   color: #0E0E0C !important;
-  border-top: 2.5px solid #FAF7F2 !important;
-  border-bottom: 2.5px solid #FAF7F2 !important;
-}
-
-[data-theme="dark"] .marquee-strip::before {
-  background: linear-gradient(to right, #0E0E0C 0%, rgba(14, 14, 12, 0) 100%) !important;
-}
-
-[data-theme="dark"] .marquee-strip::after {
-  background: linear-gradient(to left, #0E0E0C 0%, rgba(14, 14, 12, 0) 100%) !important;
-}
-
-[data-theme="dark"] .marquee-item {
-  color: #0E0E0C !important;
+  border: 1.5px solid #0E0E0C !important;
+  box-shadow: 2px 2px 0 #000000 !important;
   font-weight: 800 !important;
 }
 
-[data-theme="dark"] .marquee-logo {
-  border-color: #0E0E0C !important;
-  box-shadow: 1.5px 1.5px 0 #0E0E0C !important;
+[data-theme="dark"] .marquee-pill--practice:hover {
+  box-shadow: 3.5px 3.5px 0 #FAF7F2 !important;
+  background: #FFFFFF !important;
+}
+
+[data-theme="dark"] .marquee-pill--practice .marquee-icon {
+  color: #0E0E0C !important;
 }
 
 [data-theme="dark"] .marquee-sep {
-  color: #0E0E0C !important;
-  opacity: 0.6;
+  color: #FFDF4A !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 8px rgba(255, 223, 74, 0.6) !important;
 }
 
 /* ── 3. SKILLS / TOOLKIT STICKER WALL ── */
