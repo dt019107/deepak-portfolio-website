@@ -64,7 +64,8 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .cs-back-link:hover, .cs-back-link:focus-visible {
+    .cs-back-link:hover,
+    .cs-back-link:focus-visible {
       transform: translate(-1px, -1px);
       box-shadow: 4px 4px 0 var(--ink, #1A1A17);
       background: var(--yellow, #F5C851);
@@ -475,7 +476,8 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .cs-btn-next:hover, .cs-btn-next:focus-visible {
+    .cs-btn-next:hover,
+    .cs-btn-next:focus-visible {
       transform: translate(-2px, -2px);
       box-shadow: 5px 5px 0 var(--ink, #1A1A17);
     }
@@ -484,10 +486,12 @@
       .cs-section {
         padding: 24px 18px;
       }
+
       .cs-tldr-grid {
         grid-template-columns: 1fr 1fr;
         padding: 18px;
       }
+
       .cs-next-footer {
         flex-direction: column;
         align-items: flex-start;
@@ -513,7 +517,8 @@
     <section class="cs-hero" aria-labelledby="cs-main-title">
       <h1 class="cs-title" id="cs-main-title">Ola Partner: Driver Retention Redesign</h1>
       <p class="cs-subtitle">
-        Eliminating multi-tap ride acceptance friction and sunlight glare to reduce driver cancellation rates in dense urban traffic.
+        Eliminating multi-tap ride acceptance friction and sunlight glare to reduce driver cancellation rates in dense
+        urban traffic.
       </p>
 
       <!-- 1. TL;DR Header Bar -->
@@ -546,7 +551,9 @@
 
       <!-- Lead Real UI Mockup Frame -->
       <div class="cs-lead-media">
-        <img src="ola_partner_preview.png" alt="Ola Partner Driver App high-contrast single-tap ride acceptance screen interface" width="1120" height="680" fetchpriority="high">
+        <img src="ola_partner_preview.png"
+          alt="Ola Partner Driver App high-contrast single-tap ride acceptance screen interface" width="1120"
+          height="680" fetchpriority="high">
       </div>
     </section>
 
@@ -555,10 +562,14 @@
       <span class="cs-section-num">01 / CONTEXT &amp; PROBLEM</span>
       <h2 class="cs-section-h2">Who the users are and what was broken</h2>
       <p class="cs-prose">
-        Commercial auto and cab drivers in Mumbai operate in intense, high-stress environments: moving through bumper-to-bumper traffic, managing mounted smartphone mounts under direct afternoon sunlight, and coping with frequent cellular network drops.
+        Commercial auto and cab drivers in Mumbai operate in intense, high-stress environments: moving through
+        bumper-to-bumper traffic, managing mounted smartphone mounts under direct afternoon sunlight, and coping with
+        frequent cellular network drops.
       </p>
       <p class="cs-prose">
-        Data indicated that 34% of ride dispatches timed out unaccepted within the standard 15-second countdown. Exit surveys revealed that drivers were not ignoring trips intentionally; rather, tiny UI elements, cluttered fare breakdowns, and washed-out color contrasts made it hazardous to evaluate and accept trips while driving.
+        Data indicated that 34% of ride dispatches timed out unaccepted within the standard 15-second countdown. Exit
+        surveys revealed that drivers were not ignoring trips intentionally; rather, tiny UI elements, cluttered fare
+        breakdowns, and washed-out color contrasts made it hazardous to evaluate and accept trips while driving.
       </p>
     </article>
 
@@ -567,22 +578,28 @@
       <span class="cs-section-num">02 / RESEARCH &amp; EVIDENCE</span>
       <h2 class="cs-section-h2">Field studies with 14 commercial drivers</h2>
       <p class="cs-prose">
-        To understand the actual driving context rather than armchair assumptions, I conducted ride-alongs and on-ground interviews with 14 full-time commercial drivers across Bandra, Andheri, and Dadar transit hubs.
+        To understand the actual driving context rather than armchair assumptions, I conducted ride-alongs and on-ground
+        interviews with 14 full-time commercial drivers across Bandra, Andheri, and Dadar transit hubs.
       </p>
       <div class="cs-card-grid">
         <div class="cs-sub-card cs-sub-card--yellow">
           <h3>1. Harsh Sunlight Blindness</h3>
-          <p>Standard low-contrast grayscale typography became completely illegible through scratched windshield mounts under midday glare.</p>
-          <div class="cs-quote">"I have to take my hand off the wheel and shield the phone with my palm to read the fare." — Driver Ramesh</div>
+          <p>Standard low-contrast grayscale typography became completely illegible through scratched windshield mounts
+            under midday glare.</p>
+          <div class="cs-quote">"I have to take my hand off the wheel and shield the phone with my palm to read the
+            fare." — Driver Ramesh</div>
         </div>
         <div class="cs-sub-card cs-sub-card--mint">
           <h3>2. Decision Fatigue Under 15s</h3>
-          <p>Drivers need only three primary data points before committing: Net Earnings, Pickup Distance, and Drop Neighborhood.</p>
-          <div class="cs-quote">"If I can't calculate my fuel cost in 2 seconds, I let the timer expire." — Driver Santosh</div>
+          <p>Drivers need only three primary data points before committing: Net Earnings, Pickup Distance, and Drop
+            Neighborhood.</p>
+          <div class="cs-quote">"If I can't calculate my fuel cost in 2 seconds, I let the timer expire." — Driver
+            Santosh</div>
         </div>
         <div class="cs-sub-card cs-sub-card--lavender">
           <h3>3. False Rejections via Multi-Tap</h3>
-          <p>The legacy confirmation modal required two precise taps (Accept &rarr; Confirm), leading to accidental dismissals on bumpy roads.</p>
+          <p>The legacy confirmation modal required two precise taps (Accept &rarr; Confirm), leading to accidental
+            dismissals on bumpy roads.</p>
           <div class="cs-quote">"Potholes make my finger tap Cancel when I wanted to tap Accept." — Driver Iqbal</div>
         </div>
       </div>
@@ -593,7 +610,8 @@
       <span class="cs-section-num">03 / DEFINE &amp; GOALS</span>
       <h2 class="cs-section-h2">Problem statement and measurable success metrics</h2>
       <p class="cs-prose">
-        <strong>Problem Statement:</strong> How might we design a ride dispatch interface that allows drivers to make safe, accurate trip evaluations and accept trips in under 3 seconds under harsh outdoor glare?
+        <strong>Problem Statement:</strong> How might we design a ride dispatch interface that allows drivers to make
+        safe, accurate trip evaluations and accept trips in under 3 seconds under harsh outdoor glare?
       </p>
       <div class="cs-card-grid">
         <div class="cs-sub-card">
@@ -626,17 +644,20 @@
             A horizontal swipe gesture across the bottom screen bar to prevent accidental taps.
           </p>
           <p style="font-size: 13.5px; color: #7B1113; margin: 0;">
-            <strong>Why it failed:</strong> During bumpy road tests, drivers failed swipe completions 28% of the time because thumb contact broke mid-drag.
+            <strong>Why it failed:</strong> During bumpy road tests, drivers failed swipe completions 28% of the time
+            because thumb contact broke mid-drag.
           </p>
         </div>
         <div class="cs-compare-box cs-compare-box--accepted">
           <span class="cs-tag-status cs-tag-status--accepted">Validated &amp; Shipped</span>
           <h3 style="margin: 0 0 8px; font-size: 16px;">Option B: High-Contrast Full-Width Tap Bar</h3>
           <p style="font-size: 14.5px; line-height: 1.55; margin: 0 0 10px;">
-            A massive 72px green touch trigger anchored to the natural thumb zone with clear haptic feedback and distinct red cancel anchor.
+            A massive 72px green touch trigger anchored to the natural thumb zone with clear haptic feedback and
+            distinct red cancel anchor.
           </p>
           <p style="font-size: 13.5px; color: #085A34; margin: 0;">
-            <strong>Why it won:</strong> Delivered a 98% first-try success rate even while driving over rough asphalt, without requiring drivers to stare at the screen.
+            <strong>Why it won:</strong> Delivered a 98% first-try success rate even while driving over rough asphalt,
+            without requiring drivers to stare at the screen.
           </p>
         </div>
       </div>
@@ -647,31 +668,36 @@
       <span class="cs-section-num">05 / DESIGN &amp; RATIONALE</span>
       <h2 class="cs-section-h2">Annotated final UI decisions</h2>
       <p class="cs-prose">
-        Rather than superficial visual polish, every layout decision was engineered around sunlight contrast ratios, thumb ergonomics, and cognitive load minimization.
+        Rather than superficial visual polish, every layout decision was engineered around sunlight contrast ratios,
+        thumb ergonomics, and cognitive load minimization.
       </p>
       <ul class="cs-annotations-list">
         <li class="cs-annotation-item">
           <span class="cs-annotation-dot">1</span>
           <div>
-            <strong>High-Contrast Amber Fare Lockup (AAA Conformance):</strong> Guaranteed 7:1 contrast ratio against deep ink backgrounds, allowing drivers to scan net earnings in direct afternoon glare without squinting.
+            <strong>High-Contrast Amber Fare Lockup (AAA Conformance):</strong> Guaranteed 7:1 contrast ratio against
+            deep ink backgrounds, allowing drivers to scan net earnings in direct afternoon glare without squinting.
           </div>
         </li>
         <li class="cs-annotation-item">
           <span class="cs-annotation-dot">2</span>
           <div>
-            <strong>Prominent Pickup &amp; Drop Landmark Badges:</strong> Displaying cross-streets and recognizable local landmarks rather than unformatted GPS addresses so drivers instantly recognize routing feasibility.
+            <strong>Prominent Pickup &amp; Drop Landmark Badges:</strong> Displaying cross-streets and recognizable
+            local landmarks rather than unformatted GPS addresses so drivers instantly recognize routing feasibility.
           </div>
         </li>
         <li class="cs-annotation-item">
           <span class="cs-annotation-dot">3</span>
           <div>
-            <strong>Circular Countdown Ring with Haptic Pulses:</strong> Replaced anxiety-inducing ticking numbers with a calming radial progress perimeter that pulses haptically at 5s remaining.
+            <strong>Circular Countdown Ring with Haptic Pulses:</strong> Replaced anxiety-inducing ticking numbers with
+            a calming radial progress perimeter that pulses haptically at 5s remaining.
           </div>
         </li>
         <li class="cs-annotation-item">
           <span class="cs-annotation-dot">4</span>
           <div>
-            <strong>72px Thumb-Anchored Accept Trigger:</strong> Positioned at the bottom third of the display for effortless single-finger tapping on dashboard-mounted smartphones.
+            <strong>72px Thumb-Anchored Accept Trigger:</strong> Positioned at the bottom third of the display for
+            effortless single-finger tapping on dashboard-mounted smartphones.
           </div>
         </li>
       </ul>
@@ -682,7 +708,8 @@
       <span class="cs-section-num">06 / USABILITY TESTING</span>
       <h2 class="cs-section-h2">What was tested, what failed, and what changed</h2>
       <p class="cs-prose">
-        I ran two rounds of moderated usability sessions using interactive Figma prototypes running directly on test Android devices mounted on car dashboards in daylight.
+        I ran two rounds of moderated usability sessions using interactive Figma prototypes running directly on test
+        Android devices mounted on car dashboards in daylight.
       </p>
       <div class="cs-card-grid">
         <div class="cs-sub-card">
@@ -691,11 +718,13 @@
         </div>
         <div class="cs-sub-card">
           <h3>What Failed</h3>
-          <p>Initial designs placed the cancellation cross icon near the top right. Drivers couldn't reach it safely without leaning forward in their seats.</p>
+          <p>Initial designs placed the cancellation cross icon near the top right. Drivers couldn't reach it safely
+            without leaning forward in their seats.</p>
         </div>
         <div class="cs-sub-card">
           <h3>The Fix</h3>
-          <p>Relocated the Pass/Decline action into a secondary bottom pill separated from the primary Accept trigger by 18px of safety margin.</p>
+          <p>Relocated the Pass/Decline action into a secondary bottom pill separated from the primary Accept trigger by
+            18px of safety margin.</p>
         </div>
       </div>
     </article>
@@ -705,7 +734,8 @@
       <span class="cs-section-num">07 / RESULTS &amp; IMPACT</span>
       <h2 class="cs-section-h2">Validated outcomes and driver feedback</h2>
       <p class="cs-prose">
-        The redesigned flow was tested against the legacy flow with 14 commercial drivers over 24 test trips, yielding statistically decisive improvements:
+        The redesigned flow was tested against the legacy flow with 14 commercial drivers over 24 test trips, yielding
+        statistically decisive improvements:
       </p>
       <div class="cs-result-banner">
         <div class="cs-result-stat">
@@ -729,13 +759,16 @@
       <h2 class="cs-section-h2">What I'd do differently next time</h2>
       <ul class="cs-reflection-list">
         <li>
-          <strong>Incorporate ambient light sensor triggers:</strong> Auto-switching to high-contrast ultra-dark mode when driving into highway tunnels or parking basements.
+          <strong>Incorporate ambient light sensor triggers:</strong> Auto-switching to high-contrast ultra-dark mode
+          when driving into highway tunnels or parking basements.
         </li>
         <li>
-          <strong>Test audio cues alongside visual feedback:</strong> Testing voice-synthesized landmark readouts ("Trip to Dadar Station, 2.5 km") to allow drivers to keep their eyes entirely on the road.
+          <strong>Test audio cues alongside visual feedback:</strong> Testing voice-synthesized landmark readouts ("Trip
+          to Dadar Station, 2.5 km") to allow drivers to keep their eyes entirely on the road.
         </li>
         <li>
-          <strong>Conduct long-tail battery consumption benchmarks:</strong> Measuring the power draw of the high-refresh countdown animation across budget Android chipsets during 10-hour driving shifts.
+          <strong>Conduct long-tail battery consumption benchmarks:</strong> Measuring the power draw of the
+          high-refresh countdown animation across budget Android chipsets during 10-hour driving shifts.
         </li>
       </ul>
     </article>
@@ -746,7 +779,9 @@
         <div class="cs-next-label">Next Case Study</div>
         <h3 class="cs-next-title">AeroFill: Filling India's 71,400 Empty Airline Seats</h3>
       </div>
-      <a href="https://dt019107.github.io/Case-Study-Why-do-71-400-airplane-seats-fly-empty-every-day-in-India-/" target="_blank" rel="noopener noreferrer" class="cs-btn-next" aria-label="View AeroFill Aviation Standby Systems case study (opens in new tab)">
+      <a href="https://dt019107.github.io/Case-Study-Why-do-71-400-airplane-seats-fly-empty-every-day-in-India-/"
+        target="_blank" rel="noopener noreferrer" class="cs-btn-next"
+        aria-label="View AeroFill Aviation Standby Systems case study (opens in new tab)">
         <span>Read Next Study</span>
         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>

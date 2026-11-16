@@ -713,7 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
     try {
       localStorage.setItem('dt-theme', theme);
-    } catch (e) {}
+    } catch (e) { }
 
     if (themeMeta) {
       themeMeta.setAttribute('content', theme === 'dark' ? '#0B0B0F' : '#fff8e7');
@@ -1760,7 +1760,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isCollapsed = archive.classList.toggle('is-collapsed');
       toggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
       archive.setAttribute('aria-hidden', isCollapsed ? 'true' : 'false');
-      
+
       const span = toggleBtn.querySelector('span');
       if (span) {
         span.textContent = isCollapsed ? 'View All 14 Complete Letters' : 'Hide Complete Letters';
