@@ -4836,12 +4836,16 @@ img[loading="lazy"] {
 }
 
 /* Hisaab Project: Edge-to-Edge Real Viewport Preview */
-#project-challan .projects-img-container {
+#project-challan .projects-img-container,
+#project-trilayer .projects-img-container,
+#project-ola-partner .projects-img-container {
   padding: 0 !important;
   background: #0B111A;
 }
 
-#project-challan .projects-card-img {
+#project-challan .projects-card-img,
+#project-trilayer .projects-card-img,
+#project-ola-partner .projects-card-img {
   width: 100% !important;
   height: 100% !important;
   max-width: 100% !important;
@@ -4854,36 +4858,44 @@ img[loading="lazy"] {
   filter: none !important;
 }
 
-#project-challan:hover .projects-card-img {
+#project-challan:hover .projects-card-img,
+#project-trilayer:hover .projects-card-img,
+#project-ola-partner:hover .projects-card-img {
   transform: scale(1.03) !important;
   filter: none !important;
 }
 
-[data-theme="dark"] #project-challan .projects-img-container {
+[data-theme="dark"] #project-challan .projects-img-container,
+[data-theme="dark"] #project-trilayer .projects-img-container,
+[data-theme="dark"] #project-ola-partner .projects-img-container {
   background: #0B111A !important;
   padding: 0 !important;
 }
 
 [data-theme="dark"] #project-challan .projects-card-img,
-[data-theme="dark"] #project-challan:hover .projects-card-img {
+[data-theme="dark"] #project-challan:hover .projects-card-img,
+[data-theme="dark"] #project-trilayer .projects-card-img,
+[data-theme="dark"] #project-trilayer:hover .projects-card-img,
+[data-theme="dark"] #project-ola-partner .projects-card-img,
+[data-theme="dark"] #project-ola-partner:hover .projects-card-img {
   filter: none !important;
 }
 
 /* Floating In-Canvas Format & Platform Badge */
-/* Hero cluster card: Ola thumbnail polish */
+/* Hero cluster card: TriLayer thumbnail polish */
 .cluster-card--ola .cluster-thumb {
-  background: linear-gradient(145deg, #FAF7F2 0%, #EDE8DF 100%) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 4px !important;
+  background: #0B111A !important;
+  display: block !important;
+  padding: 0 !important;
+  overflow: hidden !important;
 }
 
 .cluster-card--ola .cluster-thumb img {
-  object-fit: contain !important;
+  object-fit: cover !important;
+  object-position: top left !important;
   height: 100% !important;
-  width: auto !important;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12)) !important;
+  width: 100% !important;
+  filter: none !important;
   image-rendering: -webkit-optimize-contrast !important;
 }
 
@@ -5005,9 +5017,10 @@ img[loading="lazy"] {
   color: #1A1400;
 }
 
-.browser-status--systems {
-  background: #D9E6FF;
-  color: #0B2050;
+.browser-status--systems,
+.browser-status--system {
+  background: #E0E7FF;
+  color: #312E81;
 }
 
 .browser-status--saas {
@@ -5233,6 +5246,7 @@ img[loading="lazy"] {
   color: #1428A0;
 }
 
+#project-trilayer .projects-card-cta .cta-label,
 #project-challan .projects-card-cta .cta-label,
 #project-ai-podcasts .projects-card-cta .cta-label {
   padding: var(--sp-1, 4px) var(--sp-3, 12px);
@@ -5240,6 +5254,20 @@ img[loading="lazy"] {
   border-radius: var(--radius-full, 9999px);
   color: #000000;
   box-shadow: 2px 2px 0 #000000;
+}
+
+#project-trilayer .projects-card-cta .cta-label {
+  background: #6366F1;
+  color: #FFFFFF;
+}
+
+#project-trilayer:hover .projects-card-cta .cta-label {
+  background: #4F46E5;
+  color: #FFFFFF;
+}
+
+#project-trilayer .projects-card-cta .cta-arrow {
+  color: #FFFFFF;
 }
 
 #project-challan .projects-card-cta .cta-label {
@@ -6380,6 +6408,24 @@ img[loading="lazy"] {
 
 [data-theme="dark"] .projects-card:hover .projects-card-cta .cta-label {
   color: #FFDF4A !important;
+}
+
+[data-theme="dark"] #project-trilayer .projects-card-cta .cta-label {
+  background: #6366F1 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #FAF7F2 !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] #project-trilayer:hover .projects-card-cta .cta-label {
+  background: #4F46E5 !important;
+  color: #FFFFFF !important;
+  border-color: #FFDF4A !important;
+  box-shadow: 2px 2px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] #project-trilayer .projects-card-cta .cta-arrow {
+  color: #FFFFFF !important;
 }
 
 [data-theme="dark"] #project-challan .projects-card-cta .cta-label {

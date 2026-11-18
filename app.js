@@ -967,25 +967,25 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const PORTFOLIO_PROJECTS = [
     {
-      id: 'ola-partner',
+      id: 'trilayer-design-system',
       number: '01',
       tier: 'selected', // 'selected' | 'more-product' | 'visual'
       category: 'product', // 'product' | 'web' | 'visual'
-      type: 'Concept case study',
-      title: 'Ola Partner: Driver Retention Redesign',
-      problem: 'High driver churn during peak traffic caused by cluttered acceptance flows and poor sunlight visibility.',
-      role: 'Product Designer',
-      duration: '3 months',
-      platform: 'Android (Driver)',
-      year: '2024',
-      proof: 'Tested with 14 commercial drivers in Mumbai; 1-tap accept cut response time by 42%.',
-      metric: '+18% Retention', // Only rendered if filled; omitted if empty or [PLACEHOLDER]
-      cta: 'Read case study',
-      link: 'https://flute-beluga-59087359.figma.site/',
+      type: 'Production Design System',
+      title: 'TriLayer: Enterprise Multi-Tier Design System',
+      problem: 'Enterprise teams battle design debt and token drift when scaling UI components across Figma and distributed frontends.',
+      role: 'Lead Design Architect',
+      duration: '4 weeks',
+      platform: 'Figma Variables & Web Tokens',
+      year: '2026',
+      proof: 'Architected a 3-layer token cascade (Primitives, Semantics, Components) syncing W3C DTCG specs with zero-build CSS and 8 tonal palettes.',
+      metric: '3-Layer Cascade • 8 Palettes • 100% Sync',
+      cta: 'See Live Design System',
+      link: 'https://dt019107.github.io/trilayer-design-system/#/',
       isExternal: true,
-      colorScheme: 'yellow',
-      imageFallback: 'ola_partner_preview.png',
-      imageAlt: 'Ola Partner - Driver Retention & Usability Case Study',
+      colorScheme: 'indigo',
+      imageFallback: 'trilayer_preview.png',
+      imageAlt: 'TriLayer: Enterprise Multi-Tier Design System & Token Architecture Preview',
       tilt: '-0.6deg',
       isLead: true
     },
