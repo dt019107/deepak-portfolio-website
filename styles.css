@@ -4835,6 +4835,40 @@ img[loading="lazy"] {
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
 }
 
+/* Hisaab Project: Edge-to-Edge Real Viewport Preview */
+#project-challan .projects-img-container {
+  padding: 0 !important;
+  background: #0B111A;
+}
+
+#project-challan .projects-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  object-position: top left !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+#project-challan:hover .projects-card-img {
+  transform: scale(1.03) !important;
+  filter: none !important;
+}
+
+[data-theme="dark"] #project-challan .projects-img-container {
+  background: #0B111A !important;
+  padding: 0 !important;
+}
+
+[data-theme="dark"] #project-challan .projects-card-img,
+[data-theme="dark"] #project-challan:hover .projects-card-img {
+  filter: none !important;
+}
+
 /* Floating In-Canvas Format & Platform Badge */
 /* Hero cluster card: Ola thumbnail polish */
 .cluster-card--ola .cluster-thumb {
