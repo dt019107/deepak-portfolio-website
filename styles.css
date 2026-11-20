@@ -145,7 +145,13 @@ button,
 .hamburger-btn,
 #back-to-top,
 .skip-to-content,
-.fnav-item {
+.fnav-item,
+.archive-back-btn,
+.archive-filter-pill,
+.projects-filter-pill,
+.kudos-filter-btn,
+.projects-card-cta-btn,
+.projects-card-cta {
   min-height: 44px;
   min-width: 44px;
 }
@@ -1990,6 +1996,10 @@ img {
 @media (max-width: 860px) {
   .layout {
     flex-direction: column;
+    padding: 0;
+    gap: 0;
+    width: 100%;
+    overflow-x: clip;
   }
 
   .sidebar {
@@ -3575,10 +3585,44 @@ html {
   font-size: 16px;
 }
 
+/* ── ULTRAWIDE MONITORS (≥ 1920px) ── */
+@media (min-width: 1920px) {
+  .layout {
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+
+  .sidebar {
+    width: 420px;
+  }
+
+  .content {
+    padding: 120px 80px 80px 64px;
+    max-width: 1260px;
+  }
+
+  .hero-bio,
+  .section-desc,
+  .projects-card-desc {
+    max-width: 68ch;
+  }
+
+  .stats-bento-grid {
+    max-width: 1040px;
+  }
+
+  .archive-main-container {
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 48px 64px 100px;
+  }
+}
+
 /* ── WIDE DESKTOP (> 1300px) ── */
-@media (min-width: 1300px) {
+@media (min-width: 1300px) and (max-width: 1919px) {
   .layout {
     max-width: 1400px;
+    margin: 0 auto;
   }
 
   .sidebar {
@@ -3587,6 +3631,7 @@ html {
 
   .content {
     padding: 100px 60px 60px 48px;
+    max-width: 1020px;
   }
 
   .stats-bento-grid {
@@ -3672,6 +3717,10 @@ html {
 @media (max-width: 860px) {
   .layout {
     flex-direction: column;
+    padding: 0;
+    gap: 0;
+    width: 100%;
+    overflow-x: clip;
   }
 
   /* Sidebar — full-width horizontal strip */
@@ -3679,19 +3728,19 @@ html {
     width: 100%;
     height: auto;
     position: relative;
-    padding: 108px 20px 16px;
+    padding: 108px 24px 20px;
     display: block;
   }
 
   .profile-card {
-    max-width: 560px;
+    max-width: 580px;
     margin: 0 auto;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     border-radius: 24px;
-    padding: 20px;
-    gap: 16px;
+    padding: 24px;
+    gap: 20px;
     align-items: center;
     min-height: auto;
   }
@@ -3706,70 +3755,78 @@ html {
     align-items: flex-start;
     text-align: left;
     flex: 1;
-    min-width: 140px;
+    min-width: 160px;
     gap: 6px;
   }
 
   .profile-name {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     letter-spacing: -0.3px;
   }
 
   .profile-role {
-    font-size: 0.72rem;
+    font-size: 0.76rem;
   }
 
   .profile-location {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
 
   .availability-badge {
-    font-size: 0.72rem;
-    padding: 5px 12px;
+    font-size: 0.74rem;
+    padding: 6px 14px;
   }
 
   .profile-socials {
     width: 100%;
     justify-content: flex-start;
-    margin-top: 0;
-    gap: 8px;
+    margin-top: 4px;
+    gap: 10px;
   }
 
   .profile-socials a {
     width: 44px;
     height: 44px;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .sidebar-ctas {
     width: 100%;
-    gap: 8px;
+    gap: 10px;
   }
 
   .btn-cv,
   .btn-contact {
-    padding: 11px 12px;
-    font-size: 0.82rem;
-    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 0.86rem;
+    border-radius: 14px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* Content area */
+  /* Content area — fluid outer padding 24px */
   .content {
-    padding: 24px 20px 80px;
+    padding: 24px 24px 80px;
   }
 
   /* Hero — centred layout when full width */
   .hero-section {
-    padding: 32px 0 40px;
+    padding: 32px 0 44px;
     text-align: center;
   }
 
   .hero-title {
-    font-size: clamp(2rem, 6.5vw, 3.2rem);
-    letter-spacing: -1.5px;
+    font-size: clamp(2.1rem, 6.2vw, 3.4rem);
+    letter-spacing: -1.2px;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    line-height: 1.15;
   }
 
   .hero-tag {
@@ -3778,7 +3835,7 @@ html {
 
   .role-cycler {
     justify-content: center;
-    font-size: 0.98rem;
+    font-size: 1rem;
   }
 
   .role-words {
@@ -3789,29 +3846,38 @@ html {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    font-size: 0.98rem;
+    font-size: 1rem;
+    max-width: 62ch;
+    text-wrap: pretty;
   }
 
   .hero-ctas {
     justify-content: center;
+    gap: 14px;
   }
 
   /* Stats bento — 3 cols on tablet */
   .stats-bento-grid {
     grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
-    gap: 12px;
+    gap: 14px;
     margin-top: 40px;
   }
 
-  /* Section */
+  /* Section — generous breathing room */
   .section {
-    padding: 60px 0;
+    padding: clamp(56px, 7vw, 68px) 0;
   }
 
   .section-title {
-    font-size: clamp(1.9rem, 5.5vw, 2.8rem);
+    font-size: clamp(2rem, 5.2vw, 2.9rem);
     letter-spacing: -1.2px;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    max-width: 64ch;
+    text-wrap: pretty;
   }
 
   .section-label {
@@ -3828,19 +3894,19 @@ html {
   /* Certs */
   .certs-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 12px;
   }
 
   /* About cards — 2 col */
   .about-cards {
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 16px;
   }
 
   /* Skills bento — 2 col */
   .skills-bento-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 16px;
   }
 
   .bento-large {
@@ -3871,20 +3937,22 @@ html {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 36px 0;
-    gap: 14px;
+    padding: 40px 0;
+    gap: 16px;
   }
 }
 
-/* ── MOBILE (≤ 640px) — ENHANCED ── */
+/* ── MOBILE (≤ 640px) — PRODUCTION REFINED ── */
 @media (max-width: 640px) {
 
   /* Show hamburger, hide desktop nav items labels */
   .hamburger-btn {
     display: flex;
+    min-height: 44px;
+    min-width: 44px;
   }
 
-  /* Hide the floating nav on very small screens - replaced by hamburger */
+  /* Hide the floating nav on small screens - replaced by hamburger */
   .floating-nav {
     display: none;
   }
@@ -3894,12 +3962,12 @@ html {
     top: 12px;
     left: 50%;
     width: auto;
-    max-width: calc(100% - 24px);
+    max-width: calc(100% - 32px);
   }
 
   .header-unit {
     flex-direction: row;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
   }
@@ -3909,97 +3977,102 @@ html {
     display: none;
   }
 
-  /* Sidebar on mobile */
+  /* Sidebar on mobile — fluid 20px padding */
   .sidebar {
-    padding: 80px 16px 12px;
+    padding: 84px 20px 16px;
   }
 
   .profile-card {
     max-width: 100%;
     border-radius: 20px;
-    padding: 16px;
-    gap: 14px;
+    padding: 20px;
+    gap: 16px;
   }
 
   .profile-avatar {
-    width: 72px;
-    height: 72px;
+    width: 76px;
+    height: 76px;
   }
 
   .profile-name {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     letter-spacing: -0.2px;
   }
 
   .profile-role {
-    font-size: 0.68rem;
-    letter-spacing: 1px;
+    font-size: 0.72rem;
+    letter-spacing: 0.8px;
   }
 
   .availability-badge {
-    font-size: 0.68rem;
-    padding: 4px 10px;
+    font-size: 0.72rem;
+    padding: 6px 12px;
     gap: 6px;
   }
 
-  /* Content */
+  /* Content — Fluid 20px outer margin, never touching screen edge */
   .content {
-    padding: 20px 14px 80px;
+    padding: 24px 20px 80px;
   }
 
-  /* Hero */
+  /* Hero — Fluid Spacing */
   .hero-section {
     padding: 24px 0 36px;
   }
 
   .hero-title {
-    font-size: clamp(1.85rem, 9vw, 2.8rem);
+    font-size: clamp(1.85rem, 8vw, 2.7rem);
     letter-spacing: -1px;
-    line-height: 1.18;
-    margin-bottom: 14px;
+    line-height: 1.16;
+    margin-bottom: 16px;
   }
 
   .role-cycler {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     margin-bottom: 18px;
   }
 
   .role-words {
-    min-width: 180px;
+    min-width: 190px;
   }
 
   .hero-bio {
-    font-size: 0.9rem;
-    line-height: 1.7;
+    font-size: 0.94rem;
+    line-height: 1.68;
     margin-bottom: 28px;
+    max-width: 58ch;
+    text-wrap: pretty;
   }
 
   .hero-ctas {
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 36px;
+    width: 100%;
   }
 
   .hero-ctas a {
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     justify-content: center;
-    padding: 14px 20px;
-    font-size: 0.9rem;
+    padding: 14px 22px;
+    font-size: 0.92rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
   /* Stats — single col on mobile */
   .stats-bento-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
     margin-top: 32px;
   }
 
   .stat-bento {
-    padding: 18px 16px;
+    padding: 18px;
     border-radius: 18px;
-    /* Horizontal layout inside each stat card */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -4038,67 +4111,70 @@ html {
   }
 
   .stat-label {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     margin-top: 4px;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
   }
 
-  /* Section */
+  /* Section — strictly 52px-60px vertical section gaps */
   .section {
-    padding: 48px 0;
+    padding: clamp(52px, 6vw, 60px) 0;
   }
 
   .section-title {
-    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    font-size: clamp(1.75rem, 7.5vw, 2.45rem);
     letter-spacing: -0.8px;
-    line-height: 1.1;
+    line-height: 1.14;
   }
 
   .section-desc {
-    font-size: 0.9rem;
-    line-height: 1.75;
+    font-size: 0.92rem;
+    line-height: 1.7;
     margin-bottom: 32px;
+    max-width: 58ch;
+    text-wrap: pretty;
   }
 
   /* About cards — single col */
   .about-cards {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
     margin-top: 32px;
   }
 
   /* Timeline */
   .timeline {
-    padding-left: 12px;
+    padding-left: 14px;
   }
 
   .timeline::before {
-    left: 6px;
+    left: 7px;
   }
 
   .tl-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 0.82rem;
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
     border-radius: 10px;
   }
 
   .timeline-item {
-    gap: 12px;
-    padding: 20px 0;
+    gap: 14px;
+    padding: 22px 0;
   }
 
   .tl-role {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
 
   .tl-company {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
 
   .tl-desc {
-    font-size: 0.82rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.62;
+    text-wrap: pretty;
   }
 
   .tl-top {
@@ -4108,13 +4184,23 @@ html {
   }
 
   .tl-date {
-    font-size: 0.74rem;
+    font-size: 0.76rem;
   }
 
-  /* Projects — single col */
+  /* Projects — Refined Card Architecture */
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 16px;
+  }
+
+  .projects-card {
+    border-radius: 18px;
+    box-shadow: 4px 4px 0 var(--ink, #1A1A17);
+  }
+
+  .projects-card-body {
+    padding: clamp(18px, 4.5vw, 26px);
+    gap: 18px;
   }
 
   .project-img {
@@ -4123,13 +4209,13 @@ html {
   }
 
   .project-info {
-    padding: 16px 16px 18px;
+    padding: 18px;
   }
 
   /* Skills — single col */
   .skills-bento-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
   }
 
   .bento-large,
@@ -4142,19 +4228,20 @@ html {
   }
 
   .bento-card {
-    padding: 20px;
+    padding: 22px;
     border-radius: 20px;
   }
 
   /* Certs — single col */
   .certs-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
   }
 
   .cert-card {
-    padding: 14px 16px;
-    min-height: 56px;
+    padding: 16px 18px;
+    min-height: 60px;
+    border-radius: 14px;
   }
 
   /* Contact form */
@@ -4172,85 +4259,96 @@ html {
 
   /* Footer */
   .site-footer {
-    gap: 12px;
-    padding: 32px 0;
+    gap: 14px;
+    padding: 36px 0;
   }
 
   /* Back to top */
   #back-to-top {
-    bottom: 16px;
-    right: 16px;
+    bottom: 20px;
+    right: 20px;
     width: 44px;
     height: 44px;
     font-size: 0.9rem;
   }
 }
 
-/* ── SMALL MOBILE (≤ 480px) ── */
+/* ── SMALL MOBILE (≤ 480px) — ZERO CRAMPED FINISH ── */
 @media (max-width: 480px) {
   .top-header {
     top: 10px;
-    max-width: calc(100% - 16px);
+    max-width: calc(100% - 24px);
   }
 
+  /* Content — Guaranteed 16px outer margin with 8pt rhythm */
   .content {
-    padding: 16px 12px 80px;
+    padding: 20px 16px 80px;
+  }
+
+  .sidebar {
+    padding: 80px 16px 16px;
   }
 
   .hero-title {
-    font-size: clamp(1.65rem, 10vw, 2.4rem);
+    font-size: clamp(1.75rem, 8.8vw, 2.35rem);
+    line-height: 1.15;
   }
 
   .hero-bio {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
   }
 
   .section-title {
-    font-size: clamp(1.55rem, 9vw, 2rem);
-    letter-spacing: -0.5px;
+    font-size: clamp(1.65rem, 8.2vw, 2.15rem);
+    letter-spacing: -0.6px;
+    line-height: 1.16;
   }
 
+  /* Section vertical gaps — strictly maintained at 48px–56px */
   .section {
-    padding: 40px 0;
+    padding: clamp(48px, 6vw, 56px) 0;
   }
 
   .hero-ctas a {
     max-width: 100%;
-    padding: 13px 18px;
-    font-size: 0.88rem;
+    padding: 14px 18px;
+    font-size: 0.9rem;
     border-radius: 14px;
+    min-height: 44px;
   }
 
   .profile-card {
-    border-radius: 16px;
-    padding: 14px;
-    gap: 12px;
+    border-radius: 18px;
+    padding: 18px 16px;
+    gap: 14px;
   }
 
   .profile-avatar {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
   }
 
   .profile-name {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 
   .sidebar-ctas {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .btn-cv,
   .btn-contact {
-    padding: 12px;
-    font-size: 0.82rem;
+    padding: 13px 16px;
+    font-size: 0.86rem;
     border-radius: 12px;
     justify-content: center;
+    min-height: 44px;
   }
 
   .stat-bento {
-    padding: 14px;
+    padding: 16px;
     border-radius: 16px;
   }
 
@@ -4259,59 +4357,58 @@ html {
   }
 
   .stat-icon-wrap {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
   }
 
   .tl-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 0.76rem;
+    width: 34px;
+    height: 34px;
+    font-size: 0.78rem;
   }
 
   .timeline {
-    padding-left: 8px;
+    padding-left: 10px;
   }
 
   .timeline::before {
-    left: 4px;
+    left: 5px;
   }
 
-
   .bento-card {
-    padding: 16px;
+    padding: 18px;
     border-radius: 16px;
   }
 
   .cert-card {
-    padding: 12px 14px;
+    padding: 14px 16px;
     gap: 12px;
   }
 
   .cert-icon {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
   }
 
   .cert-info h4 {
-    font-size: 0.82rem;
+    font-size: 0.86rem;
   }
 
   .hero-tag {
-    font-size: 0.78rem;
-    padding: 5px 12px 5px 9px;
-    gap: 7px;
+    font-size: 0.8rem;
+    padding: 6px 14px 6px 10px;
+    gap: 8px;
   }
 
   .section-label {
-    font-size: 0.62rem;
-    padding: 4px 12px;
+    font-size: 0.65rem;
+    padding: 5px 14px;
     letter-spacing: 2px;
   }
 
   .skills-bento-grid {
-    gap: 8px;
+    gap: 10px;
   }
 
   .bento-pills {
@@ -4319,36 +4416,151 @@ html {
   }
 
   .skill-pill {
-    font-size: 0.76rem;
-    padding: 5px 12px;
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    min-height: 34px;
+  }
+
+  /* Project Cards Spacing & Stacking on Small Mobile */
+  .projects-card {
+    border-radius: 16px;
+    box-shadow: 3.5px 3.5px 0 var(--ink, #1A1A17);
+  }
+
+  .projects-card-body {
+    padding: 18px 16px;
+    gap: 16px;
+  }
+
+  .projects-card-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .projects-card-title {
+    font-size: 1.3rem;
+  }
+
+  .projects-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .projects-stat-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px 8px;
+    box-shadow: 2px 2px 0 var(--ink, #141412);
+  }
+
+  .projects-stat-cell .stat-number {
+    font-size: clamp(1rem, 3.8vw, 1.25rem);
+    white-space: nowrap;
+  }
+
+  .projects-stat-cell .stat-label {
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 1.25;
+  }
+
+  .projects-card-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .projects-card-cta-btn {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .projects-card-cta-btn .cta-label {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    min-height: 44px;
+  }
+
+  #project-trilayer .projects-card-cta,
+  #project-challan .projects-card-cta,
+  #project-ai-podcasts .projects-card-cta,
+  #project-whizhack .projects-card-cta {
+    width: 100%;
+  }
+
+  #project-trilayer .projects-card-cta .cta-label,
+  #project-challan .projects-card-cta .cta-label,
+  #project-ai-podcasts .projects-card-cta .cta-label,
+  #project-whizhack .projects-card-cta .cta-label {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    min-height: 44px;
+  }
+
+  .projects-secondary-strip {
+    padding: 18px 16px;
+    border-radius: 18px;
   }
 }
 
-/* ── VERY SMALL PHONES (≤ 375px) ── */
+/* ── VERY SMALL PHONES (≤ 375px) — ACCESSIBILITY & BREATHING ROOM ── */
 @media (max-width: 375px) {
 
-  /* Prevent text from shrinking below readable accessibility limits */
+  /* Retain comfortable 16px outer padding so text never touches screen edges */
   .content {
-    padding: 14px 10px 80px;
+    padding: 16px 16px 80px;
+  }
+
+  .sidebar {
+    padding: 76px 16px 16px;
+  }
+
+  .section {
+    padding: 48px 0;
   }
 
   .hero-title {
-    font-size: clamp(1.6rem, 10vw, 2.1rem);
+    font-size: clamp(1.65rem, 9.5vw, 2.15rem);
+    line-height: 1.15;
   }
 
   .hero-ctas a {
-    padding: 12px 16px;
-    font-size: 0.95rem;
+    padding: 13px 16px;
+    font-size: 0.92rem;
     min-height: 44px;
   }
 
   .profile-avatar {
-    width: 54px;
-    height: 54px;
+    width: 58px;
+    height: 58px;
   }
 
-  .sidebar {
-    padding: 72px 12px 10px;
+  /* Projects Stat Row — Stack cleanly on ultra-narrow 320-375px viewports */
+  .projects-stat-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: left;
+    padding: 12px 14px;
+  }
+
+  .projects-stat-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(26, 26, 23, 0.15);
+    padding-bottom: 6px;
+  }
+
+  .projects-stat-cell:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .projects-stat-cell .stat-label {
+    margin-top: 0;
   }
 }
 
@@ -5155,16 +5367,19 @@ img[loading="lazy"] {
 
 .projects-action-arrow {
   margin-left: auto;
-  font-size: 14px;
-  width: 34px;
-  height: 34px;
+  font-size: 15px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid var(--ink, #141412);
+  border: 2px solid var(--ink, #141412);
   border-radius: 50%;
   background: #F6F2E9;
   color: #141412;
+  flex-shrink: 0;
   transition: transform 0.2s var(--ease, ease), background-color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -5196,11 +5411,12 @@ img[loading="lazy"] {
   color: #363630;
   margin: 0;
   max-width: 55ch;
+  text-wrap: pretty;
 }
 
 .projects-stat-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(8px, 1.5vw, 14px);
   background: #F8F5EE;
   border: 2px solid var(--ink, #141412);
@@ -5211,6 +5427,10 @@ img[loading="lazy"] {
   box-shadow: 2.5px 2.5px 0 var(--ink, #141412);
 }
 
+.projects-stat-cell {
+  min-width: 0;
+}
+
 .projects-stat-cell .stat-number {
   display: block;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
@@ -5218,6 +5438,7 @@ img[loading="lazy"] {
   font-weight: 800;
   color: #1428A0;
   line-height: 1.15;
+  white-space: nowrap;
 }
 
 .projects-stat-cell .stat-label {
@@ -5231,7 +5452,10 @@ img[loading="lazy"] {
 
 .projects-card-cta {
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .projects-card-cta .cta-label {
@@ -5239,9 +5463,11 @@ img[loading="lazy"] {
   align-items: center;
   gap: 8px;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
   color: #121210;
+  min-height: 44px;
+  box-sizing: border-box;
   transition: transform 0.2s var(--ease, ease), color 0.2s ease;
 }
 
@@ -5253,7 +5479,10 @@ img[loading="lazy"] {
 #project-challan .projects-card-cta .cta-label,
 #project-ai-podcasts .projects-card-cta .cta-label,
 #project-whizhack .projects-card-cta .cta-label {
-  padding: var(--sp-1, 4px) var(--sp-3, 12px);
+  padding: 9px 18px;
+  min-height: 44px;
+  box-sizing: border-box;
+  justify-content: center;
   border: 1.5px solid #000000;
   border-radius: var(--radius-full, 9999px);
   color: #000000;
@@ -5297,27 +5526,31 @@ img[loading="lazy"] {
 /* Dual Action CTA Group */
 .projects-card-cta-group {
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: 8px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .projects-card-cta-btn {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
 }
 
 .projects-card-cta-btn .cta-label {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 13.5px;
   font-weight: 700;
-  padding: 5px 14px;
+  padding: 9px 18px;
+  min-height: 44px;
+  box-sizing: border-box;
   border: 1.5px solid #000000;
   border-radius: var(--radius-full, 9999px);
   box-shadow: 2px 2px 0 #000000;
@@ -9168,25 +9401,157 @@ img[loading="lazy"] {
   color: #FFFFFF;
 }
 
-/* Responsive Archive Breakpoints */
+/* ── RESPONSIVE ARCHIVE BREAKPOINTS (Production Refined) ── */
 @media (max-width: 900px) {
+  .archive-main-container {
+    padding: 28px 24px 80px;
+  }
+
   .archive-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+
+  .archive-filter-bar {
+    gap: 10px;
+    margin: 24px 0 32px;
+  }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 680px) {
+  .archive-main-container {
+    padding: 24px 20px 80px;
+  }
+
+  .archive-title {
+    font-size: clamp(2rem, 7vw, 2.75rem);
+  }
+
+  .archive-subline {
+    font-size: 0.95rem;
+  }
+
+  .archive-filter-pill {
+    min-height: 44px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .archive-main-container {
+    padding: 20px 16px 80px;
+  }
+
   .archive-top-bar {
     border-radius: 16px;
+    padding: 10px 12px;
+    min-height: 52px;
+  }
+
+  .archive-back-btn {
+    min-height: 44px;
+    min-width: 44px;
     padding: 10px 14px;
+    font-size: 13px;
   }
 
   .archive-back-btn span {
     display: none;
   }
 
-  .archive-back-btn {
-    padding: 8px 12px;
+  .archive-brand-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .archive-title {
+    font-size: clamp(1.85rem, 8.5vw, 2.35rem);
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+  }
+
+  .archive-subline {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .archive-card {
+    border-radius: 18px;
+    box-shadow: 4px 4px 0 var(--ink, #1A1A17);
+  }
+
+  .archive-card-content {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+
+  .archive-card-title {
+    font-size: 1.25rem;
+  }
+
+  .archive-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .archive-metrics-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    padding: 10px 8px;
+  }
+
+  .archive-metric-cell {
+    min-width: 0;
+  }
+
+  .archive-metric-val {
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+
+  .archive-metric-lbl {
+    font-size: 9.5px;
+    letter-spacing: 0;
+  }
+
+  .archive-filter-bar {
+    gap: 8px;
+  }
+
+  .archive-filter-pill {
+    padding: 8px 14px;
+    min-height: 44px;
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 375px) {
+  .archive-main-container {
+    padding: 16px 16px 80px;
+  }
+
+  .archive-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    text-align: left;
+    padding: 10px 12px;
+  }
+
+  .archive-metric-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(26, 26, 23, 0.15);
+    padding-bottom: 4px;
+  }
+
+  .archive-metric-cell:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .archive-metric-lbl {
+    margin-top: 0;
   }
 }
