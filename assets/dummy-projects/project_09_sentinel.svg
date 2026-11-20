@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#0B0F19"/>
+  <!-- Threat Alert Bar -->
+  <g transform="translate(20, 20)">
+    <rect width="760" height="65" rx="8" fill="#1A1F2C" stroke="#DC2626" stroke-width="1.5"/>
+    <circle cx="40" cy="32" r="14" fill="#DC2626" opacity="0.2"/>
+    <circle cx="40" cy="32" r="7" fill="#EF4444"/>
+    <text x="70" y="28" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">ALERT #SEC-9842: PRIVILEGE ESCALATION ATTEMPT</text>
+    <text x="70" y="48" font-family="monospace" font-size="11" fill="#F87171">MITRE ATT&amp;CK T1078.004 • CLOUD CREDENTIAL ACCESS</text>
+
+    <rect x="580" y="16" width="160" height="34" rx="4" fill="#DC2626"/>
+    <text x="660" y="38" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">⚡ QUARANTINE POD</text>
+  </g>
+
+  <!-- Threat Graph Topology -->
+  <g transform="translate(20, 105)">
+    <rect width="480" height="325" rx="8" fill="#111827" stroke="#1F2937" stroke-width="1"/>
+    <text x="20" y="28" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">CORRELATED THREAT TOPOLOGY</text>
+
+    <!-- Graph Connections -->
+    <line x1="80" y1="140" x2="220" y2="80" stroke="#EF4444" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="220" y1="80" x2="380" y2="120" stroke="#F59E0B" stroke-width="2"/>
+    <line x1="220" y1="80" x2="320" y2="220" stroke="#3B82F6" stroke-width="1.5"/>
+
+    <!-- Nodes -->
+    <g transform="translate(80, 140)">
+      <circle r="22" fill="#7F1D1D" stroke="#EF4444" stroke-width="2"/>
+      <text y="4" font-family="monospace" font-size="10" font-weight="bold" fill="#FCA5A5" text-anchor="middle">ATTACKER</text>
+      <text y="36" font-family="monospace" font-size="9" fill="#9CA3AF" text-anchor="middle">194.26.29.14</text>
+    </g>
+
+    <g transform="translate(220, 80)">
+      <circle r="24" fill="#1E293B" stroke="#EF4444" stroke-width="2"/>
+      <text y="4" font-family="monospace" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">IAM ROLE</text>
+      <text y="38" font-family="monospace" font-size="9" fill="#F87171" text-anchor="middle">AdminAccess</text>
+    </g>
+
+    <g transform="translate(380, 120)">
+      <circle r="22" fill="#1E293B" stroke="#F59E0B" stroke-width="2"/>
+      <text y="4" font-family="monospace" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">S3 BUCKET</text>
+      <text y="36" font-family="monospace" font-size="9" fill="#FCD34D" text-anchor="middle">fin-prod-vault</text>
+    </g>
+
+    <g transform="translate(320, 220)">
+      <circle r="20" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5"/>
+      <text y="4" font-family="monospace" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">K8S NODE</text>
+      <text y="34" font-family="monospace" font-size="9" fill="#93C5FD" text-anchor="middle">worker-04</text>
+    </g>
+  </g>
+
+  <!-- Right Incident Triage Drawer -->
+  <g transform="translate(520, 105)">
+    <rect width="260" height="325" rx="8" fill="#111827" stroke="#1F2937" stroke-width="1"/>
+    <text x="16" y="28" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">PLAYBOOK ACTIONS</text>
+
+    <g transform="translate(16, 50)">
+      <rect width="228" height="50" rx="6" fill="#1F2937"/>
+      <text x="12" y="20" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">1. Revoke Active STS Token</text>
+      <text x="12" y="38" font-family="system-ui, sans-serif" font-size="10" fill="#10B981">✓ Automated in 420ms</text>
+    </g>
+
+    <g transform="translate(16, 110)">
+      <rect width="228" height="50" rx="6" fill="#1F2937"/>
+      <text x="12" y="20" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">2. Rotate RDS Master Password</text>
+      <text x="12" y="38" font-family="system-ui, sans-serif" font-size="10" fill="#10B981">✓ Zero Downtime Swap</text>
+    </g>
+
+    <g transform="translate(16, 170)">
+      <rect width="228" height="50" rx="6" fill="#1F2937"/>
+      <text x="12" y="20" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">3. Notify CISO &amp; SecOps</text>
+      <text x="12" y="38" font-family="system-ui, sans-serif" font-size="10" fill="#3B82F6">Slack #sec-urgent dispatched</text>
+    </g>
+
+    <rect x="16" y="260" width="228" height="42" rx="6" fill="#10B981"/>
+    <text x="130" y="286" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#0B0F19" text-anchor="middle">Export Forensic Dossier</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#0D1117"/>
+  <!-- Top Trace Header -->
+  <g transform="translate(20, 20)">
+    <rect width="760" height="60" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+    <text x="20" y="35" font-family="monospace" font-size="13" font-weight="bold" fill="#58A6FF">GET /api/v2/orders/checkout</text>
+    <rect x="300" y="18" width="80" height="24" rx="4" fill="#238636"/>
+    <text x="340" y="34" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">200 OK</text>
+    <text x="420" y="35" font-family="monospace" font-size="12" fill="#8B949E">TOTAL SPAN: <tspan fill="#F2CC60" font-weight="bold">142ms</tspan></text>
+    <text x="600" y="35" font-family="monospace" font-size="12" fill="#8B949E">SERVICES: <tspan fill="#FFFFFF">6</tspan></text>
+  </g>
+
+  <!-- Flamegraph Canvas -->
+  <g transform="translate(20, 95)">
+    <rect width="760" height="330" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+    
+    <!-- Timeline Ruler -->
+    <line x1="20" y1="30" x2="740" y2="30" stroke="#30363D"/>
+    <text x="20" y="22" font-family="monospace" font-size="10" fill="#8B949E">0ms</text>
+    <text x="200" y="22" font-family="monospace" font-size="10" fill="#8B949E">35ms</text>
+    <text x="380" y="22" font-family="monospace" font-size="10" fill="#8B949E">70ms</text>
+    <text x="560" y="22" font-family="monospace" font-size="10" fill="#8B949E">105ms</text>
+    <text x="710" y="22" font-family="monospace" font-size="10" fill="#8B949E">142ms</text>
+
+    <!-- Span 1: Root Gateway -->
+    <rect x="20" y="45" width="700" height="28" rx="4" fill="#1F6FEB"/>
+    <text x="30" y="63" font-family="monospace" font-size="11" font-weight="bold" fill="#FFFFFF">ingress-gateway • 142ms</text>
+
+    <!-- Span 2: Auth Service -->
+    <rect x="20" y="80" width="140" height="26" rx="4" fill="#8957E5"/>
+    <text x="28" y="97" font-family="monospace" font-size="10" font-weight="bold" fill="#FFFFFF">auth.validateToken • 22ms</text>
+
+    <!-- Span 3: Payment Orchestrator -->
+    <rect x="170" y="80" width="380" height="26" rx="4" fill="#D29922"/>
+    <text x="178" y="97" font-family="monospace" font-size="10" font-weight="bold" fill="#FFFFFF">payment-orchestrator.charge • 78ms</text>
+
+    <!-- Sub-span: Bank Gateway HTTP -->
+    <rect x="200" y="112" width="220" height="24" rx="4" fill="#F85149"/>
+    <text x="208" y="128" font-family="monospace" font-size="10" font-weight="bold" fill="#FFFFFF">external.stripe.charge • 45ms</text>
+
+    <!-- Sub-span: Postgres Ledger Insert -->
+    <rect x="430" y="112" width="100" height="24" rx="4" fill="#3FB950"/>
+    <text x="438" y="128" font-family="monospace" font-size="10" font-weight="bold" fill="#FFFFFF">pg.ledger_tx • 18ms</text>
+
+    <!-- Span 4: Notification Event -->
+    <rect x="560" y="80" width="150" height="26" rx="4" fill="#2EA043"/>
+    <text x="568" y="97" font-family="monospace" font-size="10" font-weight="bold" fill="#FFFFFF">kafka.emitOrderCreated • 31ms</text>
+
+    <!-- Trace Summary Drawer -->
+    <g transform="translate(20, 200)">
+      <rect width="720" height="110" rx="6" fill="#0D1117" stroke="#30363D" stroke-width="1"/>
+      <text x="16" y="25" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">CRITICAL PATH BOTTLENECK ANALYSIS</text>
+      <text x="16" y="50" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">✓ Zero thread blocking detected across 18 RPC frames</text>
+      <text x="16" y="70" font-family="system-ui, sans-serif" font-size="11" fill="#8B949E">✓ Connection pool utilization: 14% (12/85 conns)</text>
+      <text x="16" y="90" font-family="system-ui, sans-serif" font-size="11" fill="#58A6FF">Recommendation: Enable Redis pipeline buffer to shave 6ms off token check.</text>
+    </g>
+  </g>
+</svg>

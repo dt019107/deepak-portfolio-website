@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#0E121B"/>
+  <!-- 3D Grid Isometric Floor -->
+  <g transform="translate(180, 80)">
+    <!-- Floor polygon -->
+    <polygon points="220,20 440,110 220,230 0,140" fill="#161F30" stroke="#2563EB" stroke-width="2"/>
+    <!-- Partition walls -->
+    <polygon points="120,90 220,140 220,80 120,30" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5" opacity="0.8"/>
+    <polygon points="220,140 340,85 340,30 220,80" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- Occupied Units -->
+    <polygon points="60,115 150,75 180,90 90,130" fill="#22C55E" opacity="0.4"/>
+    <text x="120" y="105" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#86EFAC">SUITE 401: LEASED</text>
+
+    <!-- Available Unit Highlight -->
+    <polygon points="250,95 360,45 400,65 290,115" fill="#EAB308" opacity="0.5"/>
+    <circle cx="330" cy="80" r="6" fill="#FACC15"/>
+    <text x="330" y="65" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#FEF08A" text-anchor="middle">SUITE 404: AVAILABLE</text>
+  </g>
+
+  <!-- Left Sidebar Controls -->
+  <g transform="translate(20, 20)">
+    <rect width="210" height="410" rx="10" fill="#161F30" stroke="#26344D" stroke-width="1"/>
+    <text x="16" y="32" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">ONE HORIZON TOWER</text>
+    <text x="16" y="48" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8">Level 4 • Floor Plate B</text>
+
+    <rect x="16" y="70" width="178" height="30" rx="6" fill="#0F172A"/>
+    <text x="105" y="90" font-family="system-ui, sans-serif" font-size="11" fill="#38BDF8" font-weight="bold" text-anchor="middle">Occupancy Rate: 88.4%</text>
+
+    <!-- Specs List -->
+    <g transform="translate(16, 120)">
+      <text x="0" y="15" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8">TOTAL AREA</text>
+      <text x="0" y="34" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">34,500 sq.ft</text>
+
+      <text x="0" y="65" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8">HVAC EFFICIENCY</text>
+      <text x="0" y="84" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#22C55E">LEED Platinum</text>
+
+      <text x="0" y="115" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8">ANNUAL LEASE YIELD</text>
+      <text x="0" y="134" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#FACC15">₹185 / sq.ft / mo</text>
+    </g>
+
+    <rect x="16" y="350" width="178" height="40" rx="6" fill="#2563EB"/>
+    <text x="105" y="375" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Generate Lease Proposal</text>
+  </g>
+
+  <!-- Bottom Drawer -->
+  <g transform="translate(250, 340)">
+    <rect width="525" height="90" rx="8" fill="#161F30" stroke="#26344D" stroke-width="1"/>
+    <text x="20" y="25" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">SELECTED ASSET: SUITE 404 (CORNER SUITE)</text>
+    <text x="20" y="50" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8">Capacity: 45 Workstations • 2 Executive Boardrooms • Dedicated Fibre Trench</text>
+    <rect x="380" y="30" width="125" height="34" rx="4" fill="#FACC15"/>
+    <text x="442" y="52" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#000000" text-anchor="middle">Book Walkthrough</text>
+  </g>
+</svg>

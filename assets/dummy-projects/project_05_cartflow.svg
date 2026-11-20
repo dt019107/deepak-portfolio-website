@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#F8FAFC"/>
+  <!-- Center Checkout Modal -->
+  <g transform="translate(150, 25)">
+    <rect width="500" height="400" rx="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.5"/>
+    <!-- Neo Brutal Drop Shadow -->
+    <rect x="5" y="5" width="500" height="400" rx="14" fill="none" stroke="#0F172A" stroke-width="2.5"/>
+    
+    <!-- Header -->
+    <text x="30" y="42" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#0F172A">EXPRESS 1-CLICK CHECKOUT</text>
+    <rect x="370" y="24" width="100" height="24" rx="12" fill="#E0E7FF"/>
+    <text x="420" y="40" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#3730A3" text-anchor="middle">🔒 256-BIT SSL</text>
+
+    <!-- Express Pay Options -->
+    <g transform="translate(30, 60)">
+      <rect width="210" height="44" rx="8" fill="#000000"/>
+      <text x="105" y="28" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle"> Apple Pay</text>
+      
+      <rect x="230" width="210" height="44" rx="8" fill="#4285F4"/>
+      <text x="335" y="28" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">GPay Instant</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="30" y1="125" x2="470" y2="125" stroke="#E2E8F0"/>
+    <text x="250" y="129" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">or pay with dynamic vault</text>
+
+    <!-- Shipping Autofill -->
+    <g transform="translate(30, 145)">
+      <rect width="440" height="70" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="16" y="24" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#64748B">DELIVER TO AUTO-DETECTED ADDRESS</text>
+      <text x="16" y="46" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Deepak Tiwari • Indiranagar 100ft Rd, Bangalore</text>
+      <text x="420" y="46" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#2563EB" text-anchor="end">Change</text>
+    </g>
+
+    <!-- Order Breakdown -->
+    <g transform="translate(30, 230)">
+      <text x="0" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#64748B">Subtotal (2 items)</text>
+      <text x="440" y="20" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#0F172A" text-anchor="end">₹4,999.00</text>
+
+      <text x="0" y="42" font-family="system-ui, sans-serif" font-size="12" fill="#16A34A">Coupon (SPEEDY20)</text>
+      <text x="440" y="42" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#16A34A" text-anchor="end">- ₹1,000.00</text>
+
+      <text x="0" y="65" font-family="system-ui, sans-serif" font-size="14" font-weight="900" fill="#0F172A">Total Payable</text>
+      <text x="440" y="65" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#0F172A" text-anchor="end">₹3,999.00</text>
+    </g>
+
+    <!-- Big Buy CTA -->
+    <g transform="translate(30, 320)">
+      <rect width="440" height="50" rx="8" fill="#10B981" stroke="#0F172A" stroke-width="2"/>
+      <text x="220" y="32" font-family="system-ui, sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">SLIDE TO PAY ₹3,999 ➔</text>
+    </g>
+  </g>
+</svg>

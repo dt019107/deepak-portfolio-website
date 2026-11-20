@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#0C151C"/>
+  <!-- Top Stats -->
+  <g transform="translate(30, 20)">
+    <rect width="740" height="85" rx="10" fill="#13222D" stroke="#1E384A" stroke-width="1"/>
+    <text x="24" y="32" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#648A9F">ANNUAL SCOPE 1-3 CARBON AUDIT</text>
+    <text x="24" y="65" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF">14,280 <tspan font-size="14" fill="#648A9F">tCO2e (-18.4% YoY)</tspan></text>
+    
+    <rect x="520" y="24" width="195" height="38" rx="6" fill="#065F46"/>
+    <text x="617" y="48" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#34D399" text-anchor="middle">ISO 14064 VERIFIED ✓</text>
+  </g>
+
+  <!-- Left Donut Breakdown -->
+  <g transform="translate(30, 125)">
+    <rect width="355" height="300" rx="10" fill="#13222D" stroke="#1E384A" stroke-width="1"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">EMISSIONS BY SCOPE</text>
+    <!-- Donut Ring -->
+    <circle cx="177" cy="150" r="75" fill="none" stroke="#059669" stroke-width="26" stroke-dasharray="210,300"/>
+    <circle cx="177" cy="150" r="75" fill="none" stroke="#0284C7" stroke-width="26" stroke-dasharray="140,300" stroke-dashoffset="-210"/>
+    <circle cx="177" cy="150" r="75" fill="none" stroke="#F59E0B" stroke-width="26" stroke-dasharray="120,300" stroke-dashoffset="-350"/>
+    <text x="177" y="145" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">58%</text>
+    <text x="177" y="165" font-family="system-ui, sans-serif" font-size="11" fill="#648A9F" text-anchor="middle">Scope 3</text>
+
+    <!-- Legend -->
+    <g transform="translate(30, 250)">
+      <circle cx="10" cy="10" r="5" fill="#059669"/>
+      <text x="22" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF">Scope 3: 8,280 t</text>
+
+      <circle cx="130" cy="10" r="5" fill="#0284C7"/>
+      <text x="142" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF">Scope 2: 3,900 t</text>
+
+      <circle cx="240" cy="10" r="5" fill="#F59E0B"/>
+      <text x="252" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#FFFFFF">Scope 1: 2,100 t</text>
+    </g>
+  </g>
+
+  <!-- Right Facility Bar Chart -->
+  <g transform="translate(415, 125)">
+    <rect width="355" height="300" rx="10" fill="#13222D" stroke="#1E384A" stroke-width="1"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">FACILITY INTENSITY COMPARISON</text>
+    
+    <g transform="translate(20, 60)">
+      <text x="0" y="15" font-family="system-ui, sans-serif" font-size="11" fill="#E2E8F0">Frankfurt Datacenter</text>
+      <rect x="0" y="25" width="220" height="18" rx="4" fill="#059669"/>
+      <text x="230" y="39" font-family="monospace" font-size="11" fill="#34D399">41.2 g/kWh</text>
+
+      <text x="0" y="70" font-family="system-ui, sans-serif" font-size="11" fill="#E2E8F0">Singapore Cloud Hub</text>
+      <rect x="0" y="80" width="180" height="18" rx="4" fill="#0284C7"/>
+      <text x="190" y="94" font-family="monospace" font-size="11" fill="#38BDF8">56.8 g/kWh</text>
+
+      <text x="0" y="125" font-family="system-ui, sans-serif" font-size="11" fill="#E2E8F0">Bangalore Technology Park</text>
+      <rect x="0" y="135" width="140" height="18" rx="4" fill="#10B981"/>
+      <text x="150" y="149" font-family="monospace" font-size="11" fill="#34D399">28.4 g/kWh</text>
+
+      <!-- Offset Action -->
+      <rect x="0" y="180" width="315" height="38" rx="6" fill="#10B981"/>
+      <text x="157" y="204" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#0C151C" text-anchor="middle">Retire 1,200 Gold Standard Carbon Credits</text>
+    </g>
+  </g>
+</svg>

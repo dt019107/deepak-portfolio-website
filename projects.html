@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepak Tiwari — More Projects &amp; Systems Architecture Archive</title>
+  <meta name="description"
+    content="Comprehensive archive of enterprise product design case studies, design systems, fintech execution cockpits, and IoT telemetry architectures by Deepak Tiwari." />
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Global Design Tokens & Styles -->
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+</head>
+
+<body class="archive-page-body">
+
+  <!-- Neo-Brutalist Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" id="cursor-outline" aria-hidden="true">
+    <span class="cursor-badge" id="cursor-badge" aria-hidden="true"></span>
+  </div>
+
+  <!-- Background Canvas Grid / Texture -->
+  <div class="vector-container" aria-hidden="true">
+    <canvas id="vector-canvas"></canvas>
+  </div>
+
+  <!-- Main Container -->
+  <main class="archive-main-container">
+
+    <!-- Top Navigation Bar -->
+    <header class="archive-top-bar" role="banner">
+      <a href="index.html" class="archive-back-btn" aria-label="Return to portfolio homepage">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Back to Portfolio</span>
+      </a>
+
+      <a href="index.html" class="archive-brand-badge" aria-label="Deepak Tiwari Home">
+        <span class="archive-brand-monogram">DT</span>
+        <span>Deepak Tiwari &bull; Archive</span>
+      </a>
+
+      <div class="archive-nav-actions">
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle visual theme" type="button">
+          <i class="fa-solid fa-moon" id="theme-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Archive Hero Section -->
+    <section class="archive-hero" aria-labelledby="archive-heading">
+      <div class="archive-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Case Studies &amp; Systems Archive</span>
+      </div>
+
+      <h1 id="archive-heading" class="archive-title">
+        Enterprise &amp; Product <span class="editorial-accent">case studies</span>
+      </h1>
+      <p class="archive-subline">
+        A curated index of 10 multi-tier product architectures, mission-critical execution cockpits, design token cascades, and high-throughput telemetry platforms engineered for scale.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <nav class="archive-filter-bar" role="tablist" aria-label="Filter case studies by domain">
+        <button class="archive-filter-pill is-active" data-filter="all" role="tab" aria-selected="true" type="button">
+          <span>All Work</span>
+          <span class="archive-filter-count">(10)</span>
+        </button>
+        <button class="archive-filter-pill" data-filter="enterprise" role="tab" aria-selected="false" type="button">
+          <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+          <span>Enterprise &amp; SaaS</span>
+          <span class="archive-filter-count">(3)</span>
+        </button>
+        <button class="archive-filter-pill" data-filter="fintech" role="tab" aria-selected="false" type="button">
+          <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+          <span>FinTech &amp; Commerce</span>
+          <span class="archive-filter-count">(3)</span>
+        </button>
+        <button class="archive-filter-pill" data-filter="health-iot" role="tab" aria-selected="false" type="button">
+          <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+          <span>Health &amp; IoT</span>
+          <span class="archive-filter-count">(2)</span>
+        </button>
+        <button class="archive-filter-pill" data-filter="devtools-ai" role="tab" aria-selected="false" type="button">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+          <span>DevTools &amp; AI</span>
+          <span class="archive-filter-count">(2)</span>
+        </button>
+      </nav>
+    </section>
+
+    <!-- Grid of 10 Projects -->
+    <section class="archive-grid" id="archive-grid" aria-label="Project Case Studies">
+
+      <!-- PROJECT 01: NexusTrade Terminal -->
+      <article class="archive-card" data-category="fintech">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="NexusTrade: Ultra-Low Latency Algorithmic Trading Cockpit">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">nexus.trade</span><span class="browser-path">/terminal-pro</span>
+            </div>
+            <span class="archive-status-badge archive-status--fintech">
+              <i class="fa-solid fa-bolt"></i> Live Terminal
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_01_nexustrade.svg" alt="NexusTrade Ultra-Low Latency Algorithmic Trading Cockpit Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">01</span>
+              <span class="archive-category-chip">FinTech &bull; Algo Execution</span>
+              <span class="archive-year">2025</span>
+            </div>
+
+            <h3 class="archive-card-title">NexusTrade: Ultra-Low Latency Algorithmic Trading Cockpit</h3>
+            <p class="archive-card-desc">
+              Engineered an institutional execution terminal with multi-monitor workspaces, sub-50ms depth-of-market ladder, and automated risk-buffer triggers for high-frequency traders.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-bolt"></i> Sub-50ms DOM</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-shield-halved"></i> Pre-Trade Risk Matrix</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-keyboard"></i> Hot-Key Ergonomics</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">₹420Cr</span>
+                <span class="archive-metric-lbl">Daily Vol</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">42ms</span>
+                <span class="archive-metric-lbl">Fill Latency</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">99.99%</span>
+                <span class="archive-metric-lbl">Order Accuracy</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 02: PulseCare Telehealth OS -->
+      <article class="archive-card" data-category="health-iot">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="PulseCare: Frictionless Telehealth &amp; Clinical Consultation OS">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">pulsecare.health</span><span class="browser-path">/consultation-os</span>
+            </div>
+            <span class="archive-status-badge archive-status--health">
+              <i class="fa-solid fa-heart-pulse"></i> EHR Active
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_02_pulsecare.svg" alt="PulseCare Telehealth &amp; Clinical Consultation OS Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">02</span>
+              <span class="archive-category-chip">HealthTech &bull; Clinical EHR</span>
+              <span class="archive-year">2025</span>
+            </div>
+
+            <h3 class="archive-card-title">PulseCare: Frictionless Telehealth &amp; Clinical Consultation OS</h3>
+            <p class="archive-card-desc">
+              Designed an integrated EHR workspace enabling oncologists and remote clinicians to review longitudinal lab biomarkers, manage live ECG vitals, and issue signed e-prescriptions.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-hospital-user"></i> HL7 / FHIR Sync</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-signature"></i> E-Prescribe Vault</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-video"></i> HIPAA Encrypted</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">4.2min</span>
+                <span class="archive-metric-lbl">Avg Consult</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">68%</span>
+                <span class="archive-metric-lbl">Less Charting</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">100%</span>
+                <span class="archive-metric-lbl">HIPAA Audit</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 03: ColdOrbit Telemetry -->
+      <article class="archive-card" data-category="health-iot">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="ColdOrbit: Real-Time Perishable Fleet Telemetry Platform">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">coldorbit.io</span><span class="browser-path">/telemetry-map</span>
+            </div>
+            <span class="archive-status-badge archive-status--iot">
+              <i class="fa-solid fa-satellite-dish"></i> Sensor Mesh
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_03_coldorbit.svg" alt="ColdOrbit Real-Time Perishable Fleet Telemetry Platform Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">03</span>
+              <span class="archive-category-chip">IoT &bull; Supply Chain</span>
+              <span class="archive-year">2024</span>
+            </div>
+
+            <h3 class="archive-card-title">ColdOrbit: Real-Time Perishable Fleet Telemetry Platform</h3>
+            <p class="archive-card-desc">
+              Architected a mission-critical cold-chain logistics platform tracking pharmaceutical reefer vehicles with sub-zero temperature tolerance, geofence breaches, and satellite telemetry.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-temperature-arrow-down"></i> ±0.1°C Precision</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-route"></i> Smart Geofencing</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-triangle-exclamation"></i> Instant Excursion Alert</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">1,200+</span>
+                <span class="archive-metric-lbl">Reefers Active</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">0.02%</span>
+                <span class="archive-metric-lbl">Spoilage Rate</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">99.8%</span>
+                <span class="archive-metric-lbl">Downlink SLA</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 04: CodeSprint Mentorship -->
+      <article class="archive-card" data-category="devtools-ai">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="CodeSprint: Collaborative Mentorship &amp; Code Review Workspace">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">codesprint.dev</span><span class="browser-path">/workspace</span>
+            </div>
+            <span class="archive-status-badge archive-status--devtools">
+              <i class="fa-solid fa-code-compare"></i> Realtime CRDT
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_04_codesprint.svg" alt="CodeSprint Collaborative Mentorship Workspace Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">04</span>
+              <span class="archive-category-chip">DevTools &bull; Pair Programming</span>
+              <span class="archive-year">2025</span>
+            </div>
+
+            <h3 class="archive-card-title">CodeSprint: Collaborative Mentorship &amp; Code Review Workspace</h3>
+            <p class="archive-card-desc">
+              Engineered a synchronous code review workspace featuring real-time multi-cursor presence, inline AST linting, and design-token architectural validation comments.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-users"></i> Multi-Cursor Presence</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-flask"></i> Instant AST Runner</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-comments"></i> Inline Threading</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">14ms</span>
+                <span class="archive-metric-lbl">Sync Latency</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">3.4x</span>
+                <span class="archive-metric-lbl">Faster PR Review</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">18/18</span>
+                <span class="archive-metric-lbl">Test Passes</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 05: CartFlow Checkout Funnel -->
+      <article class="archive-card" data-category="fintech">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="CartFlow: High-Yield Frictionless D2C Checkout Funnel">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">cartflow.checkout</span><span class="browser-path">/pay-v4</span>
+            </div>
+            <span class="archive-status-badge archive-status--fintech">
+              <i class="fa-solid fa-cart-shopping"></i> 1-Click Pay
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_05_cartflow.svg" alt="CartFlow High-Yield Frictionless D2C Checkout Funnel Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">05</span>
+              <span class="archive-category-chip">Commerce &bull; Conversion Architecture</span>
+              <span class="archive-year">2024</span>
+            </div>
+
+            <h3 class="archive-card-title">CartFlow: High-Yield Frictionless D2C Checkout Funnel</h3>
+            <p class="archive-card-desc">
+              Architected a frictionless 1-click checkout flow for high-volume consumer retail brands, incorporating biometric payment vaults, autofill address intelligence, and zero dropoff stages.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-brands fa-apple"></i> Apple &amp; GPay Express</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-location-crosshairs"></i> Auto Address Geocode</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-shield"></i> Sub-Second Fraud Check</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">+34.8%</span>
+                <span class="archive-metric-lbl">CVR Uplift</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">4.2s</span>
+                <span class="archive-metric-lbl">Avg Checkout</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">0.02</span>
+                <span class="archive-metric-lbl">Fraud Score</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 06: EcoLedger ESG Platform -->
+      <article class="archive-card" data-category="enterprise">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="EcoLedger: Scope 1-3 Carbon Accounting &amp; Audit Platform">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">ecoledger.enterprise</span><span class="browser-path">/audit</span>
+            </div>
+            <span class="archive-status-badge archive-status--enterprise">
+              <i class="fa-solid fa-leaf"></i> ISO 14064
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_06_ecoledger.svg" alt="EcoLedger Scope 1-3 Carbon Accounting &amp; Audit Platform Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">06</span>
+              <span class="archive-category-chip">Enterprise &bull; ESG Auditing</span>
+              <span class="archive-year">2025</span>
+            </div>
+
+            <h3 class="archive-card-title">EcoLedger: Scope 1-3 Carbon Accounting &amp; Audit Platform</h3>
+            <p class="archive-card-desc">
+              Designed an institutional carbon accounting dashboard for multinational enterprises, tracking Scope 1-3 greenhouse gas emissions, offset retirement, and automated CSRD compliance.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-chart-pie"></i> Scope 1-3 Analytics</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-file-invoice"></i> CSRD Compliance</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-seedling"></i> Carbon Offset Vault</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">14,280t</span>
+                <span class="archive-metric-lbl">Audited CO2e</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">-18.4%</span>
+                <span class="archive-metric-lbl">YoY Reductions</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">100%</span>
+                <span class="archive-metric-lbl">PwC Audit Pass</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 07: SpatialProp 3D Twin -->
+      <article class="archive-card" data-category="enterprise">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="SpatialProp: Interactive Real Estate Digital Twin &amp; Lease Portal">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">spatialprop.com</span><span class="browser-path">/digital-twin</span>
+            </div>
+            <span class="archive-status-badge archive-status--enterprise">
+              <i class="fa-solid fa-cube"></i> WebGL 3D
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_07_spatialprop.svg" alt="SpatialProp Real Estate Digital Twin &amp; Lease Portal Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">07</span>
+              <span class="archive-category-chip">PropTech &bull; 3D Digital Twin</span>
+              <span class="archive-year">2024</span>
+            </div>
+
+            <h3 class="archive-card-title">SpatialProp: Interactive Real Estate Digital Twin &amp; Lease Portal</h3>
+            <p class="archive-card-desc">
+              Engineered an interactive 3D floor plate visualizer for commercial Grade-A office towers, featuring occupancy heatmaps, square-footage analytics, and automated lease contracts.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-layer-group"></i> Isometric Stacking</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-chart-area"></i> Revenue Yield Matrix</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-vr-cardboard"></i> Virtual Walkthrough</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">34.5k</span>
+                <span class="archive-metric-lbl">Floor Sq.Ft</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">88.4%</span>
+                <span class="archive-metric-lbl">Occupancy</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">₹185</span>
+                <span class="archive-metric-lbl">Rate / Sq.Ft</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 08: TraceLens Observability -->
+      <article class="archive-card" data-category="devtools-ai">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="TraceLens: High-Density Distributed Tracing &amp; Flamegraph Canvas">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">tracelens.observability</span><span class="browser-path">/spans</span>
+            </div>
+            <span class="archive-status-badge archive-status--devtools">
+              <i class="fa-solid fa-network-wired"></i> OpenTelemetry
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_08_tracelens.svg" alt="TraceLens High-Density Distributed Tracing Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">08</span>
+              <span class="archive-category-chip">DevTools &bull; Observability</span>
+              <span class="archive-year">2025</span>
+            </div>
+
+            <h3 class="archive-card-title">TraceLens: High-Density Distributed Tracing &amp; Flamegraph Canvas</h3>
+            <p class="archive-card-desc">
+              Designed an ultra-dense OpenTelemetry visualization canvas rendering millisecond RPC spans, database queries, and async event queues to pinpoint microservice bottlenecks.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-fire"></i> Flamegraph Canvas</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-diagram-project"></i> Topology DAG</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-gauge-high"></i> P99 Latency Profiler</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">142ms</span>
+                <span class="archive-metric-lbl">Total Trace</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">6</span>
+                <span class="archive-metric-lbl">Services Spanned</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">0</span>
+                <span class="archive-metric-lbl">Memory Leaks</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 09: Sentinel Threat Graph -->
+      <article class="archive-card" data-category="enterprise">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="Sentinel: Collaborative Incident Response &amp; Threat Graph OS">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">sentinel.soc</span><span class="browser-path">/incident-9842</span>
+            </div>
+            <span class="archive-status-badge archive-status--enterprise">
+              <i class="fa-solid fa-shield-halved"></i> MITRE ATT&amp;CK
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_09_sentinel.svg" alt="Sentinel Collaborative Incident Response Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">09</span>
+              <span class="archive-category-chip">CyberSecurity &bull; SOC Cockpit</span>
+              <span class="archive-year">2025</span>
+            </div>
+
+            <h3 class="archive-card-title">Sentinel: Collaborative Incident Response &amp; Threat Graph OS</h3>
+            <p class="archive-card-desc">
+              Architected a security operations workspace mapping attack paths, lateral privilege escalations, and automated containment playbooks during live enterprise breaches.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-circle-nodes"></i> Attack Graph Topology</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-lock-open"></i> STS Token Revocation</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-box-archive"></i> Forensic Audit Vault</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">420ms</span>
+                <span class="archive-metric-lbl">Quarantine Run</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">100%</span>
+                <span class="archive-metric-lbl">Containment</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">0</span>
+                <span class="archive-metric-lbl">Data Exfiltrated</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 10: Synapse Semantic Copilot -->
+      <article class="archive-card" data-category="fintech">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="archive-card-link" aria-label="Synapse: Enterprise Semantic Search &amp; Context-Aware Copilot">
+          <div class="archive-browser-bar" aria-hidden="true">
+            <div class="browser-dots">
+              <span class="b-dot b-dot--red"></span>
+              <span class="b-dot b-dot--yellow"></span>
+              <span class="b-dot b-dot--green"></span>
+            </div>
+            <div class="archive-browser-url">
+              <i class="fa-solid fa-lock"></i>
+              <span class="browser-domain">synapse.ai</span><span class="browser-path">/copilot</span>
+            </div>
+            <span class="archive-status-badge archive-status--devtools">
+              <i class="fa-solid fa-brain"></i> RAG Grounded
+            </span>
+          </div>
+
+          <div class="archive-card-thumb">
+            <img src="assets/dummy-projects/project_10_synapse.svg" alt="Synapse Enterprise Semantic Search Copilot Preview" loading="lazy" width="800" height="450" />
+            <div class="archive-thumb-overlay" aria-hidden="true">
+              <span class="archive-overlay-chip">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Explore Case Study
+              </span>
+            </div>
+          </div>
+
+          <div class="archive-card-content">
+            <div class="archive-meta-row">
+              <span class="archive-stamp-num">10</span>
+              <span class="archive-category-chip">AI &bull; Enterprise Copilot</span>
+              <span class="archive-year">2025</span>
+            </div>
+
+            <h3 class="archive-card-title">Synapse: Enterprise Semantic Search &amp; Context-Aware Copilot</h3>
+            <p class="archive-card-desc">
+              Engineered a unified conversational knowledge interface indexing internal design systems, Git PRs, and architectural docs with strict provenance citations and zero hallucinations.
+            </p>
+
+            <div class="archive-tags-row" aria-label="Key architectural capabilities">
+              <span class="archive-spec-tag"><i class="fa-solid fa-book-bookmark"></i> Provenance Citations</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-brain"></i> RAG Context Window</span>
+              <span class="archive-spec-tag"><i class="fa-solid fa-shield-cat"></i> Zero Data Leakage</span>
+            </div>
+
+            <div class="archive-metrics-grid" aria-label="Project metrics">
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">42.8M</span>
+                <span class="archive-metric-lbl">Vectors Indexed</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">99.4%</span>
+                <span class="archive-metric-lbl">Grounded Accuracy</span>
+              </div>
+              <div class="archive-metric-cell">
+                <span class="archive-metric-val">&lt; 380ms</span>
+                <span class="archive-metric-lbl">First Token</span>
+              </div>
+            </div>
+
+            <div class="archive-card-action">
+              <span>Explore live case study</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </section>
+
+    <!-- Bottom Return Strip -->
+    <div style="text-align: center; margin: 40px auto 60px;">
+      <a href="index.html#projects" class="projects-behance-btn projects-more-archive-btn" aria-label="Back to main portfolio">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Return to Primary Portfolio</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Interactive Scripts: Vector Canvas, Filter, Theme Sync & Custom Cursor -->
+  <script src="vector-bg.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // ── 1. THEME SYNCHRONIZATION ──
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const themeIcon = document.getElementById('theme-icon');
+      const htmlEl = document.documentElement;
+
+      function applyTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('dt-theme', theme);
+        if (themeIcon) {
+          if (theme === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+          } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+          }
+        }
+      }
+
+      const savedTheme = localStorage.getItem('dt-theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      applyTheme(savedTheme);
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          const currentTheme = htmlEl.getAttribute('data-theme') || 'light';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          applyTheme(newTheme);
+        });
+      }
+
+      // ── 2. REALTIME CATEGORY FILTERING ──
+      const filterPills = document.querySelectorAll('.archive-filter-pill');
+      const cards = document.querySelectorAll('.archive-card');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', function () {
+          filterPills.forEach(p => {
+            p.classList.remove('is-active');
+            p.setAttribute('aria-selected', 'false');
+          });
+          this.classList.add('is-active');
+          this.setAttribute('aria-selected', 'true');
+
+          const selectedFilter = this.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (selectedFilter === 'all' || cardCategory === selectedFilter) {
+              card.style.display = 'flex';
+              card.style.opacity = '1';
+            } else {
+              card.style.display = 'none';
+              card.style.opacity = '0';
+            }
+          });
+        });
+      });
+
+      // ── 3. NEO-BRUTALIST CUSTOM CURSOR ENGINE ──
+      const isTouch = window.matchMedia('(pointer: coarse)').matches;
+      const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+      if (!isTouch && isFinePointer) {
+        const dot = document.getElementById('cursor-dot');
+        const outline = document.getElementById('cursor-outline');
+        const badge = document.getElementById('cursor-badge');
+
+        if (dot && outline) {
+          let mx = -100, my = -100;
+          let isVisible = false;
+          let isMouseDown = false;
+
+          dot.style.opacity = '0';
+          outline.style.opacity = '0';
+
+          function updateCursorPosition(x, y) {
+            const dotScale = isMouseDown ? ' scale(0.6)' : '';
+            const outlineScale = isMouseDown ? ' scale(0.85)' : '';
+            dot.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)' + dotScale;
+            outline.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)' + outlineScale;
+          }
+
+          window.addEventListener('mousemove', (e) => {
+            mx = e.clientX;
+            my = e.clientY;
+
+            if (!isVisible) {
+              isVisible = true;
+              dot.style.opacity = '1';
+              outline.style.opacity = '1';
+            }
+
+            updateCursorPosition(mx, my);
+          }, { passive: true });
+
+          document.addEventListener('mouseleave', () => {
+            dot.style.opacity = '0';
+            outline.style.opacity = '0';
+            isVisible = false;
+          });
+
+          document.addEventListener('mouseenter', () => {
+            if (isVisible) {
+              dot.style.opacity = '1';
+              outline.style.opacity = '1';
+            }
+          });
+
+          window.addEventListener('mousedown', (e) => {
+            if (e.button === 0) {
+              isMouseDown = true;
+              dot.classList.add('cursor-active');
+              outline.classList.add('cursor-active');
+              if (isVisible) updateCursorPosition(mx, my);
+            }
+          });
+
+          window.addEventListener('mouseup', () => {
+            isMouseDown = false;
+            dot.classList.remove('cursor-active');
+            outline.classList.remove('cursor-active');
+            if (isVisible) updateCursorPosition(mx, my);
+          });
+
+          // Contextual State: View Case Studies on Archive Cards
+          const viewTargets = document.querySelectorAll('.archive-card, .archive-card-link');
+          viewTargets.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+              outline.classList.add('cursor-view');
+              dot.classList.add('cursor-hidden');
+              if (badge) badge.textContent = 'VIEW ↗';
+            });
+            el.addEventListener('mouseleave', () => {
+              outline.classList.remove('cursor-view');
+              dot.classList.remove('cursor-hidden');
+              if (badge) badge.textContent = '';
+            });
+          });
+
+          // Contextual State: Interactive Buttons & Filters
+          const hoverTargets = document.querySelectorAll('a, button, .archive-filter-pill, .archive-back-btn, #theme-toggle-btn');
+          hoverTargets.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+              if (!outline.classList.contains('cursor-view')) {
+                outline.classList.add('cursor-hover');
+                dot.classList.add('cursor-hover');
+              }
+            });
+            el.addEventListener('mouseleave', () => {
+              outline.classList.remove('cursor-hover');
+              dot.classList.remove('cursor-hover');
+            });
+          });
+        }
+      }
+    })();
+  </script>
+</body>
+
+</html>
