@@ -5359,8 +5359,7 @@ img[loading="lazy"] {
   .projects-card .projects-card-link {
     display: grid;
     grid-template-columns: 1.08fr 1fr;
-    min-height: 350px;
-    max-height: 420px;
+    min-height: 360px;
   }
 
   .projects-card .projects-card-preview {
@@ -5395,7 +5394,7 @@ img[loading="lazy"] {
   padding: clamp(16px, 1.8vw, 24px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: clamp(10px, 1.2vw, 14px);
   flex: 1;
 }
@@ -5603,11 +5602,11 @@ img[loading="lazy"] {
 }
 
 .projects-card-cta {
-  margin-top: 2px;
-  padding-top: 0;
+  margin-top: auto;
+  padding-top: 8px;
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 44px;
 }
 
 .projects-card-cta .cta-label {
