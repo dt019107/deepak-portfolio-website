@@ -167,6 +167,52 @@ button,
   outline-offset: 3px !important;
 }
 
+/* ── Premium Tabular Numbers & Optical Alignment ── */
+.stat-number,
+.projects-stat-cell .stat-number,
+.kudos-bento-hub-stat,
+.timeline-year,
+.projects-scope-val,
+.archive-stat-val,
+.browser-url,
+.secondary-browser-url,
+.archive-browser-url {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* ── Technical Chapter Counters & Taxonomy ── */
+.section-label {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 700 !important;
+}
+
+.about-card-pill,
+.secondary-status-pill,
+.browser-status {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── Headline Balancing & Reading Constraints ── */
+.hero-title,
+.hero-display-name,
+.section-title,
+.kudos-header h2,
+.skills-header h2 {
+  text-wrap: balance;
+}
+
+.section-desc,
+.projects-card-desc,
+.kudos-card-text {
+  text-wrap: pretty;
+  max-width: 64ch;
+}
+
 /* Tactile touch active feedback */
 button:active,
 .nb-btn:active,

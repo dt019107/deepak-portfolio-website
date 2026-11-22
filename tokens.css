@@ -6,7 +6,7 @@
    ============================================================ */
 
 /* ── GOOGLE FONTS ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700;800&family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700;800&family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap');
 
 /* ── FIGMA IMPORTED FONTS ──────────────────────────────────── */
 
@@ -80,10 +80,11 @@
   --scroll-bar-color: var(--blue);
   --spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* ── Typography ── */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  /* ── Typography Tokens ── */
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Newsreader', Georgia, serif;
+  --font-serif: 'Instrument Serif', 'Newsreader', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-hand: 'Kalam', 'Caveat', cursive, sans-serif;
 
   /* ── Fluid Type Scale ── */
@@ -1100,8 +1101,9 @@
 .editorial-accent {
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  font-feature-settings: "liga" 1, "dlig" 1;
 }
 
 /* ============================================================
@@ -1147,6 +1149,8 @@ body {
   max-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01", "ss02";
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   position: relative;
@@ -1208,14 +1212,16 @@ h6 {
   font-family: var(--font-display);
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 p {
   font-family: var(--font-body);
   color: var(--text2);
-  line-height: 1.7;
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 
 a {
@@ -3789,11 +3795,11 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: 800;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--ink);
   background: var(--yellow);
   border: 2px solid var(--ink);
@@ -3812,15 +3818,17 @@ img {
   color: var(--ink);
   letter-spacing: -0.035em;
   margin-bottom: var(--sp-4);
+  text-wrap: balance;
 }
 
 .section-desc {
   font-family: var(--font-body);
   font-size: var(--text-base);
   color: var(--text1);
-  max-width: 620px;
-  line-height: 1.75;
+  max-width: 64ch;
+  line-height: 1.65;
   margin-bottom: var(--sp-8);
+  text-wrap: pretty;
 }
 
 .accent {
