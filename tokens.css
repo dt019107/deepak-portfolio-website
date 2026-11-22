@@ -8319,3 +8319,307 @@ img {
     transform: none !important;
   }
 }
+
+/* ============================================================
+   TIER-1 CREATIVE CODER & UI DESIGNER MICRO-INTERACTIONS ENGINE
+   Strictly following: creative-coder, ui-designer, usability-psychologist,
+   frontend-implementation, accessibility-engineer.
+   60fps hardware accelerated (transform & opacity only),
+   neo-brutalist tactile spring physics, complete reduced-motion support.
+   ============================================================ */
+
+/* ── 1. BUTTONS & INTERACTIVE CTAs (Tactile Spring Physics) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary-outline,
+  .hero-ctas a,
+  .nb-btn,
+  .projects-card-cta-btn,
+  .projects-card-cta .cta-label,
+  .projects-filter-pill,
+  .archive-filter-pill,
+  .kudos-filter-btn,
+  .footer-social-btn,
+  #back-to-top {
+    transition:
+      transform var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      box-shadow var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      background-color var(--dur-fast, 120ms) ease,
+      border-color var(--dur-fast, 120ms) ease,
+      color var(--dur-fast, 120ms) ease !important;
+    will-change: transform;
+  }
+
+  /* Micro-arrow translation on button hover */
+  .hero-ctas .btn-primary:hover i,
+  .hero-ctas .btn-primary:hover .btn-arrow,
+  .projects-card-cta-btn:hover .cta-arrow,
+  .projects-card-cta:hover .cta-arrow {
+    transform: translateX(4px);
+    transition: transform var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+
+  /* Neo-brutalist tactile press (Instant Physical Feedback) */
+  .hero-ctas .btn-primary:active,
+  .hero-ctas .btn-secondary-outline:active,
+  .hero-ctas a:active,
+  .nb-btn:active,
+  .projects-card-cta-btn:active,
+  .projects-filter-pill:active,
+  .archive-filter-pill:active,
+  .kudos-filter-btn:active {
+    transform: translate(2px, 2px) !important;
+    box-shadow: 1px 1px 0 var(--ink, #141412) !important;
+  }
+
+  [data-theme="dark"] .hero-ctas .btn-primary:active,
+  [data-theme="dark"] .hero-ctas .btn-secondary-outline:active,
+  [data-theme="dark"] .projects-card-cta-btn:active,
+  [data-theme="dark"] .projects-filter-pill:active {
+    box-shadow: 1px 1px 0 #FAF7F2 !important;
+  }
+
+  #back-to-top:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 10px 24px rgba(46, 86, 224, 0.35);
+  }
+
+  #back-to-top:active {
+    transform: translateY(1px) scale(0.96) !important;
+    box-shadow: 2px 2px 0 var(--ink, #141412) !important;
+  }
+
+  .footer-social-btn:hover {
+    transform: translateY(-3px) rotate(4deg);
+    box-shadow: 3px 3px 0 var(--ink, #141412);
+  }
+
+  .footer-social-btn:active {
+    transform: translateY(1px) scale(0.95);
+    box-shadow: 0 0 0 var(--ink, #141412);
+  }
+}
+
+/* ── 2. PROJECT CARDS (Depth & Image Parallax) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .projects-card {
+    transition:
+      transform var(--dur-base, 240ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      box-shadow var(--dur-base, 240ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      border-color var(--dur-fast, 120ms) ease;
+    will-change: transform;
+  }
+
+  .projects-card-preview {
+    overflow: hidden;
+  }
+
+  .projects-card-img {
+    will-change: transform;
+    transition:
+      transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.38s ease;
+  }
+
+  /* Card hover elevates card and subtly scales preview image */
+  .projects-card:hover {
+    transform: translate(-3.5px, -3.5px);
+    box-shadow: 8px 8px 0 var(--ink, #141412);
+  }
+
+  .projects-card:hover .projects-card-img {
+    transform: scale(1.028) translateY(-3px);
+  }
+
+  /* Card interactive arrow spring rotation */
+  .projects-action-arrow {
+    transition:
+      transform var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      background-color var(--dur-fast, 120ms) ease,
+      border-color var(--dur-fast, 120ms) ease;
+  }
+
+  .projects-card:hover .projects-action-arrow {
+    transform: translate(3px, -3px) rotate(8deg);
+    background: #FFD642;
+    border-color: var(--ink, #141412);
+  }
+
+  /* Scope strip reactive indicator on card hover */
+  .projects-card .projects-scope-strip {
+    transition: border-left-color var(--dur-fast, 120ms) ease, background-color var(--dur-fast, 120ms) ease;
+  }
+
+  .projects-card:hover .projects-scope-strip {
+    border-left-color: #1428A0;
+    background: rgba(48, 64, 248, 0.05);
+  }
+
+  [data-theme="dark"] .projects-card:hover .projects-scope-strip {
+    border-left-color: #FFDF4A !important;
+    background: rgba(255, 223, 74, 0.06) !important;
+  }
+
+  /* Secondary cards hover */
+  .secondary-card {
+    transition:
+      transform var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      box-shadow var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+
+  .secondary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0 var(--ink, #141412);
+  }
+}
+
+/* ── 3. HERO CLUSTER STICKERS (Studio Desk Fan-Out Physics) ── */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .cluster-card {
+    will-change: transform;
+    transition:
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      border-color var(--dur-fast, 120ms) ease;
+  }
+
+  .cluster-arrow {
+    transition: transform var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+
+  .cluster-card:hover .cluster-arrow {
+    transform: translate(3px, -3px);
+    color: var(--blue, #3040F8);
+  }
+
+  .hero-project-cluster {
+    cursor: pointer;
+  }
+
+  .hero-project-cluster:hover .cluster-badge {
+    transform: rotate(-7deg) scale(1.05);
+    transition: transform 0.3s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+
+  .cluster-card:hover {
+    transform: translate(0, -14px) rotate(0deg) scale(1.045) !important;
+    z-index: 25 !important;
+    box-shadow: 10px 10px 0 var(--ink, #141412) !important;
+    border-color: var(--ink, #141412);
+  }
+
+  .cluster-card:active {
+    transform: translate(0, -8px) scale(0.98) !important;
+    box-shadow: 4px 4px 0 var(--ink, #141412) !important;
+  }
+
+  [data-theme="dark"] .cluster-card:hover {
+    border-color: #FFDF4A !important;
+    box-shadow: 10px 10px 0 #FAF7F2 !important;
+  }
+
+  [data-theme="dark"] .cluster-card:hover .cluster-arrow {
+    color: #FFDF4A !important;
+  }
+}
+
+/* ── 4. FLOATING NAV CAPSULE (Micro-Haptics) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .nb-nav-pill {
+    transition:
+      box-shadow var(--dur-base, 240ms) var(--ease-out, cubic-bezier(0.2, 0, 0, 1)),
+      border-color var(--dur-fast, 120ms) ease;
+  }
+
+  .nb-nav-pill:hover {
+    box-shadow: 0 12px 32px rgba(16, 27, 66, 0.14), 4px 4px 0 var(--ink, #141412);
+  }
+
+  [data-theme="dark"] .nb-nav-pill:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 4px 4px 0 #FAF7F2 !important;
+  }
+
+  .fnav-item {
+    transition:
+      background var(--dur-fast, 120ms) var(--ease-out, cubic-bezier(0.2, 0, 0, 1)),
+      color var(--dur-fast, 120ms) var(--ease-out, cubic-bezier(0.2, 0, 0, 1)),
+      border-color var(--dur-fast, 120ms) var(--ease-out, cubic-bezier(0.2, 0, 0, 1)),
+      transform var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      box-shadow var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+
+  .fnav-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .fnav-item:active {
+    transform: translateY(1.5px) !important;
+  }
+
+  .fnav-item.active:hover {
+    transform: translateY(0);
+  }
+
+  /* Theme toggle button snappy spin */
+  .theme-toggle-btn {
+    transition:
+      transform 0.22s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      box-shadow 0.22s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      background 0.2s ease,
+      border-color 0.2s ease !important;
+  }
+
+  .theme-toggle-btn:hover {
+    transform: scale(1.08) rotate(10deg);
+    box-shadow: 3.5px 3.5px 0 var(--ink, #141412);
+  }
+
+  .theme-toggle-btn:active {
+    transform: scale(0.92) rotate(-22deg) !important;
+    box-shadow: 0 0 0 var(--ink, #141412) !important;
+  }
+
+  [data-theme="dark"] .theme-toggle-btn:hover {
+    box-shadow: 3.5px 3.5px 0 #FFDF4A !important;
+  }
+
+  /* Hamburger button tactile feedback */
+  .hamburger-btn {
+    transition:
+      transform var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      box-shadow var(--dur-fast, 120ms) var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+
+  .hamburger-btn:hover {
+    transform: translate(-1.5px, -1.5px);
+    box-shadow: 3.5px 3.5px 0 var(--ink, #141412);
+  }
+
+  .hamburger-btn:active {
+    transform: translate(1.5px, 1.5px);
+    box-shadow: 1px 1px 0 var(--ink, #141412);
+  }
+}
+
+/* ── 5. ACCESSIBILITY OVERRIDES (Reduced Motion Kill-Switch) ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .projects-card,
+  .projects-card-img,
+  .cluster-card,
+  .fnav-item,
+  .theme-toggle-btn,
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary-outline,
+  #back-to-top {
+    transform: none !important;
+  }
+}
