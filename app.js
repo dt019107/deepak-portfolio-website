@@ -1680,7 +1680,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prefersReduced) return;
 
   // Interactive Click / Tap Sparkle Burst
-  const burstColors = ['#F5C851', '#3040F8', '#4EE39B', '#FF7262', '#A259FF'];
+  const burstColors = ['#F5C851', '#0C38DF', '#4EE39B', '#FF7262', '#A259FF'];
   const burstIcons = ['✦', '★', '●', '✦', '◆'];
 
   function triggerBurst(chip, clientX, clientY) {

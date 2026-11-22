@@ -6,15 +6,10 @@
    ============================================================ */
 
 /* ── GOOGLE FONTS ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700;800&family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap');
 
 /* ── FIGMA IMPORTED FONTS ──────────────────────────────────── */
-@font-face {
-  font-family: 'DM Sans:Bold';
-  font-style: normal;
-  font-weight: 700;
-  src: url('https://static.figma.com/font/DMSans_opsz_wght__1') format('woff2');
-}
+
 
 @font-face {
   font-family: 'Font Awesome 6 Brands:Regular';
@@ -43,8 +38,8 @@
   --ink: #1A1A17;
   --white: #FFFFFF;
 
-  --blue: #3040F8;
-  --blue-dark: #1E2DB8;
+  --blue: #0C38DF;
+  --blue-dark: #08269B;
   --blue-light: #DEE2FD;
 
   --yellow: #F5C851;
@@ -87,7 +82,7 @@
 
   /* ── Typography ── */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'Newsreader', Georgia, serif;
   --font-hand: 'Kalam', 'Caveat', cursive, sans-serif;
 
@@ -400,10 +395,16 @@
 }
 
 [data-theme="dark"] .hero-ctas .btn-primary {
-  background: #3D4FF8 !important;
-  color: #FFFFFF !important;
+  background: #FAF7F2 !important;
+  color: #141412 !important;
   border-color: #FAF7F2 !important;
-  box-shadow: 4px 4px 0 #FAF7F2 !important;
+  box-shadow: 4px 4px 0 var(--yellow) !important;
+}
+
+[data-theme="dark"] .hero-ctas .btn-primary:hover {
+  background: var(--yellow) !important;
+  color: #141412 !important;
+  box-shadow: 6px 6px 0 #FAF7F2 !important;
 }
 
 [data-theme="dark"] .hero-ctas .btn-secondary-outline {
@@ -3220,7 +3221,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: var(--blue);
+  background: var(--ink);
   color: #FFFFFF;
   border: 3px solid var(--ink);
   border-radius: var(--radius-lg);
@@ -3228,7 +3229,7 @@ img {
   font-family: var(--font-display);
   font-size: var(--text-base);
   font-weight: 700;
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 5px 5px 0 var(--yellow);
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -6899,7 +6900,7 @@ img {
 }
 
 [data-theme="dark"] .skills-tab-btn.is-active {
-  background: #3040F8 !important;
+  background: #0C38DF !important;
   color: #FFFFFF !important;
   border-color: #FAF7F2 !important;
   box-shadow: 3px 3px 0 #FAF7F2 !important;
@@ -6984,7 +6985,7 @@ img {
 }
 
 [data-theme="dark"] .sc-badge-core {
-  background: #3040F8 !important;
+  background: #0C38DF !important;
   color: #FFFFFF !important;
   border-color: #FAF7F2 !important;
 }
@@ -8447,17 +8448,15 @@ img {
 
   /* Scope strip reactive indicator on card hover */
   .projects-card .projects-scope-strip {
-    transition: border-left-color var(--dur-fast, 120ms) ease, background-color var(--dur-fast, 120ms) ease;
+    transition: transform var(--dur-fast, 120ms) ease, box-shadow var(--dur-fast, 120ms) ease;
   }
 
   .projects-card:hover .projects-scope-strip {
-    border-left-color: #1428A0;
-    background: rgba(48, 64, 248, 0.05);
+    box-shadow: 2.5px 2.5px 0 var(--ink, #141412);
   }
 
   [data-theme="dark"] .projects-card:hover .projects-scope-strip {
-    border-left-color: #FFDF4A !important;
-    background: rgba(255, 223, 74, 0.06) !important;
+    box-shadow: 2.5px 2.5px 0 #FFDF4A !important;
   }
 
   /* Secondary cards hover */
@@ -8489,7 +8488,7 @@ img {
 
   .cluster-card:hover .cluster-arrow {
     transform: translate(3px, -3px);
-    color: var(--blue, #3040F8);
+    color: var(--blue, #0C38DF);
   }
 
   .hero-project-cluster {
