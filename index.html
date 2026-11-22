@@ -178,7 +178,7 @@
     <main class="content" id="main-content">
 
       <!-- HERO -->
-      <section id="home" class="section hero-section">
+      <section id="home" class="section hero-section" aria-label="Introduction and Overview">
         <div class="hero-grid">
           <!-- Left Column: Content -->
           <div class="hero-main-col">
@@ -214,7 +214,7 @@
                   aria-hidden="true"></i></a>
               <a href="https://drive.google.com/file/d/1Xtm8JL6OcU6X1rRXUWA6zTsTpNFesfMH/view?usp=sharing"
                 target="_blank" rel="noopener noreferrer" class="btn-secondary-outline magnetic-item"
-                aria-label="Download resume (opens in new tab)">Download resume <i
+                aria-label="View Deepak Tiwari's resume (opens PDF in new tab)">View Resume <i
                   class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75em;" aria-hidden="true"></i></a>
             </div>
 
@@ -307,9 +307,9 @@
       </section>
 
       <!-- ABOUT -->
-      <section id="about" class="section">
+      <section id="about" class="section" aria-labelledby="about-heading">
         <div class="section-label reveal-el">About Me</div>
-        <h2 class="section-title reveal-el">I start with the user's friction,<br><span class="accent">then design
+        <h2 id="about-heading" class="section-title reveal-el">I start with the user's friction,<br><span class="accent">then design
             backward</span> to the screen</h2>
         <p class="section-desc reveal-el">Every project begins by understanding where people get stuck. I map messy user
           flows, explore solutions in low-fidelity, and stress-test interactive prototypes before finalizing tokenized
@@ -357,9 +357,9 @@
       </section>
 
       <!-- EXPERIENCE -->
-      <section id="experience" class="section experience-section">
+      <section id="experience" class="section experience-section" aria-labelledby="exp-heading">
         <div class="section-label reveal-el">Experience</div>
-        <h2 class="section-title reveal-el">My <span class="editorial-accent">journey</span> so far</h2>
+        <h2 id="exp-heading" class="section-title reveal-el">My <span class="editorial-accent">journey</span> so far</h2>
 
         <div class="timeline" id="exp-timeline">
           <!-- Animated timeline progress line & traveling marker -->
@@ -2139,9 +2139,9 @@
       </section>
 
       <!-- CONTACT -->
-      <section id="contact" class="section contact-section">
+      <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
         <div class="section-label reveal-el">Get In Touch</div>
-        <h2 class="section-title reveal-el">Let's <span class="accent">Get in Touch</span></h2>
+        <h2 id="contact-heading" class="section-title reveal-el">Let's <span class="accent">Get in Touch</span></h2>
         <p class="section-desc reveal-el">Interested in full-time product design roles, design system collaboration, or
           just want to chat about product craft? Drop me a line.</p>
         <div class="nb-card nb-card--mint contact-card reveal-el">
@@ -2155,13 +2155,13 @@
               <div class="form-group">
                 <label for="cf-name">Name <span class="required-indicator" aria-hidden="true">*</span></label>
                 <input type="text" id="cf-name" name="name" placeholder="Your full name" required autocomplete="name"
-                  inputmode="text" aria-required="true" />
+                  inputmode="text" aria-required="true" aria-describedby="name-error" />
                 <span id="name-error" class="field-error-msg hidden" role="alert">Please enter your name</span>
               </div>
               <div class="form-group">
                 <label for="cf-email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
                 <input type="email" id="cf-email" name="email" placeholder="your@email.com" required
-                  autocomplete="email" inputmode="email" aria-required="true" />
+                  autocomplete="email" inputmode="email" aria-required="true" aria-describedby="email-error" />
                 <span id="email-error" class="field-error-msg hidden" role="alert">Please enter a valid email
                   address</span>
               </div>
@@ -2170,7 +2170,7 @@
               <label for="cf-message">Message <span class="required-indicator" aria-hidden="true">*</span></label>
               <textarea id="cf-message" name="message" rows="5"
                 placeholder="What's on your mind? Share role details, questions, or just say hello..." required
-                aria-required="true"></textarea>
+                aria-required="true" aria-describedby="message-error"></textarea>
               <span id="message-error" class="field-error-msg hidden" role="alert">Please enter your message</span>
             </div>
             <div>

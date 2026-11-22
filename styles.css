@@ -2581,6 +2581,7 @@ img {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   letter-spacing: -2px;
   line-height: 1.08;
+  text-wrap: balance;
 }
 
 .grad-name {
@@ -2643,6 +2644,8 @@ img {
 .section-title {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   letter-spacing: -2px;
+  text-wrap: balance;
+  max-width: 65ch;
 }
 
 .section-title .accent {
@@ -5435,6 +5438,7 @@ img[loading="lazy"] {
   line-height: 1.25;
   color: #121210;
   margin: 0;
+  text-wrap: balance;
 }
 
 .projects-card-desc {
