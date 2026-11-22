@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "skills": {
+    "accessibility-engineer": {
+      "source": "mae616/design-skills",
+      "commit": "79e3398bee27664de70c7b97a30dd928f6fe7976",
+      "sourceType": "github",
+      "skillPath": "skills/accessibility-engineer/SKILL.md",
+      "computedHash": "afdda052b3bd98630bd682818acba86cff88d0e6591075e4f1c582ae59a87811"
+    },
+    "creative-coder": {
+      "source": "mae616/design-skills",
+      "commit": "79e3398bee27664de70c7b97a30dd928f6fe7976",
+      "sourceType": "github",
+      "skillPath": "skills/creative-coder/SKILL.md",
+      "computedHash": "698d16ca0252217150e10d33f727d7c45b8f51dc958dc087ba73ceed3929daeb"
+    },
+    "frontend-implementation": {
+      "source": "mae616/design-skills",
+      "commit": "79e3398bee27664de70c7b97a30dd928f6fe7976",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-implementation/SKILL.md",
+      "computedHash": "c13605f20edb559479b0c3ac73a6e718d858f60b93d68bf135cddcc83dc654f1"
+    },
+    "ui-designer": {
+      "source": "mae616/design-skills",
+      "commit": "79e3398bee27664de70c7b97a30dd928f6fe7976",
+      "sourceType": "github",
+      "skillPath": "skills/ui-designer/SKILL.md",
+      "computedHash": "eb6a0cd650277fc1ca8567795cfcc3a7ec2d8b27418b0ef0898648978cfff826"
+    },
+    "usability-psychologist": {
+      "source": "mae616/design-skills",
+      "commit": "79e3398bee27664de70c7b97a30dd928f6fe7976",
+      "sourceType": "github",
+      "skillPath": "skills/usability-psychologist/SKILL.md",
+      "computedHash": "43540d34d20c970ff6bd67e073d33a66478155468cd493a8e1da8ae654f90dea"
+    }
+  }
+}

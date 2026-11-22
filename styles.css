@@ -156,6 +156,17 @@ button,
   min-width: 44px;
 }
 
+/* Universal High-Contrast Accessible Keyboard Focus (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--blue, #3040F8) !important;
+  outline-offset: 3px !important;
+}
+
+[data-theme="dark"] :focus-visible {
+  outline: 3px solid var(--yellow, #FFDF4A) !important;
+  outline-offset: 3px !important;
+}
+
 /* Tactile touch active feedback */
 button:active,
 .nb-btn:active,
@@ -4484,6 +4495,7 @@ html {
   }
 
   #project-trilayer .projects-card-cta,
+  #project-indigo .projects-card-cta,
   #project-challan .projects-card-cta,
   #project-ai-podcasts .projects-card-cta,
   #project-whizhack .projects-card-cta {
@@ -4491,6 +4503,7 @@ html {
   }
 
   #project-trilayer .projects-card-cta .cta-label,
+  #project-indigo .projects-card-cta .cta-label,
   #project-challan .projects-card-cta .cta-label,
   #project-ai-podcasts .projects-card-cta .cta-label,
   #project-whizhack .projects-card-cta .cta-label {
@@ -5496,6 +5509,7 @@ img[loading="lazy"] {
 }
 
 #project-trilayer .projects-card-cta .cta-label,
+#project-indigo .projects-card-cta .cta-label,
 #project-challan .projects-card-cta .cta-label,
 #project-ai-podcasts .projects-card-cta .cta-label,
 #project-whizhack .projects-card-cta .cta-label {
@@ -5521,6 +5535,20 @@ img[loading="lazy"] {
 
 #project-trilayer .projects-card-cta .cta-arrow {
   color: #FFFFFF;
+}
+
+#project-indigo .projects-card-cta .cta-label {
+  background: #06B6D4;
+  color: #000000;
+}
+
+#project-indigo:hover .projects-card-cta .cta-label {
+  background: #0891B2;
+  color: #000000;
+}
+
+#project-indigo .projects-card-cta .cta-arrow {
+  color: #000000;
 }
 
 #project-challan .projects-card-cta .cta-label {
@@ -6779,6 +6807,24 @@ img[loading="lazy"] {
 
 [data-theme="dark"] #project-trilayer .projects-card-cta .cta-arrow {
   color: #FFFFFF !important;
+}
+
+[data-theme="dark"] #project-indigo .projects-card-cta .cta-label {
+  background: #06B6D4 !important;
+  color: #000000 !important;
+  border: 1.5px solid #FAF7F2 !important;
+  box-shadow: 2px 2px 0 #FAF7F2 !important;
+}
+
+[data-theme="dark"] #project-indigo:hover .projects-card-cta .cta-label {
+  background: #0891B2 !important;
+  color: #000000 !important;
+  border-color: #FFDF4A !important;
+  box-shadow: 2px 2px 0 #FFDF4A !important;
+}
+
+[data-theme="dark"] #project-indigo .projects-card-cta .cta-arrow {
+  color: #000000 !important;
 }
 
 [data-theme="dark"] #project-challan .projects-card-cta .cta-label {
