@@ -5156,14 +5156,12 @@ img[loading="lazy"] {
 
 /* Hisaab Project: Edge-to-Edge Real Viewport Preview */
 #project-challan .projects-img-container,
-#project-trilayer .projects-img-container,
 #project-ola-partner .projects-img-container {
   padding: 0 !important;
   background: #0B111A;
 }
 
 #project-challan .projects-card-img,
-#project-trilayer .projects-card-img,
 #project-ola-partner .projects-card-img {
   width: 100% !important;
   height: 100% !important;
@@ -5177,6 +5175,27 @@ img[loading="lazy"] {
   filter: none !important;
 }
 
+/* TriLayer Project: Pixel-Perfect Original Resolution Studio Mockup */
+#project-trilayer .projects-img-container,
+[data-theme="dark"] #project-trilayer .projects-img-container {
+  padding: 0 !important;
+  background: #D5D5D5 !important;
+}
+
+#project-trilayer .projects-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  image-rendering: high-quality;
+}
+
 #project-challan:hover .projects-card-img,
 #project-trilayer:hover .projects-card-img,
 #project-ola-partner:hover .projects-card-img {
@@ -5185,7 +5204,6 @@ img[loading="lazy"] {
 }
 
 [data-theme="dark"] #project-challan .projects-img-container,
-[data-theme="dark"] #project-trilayer .projects-img-container,
 [data-theme="dark"] #project-ola-partner .projects-img-container {
   background: #0B111A !important;
   padding: 0 !important;
@@ -5203,19 +5221,21 @@ img[loading="lazy"] {
 /* Floating In-Canvas Format & Platform Badge */
 /* Hero cluster card: TriLayer thumbnail polish */
 .cluster-card--ola .cluster-thumb {
-  background: #0B111A !important;
-  display: block !important;
+  background: #D5D5D5 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 0 !important;
   overflow: hidden !important;
 }
 
 .cluster-card--ola .cluster-thumb img {
-  object-fit: cover !important;
-  object-position: top left !important;
+  object-fit: contain !important;
+  object-position: center center !important;
   height: 100% !important;
   width: 100% !important;
   filter: none !important;
-  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: high-quality !important;
 }
 
 .projects-browser-chrome {
