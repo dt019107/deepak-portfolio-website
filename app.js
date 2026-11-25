@@ -1100,7 +1100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link: 'https://dt019107.github.io/mini-poland-website/',
       isExternal: true,
       colorScheme: 'lavender',
-      imageFallback: 'mini_preview.png',
+      imageFallback: 'mini_preview.png?v=2',
       imageAlt: 'MINI Poland Official Website & Retail Experience Architecture Preview',
       tilt: '0deg',
       isLead: false
