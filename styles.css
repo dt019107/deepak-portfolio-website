@@ -6032,6 +6032,22 @@ img[loading="lazy"] {
   transform: scale(1.04);
 }
 
+/* BMW France: real screenshot — cover from top, navy ambient bg */
+[aria-label*="BMW France"] .secondary-card-thumb {
+  background: #0A1628;
+  border-bottom: none;
+}
+
+[aria-label*="BMW France"] .secondary-card-thumb img {
+  object-fit: cover;
+  object-position: top center;
+  image-rendering: high-quality;
+}
+
+[aria-label*="BMW France"]:hover .secondary-card-thumb img {
+  transform: scale(1.03);
+}
+
 /* MINI Poland: tablet mockup — transparent RGBA PNG, pixel-perfect framing */
 [aria-label*="MINI Poland"] .secondary-card-thumb {
   background: #f0ede8;
