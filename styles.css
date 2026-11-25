@@ -6032,6 +6032,22 @@ img[loading="lazy"] {
   transform: scale(1.04);
 }
 
+/* MINI Poland: tablet mockup — transparent RGBA PNG, pixel-perfect framing */
+[aria-label*="MINI Poland"] .secondary-card-thumb {
+  background: #f0ede8;
+  border-bottom: none;
+}
+
+[aria-label*="MINI Poland"] .secondary-card-thumb img {
+  object-fit: contain;
+  object-position: center center;
+  image-rendering: high-quality;
+}
+
+[aria-label*="MINI Poland"]:hover .secondary-card-thumb img {
+  transform: scale(1.03);
+}
+
 .secondary-thumb-overlay {
   position: absolute;
   inset: 0;
