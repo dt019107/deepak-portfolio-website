@@ -1097,7 +1097,7 @@ document.addEventListener('DOMContentLoaded', () => {
       proof: 'High-conversion modular template system adhering to BMW Group design standards and multi-region rollouts.',
       metric: 'National Market Portal',
       cta: 'Visit live platform',
-      link: 'https://dt019107.github.io/mini-poland-website-template/',
+      link: 'https://dt019107.github.io/mini-poland-website/',
       isExternal: true,
       colorScheme: 'lavender',
       imageFallback: 'mini_preview.png',
