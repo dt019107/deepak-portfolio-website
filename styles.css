@@ -5154,14 +5154,12 @@ img[loading="lazy"] {
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
 }
 
-/* Hisaab Project: Edge-to-Edge Real Viewport Preview */
-#project-challan .projects-img-container,
+/* Ola Partner Project: Edge-to-Edge Real Viewport Preview */
 #project-ola-partner .projects-img-container {
   padding: 0 !important;
   background: #0B111A;
 }
 
-#project-challan .projects-card-img,
 #project-ola-partner .projects-card-img {
   width: 100% !important;
   height: 100% !important;
@@ -5196,21 +5194,17 @@ img[loading="lazy"] {
   image-rendering: high-quality;
 }
 
-#project-challan:hover .projects-card-img,
 #project-trilayer:hover .projects-card-img,
 #project-ola-partner:hover .projects-card-img {
   transform: scale(1.03) !important;
   filter: none !important;
 }
 
-[data-theme="dark"] #project-challan .projects-img-container,
 [data-theme="dark"] #project-ola-partner .projects-img-container {
   background: #0B111A !important;
   padding: 0 !important;
 }
 
-[data-theme="dark"] #project-challan .projects-card-img,
-[data-theme="dark"] #project-challan:hover .projects-card-img,
 [data-theme="dark"] #project-trilayer .projects-card-img,
 [data-theme="dark"] #project-trilayer:hover .projects-card-img,
 [data-theme="dark"] #project-ola-partner .projects-card-img,
