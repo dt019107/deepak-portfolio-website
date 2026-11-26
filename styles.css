@@ -6032,9 +6032,9 @@ img[loading="lazy"] {
   transform: scale(1.04);
 }
 
-/* BMW France: MacBook mockup portrait — contain on dark ambient bg */
+/* BMW France: iPad mockup tilted — contain on light grey ambient bg */
 [aria-label*="BMW France"] .secondary-card-thumb {
-  background: #0D1428;
+  background: #C8C8C8;
   border-bottom: none;
 }
 
