@@ -5135,10 +5135,18 @@ img[loading="lazy"] {
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.65)) drop-shadow(0 22px 42px rgba(56, 189, 248, 0.25));
 }
 
+#project-whizhack .projects-img-container {
+  padding: 0;
+  background: radial-gradient(circle at 50% 45%, #0B192C 0%, #06101E 62%, #02070F 100%);
+}
+
 #project-whizhack .projects-card-img {
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 0;
   border: none;
   box-shadow: none;
+  transform: scale(1.62) translate(-3%, 1%);
   filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.7)) drop-shadow(0 22px 44px rgba(56, 189, 248, 0.22));
   image-rendering: high-quality;
 }
@@ -5150,7 +5158,7 @@ img[loading="lazy"] {
 }
 
 #project-whizhack:hover .projects-card-img {
-  transform: scale(1.035) translateY(-4px);
+  transform: scale(1.68) translate(-3%, -1%);
   filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.8)) drop-shadow(0 28px 54px rgba(56, 189, 248, 0.35));
 }
 

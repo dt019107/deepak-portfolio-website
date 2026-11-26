@@ -1054,7 +1054,7 @@ document.addEventListener('DOMContentLoaded', () => {
       figmaLink: 'https://www.figma.com/design/31Xz3vD7J1hI5d3uOXXGwt/Client-Project?node-id=43-2779&t=rI8PuUd0dbpcea5J-1',
       isExternal: true,
       colorScheme: 'lavender',
-      imageFallback: 'whizhack_preview.png',
+      imageFallback: 'whizhack_preview.png?v=3',
       imageAlt: 'WhizHack Technologies Cyber-Physical Security & ZeroHack OT Defense Architecture Preview',
       tilt: '0.5deg',
       isLead: false
