@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" fill="none">
+  <defs>
+    <radialGradient id="sableGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="60%" stop-color="#0B0F17"/>
+      <stop offset="100%" stop-color="#05070A"/>
+    </radialGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C1C1E"/>
+      <stop offset="50%" stop-color="#111113"/>
+      <stop offset="100%" stop-color="#09090B"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EAB308"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#sableGlow)"/>
+
+  <!-- Subtle Grid -->
+  <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="160" y1="0" x2="160" y2="450"/>
+    <line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/>
+    <line x1="640" y1="0" x2="640" y2="450"/>
+  </g>
+
+  <!-- Top Nav Mockup -->
+  <text x="54" y="54" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" letter-spacing="2">SABLE</text>
+  <rect x="646" y="34" width="100" height="28" rx="14" fill="#FFFFFF"/>
+  <text x="696" y="52" fill="#09090B" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Open Account</text>
+
+  <!-- Left Column Headline -->
+  <rect x="54" y="102" width="166" height="24" rx="12" fill="#F59E0B" fill-opacity="0.14" stroke="#F59E0B" stroke-opacity="0.35"/>
+  <text x="137" y="118" fill="#FBBF24" font-family="monospace" font-size="10" font-weight="600" text-anchor="middle">FDIC INSURED • NO CREDIT CHECK</text>
+
+  <text x="54" y="164" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">Borderless banking</text>
+  <text x="54" y="200" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">built for global citizens.</text>
+  <text x="54" y="232" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="13">U.S. bank account &amp; secured credit card in 5 minutes.</text>
+
+  <!-- Metric Pills -->
+  <rect x="54" y="268" width="102" height="58" rx="10" fill="#111827" stroke="#1F2937"/>
+  <text x="70" y="294" fill="#FBBF24" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700">5 min</text>
+  <text x="70" y="314" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10">Passport Setup</text>
+
+  <rect x="168" y="268" width="102" height="58" rx="10" fill="#111827" stroke="#1F2937"/>
+  <text x="184" y="294" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700">2%</text>
+  <text x="184" y="314" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10">Cash Back</text>
+
+  <rect x="282" y="268" width="102" height="58" rx="10" fill="#111827" stroke="#1F2937"/>
+  <text x="298" y="294" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700">$0</text>
+  <text x="298" y="314" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="10">Monthly Fees</text>
+
+  <!-- Right Column: Sable Premium Card -->
+  <g transform="translate(435, 118)">
+    <rect width="310" height="196" rx="16" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="0" y="0" width="310" height="4" rx="2" fill="url(#goldAccent)"/>
+    <text x="24" y="38" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" letter-spacing="2">SABLE</text>
+    <text x="246" y="38" fill="#94A3B8" font-family="monospace" font-size="10">CREDIT</text>
+
+    <!-- EMV Chip -->
+    <rect x="24" y="72" width="38" height="28" rx="5" fill="#D4AF37" fill-opacity="0.85"/>
+    <line x1="24" y1="86" x2="62" y2="86" stroke="#111113" stroke-opacity="0.4"/>
+    <line x1="43" y1="72" x2="43" y2="100" stroke="#111113" stroke-opacity="0.4"/>
+
+    <!-- Card Number & Holder -->
+    <text x="24" y="136" fill="#E2E8F0" font-family="monospace" font-size="14" letter-spacing="2">•••• •••• •••• 4829</text>
+    <text x="24" y="168" fill="#94A3B8" font-family="monospace" font-size="10">GLOBAL CITIZEN</text>
+
+    <!-- Mastercard Circles -->
+    <circle cx="264" cy="162" r="12" fill="#EB001B" fill-opacity="0.9"/>
+    <circle cx="278" cy="162" r="12" fill="#F79E1B" fill-opacity="0.9"/>
+  </g>
+
+  <!-- Bottom Status Strip -->
+  <rect x="54" y="362" width="692" height="44" rx="10" fill="#0F172A" stroke="#1E293B"/>
+  <circle cx="76" cy="384" r="5" fill="#10B981"/>
+  <text x="90" y="388" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500">Credit Score Builder Active — Reporting to Experian, Equifax &amp; TransUnion</text>
+  <text x="726" y="388" fill="#34D399" font-family="monospace" font-size="12" font-weight="700" text-anchor="end">+48 PTS</text>
+</svg>
