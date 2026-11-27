@@ -5230,7 +5230,7 @@ img[loading="lazy"] {
 #project-trilayer .projects-img-container,
 [data-theme="dark"] #project-trilayer .projects-img-container {
   padding: 0 !important;
-  background: #D5D5D5 !important;
+  background: #FFFFFF !important;
 }
 
 #project-trilayer .projects-card-img {
@@ -5268,7 +5268,7 @@ img[loading="lazy"] {
 /* Floating In-Canvas Format & Platform Badge */
 /* Hero cluster card: TriLayer thumbnail polish */
 .cluster-card--ola .cluster-thumb {
-  background: #D5D5D5 !important;
+  background: #FFFFFF !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;

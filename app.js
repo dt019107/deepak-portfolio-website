@@ -984,7 +984,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link: 'https://dt019107.github.io/trilayer-design-system/#/',
       isExternal: true,
       colorScheme: 'indigo',
-      imageFallback: 'trilayer_preview.jpg',
+      imageFallback: 'trilayer_preview.jpg?v=3',
       imageAlt: 'TriLayer: Enterprise Multi-Tier Design System & Token Architecture Preview',
       tilt: '-0.6deg',
       isLead: true
