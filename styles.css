@@ -5135,6 +5135,28 @@ img[loading="lazy"] {
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.65)) drop-shadow(0 22px 42px rgba(56, 189, 248, 0.25));
 }
 
+#project-friendly-hr .projects-img-container {
+  background: radial-gradient(circle at 50% 50%, #F8FAFC 0%, #EEF2F6 58%, #E2E8F0 100%);
+}
+
+#project-friendly-hr .projects-card-img {
+  border-radius: 10px;
+  border: 1.5px solid rgba(15, 23, 42, 0.14);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+  image-rendering: high-quality;
+}
+
+.archive-card[data-project="whizhack"] .archive-card-thumb {
+  background: radial-gradient(circle at 50% 45%, #0B192C 0%, #06101E 62%, #02070F 100%);
+  padding: 12px;
+}
+
+.archive-card[data-project="whizhack"] .archive-card-thumb img {
+  object-fit: contain;
+  object-position: center center;
+  image-rendering: high-quality;
+}
+
 #project-whizhack .projects-card-img {
   width: 100%;
   height: 100%;
@@ -6958,6 +6980,10 @@ img[loading="lazy"] {
 
 [data-theme="dark"] #project-challan .projects-img-container {
   background: radial-gradient(circle at 50% 50%, #14251D 0%, #0D1A14 62%, #07100C 100%) !important;
+}
+
+[data-theme="dark"] #project-friendly-hr .projects-img-container {
+  background: radial-gradient(circle at 50% 45%, #1A2332 0%, #101622 62%, #090D14 100%) !important;
 }
 
 [data-theme="dark"] #project-ai-podcasts .projects-img-container,
