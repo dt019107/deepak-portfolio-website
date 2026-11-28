@@ -5138,7 +5138,7 @@ img[loading="lazy"] {
 #project-friendly-hr .projects-img-container,
 [data-theme="dark"] #project-friendly-hr .projects-img-container {
   padding: 0 !important;
-  background: #FBF8FF !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 68%, #4F4F4F 88%, #141414 100%) !important;
 }
 
 #project-friendly-hr .projects-card-img {
