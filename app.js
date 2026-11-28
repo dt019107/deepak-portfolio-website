@@ -1004,10 +1004,10 @@ document.addEventListener('DOMContentLoaded', () => {
       proof: 'Prevented corporate revenue cannibalization via 6 behavioral guardrails and designed a ₹3,200 emergency standby tier.',
       metric: '71,400+ daily seats • ₹9,800 Cr loss addressed',
       cta: 'Read case study',
-      link: 'https://dt019107.github.io/Case-Study-Why-do-71-400-airplane-seats-fly-empty-every-day-in-India-/',
+      link: 'https://www.figma.com/deck/OUwk5euRoudGWR8ymE1XEd/Untitled?node-id=1-42&t=2qnVF1jCez05TD9R-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
       isExternal: true,
       colorScheme: 'mint',
-      imageFallback: 'aerofill_preview.webp',
+      imageFallback: 'aerofill_preview.png?v=1',
       imageAlt: "AeroFill: Filling India's 71,400 Empty Airline Seats Case Study",
       tilt: '0.8deg',
       isLead: false
