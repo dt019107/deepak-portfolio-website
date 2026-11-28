@@ -1826,4 +1826,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 
+// TriLayer preview video: play once, then show static image preview
+(function () {
+  const container = document.querySelector('#project-trilayer .projects-img-container');
+  const video = container ? container.querySelector('.projects-card-video') : null;
+  if (!container || !video) return;
+
+  const showStaticPreview = () => {
+    video.pause();
+    container.classList.add('is-video-ended');
+  };
+
+  if (video.ended) {
+    showStaticPreview();
+  } else {
+    video.addEventListener('ended', showStaticPreview, { once: true });
+    video.addEventListener('error', showStaticPreview, { once: true });
+  }
+})();
+
 

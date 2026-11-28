@@ -5248,6 +5248,27 @@ img[loading="lazy"] {
   image-rendering: high-quality;
 }
 
+#project-trilayer .projects-card-video {
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#project-trilayer .projects-card-poster {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#project-trilayer .projects-img-container.is-video-ended .projects-card-video {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#project-trilayer .projects-img-container.is-video-ended .projects-card-poster {
+  opacity: 1;
+}
+
 #project-trilayer:hover .projects-card-img,
 #project-ola-partner:hover .projects-card-img {
   transform: scale(1.03) !important;
