@@ -5240,6 +5240,7 @@ img[loading="lazy"] {
   max-height: 100% !important;
   object-fit: contain !important;
   object-position: center center !important;
+  display: block;
   border-radius: 0 !important;
   border: none !important;
   box-shadow: none !important;
