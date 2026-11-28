@@ -5138,7 +5138,7 @@ img[loading="lazy"] {
 #project-friendly-hr .projects-img-container,
 [data-theme="dark"] #project-friendly-hr .projects-img-container {
   padding: 0 !important;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 68%, #4F4F4F 88%, #141414 100%) !important;
+  background: radial-gradient(circle at 50% 45%, #3A3A3D 0%, #242426 65%, #161618 100%) !important;
 }
 
 #project-friendly-hr .projects-card-img {
@@ -5146,7 +5146,7 @@ img[loading="lazy"] {
   height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center center !important;
   border-radius: 0 !important;
   border: none !important;
