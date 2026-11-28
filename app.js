@@ -1053,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link: 'https://dt019107.github.io/friendly-hr/',
       isExternal: true,
       colorScheme: 'mint',
-      imageFallback: 'friendly_hr_preview.jpg?v=4',
+      imageFallback: 'friendly_hr_preview.jpg?v=5',
       imageAlt: 'friendly HR: Workforce, Payroll & Statutory Compliance Operations Dashboard Preview',
       tilt: '0.5deg',
       isLead: false
